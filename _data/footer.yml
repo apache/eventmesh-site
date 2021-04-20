@@ -1,0 +1,14 @@
+copyright: 'Apache EventMesh, Apache Incubator, EventMesh, Apache, the Apache feather logo, the Apache EventMesh logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.<br/>'
+links:
+  - text: License
+    url: 'https://www.apache.org/licenses/'
+    new_window: true
+  - text: Security
+    url: 'https://www.apache.org/security/'
+    new_window: true
+  - text: Thanks
+    url: 'https://www.apache.org/foundation/thanks.html'
+    new_window: true
+  - text: Sponsorship
+    url: 'https://www.apache.org/foundation/sponsorship.html'
+    new_window: true
