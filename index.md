@@ -7,7 +7,7 @@ header:
     which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
   action: # action button is optional
     label: Get Started!
-    url: 'https://github.com/WeBankFinTech/EventMesh'
+    url: 'https://github.com/apache/incubator-eventmesh'
 
 
 sections:
@@ -66,16 +66,6 @@ sections:
         url: https://startbootstrap.com/themes/creative/
         class: btn-light
 
-  - type: members.html
-    section_id: members
-    title: Use Case
-    background_style: bg-info text-white
-    members:
-      - title:
-        text:
-        image: assets/img/members/webank.png
-        url: 'www.webank.com'
-
   - type: timeline.html
     section_id: timeline
     title: Major Achievements!
@@ -106,14 +96,10 @@ sections:
     actions:
     - title: E-Mail
       icon: fa-envelope
-      text: -for subscribe:<br/>users-subscribe@eventmesh.incubator.apache.org<br/>dev-subscribe@eventmesh.incubator.apache.org<br/>-for contact:<br/>users@eventmesh.apache.org dev@eventmesh.apache.org
+      text: -for subscribe:<br/>users-subscribe@eventmesh.incubator.apache.org<br/>dev-subscribe@eventmesh.incubator.apache.org<br/>-for contact:<br/>users@eventmesh.apache.org<br/>dev@eventmesh.apache.org
       # url: mailto:contact@yourwebsite.com
     - title: Twitter:<a href="https://twitter.com/ASFEventMesh">@ASFEventMesh</a>
       icon: fa-twitter
-      icon_type: fab
-      url: '#'
-    - title: Facebook
-      icon: fa-facebook
       icon_type: fab
       url: '#'
     - title: WeChat Official Account
