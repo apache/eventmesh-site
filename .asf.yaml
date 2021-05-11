@@ -7,7 +7,7 @@ github:
 # Web site staging services:
 staging:
   profile: ~
-  whoami: master
+  whoami: asf-staging-jekyll
 
 jekyll:
   whoami: master
