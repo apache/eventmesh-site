@@ -7,8 +7,8 @@ header:
   url: /#about
 - title: Documentation
   url: /#services
-- title: Use Case
-  url: /#members
+#- title: Use Case
+#  url: /#members
 - title: News
   url: /#timeline
 - title: Contacts
