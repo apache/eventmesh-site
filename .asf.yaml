@@ -9,7 +9,6 @@ jekyll:
 
 publish:
   whoami: asf-site
-  hostname: www.eventmesher.com
 
 notifications:
   commits: commits@eventmesh.apache.org
