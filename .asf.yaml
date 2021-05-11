@@ -11,7 +11,7 @@ staging:
 
 jekyll:
   whoami: master
-  target: asf-site
+  target: asf-staging-jekyll
 
 publish:
   whoami: asf-site
