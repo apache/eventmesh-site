@@ -96,7 +96,7 @@ sections:
     actions:
     - title: E-Mail
       icon: fa-envelope
-      text: -for subscribe:<br/>users-subscribe@eventmesh.incubator.apache.org<br/>dev-subscribe@eventmesh.incubator.apache.org<br/>-for contact:<br/>users@eventmesh.apache.org dev@eventmesh.apache.org
+      text: -for subscribe:<br/>users-subscribe@eventmesh.incubator.apache.org<br/>dev-subscribe@eventmesh.incubator.apache.org<br/>-for contact:<br/>users@eventmesh.apache.org<br/>dev@eventmesh.apache.org
       # url: mailto:contact@yourwebsite.com
     - title: Twitter:<a href="https://twitter.com/ASFEventMesh">@ASFEventMesh</a>
       icon: fa-twitter
