@@ -2,7 +2,6 @@
 staging:
   profile: ~
   whoami: master
-  foo: trigger
 
 jekyll:
   whoami: master
@@ -10,6 +9,7 @@ jekyll:
 
 publish:
   whoami: asf-site
+  hostname: www.eventmesher.com
 
 notifications:
   commits: commits@eventmesh.apache.org
