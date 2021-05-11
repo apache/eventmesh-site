@@ -1,8 +1,13 @@
+github:
+  features:
+    # Enable wiki for documentation
+    wiki: true
+    # Enable issue management
+    issues: true
 # Web site staging services:
 staging:
   profile: ~
-  whoami: master
-  foo: trigger
+  whoami: asf-site
 
 jekyll:
   whoami: master
