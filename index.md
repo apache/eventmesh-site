@@ -16,24 +16,24 @@ sections:
     #background_style: bg-info
     title: Features
     services:
-      - title: Event driven
-        text: Event-driven architecture can minimize coupling between services, enhance scalability and adaptability of different service components, and accomplish asynchronous system communications.
+      - title: Event Binding
+        text: 
         icon: fa-google-drive fab
         # url: https://startbootstrap.com/ text-info
-      - title: Event governance
-        text: Configurable event Scheme to manage event messages; Configurable event filtering rules and routing rules to manage the events life cycles; Formulate strategies to manage events and dataflows to orchestrate complex tasks.
+      - title: State Abstraction
+        text: 
         icon: fa-whmcs fab
-      - title: Dynamic routing
-        text: Supports event filtering, which can dynamically route events to different service nodes with zero dependency from upper-stream and downstream activities.
+      - title: Orchestration
+        text: 
         icon: fa-route fas
-      - title: Cloud native
-        text: Supports containerized deployment, microservice-oriented architecture, and event orchestration and scheduling.
+      - title: Distributed Primitives
+        text: 
         icon: fa-cloud fas
-      - title: Flow control
-        text: Support flow control at the event level and the service instance level to ensure HA of services.
+      - title: Connectors/Adapters
+        text: 
         icon: fa-toggle-on fas
-      - title: Load balance
-        text: Supports cluster and sidecar deployment, which can evenly distribute traffic to different nodes.
+      - title: Scaling
+        text: 
         icon: fa-balance-scale fas
 
   - type: portfolio.html
