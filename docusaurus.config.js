@@ -3,20 +3,23 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'Apache EventMesh',
+  tagline: 'Dynamic cloud-native eventing infrastruture',
+  url: 'https://eventmesh.apache.org',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'apache',
+  projectName: 'incubator-eventmesh',
+  stylesheets: [
+    'https://fonts.googleapis.com/css2?family=Inter&display=swap',
+  ],
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'Apache EventMesh',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Apache EventMesh Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -24,25 +27,41 @@ module.exports = {
           type: 'doc',
           docId: 'intro',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          to: '/blog',
+          label: 'Blog',
+          position: 'left',
+        },
+        {
+          to: '/contribute',
+          label: 'Contribute',
+          position: 'left',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'left',
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
-          title: 'Docs',
+          title: 'EventMesh',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Documentation',
+              to: '/docs',
+            },
+            {
+              label: 'Contribute',
+              to: '/contribute',
+            },
+            {
+              label: 'Releases',
+              href: 'https://github.com/apache/incubator-eventmesh/releases',
             },
           ],
         },
@@ -50,39 +69,55 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'GitHub',
+              href: 'https://github.com/apache/incubator-eventmesh',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Issue Tracker',
+              href: 'https://github.com/apache/incubator-eventmesh/issues',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Pull Requests',
+              href: 'https://github.com/apache/incubator-eventmesh/pulls',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Apache Software Foundation',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Foundation',
+              href: 'https://www.apache.org/',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'License',
+              href: 'https://www.apache.org/licenses/LICENSE-2.0',
+            },
+            {
+              label: 'Sponsorship',
+              href: 'https://www.apache.org/foundation/sponsorship.html',
+            },
+            {
+              label: 'Code of Conduct',
+              href: 'https://www.apache.org/foundation/policies/conduct',
+            },
+            {
+              label: 'Thanks',
+              href: 'http://www.apache.org/foundation/thanks.html',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} The Apache Software Foundation.`,
     },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
+  },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh-hans'],
   },
   presets: [
     [
@@ -90,15 +125,11 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+          editUrl: 'https://github.com/facebook/docusaurus/edit/master/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+          editUrl: 'https://github.com/facebook/docusaurus/edit/master/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
