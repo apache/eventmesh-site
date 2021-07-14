@@ -4,7 +4,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Apache EventMesh',
-  tagline: 'Dynamic cloud-native eventing infrastruture',
+  tagline: `
+    A dynamic cloud-native eventing infrastructure used to decouple the application and backend middleware layer,
+    which supports a wide range of use cases that encompass complex multi-cloud,
+    widely distributed topologies using diverse technology stacks.
+  `,
   url: 'https://eventmesh.apache.org',
   baseUrl: '/',
   onBrokenLinks: 'warn',
@@ -13,14 +17,14 @@ module.exports = {
   organizationName: 'apache',
   projectName: 'incubator-eventmesh',
   stylesheets: [
-    'https://fonts.googleapis.com/css2?family=Inter&display=swap',
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap',
   ],
   themeConfig: {
     navbar: {
       title: 'Apache EventMesh',
       logo: {
         alt: 'Apache EventMesh Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {
