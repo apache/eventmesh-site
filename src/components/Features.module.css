@@ -1,4 +1,15 @@
-/* stylelint-disable docusaurus/copyright-header */
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.description {
+  opacity: 0.6;
+}
+
+.feature {
+  margin-bottom: 0;
+}
 
 .features {
   display: flex;
@@ -10,4 +21,10 @@
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+@media screen and (max-width: 966px) {
+  .feature {
+    margin-bottom: 1.2rem;
+  }
 }

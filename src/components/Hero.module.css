@@ -8,7 +8,7 @@
 }
 
 .heroBanner {
-  padding: 8rem 2rem;
+  padding: 8rem 0;
   text-align: left;
   position: relative;
   overflow: hidden;
@@ -16,7 +16,7 @@
 
 .buttons {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: flex-start;
 }
 
@@ -30,11 +30,11 @@
 
 @media screen and (max-width: 966px) {
   .heroBanner {
-    padding: 2rem 0rem;
+    padding: 2rem 0;
   }
 
   .buttons {
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .heroImage {

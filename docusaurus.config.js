@@ -112,7 +112,12 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} The Apache Software Foundation.`,
+      copyright: `
+        Copyright © ${new Date().getFullYear()} The Apache Software Foundation.
+        Apache EventMesh, Apache Incubator, EventMesh, Apache, the Apache feather logo,
+        the Apache EventMesh logo and the Apache Incubator project logo
+        are trademarks of The Apache Software Foundation.
+      `,
     },
     prism: {
       theme: lightCodeTheme,

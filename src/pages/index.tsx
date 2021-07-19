@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
+import Incubation from '../components/Incubation';
 
 const Home = (): JSX.Element => {
   const { siteConfig } = useDocusaurusContext();
@@ -14,6 +15,7 @@ const Home = (): JSX.Element => {
       <Hero />
       <main>
         <Features />
+        <Incubation />
       </main>
     </Layout>
   );
