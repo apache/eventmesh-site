@@ -1,0 +1,47 @@
+.title {
+  font-size: 4rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+.heroBanner {
+  padding: 8rem 0;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.buttons a:first-child {
+  margin-right: 1rem;
+}
+
+.heroImage {
+  width: 100%;
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem 0;
+  }
+
+  .buttons {
+    justify-content: space-between;
+  }
+
+  .heroImage {
+    margin-top: 2rem;
+  }
+}
