@@ -21,7 +21,7 @@ module.exports = {
   ],
   themeConfig: {
     navbar: {
-      title: 'Apache EventMesh',
+      title: 'Apache EventMesh (Incubating)',
       logo: {
         alt: 'Apache EventMesh Logo',
         src: 'img/logo.png',

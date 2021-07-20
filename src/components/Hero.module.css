@@ -3,6 +3,10 @@
 }
 
 .subtitle {
+  font-size: 2rem;
+}
+
+.description {
   font-size: 1.2rem;
   opacity: 0.6;
 }
