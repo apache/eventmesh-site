@@ -31,6 +31,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.8.0
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
-          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build
           publish_branch: asf-site

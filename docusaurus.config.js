@@ -102,10 +102,6 @@ module.exports = {
               href: 'https://www.apache.org/foundation/sponsorship.html',
             },
             {
-              label: 'Code of Conduct',
-              href: 'https://www.apache.org/foundation/policies/conduct',
-            },
-            {
               label: 'Thanks',
               href: 'http://www.apache.org/foundation/thanks.html',
             },
