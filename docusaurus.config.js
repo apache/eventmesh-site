@@ -27,26 +27,26 @@ module.exports = {
         src: 'img/logo.png',
       },
       items: [
-        {
-          type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: 'Docs',
-        },
-        {
-          to: '/blog',
-          label: 'Blog',
-          position: 'left',
-        },
-        {
-          to: '/contribute',
-          label: 'Contribute',
-          position: 'left',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'left',
-        },
+        // {
+        //   type: 'doc',
+        //   docId: 'intro',
+        //   position: 'left',
+        //   label: 'Docs',
+        // },
+        // {
+        //   to: '/blog',
+        //   label: 'Blog',
+        //   position: 'left',
+        // },
+        // {
+        //   to: '/contribute',
+        //   label: 'Contribute',
+        //   position: 'left',
+        // },
+        // {
+        //   type: 'localeDropdown',
+        //   position: 'left',
+        // },
       ],
     },
     footer: {
@@ -55,14 +55,14 @@ module.exports = {
         {
           title: 'EventMesh',
           items: [
-            {
-              label: 'Documentation',
-              to: '/docs',
-            },
-            {
-              label: 'Contribute',
-              to: '/contribute',
-            },
+            // {
+            //   label: 'Documentation',
+            //   to: '/docs',
+            // },
+            // {
+            //   label: 'Contribute',
+            //   to: '/contribute',
+            // },
             {
               label: 'Releases',
               href: 'https://github.com/apache/incubator-eventmesh/releases',
