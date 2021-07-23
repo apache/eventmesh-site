@@ -27,16 +27,16 @@ module.exports = {
         src: 'img/logo.png',
       },
       items: [
+        {
+          to: '/blog',
+          label: 'Blog',
+          position: 'left',
+        },
         // {
         //   type: 'doc',
         //   docId: 'intro',
         //   position: 'left',
         //   label: 'Docs',
-        // },
-        // {
-        //   to: '/blog',
-        //   label: 'Blog',
-        //   position: 'left',
         // },
         // {
         //   to: '/contribute',
