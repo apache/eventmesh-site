@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Apache EventMesh Blog</title>
+        <link>https://eventmesh.apache.org/zh-hans/blog</link>
+        <description>Apache EventMesh Blog</description>
+        <lastBuildDate>Tue, 29 Jun 2021 11:14:52 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Born at China’s WeBank, now incubating in the ASF - Introducing Apache EventMesh]]></title>
+            <link>https://eventmesh.apache.org/zh-hans/blog/introducing-apache-eventmesh</link>
+            <guid>Born at China’s WeBank, now incubating in the ASF - Introducing Apache EventMesh</guid>
+            <pubDate>Tue, 29 Jun 2021 11:14:52 GMT</pubDate>
+            <description><![CDATA[Guangsheng Chen, the founder of Apache EventMesh, has been buzzing since the project was welcomed into the Apache Software Foundation (ASF)’s incubator in February 2021.]]></description>
+        </item>
+    </channel>
+</rss>
