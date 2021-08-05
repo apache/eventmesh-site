@@ -1,6 +1,22 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+// Reverse the sidebar items ordering (including nested category items)
+const reverseSidebarItems = (items) => {
+  const result = items.map((item) => {
+    if (item.type === 'category') {
+      return {
+        ...item,
+        items: reverseSidebarItems(item.items),
+      };
+    }
+    return item;
+  });
+
+  result.reverse();
+  return result;
+};
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Apache EventMesh',
@@ -28,21 +44,30 @@ module.exports = {
       },
       items: [
         {
+          type: 'doc',
+          docId: 'intro',
+          position: 'left',
+          label: 'Docs',
+        },
+        {
           to: '/blog',
           label: 'Blog',
           position: 'left',
         },
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'left',
-        //   label: 'Docs',
-        // },
-        // {
-        //   to: '/contribute',
-        //   label: 'Contribute',
-        //   position: 'left',
-        // },
+        {
+          type: 'doc',
+          docsPluginId: 'events',
+          docId: 'release-notes/v1.2.0',
+          position: 'left',
+          label: 'Events',
+        },
+        {
+          type: 'doc',
+          docsPluginId: 'community',
+          docId: 'apache-release',
+          position: 'left',
+          label: 'Community',
+        },
         // {
         //   type: 'localeDropdown',
         //   position: 'left',
@@ -55,14 +80,14 @@ module.exports = {
         {
           title: 'EventMesh',
           items: [
-            // {
-            //   label: 'Documentation',
-            //   to: '/docs',
-            // },
-            // {
-            //   label: 'Contribute',
-            //   to: '/contribute',
-            // },
+            {
+              label: 'Documentation',
+              to: '/docs',
+            },
+            {
+              label: 'Events',
+              to: '/events',
+            },
             {
               label: 'Releases',
               href: 'https://github.com/apache/incubator-eventmesh/releases',
@@ -129,16 +154,43 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/facebook/docusaurus/edit/master/',
+          sidebarPath: require.resolve('./sidebars/docs.js'),
+          editUrl: 'https://github.com/apache/incubator-eventmesh-site/edit/master/',
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/facebook/docusaurus/edit/master/blog/',
+          editUrl: 'https://github.com/apache/incubator-eventmesh-site/edit/master/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+      },
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'events',
+        path: 'events',
+        routeBasePath: 'events',
+        sidebarPath: require.resolve('./sidebars/events.js'),
+        async sidebarItemsGenerator({
+          defaultSidebarItemsGenerator,
+          ...args
+        }) {
+          const sidebarItems = await defaultSidebarItemsGenerator(args);
+          return reverseSidebarItems(sidebarItems);
+        },
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: require.resolve('./sidebars/community.js'),
       },
     ],
   ],
