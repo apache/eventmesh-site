@@ -44,16 +44,16 @@ module.exports = {
       },
       items: [
         {
+          type: 'doc',
+          docId: 'intro',
+          position: 'left',
+          label: 'Docs',
+        },
+        {
           to: '/blog',
           label: 'Blog',
           position: 'left',
         },
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'left',
-        //   label: 'Docs',
-        // },
         {
           type: 'doc',
           docsPluginId: 'events',
@@ -80,10 +80,10 @@ module.exports = {
         {
           title: 'EventMesh',
           items: [
-            // {
-            //   label: 'Documentation',
-            //   to: '/docs',
-            // },
+            {
+              label: 'Documentation',
+              to: '/docs',
+            },
             {
               label: 'Events',
               to: '/events',
