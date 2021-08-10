@@ -50,6 +50,11 @@ module.exports = {
           label: 'Docs',
         },
         {
+          to: '/download',
+          label: 'Download',
+          position: 'left',
+        },
+        {
           to: '/blog',
           label: 'Blog',
           position: 'left',
