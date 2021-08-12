@@ -143,7 +143,13 @@ $ gpg --export-secret-keys -o secring.gpg #私钥文件妥善保管，后面配�
 
 从主干分支拉取新分支作为发布分支，如现在要发布$`{release_version}`版本，则从develop分支拉出新分支`${release_version}-release`，此后`${release_version}` Release Candidates涉及的修改及打标签等都在`${release_version}-release`分支进行，最终发布完成后合入主干分支。
 
-### 3.配置根项目下gradle.properties文件
+### 3.更新版本说明
+
+更新官网项目的如下文件，并提交至master分支：
+
+https://github.com/apache/incubator-eventmesh-site/tree/master/events/release-notes
+
+### 4.配置根项目下gradle.properties文件
 
 ```shell
 group=org.apache.eventmesh
@@ -160,14 +166,14 @@ apacheUserName=
 apachePassWord=
 ```
 
-### 4.检查子模块下gradle.properties文件
+### 5.检查子模块下gradle.properties文件
 
 ```shell
 group=org.apache.eventmesh
 version=${release_version}
 ```
 
-### 5.检查并配置根项目下build.gradle文件
+### 6.检查并配置根项目下build.gradle文件
 
 ```shell
 publishing {
@@ -228,7 +234,7 @@ signing {
 }
 ```
 
-### 6.上传发布包
+### 7.上传发布包
 
 执行如下命令，需要对jar、源码包、doc和pom等文件签名加密
 
@@ -268,7 +274,7 @@ $ mkdir ${release_version}-${rc_version}
 
 #### 4.1 创建tag
 
-在`${release_version}-release`分支上创建tag
+在`${release_version}-release`分支上创建tag，需带有rc版本，为预发布版本
 
 ```shell
 $ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Releae Candidate (Candidates start at zero)"
@@ -280,7 +286,7 @@ $ git push origin --tags
 检查项目源码命名，将源码命名为`apache-eventmesh-${release_version}-incubating-src`，将源码打包为tar.gz格式
 
 ```shell
-$ tar -czvf apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz apache-eventmesh-${release_version}-incubating-src
+$ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-eventmesh-${release_version}-incubating-src
 ```
 
 #### 4.3 打包二进制
@@ -291,7 +297,7 @@ $ tar -czvf apache-eventmesh-${release_version}-${rc_version}-incubating-source.
 
 ```shell
 $ gradle clean dist tar -x test
-$ tar -czvf apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz apache-eventmesh-${release_version}-incubating
+$ tar -czvf apache-eventmesh-${release_version}-incubating-bin.tar.gz apache-eventmesh-${release_version}-incubating
 ```
 
 压缩source包、bin包，并将相关的压缩包拷贝到svn本地仓库下`/apache/eventmesh/${release_version}-${rc_version}`
@@ -299,7 +305,6 @@ $ tar -czvf apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar
 ### 5.生成签名/sha512文件
 
 > 针对源码包与二进制包生成签名/sha512文件
->
 
 ```shell
 $ for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done #计算sha512
@@ -337,18 +342,18 @@ https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${
 > Mac OS/Linux
 
 ```shell
-$ shasum -a apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz
+$ shasum -a apache-eventmesh-${release_version}-incubating-source.tar.gz
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512文件内容作对比
-$ shasum -a apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz
+$ shasum -a apache-eventmesh-${release_version}-incubating-bin.tar.gz
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512文件内容作对比
 ```
 
 > Windows
 
 ```shell
-$ certUtil -hashfile apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz SHA512
+$ certUtil -hashfile apache-eventmesh-${release_version}-incubating-source.tar.gz SHA512
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512文件内容作对比
-$ certUtil -hashfile apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz SHA512
+$ certUtil -hashfile apache-eventmesh-${release_version}-incubating-bin.tar.gz SHA512
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512文件内容作对比
 ```
 
@@ -380,13 +385,13 @@ Your decision? 5
 然后使用如下命令检查签名
 
 ```shell
-$ gpg --verify apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.asc apache-eventmesh-${release_version}-${rc_version}-incubating-source-tar.gz
-$ gpg --verify apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.asc apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz
+$ gpg --verify apache-eventmesh-${release_version}-incubating-source.tar.gz.asc apache-eventmesh-${release_version}-incubating-source-tar.gz
+$ gpg --verify apache-eventmesh-${release_version}-incubating-bin.tar.gz.asc apache-eventmesh-${release_version}-incubating-bin.tar.gz
 ```
 
 ### 2.检查源码包的文件内容
 
-解压缩`apache-eventmesh-${release_version}-${rc_version}-incubating-source-tar.gz`，进行如下检查:
+解压缩`apache-eventmesh-${release_version}-incubating-source-tar.gz`，进行如下检查:
 
 - 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
 - 文件夹包含单词`incubating`
@@ -649,7 +654,9 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/${la
 
 ### 5.GitHub版本发布
 
-在 [GitHub Releases](https://github.com/apache/incubator/eventmesh/releases) 页面的 `${release_version}` 版本上点击 `Edit`
+1.Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. 例如：after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1.2` only.
+
+2.在 [GitHub Releases](https://github.com/apache/incubator/eventmesh/releases) 页面的 `${release_version}` 版本上点击 `Edit`
 
 编辑版本号及版本说明，并点击 `Publish release`
 
@@ -686,7 +693,7 @@ Apache EventMesh (incubating) is a dynamic cloud-native eventing infrastruture u
 
 Download Links: https://eventmesh.apache.org/projects/eventmesh/download/
 
-Release Notes: https://github.com/apache/incubator-eventmesh/releases/tag/v1.2.0-rc1
+Release Notes: https://eventmesh.apache.org/events/release-notes/v${release_version}/
 
 Website: https://eventmesh.apache.org/
 
@@ -698,3 +705,4 @@ EventMesh Resources:
 
 - Apache EventMesh (incubating) Team
 ```
+
