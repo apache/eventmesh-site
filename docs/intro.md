@@ -30,7 +30,6 @@ CNCF（Cloud Native Computing Foundation，云原生计算基金会）隶属于L
 
 
 
-
 如分布式消息流平台 RocketMQ 等支持连接的事件存储 ，通信协议方面 EventMesh 更加简洁方便。
 
 详细内容， 
