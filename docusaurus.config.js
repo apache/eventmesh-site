@@ -29,7 +29,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/favicon.ico',
   organizationName: 'apache',
   projectName: 'incubator-eventmesh',
   stylesheets: [
@@ -40,7 +40,7 @@ module.exports = {
       title: 'Apache EventMesh (Incubating)',
       logo: {
         alt: 'Apache EventMesh Logo',
-        src: 'img/logo.png',
+        src: 'images/logo.png',
       },
       items: [
         {

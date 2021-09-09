@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './Features.module.css';
-import EcosystemImg from '../../static/img/eventmesh-ecosystem.png';
-import ArchitectureImg from '../../static/img/eventmesh-architecture.png';
-import CloudNativeImg from '../../static/img/eventmesh-cloud-native.png';
+import EcosystemImg from '../../static/images/eventmesh-ecosystem.png';
+import ArchitectureImg from '../../static/images/eventmesh-architecture.png';
+import CloudNativeImg from '../../static/images/eventmesh-cloud-native.png';
 
 interface FeatureProps {
   title: string,
