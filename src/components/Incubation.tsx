@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Incubation.module.css';
-import IncubatorLogo from '../../static/img/incubator-logo.png';
+import IncubatorLogo from '../../static/images/incubator-logo.png';
 
 const Incubation = (): JSX.Element => (
   <div className="container container--fluid">

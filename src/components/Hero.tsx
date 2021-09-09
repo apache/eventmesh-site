@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './Hero.module.css';
-import EventMeshImg from '../../static/img/eventmesh.png';
+import EventMeshImg from '../../static/images/eventmesh.png';
 
 const Hero = (): JSX.Element => {
   const { siteConfig } = useDocusaurusContext();
@@ -26,8 +26,7 @@ const Hero = (): JSX.Element => {
             <div className={styles.buttons}>
               <Link
                 className="button button--primary button--lg"
-                // to="/docs/intro"
-                href="https://github.com/apache/incubator-eventmesh/tree/develop/docs"
+                to="/docs/intro"
               >
                 Get Started
               </Link>
