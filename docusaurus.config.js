@@ -36,6 +36,10 @@ module.exports = {
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap',
   ],
   themeConfig: {
+    algolia: {
+      apiKey: '134d257368902d9b9d3ab1d998c31fb6',
+      indexName: 'apache_eventmesh',
+    },
     navbar: {
       title: 'Apache EventMesh (Incubating)',
       logo: {
@@ -145,6 +149,7 @@ module.exports = {
         are trademarks of The Apache Software Foundation.
       `,
     },
+    hideableSidebar: true,
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
