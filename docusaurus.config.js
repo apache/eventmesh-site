@@ -77,10 +77,10 @@ module.exports = {
           position: 'left',
           label: 'Community',
         },
-        // {
-        //   type: 'localeDropdown',
-        //   position: 'left',
-        // },
+        {
+          type: 'localeDropdown',
+          position: 'left',
+        },
       ],
     },
     footer: {
@@ -157,7 +157,15 @@ module.exports = {
   },
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh-hans'],
+    locales: ['en', 'zh'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+      zh: {
+        label: '简体中文',
+      },
+    },
   },
   presets: [
     [

@@ -21,7 +21,10 @@ const copyFolder = (srcDir, tarDir) => {
   }
   files.forEach((file) => {
     const srcPath = path.join(srcDir, file);
-    const tarPath = path.join(tarDir, file);
+
+    let fileName = file.replaceAll('.en-US.md', '.md');
+    fileName = file.replaceAll('.zh-CN.md', '.md');
+    const tarPath = path.join(tarDir, fileName);
 
     const stats = fs.statSync(srcPath);
     if (stats.isDirectory()) {
@@ -50,6 +53,7 @@ const sync = async () => {
   await git.cwd('./tmp/incubator-eventmesh').checkout('develop', ['-f']);
   copyFolder('./tmp/incubator-eventmesh/docs/images/', './static/images/');
   copyFolder('./tmp/incubator-eventmesh/docs/en/', './docs/');
+  copyFolder('./tmp/incubator-eventmesh/docs/cn/', './i18n/zh/docusaurus-plugin-content-docs/current/');
 
   console.log('Removing tmp/incubator-eventmesh');
   fs.rmSync('./tmp', {
