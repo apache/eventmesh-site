@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Release Notes": {
+    "message": "更新日志",
+    "description": "The label for category Release Notes in sidebar tutorialSidebar"
+  }
+}
