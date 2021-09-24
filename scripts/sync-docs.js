@@ -7,10 +7,6 @@ const rewriteMarkdown = (file) => {
   content = content.replaceAll(/]\(.*images\//g, '](/images/');
   content = content.replaceAll('?raw=true', '');
   content = content.replace('[点我查看中文版](../cn/README.md)', '');
-  content = content.replace(
-    'getExtension(Class<T> extensionType, String extensionName)',
-    '`getExtension(Class<T> extensionType, String extensionName)`',
-  );
   fs.writeFileSync(file, content, 'utf-8');
 };
 
