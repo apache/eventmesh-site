@@ -13,8 +13,8 @@ Use the links below to download the Apache EventMesh (Incubating) Releases, the 
 
 - Released : Aug 11, 2021
 - [Release Notes](https://eventmesh.apache.org/events/release-notes/v1.2.0) 
-- Source Codes [[tar]](https://www.apache.org/dyn/closer.cgi/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-source.tar.gz) [[asc]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-source.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-source.tar.gz.sha512)
-- EventMesh Binary Distribution [[tar]](https://www.apache.org/dyn/closer.cgi/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-bin.tar.gz.sha512)
+- Source Codes [[tar]](https://www.apache.org/dyn/closer.lua/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-source.tar.gz) [[asc]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-source.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-source.tar.gz.sha512)
+- EventMesh Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/eventmesh/1.2.0-incubating/apache-eventmesh-1.2.0-incubating-bin.tar.gz.sha512)
 
 ## Release Integrity
 
