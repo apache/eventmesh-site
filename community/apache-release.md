@@ -277,7 +277,7 @@ $ mkdir ${release_version}-${rc_version}
 在`${release_version}-release`分支上创建tag，需带有rc版本，为预发布版本
 
 ```shell
-$ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Releae Candidate (Candidates start at zero)"
+$ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Release Candidate (Candidates start at zero)"
 $ git push origin --tags
 ```
 
@@ -296,9 +296,11 @@ $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-
 检查编译后的文件命名，将二进制文件命名为`apache-eventmesh-${release_version}-incubating`
 
 ```shell
-$ gradle clean dist tar -x test
+$ gradle clean jar dist && gradle installPlugin && gradle tar -x test
 $ tar -czvf apache-eventmesh-${release_version}-incubating-bin.tar.gz apache-eventmesh-${release_version}-incubating
 ```
+
+> 注：需将源码根目录下的`NOTICE`文件，`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`文件拷贝到二进制的包中
 
 压缩source包、bin包，并将相关的压缩包拷贝到svn本地仓库下`/apache/eventmesh/${release_version}-${rc_version}`
 
