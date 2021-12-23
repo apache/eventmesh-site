@@ -460,7 +460,7 @@ Hello EventMesh Community,
 	https://github.com/apache/incubator-eventmesh/tree/v${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
-	https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS
+	https://downloads.apache.org/incubator/eventmesh/KEYS
 
 	Hash for the release tag:
 	#hashCode of this release tag
@@ -569,7 +569,7 @@ Hello Incubator Community,
 	• https://github.com/apache/incubator-eventmesh/releases/tag/${release_version}-${rc_version}
 
 	The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
-	• https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS
+	• https://downloads.apache.org/incubator/eventmesh/KEYS
 
 	The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -705,6 +705,6 @@ EventMesh Resources:
 
 
 
-- Apache EventMesh (incubating) Team
+Apache EventMesh (incubating) Team
 ```
 
