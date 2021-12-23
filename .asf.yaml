@@ -3,7 +3,7 @@ github:
     # Enable wiki for documentation
     wiki: true
     # Enable issue management
-    issues: true
+    #issues: true
 # Web site staging services:
 staging:
   profile: ~
