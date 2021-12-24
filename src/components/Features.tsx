@@ -1,9 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './Features.module.css';
-import EcosystemImg from '../../static/images/eventmesh-ecosystem.png';
-import ArchitectureImg from '../../static/images/eventmesh-architecture.png';
-import CloudNativeImg from '../../static/images/eventmesh-cloud-native.png';
+import OrchestrationImg from '../../static/images/eventmesh-orchestration.png';
+import FederationImg from '../../static/images/eventmesh-federation.png';
 
 interface FeatureProps {
   title: string,
@@ -13,19 +12,14 @@ interface FeatureProps {
 
 const FeatureList: FeatureProps[] = [
   {
-    title: 'EventMesh Ecosystem',
-    description: 'What is EventMesh',
-    image: EcosystemImg,
+    title: 'Orchestration',
+    description: 'EventMesh Orchestration',
+    image: OrchestrationImg,
   },
   {
-    title: 'EventMesh Architecture',
-    description: 'EventMesh ability and architecture',
-    image: ArchitectureImg,
-  },
-  {
-    title: 'EventMesh Cloud Native',
-    description: 'Panels and cloud native deployment',
-    image: CloudNativeImg,
+    title: 'Federation',
+    description: 'EventMesh Federation',
+    image: FederationImg,
   },
 ];
 
@@ -34,7 +28,7 @@ const Feature = ({
   description,
   image,
 }: FeatureProps): JSX.Element => (
-  <div className={clsx('col col--4 text--center', styles.feature)}>
+  <div className={clsx('col col--6 text--center', styles.feature)}>
     <p className={styles.title}>
       {title}
     </p>
