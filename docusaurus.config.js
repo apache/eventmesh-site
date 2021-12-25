@@ -139,6 +139,14 @@ module.exports = {
               label: 'Thanks',
               href: 'http://www.apache.org/foundation/thanks.html',
             },
+            {
+              label: 'Security',
+              href: 'https://www.apache.org/security/',
+            },
+            {
+              label: 'Events',
+              href: 'https://www.apache.org/events/',
+            },
           ],
         },
       ],
