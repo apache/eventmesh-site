@@ -13,12 +13,12 @@ interface FeatureProps {
 const FeatureList: FeatureProps[] = [
   {
     title: 'Orchestration',
-    description: 'EventMesh Orchestration',
+    description: 'Event Orchestration and Streaming',
     image: OrchestrationImg,
   },
   {
     title: 'Federation',
-    description: 'EventMesh Federation',
+    description: 'Full Mesh and Federation Governance',
     image: FederationImg,
   },
 ];
