@@ -7,7 +7,14 @@ description: Apache EventMesh (Incubating) Download
 
 ## Download links
 
-Use the links below to download the Apache EventMesh (Incubating) Releases, the latest release is 1.2.0.
+Use the links below to download the Apache EventMesh (Incubating) Releases, the latest release is 1.3.0.
+
+## 1.3.0 release
+
+- Released : Dec. 28, 2021
+- [Release Notes](https://eventmesh.apache.org/events/release-notes/v1.3.0)
+- Source Codes [[tar]](https://www.apache.org/dyn/closer.lua/incubator/eventmesh/1.3.0-incubating/apache-eventmesh-1.3.0-incubating-source.tar.gz) [[asc]](https://downloads.apache.org/incubator/eventmesh/1.3.0-incubating/apache-eventmesh-1.3.0-incubating-source.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/eventmesh/1.3.0-incubating/apache-eventmesh-1.3.0-incubating-source.tar.gz.sha512)
+- EventMesh Binary Distribution [[tar]](https://www.apache.org/dyn/closer.lua/incubator/eventmesh/1.3.0-incubating/apache-eventmesh-1.3.0-incubating-bin.tar.gz) [[asc]](https://downloads.apache.org/incubator/eventmesh/1.3.0-incubating/apache-eventmesh-1.3.0-incubating-bin.tar.gz.asc) [[sha512]](https://downloads.apache.org/incubator/eventmesh/1.3.0-incubating/apache-eventmesh-1.3.0-incubating-bin.tar.gz.sha512)
 
 ## 1.2.0 release
 
