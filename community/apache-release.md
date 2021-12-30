@@ -691,7 +691,7 @@ Hi all,
 
 Apache EventMesh (incubating) Team is glad to announce the new release of Apache EventMesh (incubating) ${release_version}.
 
-Apache EventMesh (incubating) is a dynamic cloud-native eventing infrastruture used to decouple the application and backend middleware layer, which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
+Apache EventMesh (incubating) is a dynamic cloud-native eventing infrastructure used to decouple the application and backend middleware layer, which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
 
 Download Links: https://eventmesh.apache.org/projects/eventmesh/download/
 
