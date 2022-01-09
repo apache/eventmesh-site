@@ -29,7 +29,7 @@ const Feature = ({
   image,
 }: FeatureProps): JSX.Element => (
   <div className={clsx('col col--6 text--center', styles.feature)}>
-    <p className={styles.title}>
+    <p className={styles.featureTitle}>
       {title}
     </p>
     <p className={styles.description}>
@@ -45,6 +45,9 @@ const Feature = ({
 const Features = (): JSX.Element => (
   <section className={styles.features}>
     <div className="container">
+      <h2 className={clsx('col text--center', styles.title)}>
+        Core Features
+      </h2>
       <div className="row">
         {FeatureList.map(({
           title,

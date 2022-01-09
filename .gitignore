@@ -132,3 +132,7 @@ dist
 .env.test.local
 .env.production.local
 tmp
+
+# Docs
+docs
+i18n/zh/docusaurus-plugin-content-docs/current
