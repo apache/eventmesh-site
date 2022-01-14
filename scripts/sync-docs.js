@@ -46,7 +46,7 @@ const sync = async () => {
   );
 
   console.log('Extracting docs from apache/incubator-eventmesh');
-  await git.cwd('./tmp/incubator-eventmesh').checkout('develop', ['-f']);
+  await git.cwd('./tmp/incubator-eventmesh').checkout('master', ['-f']);
   copyFolder('./tmp/incubator-eventmesh/docs/images/', './static/images/');
   copyFolder('./tmp/incubator-eventmesh/docs/en/', './docs/');
   copyFolder('./tmp/incubator-eventmesh/docs/cn/', './i18n/zh/docusaurus-plugin-content-docs/current/');
