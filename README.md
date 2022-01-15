@@ -4,7 +4,7 @@ This repository contains the source code of [eventmesh.apache.org](https://event
 
 ## Development Guide
 
-- Clone the repository and install the dependencies with NPM
+- Clone the repository and install the dependencies with NPM (Make sure your Node.js version > 14)
 
 ```sh
 npm install
