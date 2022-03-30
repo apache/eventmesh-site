@@ -673,7 +673,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/${la
 
 1.Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. 例如：after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1.2` only.
 
-2.在 [GitHub Releases](https://github.com/apache/incubator/eventmesh/releases) 页面的 `${release_version}` 版本上点击 `Edit`
+2.在 [GitHub Releases](https://github.com/apache/incubator-eventmesh/releases) 页面的 `${release_version}` 版本上点击 `Edit`
 
 编辑版本号及版本说明，并点击 `Publish release`
 
@@ -681,9 +681,9 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/${la
 
 等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：
 
-https://eventmesh.apache.org/projects/eventmesh/download/
+https://eventmesh.apache.org/download/
 
-https://eventmesh.apache.org/zh/projects/eventmesh/download/
+https://eventmesh.apache.org/zh/download/
 
 GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/incubator/eventmesh/`
 
