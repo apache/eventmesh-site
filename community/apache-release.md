@@ -261,6 +261,15 @@ $ svn checkout https://dist.apache.org/repos/dist/dev/incubator/eventmesh/
 
 添加public key到[KEYS](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS)文件并提交到SVN仓库（第一次做发布的人需要做这个操作，具体操作参考KEYS文件里的说明）。KEYS主要是让参与投票的人在本地导入，用来校验sign的正确性
 
+Windows
+
+```sh
+$ gpg --list-sigs <your name> | out-file -append KEYS -encoding utf8
+$ gpg --armor --export <your name> | out-file -append KEYS -encoding utf8
+```
+
+> Mac OS/Linux
+
 ```sh
 $ (gpg --list-sigs <your name> && gpg --armor --export <your name>) >> KEYS
 ```
@@ -295,12 +304,12 @@ $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-
 
 检查编译后的文件命名，将二进制文件命名为`apache-eventmesh-${release_version}-incubating`
 
+> 注：需将源码根目录下的`NOTICE`文件，`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`文件拷贝到二进制的包中
+
 ```shell
 $ gradle clean jar dist && gradle installPlugin && gradle tar -x test
 $ tar -czvf apache-eventmesh-${release_version}-incubating-bin.tar.gz apache-eventmesh-${release_version}-incubating
 ```
-
-> 注：需将源码根目录下的`NOTICE`文件，`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`文件拷贝到二进制的包中
 
 压缩source包、bin包，并将相关的压缩包拷贝到svn本地仓库下`/apache/eventmesh/${release_version}-${rc_version}`
 
@@ -546,7 +555,7 @@ Your EventMesh Release Manager
 ```
 Hello Incubator Community,
 
-	This is a call for a vote to release Apache EventMesh(Incubating) version 				${release_version} ${rc_version}
+	This is a call for a vote to release Apache EventMesh(Incubating) version ${release_version} ${rc_version}
 
 	The Apache EventMesh community has voted on and approved a proposal to release
     Apache EventMesh(Incubating) version ${release_version} ${rc_version}
@@ -596,16 +605,22 @@ On behalf of Apache EventMesh(Incubating) community
 ```
 Hi all,
 
-	Thanks for reviewing and voting for Apache EventMesh(Incubating) version 				${release_version} ${rc_version} release, I am happy to announce the release voting 	has passed with [投票结果数] binding votes, no +0 or -1 votes. Binding votes are from 	 IPMC
-
+	Thanks for reviewing and voting for Apache EventMesh(Incubating) version ${release_version} ${rc_version} release, I am happy to announce the release voting has passed with [投票结果数] binding votes, no +0 or -1 votes. 
+	 
+	 Binding votes are from IPMC
 	   - xxx
    	   - xxx
        - xxx
 
+     Non-binding votes:
+       +1 xxx
+       +0 xxx
+       -1 xxx
+       
     The voting thread is:
     • [投票结果链接]
 
-    Many thanks for all our mentors helping us with the release procedure, and all IPMC 	helped us to review and vote for Apache EventMesh(Incubating) release. I will be 		working on publishing the artifacts soon.
+    Many thanks for all our mentors helping us with the release procedure, and all IPMC helped us to review and vote for Apache EventMesh(Incubating) release. I will be 		working on publishing the artifacts soon.
 
 Thanks,
 On behalf of Apache EventMesh(Incubating) community
@@ -671,6 +686,8 @@ https://eventmesh.apache.org/projects/eventmesh/download/
 https://eventmesh.apache.org/zh/projects/eventmesh/download/
 
 GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/incubator/eventmesh/`
+
+> 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
 
 ### 7.邮件通知版本发布完成
 
