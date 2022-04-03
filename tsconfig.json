@@ -1,6 +1,12 @@
 {
   "extends": "@tsconfig/docusaurus/tsconfig.json",
-  "include": ["src/"],
+  "include": [
+    "src/**/*.tsx",
+    "scripts/**/*.js",
+    ".eslintrc.js",
+    "bable.config.js",
+    "docusaurus.config.js"
+  ],
   "compilerOptions": {
     "jsx": "react-jsx",
   },

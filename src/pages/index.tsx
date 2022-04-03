@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 
-const Home = (): JSX.Element => (
+const Index = (): JSX.Element => (
   <Layout
     description="Apache EventMesh (Incubating)"
   >
@@ -14,4 +14,4 @@ const Home = (): JSX.Element => (
   </Layout>
 );
 
-export default Home;
+export default Index;

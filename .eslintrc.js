@@ -1,54 +1,35 @@
 module.exports = {
   env: {
     browser: true,
-    es2020: true,
+    es2021: true,
   },
   extends: [
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/recommended',
     'airbnb',
+    'airbnb-typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 13,
     sourceType: 'module',
+    project: './tsconfig.json',
   },
   plugins: [
     'react',
     '@typescript-eslint',
   ],
   rules: {
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': ['error'],
-    'import/extensions': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-filename-extension': [
-      2,
+    'react/function-component-definition': [
+      'error',
       {
-        extensions: [
-          '.js',
-          '.jsx',
-          '.ts',
-          '.tsx',
-        ],
+        namedComponents: 'arrow-function',
       },
     ],
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
-  },
-  globals: {
-    JSX: true,
+    'no-param-reassign': 'off',
+    'no-restricted-syntax': 'off',
   },
 };
