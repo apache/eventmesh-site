@@ -37,7 +37,8 @@ module.exports = {
   ],
   themeConfig: {
     algolia: {
-      apiKey: '134d257368902d9b9d3ab1d998c31fb6',
+      appId: 'D5N4C17BGA',
+      apiKey: 'b88c3c5f941724113717b2c8456d0422',
       indexName: 'apache_eventmesh',
     },
     navbar: {
