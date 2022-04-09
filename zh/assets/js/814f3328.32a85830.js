@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[2535],{5641:function(e){e.exports=JSON.parse('{"title":"\u6700\u65b0\u6587\u7ae0","items":[{"title":"Born at China\u2019s WeBank, now incubating in the ASF - Introducing Apache EventMesh","permalink":"/zh/blog/introducing-apache-eventmesh"}]}')}}]);
