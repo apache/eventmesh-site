@@ -1,17 +1,12 @@
 github:
   features:
-    # Enable wiki for documentation
     wiki: true
-    # Enable issue management
-    #issues: true
-# Web site staging services:
+  description: "Apache EventMesh (Incubating) Website"
+  homepage: https://eventmesh.apache.org
+
 staging:
   profile: ~
   whoami: asf-site
-
-#jekyll:
-#  whoami: master
-#  target: asf-site
 
 publish:
   whoami: asf-site

@@ -2,7 +2,7 @@
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "include": [
     "src/**/*.tsx",
-    "scripts/**/*.js",
+    "scripts/**/*.ts",
     ".eslintrc.js",
     "bable.config.js",
     "docusaurus.config.js"
