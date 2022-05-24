@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './Hero.module.css';
-import EventMeshImg from '../../static/images/eventmesh.png';
+import ArchitectureImg from '../../static/images/eventmesh-architecture.png';
 
 const Hero = (): JSX.Element => {
   const { siteConfig } = useDocusaurusContext();
@@ -42,8 +42,8 @@ const Hero = (): JSX.Element => {
 
           <div className={clsx('col col--6', styles.heroImage)}>
             <img
-              src={EventMeshImg}
-              alt="EventMesh"
+              src={ArchitectureImg}
+              alt="EventMesh Architecture"
             />
           </div>
         </div>

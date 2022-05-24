@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './Features.module.css';
 import OrchestrationImg from '../../static/images/eventmesh-orchestration.png';
-import FederationImg from '../../static/images/eventmesh-federation.png';
+import BridgeImage from '../../static/images/eventmesh-bridge.png';
 
 interface FeatureProps {
   title: string,
@@ -17,9 +17,9 @@ const FeatureList: FeatureProps[] = [
     image: OrchestrationImg,
   },
   {
-    title: 'Federation',
-    description: 'Full Mesh and Federation Governance',
-    image: FederationImg,
+    title: 'Data Mesh',
+    description: 'Deliver Events Between Multiple EventMesh Deployments',
+    image: BridgeImage,
   },
 ];
 

@@ -21,7 +21,7 @@ const reverseSidebarItems = (items) => {
 module.exports = {
   title: 'Apache EventMesh',
   tagline: `
-    A dynamic cloud-native eventing infrastructure used to decouple the application and backend middleware layer,
+    Dynamic cloud-native eventing infrastructure that decouples the application and backend middleware layer,
     which supports a wide range of use cases that encompass complex multi-cloud,
     widely distributed topologies using diverse technology stacks.
   `,
@@ -73,7 +73,13 @@ module.exports = {
         },
         {
           type: 'localeDropdown',
-          position: 'left',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/apache/incubator-eventmesh',
+          className: 'header-github-link',
+          'aria-label': 'GitHub',
+          position: 'right',
         },
       ],
     },
