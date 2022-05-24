@@ -11,15 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2.3.4
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: "16"
 
-      - name: Fetch Documentation
+      - name: Install Dependencies
         run: |
-          npm ci
-          npm run fetch
+          npm install
 
       - name: Build
         run: |

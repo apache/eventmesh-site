@@ -50,9 +50,9 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          docId: 'intro',
+          docId: 'introduction',
           position: 'left',
-          label: 'Docs',
+          label: 'Documentation',
         },
         {
           to: '/download',
@@ -72,13 +72,6 @@ module.exports = {
           label: 'Events',
         },
         {
-          type: 'doc',
-          docsPluginId: 'community',
-          docId: 'apache-release',
-          position: 'left',
-          label: 'Community',
-        },
-        {
           type: 'localeDropdown',
           position: 'left',
         },
@@ -92,11 +85,11 @@ module.exports = {
           items: [
             {
               label: 'Documentation',
-              to: '/docs',
+              to: '/docs/introduction',
             },
             {
               label: 'Events',
-              to: '/events',
+              to: '/events/release-notes/v1.4.0',
             },
             {
               label: 'Releases',
@@ -158,10 +151,15 @@ module.exports = {
         are trademarks of The Apache Software Foundation.
       `,
     },
-    hideableSidebar: true,
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      additionalLanguages: ['java'],
     },
   },
   i18n: {
@@ -209,15 +207,6 @@ module.exports = {
           const sidebarItems = await defaultSidebarItemsGenerator(args);
           return reverseSidebarItems(sidebarItems);
         },
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'community',
-        path: 'community',
-        routeBasePath: 'community',
-        sidebarPath: require.resolve('./sidebars/community.js'),
       },
     ],
   ],

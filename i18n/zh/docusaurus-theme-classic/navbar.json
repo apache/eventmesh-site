@@ -3,9 +3,9 @@
     "message": "Apache EventMesh (Incubating)",
     "description": "The title in the navbar"
   },
-  "item.label.Docs": {
+  "item.label.Documentation": {
     "message": "文档",
-    "description": "Navbar item with label Docs"
+    "description": "Navbar item with label Documentation"
   },
   "item.label.Download": {
     "message": "下载",
@@ -18,9 +18,5 @@
   "item.label.Events": {
     "message": "动态",
     "description": "Navbar item with label Events"
-  },
-  "item.label.Community": {
-    "message": "社区",
-    "description": "Navbar item with label Community"
   }
 }

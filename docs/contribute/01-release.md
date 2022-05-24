@@ -1,4 +1,8 @@
-# Apache 发布指南
+# Release Creation Process
+
+:::caution
+The documentation of Release Creation Process is WIP (Work-in-Progress).
+:::
 
 ## 理解 Apache 发布的内容和流程
 
@@ -605,8 +609,8 @@ On behalf of Apache EventMesh(Incubating) community
 ```
 Hi all,
 
-	Thanks for reviewing and voting for Apache EventMesh(Incubating) version ${release_version} ${rc_version} release, I am happy to announce the release voting has passed with [投票结果数] binding votes, no +0 or -1 votes. 
-	 
+	Thanks for reviewing and voting for Apache EventMesh(Incubating) version ${release_version} ${rc_version} release, I am happy to announce the release voting has passed with [投票结果数] binding votes, no +0 or -1 votes.
+
 	 Binding votes are from IPMC
 	   - xxx
    	   - xxx
@@ -616,7 +620,7 @@ Hi all,
        +1 xxx
        +0 xxx
        -1 xxx
-       
+
     The voting thread is:
     • [投票结果链接]
 
