@@ -32,9 +32,6 @@ module.exports = {
   favicon: 'images/favicon.ico',
   organizationName: 'apache',
   projectName: 'incubator-eventmesh',
-  stylesheets: [
-    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap',
-  ],
   themeConfig: {
     algolia: {
       appId: 'D5N4C17BGA',
@@ -129,7 +126,7 @@ module.exports = {
             },
             {
               label: 'License',
-              href: 'https://www.apache.org/licenses/LICENSE-2.0',
+              href: 'https://www.apache.org/licenses/',
             },
             {
               label: 'Sponsorship',
@@ -145,7 +142,11 @@ module.exports = {
             },
             {
               label: 'Events',
-              href: 'https://www.apache.org/events/',
+              href: 'https://www.apache.org/events/current-event',
+            },
+            {
+              label: 'Privacy',
+              href: 'https://privacy.apache.org/policies/privacy-policy-public.html',
             },
           ],
         },
