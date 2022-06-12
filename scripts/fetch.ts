@@ -32,8 +32,13 @@ const copyFolder = (srcDir: string, tarDir: string) => {
   });
 };
 
-const sync = async () => {
+const fetch = async () => {
   console.log('[Apache EventMesh Site] Fetch apache/incubator-eventmesh');
+  if (fs.existsSync('./tmp')) {
+    fs.rmSync('./tmp', {
+      recursive: true,
+    });
+  }
   const git = simpleGit();
   await git.clone(
     'https://github.com/apache/incubator-eventmesh.git',
@@ -44,7 +49,7 @@ const sync = async () => {
   await git.cwd('./tmp/incubator-eventmesh').checkout('master', ['-f']);
   copyFolder('./tmp/incubator-eventmesh/docs/images/', './static/images/');
   copyFolder('./tmp/incubator-eventmesh/docs/en/', './docs/');
-  copyFolder('./tmp/incubator-eventmesh/docs/cn/', './i18n/zh/docusaurus-plugin-content-docs/current/');
+  copyFolder('./tmp/incubator-eventmesh/docs/zh/', './i18n/zh/docusaurus-plugin-content-docs/current/');
 
   console.log('[Apache EventMesh Site] Removed tmp/incubator-eventmesh');
   fs.rmSync('./tmp', {
@@ -52,4 +57,4 @@ const sync = async () => {
   });
 };
 
-sync();
+fetch();
