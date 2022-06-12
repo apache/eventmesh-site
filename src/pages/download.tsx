@@ -110,8 +110,8 @@ const ReleaseCard = ({
         </p>
       </div>
 
-      <div className={clsx(styles.link)}>
-        <div>
+      <div className={clsx(styles.link, 'row')}>
+        <div className="col-6">
           <span className={clsx(styles.description)}>
             <MdCode />
             {' '}
@@ -140,7 +140,7 @@ const ReleaseCard = ({
           </div>
         </div>
 
-        <div>
+        <div className="col-6">
           <span className={clsx(styles.description)}>
             <MdInsertDriveFile />
             {' '}
