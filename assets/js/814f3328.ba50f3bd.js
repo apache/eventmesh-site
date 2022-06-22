@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkincubator_eventmesh_site=self.webpackChunkincubator_eventmesh_site||[]).push([[2535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Born at China\u2019s WeBank, now incubating in the ASF - Introducing Apache EventMesh","permalink":"/blog/introducing-apache-eventmesh"}]}')}}]);
