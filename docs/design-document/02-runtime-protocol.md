@@ -64,7 +64,7 @@ public enum Command {
     SERVER_GOODBYE_RESPONSE(7),                        // Client reply disconnect response to server
 
     // Subscribe and UnSubscribe
-    SUBSCRIBE_REQUEST(8),                              // Slient send subscribe request to server
+    SUBSCRIBE_REQUEST(8),                              // Client send subscribe request to server
     SUBSCRIBE_RESPONSE(9),                             // Server reply subscribe response to client
     UNSUBSCRIBE_REQUEST(10),                           // Client send unsubscribe request to server
     UNSUBSCRIBE_RESPONSE(11),                          // Server reply unsubscribe response to client
