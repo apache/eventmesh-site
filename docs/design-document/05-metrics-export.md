@@ -1,4 +1,4 @@
-# EventMesh Metrics (OpenTelemetry and Prometheus)
+# Metrics (OpenTelemetry and Prometheus)
 
 ## Introduction
 

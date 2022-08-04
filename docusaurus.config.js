@@ -64,9 +64,16 @@ module.exports = {
         {
           type: 'doc',
           docsPluginId: 'events',
-          docId: 'release-notes/v1.4.0',
+          docId: 'release-notes/v1.5.0',
           position: 'left',
           label: 'Events',
+        },
+        {
+          type: 'doc',
+          docsPluginId: 'team',
+          docId: 'member',
+          position: 'left',
+          label: 'Team',
         },
         {
           type: 'localeDropdown',
@@ -92,7 +99,7 @@ module.exports = {
             },
             {
               label: 'Events',
-              to: '/events/release-notes/v1.4.0',
+              to: '/events/release-notes/v1.5.0',
             },
             {
               label: 'Releases',
@@ -214,6 +221,15 @@ module.exports = {
           const sidebarItems = await defaultSidebarItemsGenerator(args);
           return reverseSidebarItems(sidebarItems);
         },
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'team',
+        path: 'team',
+        routeBasePath: 'team',
+        sidebarPath: require.resolve('./sidebars/team.js'),
       },
     ],
   ],

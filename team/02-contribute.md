@@ -1,4 +1,5 @@
-# New Contributor Guidelines
+
+# How to Contribute
 
 If you are a new contributor who wants to contribute to the eventmesh community, please read this document, which describes how to contribute to the community, and if you find any questions in the document, feel free to leave comments or suggestions.
 
@@ -13,14 +14,13 @@ If you are a new contributor who wants to contribute to the eventmesh community,
 Import [EventMesh CheckStyle](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml) file to your IDEA.
 
 For IDEA, you can import check style file by:
-
 ```shell
     Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configuration
 ```
 
 If you can't see CheckStyle Configuration section under Import Scheme, you can install CheckStyle-IDEA plugin first, and you will see it.
 
-You can also use `./gradlew check` to check the code style.
+You can also use `./gradlew check` to check the code style.  
 (Note: this command will check all file in project, when you submit a pr, the ci will only check the file has been changed in this pr).
 
 ### Workflow
@@ -30,19 +30,16 @@ Here are the workflow for contributors:
 1. Fork to your own
 
 2. Clone fork to local repository
-
 ```git
 git clone git@github.com:yourgithub/incubator-eventmesh.git
 ```
 
 3. Create a new branch and work on it
-
 ```git
 git checkout -b fix_patch_xx
 ```
 
 4. Keep your branch in sync
-
 ```git
 git remote add upstream git@github.com:apache/incubator-eventmesh.git
 git fetch upstream develop:upstream_develop
@@ -57,9 +54,9 @@ git rebase upstream_develop
 
 ## Explanation
 
-The original warehouse: <https://github.com/apache/incubator-eventmesh> The apache warehouse of eventmesh is called the original warehouse in the text.
+The original warehouse: https://github.com/apache/incubator-eventmesh The apache warehouse of eventmesh is called the original warehouse in the text.
 
-The Fork library: From <https://github.com/apache/eventmesh> fork to your own personal repository to become a fork library.
+The Fork library: From https://github.com/apache/eventmesh fork to your own personal repository to become a fork library.
 
 So fork the original EventMesh repository into your own repository.
 
@@ -99,7 +96,7 @@ There are two ways for new contributors to contribute to the eventmesh community
 
 - For the name of the issue, please briefly describe your question or purpose in one sentence, and write in English for better global communication.
 
-## Pull request submission guidelines
+##  pull request (pr) submission guidelines
 
 - If you don't know how to initiate a pr for eventmesh, please see [about pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
@@ -117,9 +114,9 @@ There are two ways for new contributors to contribute to the eventmesh community
 
 - After creating a PR, one or more committers will help to review the pull request, after approve, this PR will be merged in to eventmesh repository, and the related Issue will be closed.
 
-## Review
+## review
 
-### PR Review
+### PR review
 
 All code should be well reviewed by one or more committers. Some principles:
 
@@ -140,3 +137,9 @@ the source file header.
 After a PR is approved by at least one committer, it can be merged. Before the merge, the committer can make changes to the commits message, requiring the commits
 message to be clear without duplication, and use Squash and Merge to make sure one PR should only contain one commits.
 For large multi-person PR, use Merge to merge, and fix the commits by rebase before merging.
+
+## Community
+
+### Contact us
+
+Mail: dev@eventmesh.apache.org

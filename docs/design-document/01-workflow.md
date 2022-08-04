@@ -1,4 +1,4 @@
-# EventMesh Workflow
+# Workflow
 
 ## Business Problem
 

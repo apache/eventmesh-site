@@ -1,4 +1,4 @@
-# EventMesh Stream
+# Stream
 
 ## Overview of Event Streaming
 

@@ -1,4 +1,4 @@
-# EventMesh Schema Registry (OpenSchema)
+# Schema Registry (OpenSchema)
 
 ## Overview of Schema and Schema Registry
 
