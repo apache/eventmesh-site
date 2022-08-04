@@ -16,6 +16,25 @@ sidebar_position: 0
 
 ## Features
 
+[//]: # ()
+[//]: # ()
+[//]: # (### Multi-Runtime Architecture)
+
+[//]: # ()
+[//]: # (![EventMesh Architecture]&#40;docs/images/eventmesh-architecture.png&#41;)
+
+[//]: # ()
+[//]: # (### Orchestration)
+
+[//]: # ()
+[//]: # (![EventMesh Orchestration]&#40;docs/images/eventmesh-orchestration.png&#41;)
+
+[//]: # ()
+[//]: # (### Data Mesh)
+
+[//]: # ()
+[//]: # (![EventMesh Data Mesh]&#40;docs/images/eventmesh-bridge.png&#41;)
+
 - **Communication Protocol**: EventMesh could communicate with clients with TCP, HTTP, or gRPC.
 - **CloudEvents**: EventMesh supports the [CloudEvents](https://cloudevents.io) specification as the format of the events. CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms, and systems.
 - **Schema Registry**: EventMesh implements a schema registry that receives and stores schemas from clients and provides an interface for other clients to retrieve schemas.
@@ -27,16 +46,11 @@ sidebar_position: 0
 Apache EventMesh (Incubating) consists of multiple components that integrate different middlewares and messaging protocols to enhance the functionalities of the application runtime.
 
 - **eventmesh-runtime**: The middleware that transmits events between producers and consumers, which supports cloud-native apps and microservices.
-- **eventmesh-sdk-java**: The Java SDK that supports HTTP, HTTPS, TCP, and [gRPC](https://grpc.io) protocols.
-- **eventmesh-connector-plugin**: The collection of plugins that connects middlewares such as [Apache Kafka](https://kafka.apache.org), [Apache RocketMQ](https://rocketmq.apache.org), [Apache Pulsar](https://pulsar.apache.org/), and [Redis](https://redis.io).
+- **eventmesh-sdk-java**: The Java SDK that supports HTTP, TCP, and [gRPC](https://grpc.io) protocols.
+- **eventmesh-sdk-go**: The Golang SDK that supports HTTP, TCP, and [gRPC](https://grpc.io) protocols.
+- **eventmesh-connector-plugin**: The collection of plugins that connects middlewares such as [Apache RocketMQ](https://rocketmq.apache.org) (implemented) [Apache Kafka](https://kafka.apache.org) (in progress), [Apache Pulsar](https://pulsar.apache.org/) (in progress), and [Redis](https://redis.io) (in progress).
 - **eventmesh-registry-plugin**: The collection of plugins that integrate service registries such as [Nacos](https://nacos.io) and [etcd](https://etcd.io).
 - **eventmesh-security-plugin**: The collection of plugins that implement security mechanisms, such as ACL (access control list), authentication, and authorization.
 - **eventmesh-protocol-plugin**: The collection of plugins that implement messaging protocols, such as [CloudEvents](https://cloudevents.io) and [MQTT](https://mqtt.org).
 - **eventmesh-admin**: The control plane that manages clients, topics, and subscriptions.
 
-## Contributors
-
-Each contributor has played an important role in promoting the robust development of Apache EventMesh (Incubating). We sincerely appreciate all contributors who have contributed code and documents. The following is the list of contributors in EventMesh-related repositories.
-
-- [apache/incubator-eventmesh](https://github.com/apache/incubator-eventmesh/graphs/contributors)
-- [apache/incubator-eventmesh-site](https://github.com/apache/incubator-eventmesh-site/graphs/contributors)

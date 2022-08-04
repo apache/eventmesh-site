@@ -1,4 +1,4 @@
-# EventMesh Runtime Protocol
+# Runtime Protocol
 
 ## TCP Protocol
 
@@ -128,15 +128,15 @@ public enum Command {
 
 #### Sync Message
 
-![Sync Message](/images/design-document/sync-message.png)
+![Sync Message](/docs/images/design-document/sync-message.png)
 
 #### Async Message
 
-![Async Message](/images/design-document/async-message.png)
+![Async Message](/docs/images/design-document/async-message.png)
 
 #### Boardcast Message
 
-![Boardcast Message](/images/design-document/broadcast-message.png)
+![Boardcast Message](/docs/images/design-document/broadcast-message.png)
 
 ## HTTP Protocol
 
