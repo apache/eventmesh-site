@@ -1,11 +1,7 @@
----
-title: "TEAM"
-permalink: /about/team/
-excerpt: "Project team."
-modified: 2022-08-01T11:28:30+08:00
----
+# Member
 
-The Apache EventMesh (Incubating) is developed by our PMCs and Committers. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
+
+The Apache EventMesh (Incubating) is developed by our PMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
 
 ## PMCs and Committers
 
@@ -17,7 +13,7 @@ The following is a list of contributors with commit privileges that have made gr
 |Weiming Xue| [@xwm1992](https://github.com/xwm1992)         |mike_xwm@126.com |PMC Member| +8 |
 |Weiqiang Liang| [@wqliang](https://github.com/wqliang)         |N.A. |PMC Member| +8 |
 |Wenjun Ruan| [@ruanwenjun](https://github.com/ruanwenjun) |wenjun@apache.org |Committer| +8|
-|Ronghua Liang| [@lrhkobe](https://github.com/lrhkobe)         |bsnyder@apache.org |Committer| +8 |
+|Ronghua Liang| [@lrhkobe](https://github.com/lrhkobe)         |N.A. |Committer| +8 |
 |Nano Xiong| [@iNanos](https://github.com/iNanos) |nanoxiong@apache.org |Committer| +8|
 |Von Gosling| [@vongosling](https://github.com/vongosling)         |vongosling@apache.org  |Committer| -7 |
 |Alex Luo| [@jinrongluo](https://github.com/jinrongluo)         |kapoking@gmail.com |Committer| -4 |
@@ -42,5 +38,6 @@ Here is the [List of Contributors](https://github.com/apache/incubator-eventmesh
 <a href="https://github.com/apache/incubator-eventmesh/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=apache/incubator-eventmesh" />
 </a>
+
 
 
