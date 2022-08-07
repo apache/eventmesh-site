@@ -70,6 +70,13 @@ module.exports = {
         },
         {
           type: 'doc',
+          docsPluginId: 'community',
+          docId: 'contribute',
+          position: 'left',
+          label: 'Community',
+        },
+        {
+          type: 'doc',
           docsPluginId: 'team',
           docId: 'member',
           position: 'left',
@@ -230,6 +237,15 @@ module.exports = {
         path: 'team',
         routeBasePath: 'team',
         sidebarPath: require.resolve('./sidebars/team.js'),
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: require.resolve('./sidebars/community.js'),
       },
     ],
   ],

@@ -1,4 +1,4 @@
-# Member
+# Team Member
 
 
 The Apache EventMesh (Incubating) is developed by our PMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
@@ -14,14 +14,23 @@ The following is a list of contributors with commit privileges that have made gr
 |Weiqiang Liang| [@wqliang](https://github.com/wqliang)         |N.A. |PMC Member| +8 |
 |Wenjun Ruan| [@ruanwenjun](https://github.com/ruanwenjun) |wenjun@apache.org |Committer| +8|
 |Ronghua Liang| [@lrhkobe](https://github.com/lrhkobe)         |N.A. |Committer| +8 |
-|Nano Xiong| [@iNanos](https://github.com/iNanos) |nanoxiong@apache.org |Committer| +8|
+|Shannon Ding| [@dinglei](https://github.com/dinglei) |dinglei@apache.org |Committer| +8|
+|Heng Du| [@duhenglucky](https://github.com/duhengforever)         |duhengforever@apache.org |Committer| +8 |
+|Junping Du| [@JunpingDu](https://github.com/JunpingDu)         |junping_du@apache.org |Committer| +8 |
 |Von Gosling| [@vongosling](https://github.com/vongosling)         |vongosling@apache.org  |Committer| -7 |
-|Alex Luo| [@jinrongluo](https://github.com/jinrongluo)         |kapoking@gmail.com |Committer| -4 |
-|Xiaoyang Liu| [@xiaoyang-sde](https://github.com/xiaoyang-sde) |xiaoyang@apache.org |Committer| -7|
-|Jun Yang| [@jonyangx](https://github.com/jonyangx)         |N.A. |Committer| +8 |
+|Jun Yang| [@jonyangx](https://github.com/jonyangx)         |yangjun1120@gmail.com |Committer| +8 |
+|Yanqing Zhong| [@zhongyanqing](https://github.com/zhongyanqing)         |N.A. |Committer| +8 |
+|Le Liu| [@walleliu](https://github.com/walleliu)         |N.A. |Committer| +8 |
+|Yi Chen| [@nicolchen](https://github.com/nicolchen)         |N.A. |Committer| +8 |
+|Fan He| [@MajorHe1](https://github.com/MajorHe1)         |N.A. |Committer| +8 |
 |Hongbing Yan| [@keranbingaa](https://github.com/keranbingaa)         |N.A. |Committer| +8 |
 |Yiliu Chen| [@yiliuchen](https://github.com/yiliuchen)         |san@chenyiliu.com |Committer| +8 |
+|Mengfei Xiong| [@iNanos](https://github.com/iNanos) |nanoxiong@apache.org |Committer| +8|
+|Xiaoyang Liu| [@xiaoyang-sde](https://github.com/xiaoyang-sde) |xiaoyang@apache.org |Committer| -7|
 |Xiaoshuang Li| [@li-xiao-shuang](https://github.com/li-xiao-shuang)         |lixiaoshuang@apache.org |Committer| +8 |
+|Alex Luo| [@jinrongluo](https://github.com/jinrongluo)         |kapoking@gmail.com |Committer| -4 |
+|Huimin Li| [@surilli](https://github.com/surilli) |N.A. |Committer| +8|
+|Huan Li| [@lihuansice](https://github.com/lihuansice)         |N.A. |Committer| +8 |
 
 
 ## All Contributors
