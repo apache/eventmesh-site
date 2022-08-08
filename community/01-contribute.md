@@ -1,4 +1,3 @@
-
 # How to Contribute
 
 If you are a new contributor who wants to contribute to the eventmesh community, please read this document, which describes how to contribute to the community, and if you find any questions in the document, feel free to leave comments or suggestions.
