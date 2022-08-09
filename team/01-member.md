@@ -1,9 +1,9 @@
 # Team Member
 
 
-The Apache EventMesh (Incubating) is developed by our PMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
+The Apache EventMesh (Incubating) is developed by our PPMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
 
-## PMCs and Committers
+## PPMCs and Committers
 
 The following is a list of contributors with commit privileges that have made great contribution to EventMesh in one way or another.
 
