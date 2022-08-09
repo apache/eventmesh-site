@@ -9,15 +9,18 @@ The following is a list of contributors with commit privileges that have made gr
 
 |Name| Github Id                                      | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:-----------------------------------------------|:---|:---|:--|
-|Guangsheng Chen| [@qqeasonchen](https://github.com/qqeasonchen) |qqeasonchen@gmail.com |PMC Chair| +8|
-|Weiming Xue| [@xwm1992](https://github.com/xwm1992)         |mike_xwm@126.com |PMC Member| +8 |
-|Weiqiang Liang| [@wqliang](https://github.com/wqliang)         |N.A. |PMC Member| +8 |
+|Francois Papon| [@fpapon](https://github.com/fpapon) |francois.papon@openobject.fr |Mentor| +1|
+|Justin Mclean| [@justinmclean](https://github.com/justinmclean)     |justin@classsoftware.com |Mentor| +10 |
+|Jean-Baptiste Onofré| [@jbonofre](https://github.com/jbonofre)         |jbonofre@apache.org |Mentor| +1 |
+|Heng Du| [@duhenglucky](https://github.com/duhengforever)         |duhengforever@apache.org |Mentor| +8 |
+|Von Gosling| [@vongosling](https://github.com/vongosling)         |vongosling@apache.org  |Mentor| -7 |
+|Junping Du| [@JunpingDu](https://github.com/JunpingDu)         |junping_du@apache.org |Mentor| +8 |
+|Guangsheng Chen| [@qqeasonchen](https://github.com/qqeasonchen) |qqeasonchen@gmail.com |PPMC Member| +8|
+|Weiming Xue| [@xwm1992](https://github.com/xwm1992)         |mike_xwm@126.com |PPMC Member| +8 |
+|Weiqiang Liang| [@wqliang](https://github.com/wqliang)         |N.A. |PPMC Member| +8 |
 |Wenjun Ruan| [@ruanwenjun](https://github.com/ruanwenjun) |wenjun@apache.org |Committer| +8|
 |Ronghua Liang| [@lrhkobe](https://github.com/lrhkobe)         |N.A. |Committer| +8 |
 |Shannon Ding| [@dinglei](https://github.com/dinglei) |dinglei@apache.org |Committer| +8|
-|Heng Du| [@duhenglucky](https://github.com/duhengforever)         |duhengforever@apache.org |Committer| +8 |
-|Junping Du| [@JunpingDu](https://github.com/JunpingDu)         |junping_du@apache.org |Committer| +8 |
-|Von Gosling| [@vongosling](https://github.com/vongosling)         |vongosling@apache.org  |Committer| -7 |
 |Jun Yang| [@jonyangx](https://github.com/jonyangx)         |yangjun1120@gmail.com |Committer| +8 |
 |Yanqing Zhong| [@zhongyanqing](https://github.com/zhongyanqing)         |N.A. |Committer| +8 |
 |Le Liu| [@walleliu](https://github.com/walleliu)         |N.A. |Committer| +8 |
