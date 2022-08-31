@@ -4,7 +4,7 @@
         <title>Apache EventMesh Blog</title>
         <link>https://eventmesh.apache.org/blog</link>
         <description>Apache EventMesh Blog</description>
-        <lastBuildDate>Wed, 31 Aug 2022 09:08:36 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 31 Aug 2022 09:14:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Meetup Content Review]]></title>
             <link>https://eventmesh.apache.org/blog/meetup-content-review</link>
             <guid>/meetup-content-review</guid>
-            <pubDate>Wed, 31 Aug 2022 09:08:36 GMT</pubDate>
+            <pubDate>Wed, 31 Aug 2022 09:14:21 GMT</pubDate>
             <description><![CDATA[|Data|Topics and Videos|]]></description>
             <content:encoded><![CDATA[<table><thead><tr><th align="left"><strong>Data</strong></th><th align="left"><strong>Topics and Videos</strong></th></tr></thead><tbody><tr><td align="left">17/05/2022</td><td align="left"><a href="https://www.bilibili.com/video/BV1cA4y1d7uw/?vd_source=7fa3cce048d504c8a511cfe78a2ec8c5" target="_blank" rel="noopener noreferrer">Solving the standardization problem of SaaS combined application integration -- The practical application of EventMesh in Huawei</a></td></tr></tbody></table>]]></content:encoded>
         </item>
