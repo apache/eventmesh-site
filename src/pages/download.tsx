@@ -29,7 +29,7 @@ interface Release {
 const releaseList: Release[] = [
   {
     version: 'v1.6.0',
-    date: new Date(2022, 8, 31),
+    date: new Date(2022, 7, 1),
     notes: 'https://eventmesh.apache.org/events/release-notes/v1.6.0',
     source: {
       tar: 'https://www.apache.org/dyn/closer.lua/incubator/eventmesh/1.6.0-incubating/apache-eventmesh-1.6.0-incubating-source.tar.gz',
