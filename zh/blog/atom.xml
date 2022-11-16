@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eventmesh.apache.org/zh/blog</id>
     <title>Apache EventMesh Blog</title>
-    <updated>2022-11-16T08:25:38.000Z</updated>
+    <updated>2022-11-16T08:36:04.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eventmesh.apache.org/zh/blog"/>
     <subtitle>Apache EventMesh Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[社区会议内容回顾]]></title>
         <id>/meetup-content-review</id>
         <link href="https://eventmesh.apache.org/zh/blog/meetup-content-review"/>
-        <updated>2022-11-16T08:25:38.000Z</updated>
+        <updated>2022-11-16T08:36:04.000Z</updated>
         <summary type="html"><![CDATA[|Data|Topic & Videos|]]></summary>
         <content type="html"><![CDATA[<table><thead><tr><th align="left"><strong>Data</strong></th><th align="left"><strong>Topic &amp; Videos</strong></th></tr></thead><tbody><tr><td align="left">17/05/2022</td><td align="left"><a href="https://www.bilibili.com/video/BV1cA4y1d7uw/?vd_source=7fa3cce048d504c8a511cfe78a2ec8c5" target="_blank" rel="noopener noreferrer">解决SaaS组合式应用集成标准化问题--EventMesh在华为的实践应用</a></td></tr></tbody></table>]]></content>
     </entry>
