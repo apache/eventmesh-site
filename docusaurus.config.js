@@ -106,7 +106,7 @@ module.exports = {
             },
             {
               label: 'Events',
-              to: '/events/release-notes/v1.5.0',
+              to: '/events/release-notes/v1.7.0',
             },
             {
               label: 'Releases',
