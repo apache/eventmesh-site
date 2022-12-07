@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './Hero.module.css';
-import ArchitectureImg from '../../static/images/eventmesh-architecture.png';
+import ArchitectureImg from '../../static/images/eventmesh-architecture-2.png';
 
 const Hero = (): JSX.Element => {
   const { siteConfig } = useDocusaurusContext();
