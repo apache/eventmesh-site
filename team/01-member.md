@@ -14,29 +14,34 @@ The following is a list of contributors with commit privileges that have made gr
 |Junping Du| [@JunpingDu](https://github.com/JunpingDu)         |junping_du@apache.org |Mentor| +8 |
 |Justin Mclean| [@justinmclean](https://github.com/justinmclean)     |justin@classsoftware.com |Mentor| +10 |
 |Von Gosling| [@vongosling](https://github.com/vongosling)         |vongosling@apache.org  |Mentor| +8 |
-|Guangsheng Chen| [@qqeasonchen](https://github.com/qqeasonchen) |qqeasonchen@gmail.com |PPMC Member| +8|
+|Guangsheng Chen| [@qqeasonchen](https://github.com/qqeasonchen) |chenguangsheng@apache.org |PPMC Member| +8|
 |Heng Du| [@duhenglucky](https://github.com/duhengforever)         |duhengforever@apache.org |PPMC Member| +8 |
 |Shannon Ding| [@dinglei](https://github.com/dinglei) |dinglei@apache.org |PPMC Member| +8|
 |Weiqiang Liang| [@wqliang](https://github.com/wqliang)         |wqliang@apache.org |PPMC Member| +8 |
-|Weiming Xue| [@xwm1992](https://github.com/xwm1992)         |mike_xwm@126.com |PPMC Member| +8 |
-|Jun Yang| [@jonyangx](https://github.com/jonyangx)         |yangjun1120@gmail.com |Committer| +8 |
-|Yanqing Zhong| [@zhongyanqing](https://github.com/zhongyanqing)         |N.A. |Committer| +8 |
-|Ronghua Liang| [@lrhkobe](https://github.com/lrhkobe)         |N.A. |Committer| +8 |
-|Le Liu| [@walleliu](https://github.com/walleliu)         |N.A. |Committer| +8 |
-|Yi Chen| [@nicolchen](https://github.com/nicolchen)         |N.A. |Committer| +8 |
-|Fan He| [@MajorHe1](https://github.com/MajorHe1)         |N.A. |Committer| +8 |
-|Hongbing Yan| [@keranbingaa](https://github.com/keranbingaa)         |N.A. |Committer| +8 |
-|Yiliu Chen| [@yiliuchen](https://github.com/yiliuchen)         |san@chenyiliu.com |Committer| +8 |
+|Weiming Xue| [@xwm1992](https://github.com/xwm1992)         |mikexue@apache.org |PPMC Member| +8 |
+|Wenjun Ruan| [@ruanwenjun](https://github.com/ruanwenjun) |wenjun@apache.org |PPMC Member| +8|
+|Xiaoshuang Li| [@li-xiao-shuang](https://github.com/li-xiao-shuang)         |lixiaoshuang@apache.org |PPMC Member| +8 |
+|Jun Yang| [@jonyangx](https://github.com/jonyangx)         |jonyang@apache.org |Committer| +8 |
+|Ronghua Liang| [@lrhkobe](https://github.com/lrhkobe)         |lrhkobe@apache.org |Committer| +8 |
+|Le Liu| [@walleliu](https://github.com/walleliu)         |walleliu@apache.org |Committer| +8 |
+|Fan He| [@MajorHe1](https://github.com/MajorHe1)         |majorhe@apache.org |Committer| +8 |
+|Hongbing Yan| [@keranbingaa](https://github.com/keranbingaa)         |bingyan@apache.org |Committer| +8 |
 |Mengfei Xiong| [@iNanos](https://github.com/iNanos) |nanoxiong@apache.org |Committer| +8|
-|Huimin Li| [@surilli](https://github.com/surilli) |N.A. |Committer| +8|
-|Huan Li| [@lihuansice](https://github.com/lihuansice)         |N.A. |Committer| +8 |
-|Wenjun Ruan| [@ruanwenjun](https://github.com/ruanwenjun) |wenjun@apache.org |Committer| +8|
 |Xiaoyang Liu| [@xiaoyang-sde](https://github.com/xiaoyang-sde) |xiaoyang@apache.org |Committer| -7|
-|Xiaoshuang Li| [@li-xiao-shuang](https://github.com/li-xiao-shuang)         |lixiaoshuang@apache.org |Committer| +8 |
-|Alex Luo| [@jinrongluo](https://github.com/jinrongluo)         |kapoking@gmail.com |Committer| -4 |
-|Jay Taylor| [@githublaohu](https://github.com/githublaohu)         |N.A. |Committer| +8 |
-|Jianbo Mai| [@JellyBo](https://github.com/jellybo)         |N.A. |Committer| +8 |
-|YuanXin Hu| [@huyuanxin](https://github.com/huyuanxin)         |N.A. |Committer| +8 |
+|Alex Luo| [@jinrongluo](https://github.com/jinrongluo)         |alexluo@apache.org |Committer| -4 |
+|Jay Taylor| [@githublaohu](https://github.com/githublaohu)         |jie@apache.org |Committer| +8 |
+|Jianbo Mai| [@JellyBo](https://github.com/jellybo)         |jellybo@apache.org |Committer| +8 |
+|YuanXin Hu| [@huyuanxin](https://github.com/huyuanxin)         |huyuanxin@apache.org |Committer| +8 |
+|Yuwei Zhu| [@walterlife](https://github.com/walterlife)         |walterzywei@apache.org |Committer| +8 |
+|Zhou Chen| [@horoc](https://github.com/horoc)         |chenzhou@apache.org |Committer| +8 |
+|Mengyang Tang| [@mytang0](https://github.com/mytang0)         |mytang0@apache.org |Committer| +8 |
+|Pengcheng Ma| [@pchengma](https://github.com/pchengma)         |pchengma@apache.org |Committer| +8 |
+|ShanPeng Qing| [@mroccyen](https://github.com/mroccyen)         |qingshanpeng@apache.org |Committer| +8 |
+|Wei Liu| [@LIU-WEI-git](https://github.com/LIU-WEI-git)         |timcross@apache.org |Committer| +8 |
+|Wei Zou| [@VNBear](https://github.com/VNBear)         |vnbear@apache.org |Committer| +8 |
+|Wentong Shi| [@RiESAEX](https://github.com/RiESAEX)         |xwbx@apache.org |Committer| +8 |
+|Yongshe Feng| [@fengyongshe](https://github.com/fengyongshe)         |fengyongshe@apache.org |Committer| +8 |
+|Mark Li| [@Markliniubility](https://github.com/Markliniubility)         |markli@apache.org |Committer| +8 |
 
 ## All Contributors
 
