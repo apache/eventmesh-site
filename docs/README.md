@@ -14,7 +14,6 @@
 [![Slack Status](https://img.shields.io/badge/slack-join_chat-blue.svg?logo=slack&style=for-the-badge)](https://join.slack.com/t/apacheeventmesh/shared_invite/zt-1hgto0wcm-KXKz8pJGUwrWdk00juaQSw)
 
 [📦 Documentation](https://eventmesh.apache.org/docs/introduction) |
-[📔 Examples](https://github.com/apache/incubator-eventmesh/tree/master/eventmesh-examples) |
 [⚙️ Roadmap](roadmap.md) |
 
 </div>
