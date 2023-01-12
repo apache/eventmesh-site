@@ -15,7 +15,7 @@
 
 [📦 Documentation](https://eventmesh.apache.org/docs/introduction) |
 [📔 Examples](https://github.com/apache/incubator-eventmesh/tree/master/eventmesh-examples) |
-[⚙️ Roadmap](https://github.com/apache/incubator-eventmesh/blob/master/docs/en/roadmap.md) |
+[⚙️ Roadmap](roadmap.md) |
 
 </div>
 
@@ -48,7 +48,7 @@ Apache EventMesh (Incubating) has a vast amount of features to help users achiev
 
 ## Roadmap
 
-Please go to the [roadmap](https://github.com/apache/incubator-eventmesh/blob/master/docs/en/roadmap.md) to get the release history and new features of Apache EventMesh (Incubating).
+Please go to the [roadmap](roadmap.md) to get the release history and new features of Apache EventMesh (Incubating).
 
 ## Quick start
 Here are the guidelines:
