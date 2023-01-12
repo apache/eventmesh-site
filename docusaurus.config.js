@@ -21,7 +21,7 @@ const reverseSidebarItems = (items) => {
 module.exports = {
   title: 'Apache EventMesh',
   tagline: `
-    Dynamic cloud-native eventing infrastructure that decouples the application and backend middleware layer,
+    A dynamic event-driven application runtime used to decouples the application and backend middleware layer,
     which supports a wide range of use cases that encompass complex multi-cloud,
     widely distributed topologies using diverse technology stacks.
   `,
