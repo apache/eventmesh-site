@@ -159,12 +159,13 @@ version=1.2.0-release
 signing.keyId=579C25F5
 #生成密钥时填的passphrase
 signing.password=
-#导出的私钥文件secring.gpg路径
-signing.secretKeyRingFile=../secring.gpg
+#导出的私钥文件secring.gpg路径,绝对路径, 比如/home/root/secring.gpg
+signing.secretKeyRingFile=/home/root/secring.gpg
 #apache 账号
 apacheUserName=
 #apache 密码
 apachePassWord=
+signEnabled=true
 ```
 
 ### 5.检查子模块下gradle.properties文件
@@ -175,6 +176,8 @@ version=${release_version}
 ```
 
 ### 6.检查并配置根项目下build.gradle文件
+
+该文件check下，大部分情况下不需要变更
 
 ```shell
 publishing {
@@ -295,6 +298,8 @@ $ git push origin --tags
 
 检查项目源码命名，将源码命名为`apache-eventmesh-${release_version}-incubating-src`，将源码打包为tar.gz格式
 
+> 注：需要将源码中的可执行文件，空目录，无用文件，无用目录删除，包括.git目录，.github目录，.gradle目录，.gitignore文件，gradle目录，build目录，gradlew文件，gradlew.bat文件等
+
 ```shell
 $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-eventmesh-${release_version}-incubating-src
 ```
@@ -354,9 +359,9 @@ https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${
 > Mac OS/Linux
 
 ```shell
-$ shasum -a apache-eventmesh-${release_version}-incubating-source.tar.gz
+$ shasum -a 512 apache-eventmesh-${release_version}-incubating-source.tar.gz
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512文件内容作对比
-$ shasum -a apache-eventmesh-${release_version}-incubating-bin.tar.gz
+$ shasum -a 512 apache-eventmesh-${release_version}-incubating-bin.tar.gz
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512文件内容作对比
 ```
 
