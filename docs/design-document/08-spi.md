@@ -1,4 +1,4 @@
-# SPI
+# Service Provider Interface
 
 ## Introduction
 
