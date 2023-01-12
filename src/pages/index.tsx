@@ -12,9 +12,6 @@ const Index = (): JSX.Element => (
     description="Apache EventMesh (Incubating)"
   >
     <Hero />
-    <main>
-      <Features />
-    </main>
   </Layout>
 );
 
