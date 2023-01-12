@@ -1,7 +1,7 @@
 <div align="center">
 
 <br /><br />
-<img src="docs/images/logo.png" width="256">
+<img src="../images/logo.png" width="256">
 <br />
 
 [![CI status](https://img.shields.io/github/workflow/status/apache/incubator-eventmesh/Continuous%20Integration?logo=github&style=for-the-badge)](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml)
@@ -26,10 +26,10 @@
 
 ### EventMesh Architecture
 
-![EventMesh Architecture](docs/images/eventmesh-architecture-2.png)
+![EventMesh Architecture](../images/eventmesh-architecture-2.png)
 
 ### EventMesh Dashboard
-![EventMesh Dashboard](docs/images/dashboard.png)
+![EventMesh Dashboard](../images/dashboard.png)
 
 ## Features
 
