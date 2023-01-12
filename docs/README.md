@@ -53,19 +53,19 @@ Please go to the [roadmap](https://github.com/apache/incubator-eventmesh/blob/ma
 ## Quick start
 Here are the guidelines:
 
-[Step 1: Deploy eventmesh-store](docs/en/instruction/01-store.md)
+[Step 1: Deploy eventmesh-store](/instruction/01-store.md)
 
-[Step 2: Start eventmesh-runtime](docs/en/instruction/02-runtime.md)
+[Step 2: Start eventmesh-runtime](/instruction/02-runtime.md)
 
-[Step 3: Run our demos](docs/en/instruction/03-demo.md)
+[Step 3: Run our demos](/instruction/03-demo.md)
 
 Besides, we also provide the docker-version guidelines for you if you prefer Docker:
 
-[Step 1: Deploy eventmesh-store using docker](docs/en/instruction/01-store-with-docker.md)
+[Step 1: Deploy eventmesh-store using docker](/instruction/01-store-with-docker.md)
 
-[Step 2: Start eventmesh-runtime using docker](docs/en/instruction/02-runtime-with-docker.md)
+[Step 2: Start eventmesh-runtime using docker](/instruction/02-runtime-with-docker.md)
 
-[Step 3: Run our demos](docs/en/instruction/03-demo.md)
+[Step 3: Run our demos](/instruction/03-demo.md)
 
 ## Contributing
 
@@ -100,7 +100,7 @@ Apache EventMesh (Incubating) is licensed under the [Apache License, Version 2.0
 
 |WeChat Assistant|WeChat Public Account|Slack|
 |-|-|-|
-|<img src="docs/images/contact/wechat-assistant.jpg" width="128"/>|<img src="docs/images/contact/wechat-official.jpg" width="128"/>|[Join Slack Chat](https://join.slack.com/t/apacheeventmesh/shared_invite/zt-1hgto0wcm-KXKz8pJGUwrWdk00juaQSw)|
+|<img src="../images/contact/wechat-assistant.jpg" width="128"/>|<img src="../images/contact/wechat-official.jpg" width="128"/>|[Join Slack Chat](https://join.slack.com/t/apacheeventmesh/shared_invite/zt-1hgto0wcm-KXKz8pJGUwrWdk00juaQSw)|
 
 ### Mailing List
 
