@@ -1,4 +1,4 @@
-# Setp 1: Store
+# Step 1: Store
 
 ## Dependencies
 
