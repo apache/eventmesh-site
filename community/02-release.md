@@ -76,9 +76,10 @@ uid           [ultimate] ${输入用户名} <${邮箱地址}>
 sub   rsa4096 2021-04-26
 
 # 通过key id发送public key到keyserver
-$ gpg --keyserver pgpkeys.mit.edu --send-key 579C25F5
-# 其中，pgpkeys.mit.edu为随意挑选的keyserver，keyserver列表为：https://sks-keyservers.net/status/，相互之间是自动同步的，选任意一个都可以。
-$ gpg --keyserver hkp://pgpkeys.mit.edu --recv-keys 579C25F5 # 验证是否同步到公网，网络不好可能需多试几次
+# 目前国内可用: pgp.mit.edu, keyserver.ubuntu.com
+$ gpg --keyserver keyserver.ubuntu.com --send-key 579C25F5
+# 其中，keyserver.ubuntu.com为对应的keyserver
+$ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # 验证是否同步到公网，网络不好可能需多试几次
 ```
 
 **注：如果有多个 public key，设置默认 key。**修改`~/.gnupg/gpg.conf`
@@ -159,12 +160,13 @@ version=1.2.0-release
 signing.keyId=579C25F5
 #生成密钥时填的passphrase
 signing.password=
-#导出的私钥文件secring.gpg路径
-signing.secretKeyRingFile=../secring.gpg
+#导出的私钥文件secring.gpg路径,绝对路径, 比如/home/root/secring.gpg
+signing.secretKeyRingFile=/home/root/secring.gpg
 #apache 账号
 apacheUserName=
 #apache 密码
 apachePassWord=
+signEnabled=true
 ```
 
 ### 5.检查子模块下gradle.properties文件
@@ -175,6 +177,8 @@ version=${release_version}
 ```
 
 ### 6.检查并配置根项目下build.gradle文件
+
+该文件check下，大部分情况下不需要变更
 
 ```shell
 publishing {
@@ -295,6 +299,8 @@ $ git push origin --tags
 
 检查项目源码命名，将源码命名为`apache-eventmesh-${release_version}-incubating-src`，将源码打包为tar.gz格式
 
+> 注：需要将源码中的可执行文件，空目录，无用文件，无用目录删除，包括.git目录，.github目录，.gradle目录，.gitignore文件，gradle目录，build目录，gradlew文件，gradlew.bat文件等
+
 ```shell
 $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-eventmesh-${release_version}-incubating-src
 ```
@@ -305,7 +311,7 @@ $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-
 
 检查编译后的文件命名，将二进制文件命名为`apache-eventmesh-${release_version}-incubating`
 
-> 注：需将源码根目录下的`NOTICE`文件，`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`文件拷贝到二进制的包中
+> 注：需将源码根目录下的`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`, `NOTICE`文件拷贝到二进制的包中
 
 ```shell
 $ gradle clean jar dist && gradle installPlugin && gradle tar -x test
@@ -354,9 +360,9 @@ https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${
 > Mac OS/Linux
 
 ```shell
-$ shasum -a apache-eventmesh-${release_version}-incubating-source.tar.gz
+$ shasum -a 512 apache-eventmesh-${release_version}-incubating-source.tar.gz
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512文件内容作对比
-$ shasum -a apache-eventmesh-${release_version}-incubating-bin.tar.gz
+$ shasum -a 512 apache-eventmesh-${release_version}-incubating-bin.tar.gz
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512文件内容作对比
 ```
 
