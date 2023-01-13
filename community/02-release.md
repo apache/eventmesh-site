@@ -311,7 +311,7 @@ $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-
 
 检查编译后的文件命名，将二进制文件命名为`apache-eventmesh-${release_version}-incubating`
 
-> 注：需将源码根目录下的`NOTICE`文件，`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`文件拷贝到二进制的包中
+> 注：需将源码根目录下的`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`, `NOTICE`文件拷贝到二进制的包中
 
 ```shell
 $ gradle clean jar dist && gradle installPlugin && gradle tar -x test
