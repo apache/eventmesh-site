@@ -76,9 +76,10 @@ uid           [ultimate] ${输入用户名} <${邮箱地址}>
 sub   rsa4096 2021-04-26
 
 # 通过key id发送public key到keyserver
-$ gpg --keyserver pgpkeys.mit.edu --send-key 579C25F5
-# 其中，pgpkeys.mit.edu为随意挑选的keyserver，keyserver列表为：https://sks-keyservers.net/status/，相互之间是自动同步的，选任意一个都可以。
-$ gpg --keyserver hkp://pgpkeys.mit.edu --recv-keys 579C25F5 # 验证是否同步到公网，网络不好可能需多试几次
+# 目前国内可用: pgp.mit.edu, keyserver.ubuntu.com
+$ gpg --keyserver keyserver.ubuntu.com --send-key 579C25F5
+# 其中，keyserver.ubuntu.com为对应的keyserver
+$ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # 验证是否同步到公网，网络不好可能需多试几次
 ```
 
 **注：如果有多个 public key，设置默认 key。**修改`~/.gnupg/gpg.conf`
