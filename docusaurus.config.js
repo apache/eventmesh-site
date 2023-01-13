@@ -21,9 +21,7 @@ const reverseSidebarItems = (items) => {
 module.exports = {
   title: 'Apache EventMesh',
   tagline: `
-    A dynamic event-driven application runtime used to decouples the application and backend middleware layer,
-    which supports a wide range of use cases that encompass complex multi-cloud,
-    widely distributed topologies using diverse technology stacks.
+    EventMesh is a fully serverless platform used to build distributed event-driven applications. 
   `,
   url: 'https://eventmesh.apache.org',
   baseUrl: '/',
