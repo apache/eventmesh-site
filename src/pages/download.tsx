@@ -28,6 +28,21 @@ interface Release {
 
 const releaseList: Release[] = [
   {
+    version: 'v1.8.0',
+    date: new Date(2023, 1, 29),
+    notes: 'https://eventmesh.apache.org/events/release-notes/v1.8.0',
+    source: {
+      tar: 'https://www.apache.org/dyn/closer.lua/incubator/eventmesh/1.8.0-incubating/apache-eventmesh-1.8.0-incubating-source.tar.gz',
+      asc: 'https://downloads.apache.org/incubator/eventmesh/1.8.0-incubating/apache-eventmesh-1.8.0-incubating-source.tar.gz.asc',
+      sha512: 'https://downloads.apache.org/incubator/eventmesh/1.8.0-incubating/apache-eventmesh-1.8.0-incubating-source.tar.gz.sha512',
+    },
+    binary: {
+      tar: 'https://www.apache.org/dyn/closer.lua/incubator/eventmesh/1.8.0-incubating/apache-eventmesh-1.8.0-incubating-bin.tar.gz',
+      asc: 'https://downloads.apache.org/incubator/eventmesh/1.8.0-incubating/apache-eventmesh-1.8.0-incubating-bin.tar.gz.asc',
+      sha512: 'https://downloads.apache.org/incubator/eventmesh/1.8.0-incubating/apache-eventmesh-1.8.0-incubating-bin.tar.gz.sha512',
+    },
+  },
+  {
     version: 'v1.7.0',
     date: new Date(2022, 11, 4),
     notes: 'https://eventmesh.apache.org/events/release-notes/v1.7.0',
