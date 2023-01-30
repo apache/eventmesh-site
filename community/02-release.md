@@ -668,8 +668,8 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS https:/
 
 ### 3. Confirm that the packages under dev and release are correct
 
-- 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/)下的`${release_version}-${rc_version}`已被删除
-- 删除[release](https://dist.apache.org/repos/dist/release/incubator/eventmesh/)目录下上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/incubator/eventmesh/)
+- Confirmed that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/) has been removed
+- Delete the release package of the previous version under the directory [release](https://dist.apache.org/repos/dist/release/incubator/eventmesh/), these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/incubator/eventmesh/)
 
 ```shell
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/${last_release_version} -m "Delete ${last_release_version}"
