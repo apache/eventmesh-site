@@ -1,34 +1,32 @@
-# How to Release
+# Apache publish guide
 
 
-## 理解 Apache 发布的内容和流程
+## Understand the content and process of Apache's release
 
-Source Release 是 Apache 关注的重点，也是发布的必须内容；而 Binary Release 是可选项，
-
-请参考以下链接，找到更多关于 ASF 的发布指南:
+Source Release is the focus of Apache’s attention and is also a required content for release; Binary Release is optional. Please refer to the following link to find more ASF release guidelines:
 
 - [Apache Release Guide](http://www.apache.org/dev/release-publishing)
 - [Apache Release Policy](http://www.apache.org/dev/release.html)
 - [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
 
 
-## 本地构建环境准备
+## Tool preparation
 
-主要包括签名工具、Maven 仓库认证相关准备
+Mainly include the preparation of the signature tool GnuPG, Maven repository certification
 
-### 1.安装GPG
+### 1. Install GPG
 
-在[GnuPG官网](https://www.gnupg.org/download/index.html)下载安装包。GnuPG的1.x版本和2.x版本的命令有细微差别，下列说明以**GnuPG-2.x**版本为例
+Download the binary installation package (GnuPG binary releases) at [GnuPG official website](https://www.gnupg.org/download/index.html). The commands of GnuPG 1.x version and 2.x version are slightly different. The following description takes **GnuPG-2.x** version as example.
 
 ```sh
-$ gpg --version #检查版本，应该为2.x
+$ gpg --version #Check the version, it should be 2.x
 ```
 
-### 2.用gpg生成key
+### 2. Generate key with gpg
 
-根据提示，生成 key
+According to the prompt, generate the key
 
-> 注意：请使用Apache邮箱生成GPG的Key
+> Note：please use Apache mail box generate GPG Key
 
 ```shell
 $ gpg --full-gen-key
@@ -57,32 +55,33 @@ Is this correct? (y/N) y
 
 GnuPG needs to construct a user ID to identify your key.
 
-Real name: ${输入用户名}
-Email address: ${邮箱地址}
+Real name: ${please enter the username}
+Email address: ${enter the email address}
 Comment: CODE SIGNING KEY
 You selected this USER-ID:
-   "${输入用户名} (CODE SIGNING KEY) <${邮箱地址}>"
+   "${username} (CODE SIGNING KEY) <${email address}>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
-You need a Passphrase to protect your secret key. # 填入密码，以后打包过程中会经常用到
+You need a Passphrase to protect your secret key. # enter the password for protecting your secret key
 ```
 
-### 3.查看 key
+### 3. Check the key
 
 ```shell
 $ gpg --list-keys
-pub   rsa4096/579C25F5 2021-04-26 # 579C25F5就是key id
-uid           [ultimate] ${输入用户名} <${邮箱地址}>
+pub   rsa4096/579C25F5 2021-04-26 # 579C25F5 is key id
+uid           [ultimate] ${username} <${email address}>
 sub   rsa4096 2021-04-26
 
-# 通过key id发送public key到keyserver
-# 目前国内可用: pgp.mit.edu, keyserver.ubuntu.com
+# upload the public key to keyserver with key id
+# Currently available in China: pgp.mit.edu, keyserver.ubuntu.com
 $ gpg --keyserver keyserver.ubuntu.com --send-key 579C25F5
-# 其中，keyserver.ubuntu.com为对应的keyserver
-$ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # 验证是否同步到公网，网络不好可能需多试几次
+
+# keyserver.ubuntu.com is the corresponding keyserver, The keyserver list is: https://sks-keyservers.net/status/, which are automatically synchronized with each other, and you can choose any one.
+$ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # Verify whether it is synchronized to the public network. If the network is not good, you may need to try a few more times
 ```
 
-**注：如果有多个 public key，设置默认 key。**修改`~/.gnupg/gpg.conf`
+**Note: If there are multiple public keys, set the default key. **Modify `~/.gnupg/gpg.conf`
 
 ```sh
 # If you have more than 1 secret key in your keyring, you may want to
@@ -90,10 +89,10 @@ $ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # 验证是否
 default-key 28681CB1
 ```
 
-**如果有多个 public key, 也可以删除无用的 key：**
+**If there are multiple public keys, useless keys can also be deleted：**
 
 ```shell
-$ gpg --delete-secret-keys 29BBC3CB # 先删除私钥，指明key id
+$ gpg --delete-secret-keys 29BBC3CB # first delete the private key and specify the key id
 gpg (GnuPG) 2.2.27; Copyright (C) 2021 g10 Code GmbH
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -105,7 +104,7 @@ This is a secret key! - really delete? (y/N) y
 ```
 
 ```shell
-$ gpg --delete-keys 29BBC3CB # 删除公钥，指明key id
+$ gpg --delete-keys 29BBC3CB # delete the public key, specify the key id
 gpg (GnuPG) 2.2.27; Copyright (C) 2021 g10 Code GmbH
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -116,10 +115,10 @@ pub  rsa4096/EE8DAE7D29BBC3CB 2021-04-27 mikexue <mikexue@apache.org>
 Delete this key from the keyring? (y/N) y
 ```
 
-由于公钥服务器没有检查机制，任何人都可以用你的名义上传公钥，所以没有办法保证服务器上的公钥的可靠性。 通常，你可以在网站上公布一个公钥指纹，让其他人核对下载到的公钥是否为真。
+Since the public key server has no checking mechanism, anyone can upload the public key in your name, so there is no way to guarantee the reliability of the public key on the server. Usually, you can publish a public key fingerprint on the website, so that others can check whether the downloaded public key is genuine.
 
 ```shell
-# fingerprint参数生成公钥指纹：
+# use fingerprint parameter generates a public key fingerprint:
 $gpg --fingerprint mikexue
 pub   rsa4096 2021-04-26 [SCA]
       F84A 0041 D70B 37AF 9C7B  F0B3 39F4 29D7 579C 25F5
@@ -127,58 +126,57 @@ uid           [ultimate] mikexue <mikexue@apache.org>
 sub   rsa4096 2021-04-26 [E]
 ```
 
-登录 [https://id.apache.org](https://id.apache.org/), 将上面的 fingerprint （即 F84A 0041 D70B 37AF 9C7B  F0B3 39F4 29D7 579C 25F5） 粘贴到自己的用户信息中 OpenPGP Public Key Primary Fingerprint
+Log in to  [https://id.apache.org](https://id.apache.org/), paste the above fingerprint (ie F84A 0041 D70B 37AF 9C7B  F0B3 39F4 29D7 579C 25F5) into your user information OpenPGP Public Key Primary Fingerprint
 
 
 
-## 发布Apache Maven仓库
+## Publish to the Apache Maven repository
 
-> 注：EventMesh使用Gradle构建，需修改gradle相关配置
+> Note: EventMesh is built using Gradle, and gradle-related configuration needs to be modified
 
-### 1.导出私钥文件
+### 1. Export private key file
 
 ```shell
-$ gpg --export-secret-keys -o secring.gpg #私钥文件妥善保管，后面配置需要
+$ gpg --export-secret-keys -o secring.gpg #the private key file is properly kept, and it is required for later configuration
 ```
 
-### 2.准备分支
+### 2. Prepare branch
 
-从主干分支拉取新分支作为发布分支，如现在要发布$`{release_version}`版本，则从develop分支拉出新分支`${release_version}-release`，此后`${release_version}` Release Candidates涉及的修改及打标签等都在`${release_version}-release`分支进行，最终发布完成后合入主干分支。
+Pull the new branch from the master branch as the release branch. If you want to release the $`{release_version}` version now, pull the new branch `${release_version}-prepare` from the master branch, and then `${release_version}` Release Candidates involves The modification and labeling of all files are carried out in the `${release_version}-prepare` branch, and merged into the main branch after the final release is completed.
 
-### 3.更新版本说明
+### 3. Update the release note
 
-更新官网项目的如下文件，并提交至master分支：
+Update the following files of the official website project and submit them to the master branch:
 
 https://github.com/apache/incubator-eventmesh-site/tree/master/events/release-notes
 
-### 4.配置根项目下gradle.properties文件
+### 4. Configure the gradle.properties file under the root project
 
 ```shell
 group=org.apache.eventmesh
 version=1.2.0-release
-#40位公钥的最后8位
+#the last 8 digits of the 40-digit public key
 signing.keyId=579C25F5
-#生成密钥时填的passphrase
+#the passphrase filled in when generating the key
 signing.password=
-#导出的私钥文件secring.gpg路径,绝对路径, 比如/home/root/secring.gpg
+#the path of the exported private key file secring.gpg, absolute path, such as /home/root/secring.gpg
 signing.secretKeyRingFile=/home/root/secring.gpg
-#apache 账号
+#apache account
 apacheUserName=
-#apache 密码
+#apache password
 apachePassWord=
+#sign switch
 signEnabled=true
 ```
 
-### 5.检查子模块下gradle.properties文件
+### 5. Check the gradle.properties file under the submodule
 
 ```shell
 group=org.apache.eventmesh
 version=${release_version}
 ```
 
-### 6.检查并配置根项目下build.gradle文件
-
-该文件check下，大部分情况下不需要变更
+### 6. Check and configure the build.gradle file under the root project
 
 ```shell
 publishing {
@@ -239,32 +237,32 @@ signing {
 }
 ```
 
-### 7.上传发布包
+### 7. Upload release package
 
-执行如下命令，需要对jar、源码包、doc和pom等文件签名加密
+Execute the following command, you need to sign and encrypt files such as jar, source package, doc and pom
 
 ```shell
 $ gradle signMavenJavaPublication publish
 ```
 
-上述命令执行成功后，待发布版本会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
+After the above command is executed successfully, the version to be released will be automatically uploaded to Apache's staging repository. All Artifacts that are deployed to the remote [maven repository](http://repository.apache.org/) will be in the staging state，visit https://repository.apache.org/#stagingRepositories ,log in with Apache's LDAP account, You will see the uploaded version, and the content of the `Repository` column is ${STAGING.REPOSITORY}. Click `Close` to tell Nexus that the build is complete and only then will the build be usable. If there is a problem with the electronic signature, `Close` will fail, and you can view the failure information through `Activity`.
 
 
 
-## 发布Apache SVN仓库
+## Publish to the Apache SVN repository
 
-### 1.准备svn本机环境（Apache使用svn托管项目的发布内容）
+### 1. Prepare the svn native environment (Apache uses svn to host the published content of the project)
 
-### 2.checkout到本地目录
+### 2. Checkout to local directory
 
 ```shell
 $ svn checkout https://dist.apache.org/repos/dist/dev/incubator/eventmesh/
-# 假定本地目录为 ~/apache/eventmesh
+# the local directory is assumed to be ~/apache/eventmesh
 ```
 
-### 3.添加gpg公钥
+### 3. Add gpg public key
 
-添加public key到[KEYS](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS)文件并提交到SVN仓库（第一次做发布的人需要做这个操作，具体操作参考KEYS文件里的说明）。KEYS主要是让参与投票的人在本地导入，用来校验sign的正确性
+Add the public key to the [KEYS](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS) file and submit it to the SVN warehouse (the first time the person who publishes needs to do this operation, specifically refer to the description in the KEYS file for operation). KEYS is mainly for voters to import locally to verify the correctness of sign
 
 Windows
 
@@ -279,110 +277,110 @@ $ gpg --armor --export <your name> | out-file -append KEYS -encoding utf8
 $ (gpg --list-sigs <your name> && gpg --armor --export <your name>) >> KEYS
 ```
 
-### 4.添加待发布内容到SVN目录
+### 4. Add packages to be published to the SVN directory
 
 ```shell
-$ cd ~/apache/eventmesh # eventmesh svn根目录
+$ cd ~/apache/eventmesh # eventmesh svn root path
 $ mkdir ${release_version}-${rc_version}
 ```
 
-#### 4.1 创建tag
+#### 4.1 Create tags
 
-在`${release_version}-release`分支上创建tag，需带有rc版本，为预发布版本
+Create a tag on `${release_version}-release` branch, with rc version, which is a pre-release version
 
 ```shell
 $ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Release Candidate (Candidates start at zero)"
 $ git push origin --tags
 ```
 
-#### 4.2 打包源码
+#### 4.2 Package source code
 
-检查项目源码命名，将源码命名为`apache-eventmesh-${release_version}-incubating-src`，将源码打包为tar.gz格式
-
-> 注：需要将源码中的可执行文件，空目录，无用文件，无用目录删除，包括.git目录，.github目录，.gradle目录，.gitignore文件，gradle目录，build目录，gradlew文件，gradlew.bat文件等
+Check the naming format of the project source package, name the source code `apache-eventmesh-${release_version}-incubating-src`, and package it in tar.gz format
 
 ```shell
 $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-eventmesh-${release_version}-incubating-src
 ```
 
-#### 4.3 打包二进制
+> Note: Make sure that there are no binary files in the source package, such as gradle-wrapper.jar, etc.
 
-> 编译上一步打包的源码
+#### 4.3 Build binary package
 
-检查编译后的文件命名，将二进制文件命名为`apache-eventmesh-${release_version}-incubating`
+> Compile the source code packaged in the previous step
 
-> 注：需将源码根目录下的`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`, `NOTICE`文件拷贝到二进制的包中
+Check the compiled file naming format, name the binary as `apache-eventmesh-${release_version}-incubating`
+
+> Note: You need to copy the `NOTICE` file in the root directory of the source code, the `DISCLAIMER-WIP` file and the `LICENSE` file in the `tools/third-party-licenses` directory to the binary package
 
 ```shell
 $ gradle clean jar dist && gradle installPlugin && gradle tar -x test
 $ tar -czvf apache-eventmesh-${release_version}-incubating-bin.tar.gz apache-eventmesh-${release_version}-incubating
 ```
 
-压缩source包、bin包，并将相关的压缩包拷贝到svn本地仓库下`/apache/eventmesh/${release_version}-${rc_version}`
+Compress the source package and bin package, and copy the relevant compressed packages to the svn local warehouse directory `/apache/eventmesh/${release_version}-${rc_version}`
 
-### 5.生成签名/sha512文件
+### 5. Generate signature/sha512 file
 
-> 针对源码包与二进制包生成签名/sha512文件
+> Generate signature/sha512 files for source and binary packages
 
 ```shell
-$ for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done #计算sha512
-$ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done #计算签名
+$ for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done #compute sha512
+$ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done #compute signature
 ```
 
-### 6.提交到Apache svn
+### 6. Commit to Apache svn
 
 ```shell
-$ cd ~/apache/eventmesh # eventmesh svn根目录
+$ cd ~/apache/eventmesh # eventmesh svn root directory
 $ svn status
 $ svn commit -m 'prepare for ${release_version}-${rc_version}'
 ```
 
 
 
-## 验证Release Candidates
+## Verify Release Candidates
 
-详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
+For a detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-从以下地址下载要发布的Release Candidates到本地环境：
+Download the Release Candidates to be released to the local environment from the following address:
 
 ```shell
 https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version}/
 ```
 
-然后开始验证环节，验证包含但不限于以下内容和形式
+Then start the verification link, which includes but is not limited to the following content and forms
 
-### 1.检查签名和hash等信息
+### 1. Check information such as signature and hash
 
-> 由于操作系统不同，检查的命令或有差异，具体可参考[官方检查步骤](https://www.apache.org/info/verification.html)
+> Due to different operating systems, the check command may be different. For details, please refer to [Official Verification Steps](https://www.apache.org/info/verification.html)
 
-#### 1.1检查sha512哈希
+#### 1.1 Check the sha512 hash
 
 > Mac OS/Linux
 
 ```shell
-$ shasum -a 512 apache-eventmesh-${release_version}-incubating-source.tar.gz
-#并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512文件内容作对比
-$ shasum -a 512 apache-eventmesh-${release_version}-incubating-bin.tar.gz
-#并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512文件内容作对比
+$ shasum -a apache-eventmesh-${release_version}-incubating-source.tar.gz
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512 file
+$ shasum -a apache-eventmesh-${release_version}-incubating-bin.tar.gz
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512 file
 ```
 
 > Windows
 
 ```shell
 $ certUtil -hashfile apache-eventmesh-${release_version}-incubating-source.tar.gz SHA512
-#并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512文件内容作对比
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512 file
 $ certUtil -hashfile apache-eventmesh-${release_version}-incubating-bin.tar.gz SHA512
-#并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512文件内容作对比
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512 file
 ```
 
-#### 1.2检查gpg签名
+#### 1.2 Check gpg signature
 
-首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
+First import the release manager's public key. Import KEYS from the svn repository to the local environment. (The release manager does not need to import again, the person who helps to do the verification needs to import, and the user name can be filled with the user name of the release manager)
 
 ```shell
 $ curl https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS >> KEYS
 $ gpg --import KEYS
-$ gpg --edit-key "${发布人的gpg用户名}"
+$ gpg --edit-key "${release manager gpg name}"
   > trust
 
 Please decide how far you trust this user to correctly verify other users' keys
@@ -400,63 +398,73 @@ Your decision? 5
   > save
 ```
 
-然后使用如下命令检查签名
+Then check the signature with the following command
 
 ```shell
 $ gpg --verify apache-eventmesh-${release_version}-incubating-source.tar.gz.asc apache-eventmesh-${release_version}-incubating-source-tar.gz
 $ gpg --verify apache-eventmesh-${release_version}-incubating-bin.tar.gz.asc apache-eventmesh-${release_version}-incubating-bin.tar.gz
 ```
 
-### 2.检查源码包的文件内容
+### 2. Check the file content of the source package
 
-解压缩`apache-eventmesh-${release_version}-incubating-source-tar.gz`，进行如下检查:
+Unzip `apache-eventmesh-${release_version}-incubating-source-tar.gz` and check as follows:
 
-- 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
-- 文件夹包含单词`incubating`
-- 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
-- `NOTICE`文件中的年份正确
-- 只存在文本文件，不存在二进制文件
-- 所有文件的开头都有ASF许可证
-- 能够正确编译，单元测试可以通过 (./gradle build) (目前支持JAVA 8/gradle 7.0/idea 2021.1.1及以上)
-- 检查是否有多余文件或文件夹，例如空文件夹等
+- Check whether the source package contains unnecessary files, causing the tar package to be too large
 
-### 3.检查二进制包的文件内容
+- the folder contains the word `incubating`
+- Presence of `LICENSE` and `NOTICE` files
+- Existence of `DISCLAIMER` file
+- correct year in `NOTICE` file
+- Only text files exist, no binary files exist
+- All files start with ASF license
+- It can be compiled correctly and the unit test can pass (./gradle build) (currently supports JAVA 8/gradle 7.0/idea 2021.1.1 and above)
+- Check for redundant files or folders, such as empty folders, etc.
 
-- 文件夹包含单词`incubating`
-- 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
-- `NOTICE`文件中的年份正确
-- 所有文本文件开头都有ASF许可证
-- 检查第三方依赖许可证：
-  - 第三方依赖的许可证兼容
-  - 所有第三方依赖的许可证都在`LICENSE`文件中声名
-  - 依赖许可证的完整版全部在`license`目录
-  - 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
+### 3. Check the file content of the binary package
 
-你可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
+- the folder contains the word `incubating`
 
-## 发起投票
+- Presence of `LICENSE` and `NOTICE` files
 
-> EventMesh 仍在孵化阶段，需要进行两次投票
+- Existence of `DISCLAIMER` file
 
-- EventMesh社区投票，发送邮件至：`dev@eventmesh.apache.org`
-- incubator社区投票，发送邮件至：`general@incubator.apache.org` EventMesh毕业后，只需要在EventMesh社区投票
+- correct year in `NOTICE` file
 
-### 1.EventMesh社区投票阶段
+- All text files start with ASF license
 
-1. EventMesh社区投票，发起投票邮件到`dev@eventmesh.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
-2. 宣布投票结果,发起投票结果邮件到`dev@eventmesh.apache.org`。
+- Check third-party dependent licenses:
 
-### 2.EventMesh社区投票模板
+  - Compatibility with 3rd party dependent licenses
 
-标题：
+  - All 3rd party dependent licenses are declared in the `LICENSE` file
+
+  - The full versions of the dependent licenses are all in the `license` directory
+
+  - If you are relying on the Apache license and there are `NOTICE` files, then these `NOTICE` files also need to be added to the version `NOTICE` file
+
+You can refer to this article: [ASF third-party license policy](https://apache.org/legal/resolved.html)
+
+## Initiates a vote
+
+> EventMesh is still incubating and requires two votes
+
+- EventMesh community vote, send email to: `dev@eventmesh.apache.org`
+- Vote in the incubator community, send an email to: `general@incubator.apache.org` After graduation from EventMesh, you only need to vote in the EventMesh community
+
+### 1. EventMesh community voting stage
+
+1. The EventMesh community votes, send a voting email to `dev@eventmesh.apache.org`. PMC needs to check the correctness of the version according to the document before voting. After at least 72 hours and counting 3 `+1 PMC member` votes, you can enter the next stage of voting.
+2. Announce the voting result, and send the voting result email to `dev@eventmesh.apache.org`.
+
+### 2. EventMesh community voting template
+
+Title：
 
 ```
 [VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
 ```
 
-正文：
+Content：
 
 ```
 Hello EventMesh Community,
@@ -515,15 +523,15 @@ Thanks,
 Your EventMesh Release Manager
 ```
 
-### 3.宣布投票结果模板
+### 3. Announcing voting results template
 
-标题：
+Title：
 
 ```
 [RESULT][VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
 ```
 
-正文：
+Content：
 
 ```
 Hello Apache EventMesh PPMC and Community,
@@ -544,20 +552,20 @@ Thank you for your support.
 Your EventMesh Release Manager
 ```
 
-### 4.Incubator社区投票阶段
+### 4. Incubator community voting stage
 
-1. Incubator社区投票，发起投票邮件到`general@incubator.apache.org`，需3个 `+1 IPMC Member`投票，方可进入下一阶段。
-2. 宣布投票结果,发起投票结果邮件到`general@incubator.apache.org` 并抄送至`dev@eventmesh.apache.org`。
+1. The Incubator community votes, send a voting email to `general@incubator.apache.org`, and 3 `+1 IPMC Member` votes are required to enter the next stage.
+2. To announce the voting result, send the voting result email to `general@incubator.apache.org` and copy to `dev@eventmesh.apache.org`.
 
-### 5.Incubator社区投票模板
+### 5. Incubator community voting template
 
-标题：
+Title：
 
 ```
 [VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
 ```
 
-内容：
+Content：
 
 ```
 Hello Incubator Community,
@@ -571,10 +579,10 @@ Hello Incubator Community,
     incubator release.
 
     EventMesh community vote thread:
-    • [投票链接]
+    • [voting thread]
 
     Vote result thread:
-    • [投票结果链接]
+    • [voting result thread]
 
     The release candidate:
     •https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version}/
@@ -584,7 +592,7 @@ Hello Incubator Community,
 	Release notes:
 	• https://github.com/apache/incubator-eventmesh/releases/tag/${release_version}-${rc_version}
 
-	The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
+	The artifacts signed with PGP key ${your gpg KEY}, corresponding to ${your email address}, that can be found in keys file:
 	• https://downloads.apache.org/incubator/eventmesh/KEYS
 
 	The vote will be open for at least 72 hours or until necessary number of votes are reached.
@@ -599,20 +607,20 @@ Thanks,
 On behalf of Apache EventMesh(Incubating) community
 ```
 
-### 6.宣布投票结果模板
+### 6. Announcing voting results template
 
-标题：
+Title：
 
 ```
 [RESULT][VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
 ```
 
-内容：
+Content：
 
 ```
 Hi all,
 
-	Thanks for reviewing and voting for Apache EventMesh(Incubating) version ${release_version} ${rc_version} release, I am happy to announce the release voting has passed with [投票结果数] binding votes, no +0 or -1 votes.
+	Thanks for reviewing and voting for Apache EventMesh(Incubating) version ${release_version} ${rc_version} release, I am happy to announce the release voting has passed with [voting result number] binding votes, no +0 or -1 votes.
 
 	 Binding votes are from IPMC
 	   - xxx
@@ -625,19 +633,19 @@ Hi all,
        -1 xxx
 
     The voting thread is:
-    • [投票结果链接]
+    • [voting result thread]
 
-    Many thanks for all our mentors helping us with the release procedure, and all IPMC helped us to review and vote for Apache EventMesh(Incubating) release. I will be 		working on publishing the artifacts soon.
+    Many thanks for all our mentors helping us with the release procedure, and all IPMC helped us to review and vote for Apache EventMesh(Incubating) release. I will be working on publishing the artifacts soon.
 
 Thanks,
 On behalf of Apache EventMesh(Incubating) community
 ```
 
-## 正式发布
+## Official release
 
-### 1.合并分支
+### 1. Merging code branch
 
-合并`${release_version}-release`分支的改动到`master`分支，合并完成后删除`release`分支
+Merge the changes of the `${release_version}-release` branch to the `master` branch, delete the `release` branch after the merge is complete
 
 ```shell
 $ git checkout master
@@ -648,17 +656,17 @@ $ git push --delete origin ${release_version}-release
 $ git branch -d ${release_version}-release
 ```
 
-### 2.迁移源码与二进制包
+### 2. Migrating source and binary packages
 
-将源码和二进制包从svn的`dev`目录移动到`release`目录
+Move source and binary packages from the svn `dev` directory to the `release` directory
 
 ```shell
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/eventmesh/ -m "transfer packages for ${release_version}-${rc_version}" #移动源码包与二进制包
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/KEYS -m "delete KEYS" #清除原有release目录下的KEYS
-$ svn cp https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS https://dist.apache.org/repos/dist/release/incubator/eventmesh/ -m "transfer KEYS for ${release_version}-${rc_version}" #拷贝dev目录KEYS到release目录
+$ svn mv https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/eventmesh/ -m "transfer packages for ${release_version}-${rc_version}" #Move source and binary packages
+$ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/KEYS -m "delete KEYS" #Clear the KEYS in the original release directory
+$ svn cp https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS https://dist.apache.org/repos/dist/release/incubator/eventmesh/ -m "transfer KEYS for ${release_version}-${rc_version}" #Copy dev directory KEYS to release directory
 ```
 
-### 3.确认dev和release下的包是否正确
+### 3. Confirm that the packages under dev and release are correct
 
 - 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/)下的`${release_version}-${rc_version}`已被删除
 - 删除[release](https://dist.apache.org/repos/dist/release/incubator/eventmesh/)目录下上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/incubator/eventmesh/)
@@ -667,48 +675,46 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS https:/
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
-### 4.在Apache Staging仓库发布版本
+### 4. Publish releases in the Apache Staging repository
 
-- 登录http://repository.apache.org , 使用Apache账号登录
-- 点击左侧的Staging repositories，
-- 搜索EventMesh关键字，选择你最近上传的仓库，投票邮件中指定的仓库
-- 点击上方的`Release`按钮，这个过程会进行一系列检查
+- Log in to http://repository.apache.org, log in with your Apache account
+- Click Staging repositories on the left,
+- Search for the EventMesh keyword, select the warehouse you uploaded recently, and the warehouse specified in the voting email
+- Click the `Release` button above, this process will perform a series of checks
 
-> 等仓库同步到其他数据源，一般需要24小时
+> It usually takes 24 hours for the warehouse to synchronize to other data sources
 
-### 5.GitHub版本发布
+### 5. GitHub version release
 
-1.Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. 例如：after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1.2` only.
+1. Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. such as: after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1.2` only.
 
-2.在 [GitHub Releases](https://github.com/apache/incubator-eventmesh/releases) 页面的 `${release_version}` 版本上点击 `Edit`
+2. Click `Edit` on the `${release_version}` version of the [GitHub Releases](https://github.com/apache/incubator-eventmesh/releases) page to edit the version number and version description, and click `Publish release`
 
-编辑版本号及版本说明，并点击 `Publish release`
+### 6. Update download page
 
-### 6.更新下载页面
-
-等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：
+After waiting and confirming that the new release version is synchronized to the Apache mirror, update the following page:
 
 https://eventmesh.apache.org/download/
 
 https://eventmesh.apache.org/zh/download/
 
-GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/incubator/eventmesh/`
+Download links for GPG signature files and hash verification files should use this prefix：`https://downloads.apache.org/incubator/eventmesh/`
 
-> 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
+> Note: The project download link should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 
-### 7.邮件通知版本发布完成
+### 7. Announce version is released
 
-> 请确保Apache Staging仓库已发布成功，一般是在该步骤的24小时后发布邮件
+> Please make sure that the Apache Staging warehouse has been released successfully, usually after 24 hours of this step.
 
-发邮件到 `dev@eventmesh.apache.org` 、 `announce@apache.org`和`general@incubator.apache.org`
+Email to `dev@eventmesh.apache.org` 、 `announce@apache.org`和`general@incubator.apache.org`
 
-标题：
+Title：
 
 ```
 [ANNOUNCE] Apache EventMesh (incubating) ${release_version} available
 ```
 
-正文：
+Content：
 
 ```
 Hi all,
@@ -726,7 +732,6 @@ Website: https://eventmesh.apache.org/
 EventMesh Resources:
 - Issue: https://github.com/apache/incubator-eventmesh/issues
 - Mailing list: dev@eventmesh.apache.org
-
 
 
 Apache EventMesh (incubating) Team
