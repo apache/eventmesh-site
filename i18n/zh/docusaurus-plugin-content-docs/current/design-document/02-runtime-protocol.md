@@ -1,151 +1,164 @@
-# EventMesh Runtime Protocol
+# TCP协议文档
 
-## TCP Protocol
+#### 1. 协议格式
 
-### Protocol Format
+![dataFlow](../../images/design-document/tcp-protocol.png)
 
-|Name|Size|Description|
-|-|-|-|
-|Magic Code|9 bytes|Default: `EventMesh`|
-|Protocol Version|4 bytes|Default: `0000`|
-|Message Size|4 bytes|The total length of the message|
-|Header Size|4 bytes|The length of the message header|
-|Message Body||The content of the message|
+**消息组成详解：**
 
-### Message Object in the Business Logic Layer
+```
+魔术字：9位，当前值为“EventMesh”
 
-#### Message Composition
+通信协议版本号：4位，当前值为“0000”
 
-The `Package` class in the [`Package.java` file](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-common/src/main/java/org/apache/eventmesh/common/protocol/tcp/Package.java) is the TCP message object used in business logic layer. The class contains the `header` and `body` fields.
+消息总长度值(length)：4位，int类型
+
+消息头长度值(headerLength)：4位，int类型
+
+消息头(header)：长度 = headerLength
+
+消息体(body)：长度 = length - headerLength - 4 - 4
+```
+
+#### 2. 业务逻辑层
+
++ 消息组成
+
+消息头（header）+ 消息体（body）
 
 ```java
 public class Package {
-   private Header header;
-   private Object body;
+
+    private Header header;
+    private Object body;
 }
 
+
 public class Header {
-   private Command cmd;
-   private int code;
-   private String msg;
-   private String seq;
+
+    private Command cmd;
+    private int code;
+    private String msg;
+    private String seq;
 }
 ```
 
-#### Specification
++ 详解
 
-- Message Header (the `header` field): The `cmd` field in the `Header` class specifies the different types of messages.
-- Message Body (the `body` field): The type of the message body should be defined based on `cmd` field in the `Header` class.
+消息头(header)：类型为Header，Header中有Command字段，用于区分不同的消息类型
 
-|Command|Type of Body|
-|-|-|
-| HEARTBEAT_REQUEST, HEARTBEAT_RESPONSE, HELLO_RESPONSE, CLIENT_GOODBYE_REQUEST, CLIENT_GOODBYE_RESPONSE, SERVER_GOODBYE_REQUEST, SERVER_GOODBYE_RESPONSE, LISTEN_REQUEST, LISTEN_RESPONSE, UNSUBSCRIBE_REQUEST, SUBSCRIBE_RESPONSE, UNSUBSCRIBE_RESPONSE, ASYNC_MESSAGE_TO_SERVER_ACK, BROADCAST_MESSAGE_TO_SERVER_ACK|N/A|
-|HELLO_REQUEST|UserAgent|
-|SUBSCRIBE_REQUEST|Subscription|
-| REQUEST_TO_SERVER, REQUEST_TO_CLIENT, RESPONSE_TO_SERVER, RESPONSE_TO_CLIENT, ASYNC_MESSAGE_TO_SERVER, ASYNC_MESSAGE_TO_CLIENT, BROADCAST_MESSAGE_TO_SERVER, BROADCAST_MESSAGE_TO_CLIENT, ASYNC_MESSAGE_TO_CLIENT_ACK, BROADCAST_MESSAGE_TO_CLIENT_ACK, RESPONSE_TO_CLIENT_ACK, REQUEST_TO_CLIENT_ACK|OpenMessage|
-|REDIRECT_TO_CLIENT|RedirectInfo|
+消息体(body)：对于不同的消息类型，body的类型不同
 
-### Example of Client-Server Interaction
+| 消息命令字                                                   | body类型     |
+| ------------------------------------------------------------ | ------------ |
+| HEARTBEAT_REQUEST, HEARTBEAT_RESPONSE, HELLO_RESPONSE, CLIENT_GOODBYE_REQUEST, CLIENT_GOODBYE_RESPONSE, SERVER_GOODBYE_REQUEST, SERVER_GOODBYE_RESPONSE, LISTEN_REQUEST, LISTEN_RESPONSE, UNSUBSCRIBE_REQUEST, SUBSCRIBE_RESPONSE, UNSUBSCRIBE_RESPONSE, ASYNC_MESSAGE_TO_SERVER_ACK, BROADCAST_MESSAGE_TO_SERVER_ACK | 无           |
+| HELLO_REQUEST                                                | UserAgent    |
+| SUBSCRIBE_REQUEST                                            | Subscription |
+| REQUEST_TO_SERVER, REQUEST_TO_CLIENT, RESPONSE_TO_SERVER, RESPONSE_TO_CLIENT, ASYNC_MESSAGE_TO_SERVER, ASYNC_MESSAGE_TO_CLIENT, BROADCAST_MESSAGE_TO_SERVER, BROADCAST_MESSAGE_TO_CLIENT, ASYNC_MESSAGE_TO_CLIENT_ACK, BROADCAST_MESSAGE_TO_CLIENT_ACK, RESPONSE_TO_CLIENT_ACK, REQUEST_TO_CLIENT_ACK | OpenMessage  |
+| REDIRECT_TO_CLIENT                                           | RedirectInfo |
+
+#### 3. Client 与 Eventmesh-Runtime(Server)交互场景详解
 
 ```java
 public enum Command {
-    // Heartbeat
-    HEARTBEAT_REQUEST(0),                              // Client send heartbeat request to server
-    HEARTBEAT_RESPONSE(1),                             // Server reply heartbeat response to client
 
-    // Hello
-    HELLO_REQUEST(2),                                  // Client send connect request to server
-    HELLO_RESPONSE(3),                                 // Server reply connect response to client
+    //心跳
+    HEARTBEAT_REQUEST(0),                              //client发给server的心跳包
+    HEARTBEAT_RESPONSE(1),                             //server回复client的心跳包
 
-    // Disconncet
-    CLIENT_GOODBYE_REQUEST(4),                         // Client send disconnect request to server
-    CLIENT_GOODBYE_RESPONSE(5),                        // Server reply disconnect response to client
-    SERVER_GOODBYE_REQUEST(6),                         // Server send disconncet request to client
-    SERVER_GOODBYE_RESPONSE(7),                        // Client reply disconnect response to server
+    //握手
+    HELLO_REQUEST(2),                                  //client发给server的握手请求
+    HELLO_RESPONSE(3),                                 //server回复client的握手请求
 
-    // Subscribe and UnSubscribe
-    SUBSCRIBE_REQUEST(8),                              // Slient send subscribe request to server
-    SUBSCRIBE_RESPONSE(9),                             // Server reply subscribe response to client
-    UNSUBSCRIBE_REQUEST(10),                           // Client send unsubscribe request to server
-    UNSUBSCRIBE_RESPONSE(11),                          // Server reply unsubscribe response to client
+    //断连
+    CLIENT_GOODBYE_REQUEST(4),                         //client主动断连时通知server
+    CLIENT_GOODBYE_RESPONSE(5),                        //server回复client的主动断连通知
+    SERVER_GOODBYE_REQUEST(6),                         //server主动断连时通知client
+    SERVER_GOODBYE_RESPONSE(7),                        //client回复server的主动断连通知
 
-    // Listen
-    LISTEN_REQUEST(12),                                // Client send listen request to server
-    LISTEN_RESPONSE(13),                               // Server reply listen response to client
+    //订阅管理
+    SUBSCRIBE_REQUEST(8),                              //client发给server的订阅请求
+    SUBSCRIBE_RESPONSE(9),                             //server回复client的订阅请求
+    UNSUBSCRIBE_REQUEST(10),                           //client发给server的取消订阅请求
+    UNSUBSCRIBE_RESPONSE(11),                          //server回复client的取消订阅请求
 
-    // Send sync message
-    REQUEST_TO_SERVER(14),                             // Client (Producer) send sync message to server
-    REQUEST_TO_CLIENT(15),                             // Server push sync message to client(Consumer)
-    REQUEST_TO_CLIENT_ACK(16),                         // Client (Consumer) send ack of sync message to server
-    RESPONSE_TO_SERVER(17),                            // Client (Consumer) send reply message to server
-    RESPONSE_TO_CLIENT(18),                            // Server push reply message to client(Producer)
-    RESPONSE_TO_CLIENT_ACK(19),                        // Client (Producer) send acknowledgement of reply message to server
+    //监听
+    LISTEN_REQUEST(12),                                //client发给server的启动监听请求
+    LISTEN_RESPONSE(13),                               //server回复client的监听请求
 
-    // Send async message
-    ASYNC_MESSAGE_TO_SERVER(20),                       // Client send async msg to server
-    ASYNC_MESSAGE_TO_SERVER_ACK(21),                   // Server reply ack of async msg to client
-    ASYNC_MESSAGE_TO_CLIENT(22),                       // Server push async msg to client
-    ASYNC_MESSAGE_TO_CLIENT_ACK(23),                   // Client reply ack of async msg to server
+    //RR
+    REQUEST_TO_SERVER(14),                             //client将RR请求发送给server
+    REQUEST_TO_CLIENT(15),                             //server将RR请求推送给client
+    REQUEST_TO_CLIENT_ACK(16),                         //client收到RR请求后ACK给server
+    RESPONSE_TO_SERVER(17),                            //client将RR回包发送给server
+    RESPONSE_TO_CLIENT(18),                            //server将RR回包推送给client
+    RESPONSE_TO_CLIENT_ACK(19),                        //client收到回包后ACK给server
 
-    // Send broadcast message
-    BROADCAST_MESSAGE_TO_SERVER(24),                   // Client send broadcast msg to server
-    BROADCAST_MESSAGE_TO_SERVER_ACK(25),               // Server reply ack of broadcast msg to client
-    BROADCAST_MESSAGE_TO_CLIENT(26),                   // Server push broadcast msg to client
-    BROADCAST_MESSAGE_TO_CLIENT_ACK(27),               // Client reply ack of broadcast msg to server
+    //异步事件
+    ASYNC_MESSAGE_TO_SERVER(20),                       //client将异步事件发送给server
+    ASYNC_MESSAGE_TO_SERVER_ACK(21),                   //server收到异步事件后ACK给client
+    ASYNC_MESSAGE_TO_CLIENT(22),                       //server将异步事件推送给client
+    ASYNC_MESSAGE_TO_CLIENT_ACK(23),                   //client收到异步事件后ACK给server
 
-    // Redirect
-    REDIRECT_TO_CLIENT(30),                            // Server send redirect instruction to client
+    //广播
+    BROADCAST_MESSAGE_TO_SERVER(24),                   //client将广播消息发送给server
+    BROADCAST_MESSAGE_TO_SERVER_ACK(25),               //server收到广播消息后ACK给client
+    BROADCAST_MESSAGE_TO_CLIENT(26),                   //server将广播消息推送给client
+    BROADCAST_MESSAGE_TO_CLIENT_ACK(27),               //client收到广播消息后ACK给server
+
+    //重定向指令
+    REDIRECT_TO_CLIENT(30),                            //server将重定向指令推动给client
 }
 ```
 
-### Client-Initiated Interaction
+#### 4. Client发起交互
 
-|Scene|Client Request|Server Response|
-|-|-|-|
-| Hello           | HELLO_REQUEST                | HELLO_RESPONSE                  |      |
-| Heartbeat           | HEARTBEAT_REQUEST            | HEARTBEAT_RESPONSE              |      |
-| Subscribe           | SUBSCRIBE_REQUEST            | SUBSCRIBE_RESPONSE              |      |
-| Unsubscribe       | UNSUBSCRIBE_REQUEST          | UNSUBSCRIBE_RESPONSE            |      |
-| Listen   | LISTEN_REQUEST               | LISTEN_RESPONSE                 |      |
-| Send sync message     | REQUEST_TO_SERVER            | RESPONSE_TO_CLIENT              |      |
-| Send the response of sync message| RESPONSE_TO_SERVER           | N/A                              |      |
-| Send async message   | ASYNC_MESSAGE_TO_SERVER      | ASYNC_MESSAGE_TO_SERVER_ACK     |      |
-| Send broadcast message   | BROADCAST_MESSAGE_TO_SERVER  | BROADCAST_MESSAGE_TO_SERVER_ACK |      |
-| Client start to disconnect | CLIENT_GOODBYE_REQUEST       | CLIENT_GOODBYE_RESPONSE         |      |
+| 场景           | Client向Server发送消息命令字 | Server回复Client消息的命令字    | 说明 |
+| -------------- | ---------------------------- | ------------------------------- | ---- |
+| 握手           | HELLO_REQUEST                | HELLO_RESPONSE                  |      |
+| 心跳           | HEARTBEAT_REQUEST            | HEARTBEAT_RESPONSE              |      |
+| 订阅           | SUBSCRIBE_REQUEST            | SUBSCRIBE_RESPONSE              |      |
+| 取消订阅       | UNSUBSCRIBE_REQUEST          | UNSUBSCRIBE_RESPONSE            |      |
+| 开始监听消息   | LISTEN_REQUEST               | LISTEN_RESPONSE                 |      |
+| 发送RR请求     | REQUEST_TO_SERVER            | RESPONSE_TO_CLIENT              |      |
+| 发送RR回包     | RESPONSE_TO_SERVER           | 无                              |      |
+| 发送异步事件   | ASYNC_MESSAGE_TO_SERVER      | ASYNC_MESSAGE_TO_SERVER_ACK     |      |
+| 发送广播事件   | BROADCAST_MESSAGE_TO_SERVER  | BROADCAST_MESSAGE_TO_SERVER_ACK |      |
+| 客户端主动断连 | CLIENT_GOODBYE_REQUEST       | CLIENT_GOODBYE_RESPONSE         |      |
 
-### Server-Initiated Interaction
+#### 5. Server发起交互
 
-|Scene|Server Request|Client Response|Remark|
-|-|-| ------------------------------- | ---- |
-| Push sync message to client   | REQUEST_TO_CLIENT            | REQUEST_TO_CLIENT_ACK           |      |
-| Push the response message of sync message to client   | RESPONSE_TO_CLIENT           | RESPONSE_TO_CLIENT_ACK          |      |
-| Push async message to client | ASYNC_MESSAGE_TO_CLIENT      | ASYNC_MESSAGE_TO_CLIENT_ACK     |      |
-| Push broadcast message to client | BROADCAST_MESSAGE_TO_CLIENT  | BROADCAST_MESSAGE_TO_CLIENT_ACK |      |
-| Server start to disconnect     | SERVER_GOODBYE_REQUEST       | --                              |      |
-| Server send redirect   | REDIRECT_TO_CLIENT           | --                              |      |
+| 场景               | Server向Client发送消息命令字 | Client回复Server消息命令字      | 说明 |
+| ------------------ | ---------------------------- | ------------------------------- | ---- |
+| 客户端接收RR请求   | REQUEST_TO_CLIENT            | REQUEST_TO_CLIENT_ACK           |      |
+| 客户端接收RR回包   | RESPONSE_TO_CLIENT           | RESPONSE_TO_CLIENT_ACK          |      |
+| 客户端接收异步事件 | ASYNC_MESSAGE_TO_CLIENT      | ASYNC_MESSAGE_TO_CLIENT_ACK     |      |
+| 客户端接收广播事件 | BROADCAST_MESSAGE_TO_CLIENT  | BROADCAST_MESSAGE_TO_CLIENT_ACK |      |
+| 服务端主动断连     | SERVER_GOODBYE_REQUEST       | 无                              |      |
+| 服务端进行重定向   | REDIRECT_TO_CLIENT           | 无                              |      |
+|                    |                              |                                 |      |
 
-### Type of Message
+#### 6. 消息类型
 
-#### Sync Message
++ 发送RR消息
 
-![Sync Message](/images/design-document/sync-message.png)
+![rr-msg](../../images/design-document/sync-message.png)
 
-#### Async Message
++ 发送异步单播消息
 
-![Async Message](/images/design-document/async-message.png)
+![async-msg](../../images/design-document/async-message.png)
 
-#### Boardcast Message
++ 发送广播消息
 
-![Boardcast Message](/images/design-document/broadcast-message.png)
+![broadcast-msg](../../images/design-document/broadcast-message.png)
 
-## HTTP Protocol
+## HTTP协议文档
 
-### Protocol Format
-
-The `EventMeshMessage` class in the  [`EventMeshMessage.java` file](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-common/src/main/java/org/apache/eventmesh/common/EventMeshMessage.java) is the HTTP message definition of EventMesh Runtime.
+Java类`LiteMessage`的`content`字段表示一个特殊的协议，因此，如果您要使用eventmesh-sdk-java的http-client，则只需设计协议的`content`即可。`LiteMessage`组成如下：
 
 ```java
-public class EventMeshMessage {
+public class LiteMessage {
+
     private String bizSeqNo;
 
     private String uniqueId;
@@ -156,105 +169,111 @@ public class EventMeshMessage {
 
     private Map<String, String> prop;
 
-    private final long createTime = System.currentTimeMillis();
+    private long createTime = System.currentTimeMillis();
 }
 ```
 
-### HTTP Post Request
+#### 1. 消息发送方式与组成
 
-#### Heartbeat Message
+**消息发送方式**：POST方式
 
-##### Request Header
+**消息组成**：请求头(RequestHeader) + 请求体(RequestBody)
 
-| Key      | Description             |
++ 心跳消息
+
+**RequestHeader**
+
+| Key      | 说明             |
 | -------- | ---------------- |
-| Env      | Enviroment of Client   |
-| Region   | Region of Client  |
-| Idc      | IDC of Client    |
-| Dcn      | DCN of Client    |
-| Sys      | Subsystem ID of Client |
-| Pid      | Client Process ID     |
-| Ip       | Client Ip        |
-| Username | Client username    |
-| Passwd   | Client password      |
-| Version  | Protocol version        |
-| Language | Develop language         |
-| Code     | Request Code           |
+| Env      | client所属环境   |
+| Region   | client所属区域   |
+| Idc      | client所属IDC    |
+| Dcn      | client所在DCN    |
+| Sys      | client所属子系统 |
+| Pid      | client进程号     |
+| Ip       | client Ip        |
+| Username | client 用户名    |
+| Passwd   | client 密码      |
+| Version  | 协议版本         |
+| Language | 语言描述         |
+| Code     | 请求码           |
 
-##### Request Body
+**RequestBody**
 
-|Key|Description|
-|-|-|
-|`clientType`|`ClientType.PUB` for Producer, `ClientType.SUB` for Consumer|
-|`heartbeatEntities`|Topic, URL, etc.|
+| Key               | 说明                           |
+| ----------------- | ------------------------------ |
+| clientType        | 客户端类型                     |
+| heartbeatEntities | 心跳实体，包含topic、url等信息 |
 
-#### Subscribe Message
++ 订阅消息：
 
-##### Request Header
+**RequestHeader**
 
-The request header of the Subscribe message is identical to the request header of the Heartbeat message.
+与心跳消息一致
 
-##### Request Body
+**RequestBody**
 
-|Key|Description|
-|-|-|
-|`topic`|The topic that the client requested to subscribe to|
-|`url`|The callback URL of the client|
+| Key   | 说明              |
+| ----- | ----------------- |
+| topic | 客户端订阅的topic |
+| url   | topic对应的url    |
 
-#### Unsubscribe Message
++ 取消订阅消息：
 
-##### Request Header
+**RequestHeader**
 
-The request header of the Unsubscribe message is identical to the request header of the Heartbeat message.
+与心跳消息一致
 
-##### Request Body
+**RequestBody**
 
-The request body of the Unsubscribe message is identical to the request body of the Subscribe message.
+与订阅消息一致
 
-#### Send Async Message
++ 发送异步事件：
 
-##### Request Header
+**RequestHeader**
 
-The request header of the Send Async message is identical to the request header of the Heartbeat message.
+与心跳消息一致
 
-##### Request Body
+**RequestBody**
 
-|Key|Description|
-|-|-|
-|`topic`|Topic of the message|
-|`content`|The content of the message|
-|`ttl`|The time-to-live of the message|
-|`bizSeqNo`|The biz sequence number of the message|
-|`uniqueId`|The unique ID of the message|
+| Key      | 说明                    |
+| -------- | ----------------------- |
+| topic    | 客户端请求的topic       |
+| content  | 客户端发送的topic的内容 |
+| ttl      | 客户端请求超时时间      |
+| bizSeqNo | 客户端请求业务流水号    |
+| uniqueId | 客户端请求消息唯一标识  |
 
-### Client-Initiated Interaction
+#### 2. Client发起交互
 
-|Scene|Client Request|Server Response|Remark|
-|-|-|-|-|
-| Heartbeat         | HEARTBEAT(203)               | SUCCESS(0) or EVENTMESH_HEARTBEAT_ERROR(19)    |      |
-| Subscribe         | SUBSCRIBE(206)               | SUCCESS(0) or EVENTMESH_SUBSCRIBE_ERROR(17)    |      |
-| Unsubscribe     | UNSUBSCRIBE(207)             | SUCCESS(0) or EVENTMESH_UNSUBSCRIBE_ERROR(18)  |      |
-| Send async message | MSG_SEND_ASYNC(104)          | SUCCESS(0) or EVENTMESH_SEND_ASYNC_MSG_ERR(14) |      |
+| 场景         | Client向Server发送消息请求码 | Server回复Client消息的响应码            | 说明 |
+| ------------ | ---------------------------- | --------------------------------------- | ---- |
+| 心跳         | HEARTBEAT(203)               | SUCCESS(0)/EVENTMESH_HEARTBEAT_ERROR(19)    |      |
+| 订阅         | SUBSCRIBE(206)               | SUCCESS(0)/EVENTMESH_SUBSCRIBE_ERROR(17)    |      |
+| 取消订阅     | UNSUBSCRIBE(207)             | SUCCESS(0)/EVENTMESH_UNSUBSCRIBE_ERROR(18)  |      |
+| 发送异步事件 | MSG_SEND_ASYNC(104)          | SUCCESS(0)/EVENTMESH_SEND_ASYNC_MSG_ERR(14) |      |
 
-### Server-Initiated Interaction
+#### 3. Server发起交互
 
-|Scene|Client Request|Server Response|Remark|
-|-|-|-|-|
-|Push async message to the client|HTTP_PUSH_CLIENT_ASYNC(105)|`retCode`|The push is successful if the `retCode` is `0`|
+| 场景               | Server向Client发送消息请求码 | Client回复Server消息响应码 | 说明                   |
+| ------------------ | ---------------------------- | -------------------------- | ---------------------- |
+| 客户端接收异步事件 | HTTP_PUSH_CLIENT_ASYNC(105)  | retCode                    | retCode值为0时代表成功 |
 
-## gRPC Protocol
+## gRPC 协议文档
 
-### Protobuf
+#### 1. protobuf
 
-The `eventmesh-protocol-gprc` module contains the [protobuf definition file](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-protocol-plugin/eventmesh-protocol-grpc/src/main/proto/eventmesh-client.proto) of the Evenmesh client. The `gradle build` command generates the gRPC codes, which are located in `/build/generated/source/proto/main`. The generated gRPC codes are used in `eventmesh-sdk-java` module.
+在 `eventmesh-protocol-gprc` 模块有 Eventmesh gRPC 客户端的 protobuf 文件. the protobuf 文件路径是 `/src/main/proto/eventmesh-client.proto`.
 
-### Data Model
+用gradle build 生成 gRPC 代码在 `/build/generated/source/proto/main`. 生成代码用于 `eventmesh-sdk-java` 模块.
 
-#### Message
+#### 2. gRPC 数据模型
 
-The message data model used by `publish()`, `requestReply()` and `broadcast()` APIs is defined as:
++ 消息
 
-```protobuf
+以下消息数据模型用于 `publish()`, `requestReply()` 和 `broadcast()` APIs.
+
+```
 message RequestHeader {
     string env = 1;
     string region = 2;
@@ -306,11 +325,11 @@ message Response {
 }
 ```
 
-#### Subscription
++ 订阅
 
-The subscription data model used by `subscribe()` and `unsubscribe()` APIs is defined as:
+以下订阅数据模型用于 `subscribe()` 和 `unsubscribe()` APIs.
 
-```protobuf
+```
 message Subscription {
    RequestHeader header = 1;
    string consumerGroup = 2;
@@ -336,11 +355,11 @@ message Subscription {
 }
 ```
 
-#### Heartbeat
++ 心跳
 
-The heartbeat data model used by the `heartbeat()` API is defined as:
+以下心跳数据模型用于 `heartbeat()` API.
 
-```protobuf
+```
 message Heartbeat {
   enum ClientType {
      PUB = 0;
@@ -361,40 +380,40 @@ message Heartbeat {
 }
 ```
 
-### Service Definition
+#### 3. gRPC 服务接口
 
-#### Event Publisher Service
++ 事件生产端服务 APIs
 
-```protobuf
+```
 service PublisherService {
-   // Async event publish
+   # 异步事件生产
    rpc publish(SimpleMessage) returns (Response);
 
-   // Sync event publish
+   # 同步事件生产
    rpc requestReply(SimpleMessage) returns (Response);
 
-   // Batch event publish
+   # 批量事件生产
    rpc batchPublish(BatchMessage) returns (Response);
 }
 ```
 
-#### Event Consumer Service
++ 事件消费端服务 APIs
 
-```protobuf
+```
 service ConsumerService {
-   // The subscribed event will be delivered by invoking the webhook url in the Subscription
+   # 所消费事件通过 HTTP Webhook推送事件
    rpc subscribe(Subscription) returns (Response);
 
-   // The subscribed event will be delivered through stream of Message
+   # 所消费事件通过 TCP stream推送事件
    rpc subscribeStream(Subscription) returns (stream SimpleMessage);
 
    rpc unsubscribe(Subscription) returns (Response);
 }
 ```
 
-#### Client Hearthbeat Service
++ 客户端心跳服务 API
 
-```protobuf
+```
 service HeartbeatService {
    rpc heartbeat(Heartbeat) returns (Response);
 }

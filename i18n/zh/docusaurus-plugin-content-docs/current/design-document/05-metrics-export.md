@@ -1,47 +1,47 @@
-# EventMesh Metrics (OpenTelemetry and Prometheus)
+# EventMesh 指标（OpenTelemetry 和 Prometheus
 
-## Introduction
+## 介绍
 
-[EventMesh(incubating)](https://github.com/apache/incubator-eventmesh) is a dynamic cloud-native eventing infrastructure.
+[EventMesh(incubating)](https://github.com/apache/incubator-eventmesh) 是一个动态的云原生事件基础设施.
 
-## An overview of OpenTelemetry
+## OpenTelemetry 概述
 
-OpenTelemetry is a collection of tools, APIs, and SDKs. You can use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) for analysis in order to understand your software's performance and behavior.
+OpenTelemetry 是工具、API 和 SDK 的集合。您可以使用它来检测、生成、收集和导出遥测数据（指标、日志和跟踪）以进行分析，以便了解您的软件的性能和行为。
 
-## An overview of  Prometheus
+## 概述 Prometheus
 
-Power your metrics and alerting with a leading open-source monitoring solution.
+使用领先的开源监控解决方案为您的指标和警报提供支持。
 
-- Dimensional data
-- Powerful queries
-- Great visualization
-- Efficient storage
-- Simple operation
-- Precise alerting
-- Many client libraries
-- Many integrations
+- 尺寸数据
+- 强大的查询
+- 伟大的可视化
+- 高效存储
+- 操作简单
+- 精准预警
+- 许多客户端库
+- 许多集成
 
-## Requirements
+## 要求
 
-### Functional Requirements
+### 功能要求
 
 | Requirement ID | Requirement Description                                      | Comments      |
 | :------------- | ------------------------------------------------------------ | ------------- |
 | F-1            | EventMesh users should be able to observe HTTP metrics from Prometheus | Functionality |
 | F-2            | EventMesh users should be able to observe TCP metrics from Prometheus | Functionality |
 
-## Design Details
+## 设计 细节
 
-use the meter instrument provided by OpenTelemetry to observe the metrics exist in EventMesh then export to Prometheus.
+使用由提供的儀表儀器 OpenTelemetry 觀察指標存在於 EventMesh 然後導出到 Prometheus.
 
-1、Initialize a meter instrument
+1、初始化儀表儀器
 
-2、set the Prometheus server
+2、設置 Prometheus 服務器
 
-3、different metrics observer built
+3、创建了不同的指标观察者
 
-## Appendix
+## 附录
 
-### References
+### 参考资料
 
 <https://github.com/open-telemetry/docs-cn/blob/main/QUICKSTART.md#%E5%88%9B%E5%BB%BA%E5%9F%BA%E7%A1%80Span>
