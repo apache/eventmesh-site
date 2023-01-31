@@ -1,3 +1,8 @@
+---
+title: How to Release
+sidebar_position: 3
+---
+
 # Apache publish guide
 
 
