@@ -69,7 +69,7 @@ module.exports = {
         {
           type: 'doc',
           docsPluginId: 'community',
-          docId: 'contribute',
+          docId: 'how-to-subscribe',
           position: 'left',
           label: 'Community',
         },
