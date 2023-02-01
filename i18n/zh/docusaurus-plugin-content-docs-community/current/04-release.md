@@ -1,6 +1,5 @@
 # Apache 发布指南
 
-
 ## 理解 Apache 发布的内容和流程
 
 Source Release 是 Apache 关注的重点，也是发布的必须内容；而 Binary Release 是可选项，
@@ -10,7 +9,6 @@ Source Release 是 Apache 关注的重点，也是发布的必须内容；而 Bi
 - [Apache Release Guide](http://www.apache.org/dev/release-publishing)
 - [Apache Release Policy](http://www.apache.org/dev/release.html)
 - [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
-
 
 ## 本地构建环境准备
 
