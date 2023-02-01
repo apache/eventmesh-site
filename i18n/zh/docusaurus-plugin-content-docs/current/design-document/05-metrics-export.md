@@ -25,18 +25,18 @@ OpenTelemetry 是工具、API 和 SDK 的集合。您可以使用它来检测、
 
 ### 功能要求
 
-| Requirement ID | Requirement Description                                      | Comments      |
-| :------------- | ------------------------------------------------------------ | ------------- |
-| F-1            | EventMesh users should be able to observe HTTP metrics from Prometheus | Functionality |
-| F-2            | EventMesh users should be able to observe TCP metrics from Prometheus | Functionality |
+| 需求 ID | 需求描述                                              | 说明 |
+| :------ | ----------------------------------------------------- | ---- |
+| F-1     | EventMesh的用户应该能够从Prometheus观察到HTTP监控指标 | 功能 |
+| F-2     | EventMesh的用户应该能够从Prometheus观察到TCP监控指标  | 功能 |
 
 ## 设计 细节
 
-使用由提供的儀表儀器 OpenTelemetry 觀察指標存在於 EventMesh 然後導出到 Prometheus.
+使用由提供的仪表仪器 OpenTelemetry 观察指标存在於 EventMesh 然后导出到 Prometheus.
 
-1、初始化儀表儀器
+1、初始化仪表仪器
 
-2、設置 Prometheus 服務器
+2、设置 Prometheus 服务器
 
 3、创建了不同的指标观察者
 
