@@ -1,6 +1,6 @@
-# gRPC Protocol
+# gRPC 协议
 
-EventMesh SDK for Java implements the gRPC producer and consumer of synchronous, asynchronous, and broadcast messages. Both the producer and consumer require an instance of `EventMeshGrpcClientConfig` class that specifies the configuration of EventMesh gRPC client. The `liteEventMeshAddr`, `userName`, and `password` fields should match the `eventmesh.properties` file of EventMesh runtime.
+EventMesh Java SDK 实现了 gRPC 同步、异步和广播消息的生产者和消费者。二者都需要一个 `EventMeshHttpClientConfig` 类实例来指定 EventMesh gRPC 客户端的配置信息。其中的 `liteEventMeshAddr`、`userName` 和 `password` 字段需要和 EventMesh runtime `eventmesh.properties` 文件中的相匹配。
 
 ```java
 import org.apache.eventmesh.client.grpc.config.EventMeshGrpcClientConfig;
@@ -20,11 +20,11 @@ public class CloudEventsAsyncSubscribe implements ReceiveMsgHook<CloudEvent> {
 }
 ```
 
-## gRPC Consumer
+## gRPC 消费者
 
-### Stream Consumer
+### 流消费者
 
-The EventMesh runtime sends the message from producers to the stream consumer as a series of event streams. The consumer should implement the `ReceiveMsgHook` class, which is defined in [`ReceiveMsgHook.java`](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/grpc/consumer/ReceiveMsgHook.java).
+EventMesh runtime 会将来自生产者的信息作为一系列事件流向流消费者发送。消费者应实现 `ReceiveHook` 类，其被定义在 [ReceiveMsgHook.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/grpc/consumer/ReceiveMsgHook.java)。
 
 ```java
 public interface ReceiveMsgHook<T> {
@@ -33,7 +33,7 @@ public interface ReceiveMsgHook<T> {
 }
 ```
 
-The `EventMeshGrpcConsumer` class implements the `registerListener`, `subscribe`, and `unsubscribe` methods. The `subscribe` method accepts a list of `SubscriptionItem` that defines the topics to be subscribed to. The `registerListener` accepts an instance of a class that implements the `ReceiveMsgHook`. The `handle` method will be invoked when the consumer receives a message from the topic it subscribes. If the `SubscriptionType` is `SYNC`, the return value of `handle` will be sent back to the producer.
+类 `EventMeshGrpcConsumer` 实现了 `registerListener`、`subscribe` 和 `unsubscribe` 方法。`subscribe` 方法接收一个 `SubscriptionItem` 对象的列表，其中定义了要订阅的话题。`registerListener` 接收一个实现了 `ReceiveMsgHook` 的实例。`handle` 方法将会在消费者收到订阅的主题消息时被调用。如果 `SubscriptionType` 是 `SYNC`，`handle` 的返回值将被发送回生产者。
 
 ```java
 import org.apache.eventmesh.client.grpc.consumer.EventMeshGrpcConsumer;
@@ -75,9 +75,9 @@ public class CloudEventsAsyncSubscribe implements ReceiveMsgHook<CloudEvent> {
 }
 ```
 
-### Webhook Consumer
+### Webhook 消费者
 
-The `subscribe` method of the `EventMeshGrpcConsumer` class accepts a list of `SubscriptionItem` that defines the topics to be subscribed and an optional callback URL. If the callback URL is provided, the EventMesh runtime will send a POST request that contains the message in the [CloudEvents format](https://github.com/cloudevents/spec) to the callback URL. The [`SubController.java` file](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/grpc/sub/app/controller/SubController.java) implements a Spring Boot controller that receives and parses the callback messages.
+类 `EventMeshGrpcConsumer` 的 `subscribe` 方法接收一个 `SubscriptionItem` 对象的列表，其中定义了要订阅的主题和一个可选的 timeout 值。如果提供了回调 URL，EventMesh runtime 将向回调 URL 地址发送一个包含 [CloudEvents 格式](https://github.com/cloudevents/spec) 消息的 POST 请求。[SubController.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/grpc/sub/app/controller/SubController.java) 实现了一个接收并解析回调信息的 Spring Boot controller。
 
 ```java
 import org.apache.eventmesh.client.grpc.consumer.EventMeshGrpcConsumer;
@@ -109,11 +109,11 @@ public class SubService implements InitializingBean {
 }
 ```
 
-## gRPC Producer
+## gRPC 生产者
 
-### Asynchronous Producer
+### 异步生产者
 
-The `EventMeshGrpcProducer` class implements the `publish` method. The `publish` method accepts the message to be published and an optional timeout value. The message should be an instance of either of these classes:
+类 `EventMeshGrpcProducer` 实现了 `publish` 方法。`publish` 方法接收将被发布的消息和一个可选的 timeout 值。消息应是下列类的一个实例：
 
 - `org.apache.eventmesh.common.EventMeshMessage`
 - `io.cloudevents.CloudEvent`
@@ -138,16 +138,16 @@ CloudEvent event = CloudEventBuilder.v1()
 eventMeshGrpcProducer.publish(event);
 ```
 
-### Synchronous Producer
+### 同步生产者
 
-The `EventMeshGrpcProducer` class implements the `requestReply` method. The `requestReply` method accepts the message to be published and an optional timeout value. The method returns the message returned from the consumer. The message should be an instance of either of these classes:
+类 `EventMeshGrpcProducer` 实现了 `requestReply` 方法。`requestReply` 方法接收将被发布的消息和一个可选的 timeout 值。方法会返回消费者返回的消息。消息应是下列类的一个实例：
 
 - `org.apache.eventmesh.common.EventMeshMessage`
 - `io.cloudevents.CloudEvent`
 
-### Batch Producer
+### 批量生产者
 
-The `EventMeshGrpcProducer` class overloads the `publish` method, which accepts a list of messages to be published and an optional timeout value. The messages in the list should be an instance of either of these classes:
+类 `EventMeshGrpcProducer` 重写了 `publish` 方法，该方法接收一个将被发布的消息列表和一个可选的 timeout 值。列表中的消息应是下列类的一个实例：
 
 - `org.apache.eventmesh.common.EventMeshMessage`
 - `io.cloudevents.CloudEvent`

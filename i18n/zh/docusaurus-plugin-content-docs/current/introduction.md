@@ -1,46 +1,49 @@
----
-sidebar_position: 0
----
+# Apache EventMesh (Incubating)
 
-# Introduction to EventMesh
+[![CI status](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml/badge.svg)](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml)
+[![CodeCov](https://codecov.io/gh/apache/incubator-eventmesh/branch/develop/graph/badge.svg)](https://codecov.io/gh/apache/incubator-eventmesh)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/apache/incubator-eventmesh.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/apache/incubator-eventmesh/context:java)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/apache/incubator-eventmesh.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/apache/incubator-eventmesh/alerts/)
+[![GitHub release](https://img.shields.io/badge/release-download-orange.svg)](https://github.com/apache/incubator-eventmesh/releases)
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-[![CI status](https://img.shields.io/github/workflow/status/apache/incubator-eventmesh/Continuous%20Integration?logo=github&style=for-the-badge)](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml)
-[![CodeCov](https://img.shields.io/codecov/c/gh/apache/incubator-eventmesh/master?logo=codecov&style=for-the-badge)](https://codecov.io/gh/apache/incubator-eventmesh)
-[![Code Quality: Java](https://img.shields.io/lgtm/grade/java/g/apache/incubator-eventmesh.svg?logo=lgtm&logoWidth=18&style=for-the-badge)](https://lgtm.com/projects/g/apache/incubator-eventmesh/context:java)
-[![Total Alerts](https://img.shields.io/lgtm/alerts/g/apache/incubator-eventmesh.svg?logo=lgtm&logoWidth=18&style=for-the-badge)](https://lgtm.com/projects/g/apache/incubator-eventmesh/alerts/)
-[![License](https://img.shields.io/github/license/apache/incubator-eventmesh?style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![GitHub Release](https://img.shields.io/github/v/release/apache/eventmesh?style=for-the-badge)](https://github.com/apache/incubator-eventmesh/releases)
-[![Slack Status](https://img.shields.io/badge/slack-join_chat-blue.svg?logo=slack&style=for-the-badge)](https://join.slack.com/t/apacheeventmesh/shared_invite/zt-16y1n77va-q~JepYy3RqpkygDYmQaQbw)
+## 什么是Event Mesh？
 
-**Apache EventMesh (Incubating)** is a dynamic event-driven application runtime used to decouple the application and backend middleware layer, which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
+EventMesh是一个动态的云原生事件驱动架构基础设施，用于分离应用程序和后端中间件层，它支持广泛的用例，包括复杂的混合云、使用了不同技术栈的分布式架构。
 
-## What is EventMesh
+![architecture1](../images/eventmesh-define.png)
 
-[EventMesh](https://solace.com/what-is-an-event-mesh) is an architecture layer that provides dynamic distribution of events, thus event consumers could receive events from any event producer, no matter where the producer and consumer are attached to the mesh, without the need for configuration of event routing. It is enabled by a network of interconnected [event brokers](https://solace.com/what-is-an-event-broker/) and bridges applications and services in an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture).
+**EventMesh架构：**
 
-## Features
+![architecture1](../images/eventmesh-runtime.png)
 
-- **Communication Protocol**: EventMesh could communicate with clients with TCP, HTTP, or gRPC.
-- **CloudEvents**: EventMesh supports the [CloudEvents](https://cloudevents.io) specification as the format of the events. CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms, and systems.
-- **Schema Registry**: EventMesh implements a schema registry that receives and stores schemas from clients and provides an interface for other clients to retrieve schemas.
-- **Observability**: EventMesh exposed a range of metrics, such as the average latency of the HTTP protocol and the number of delivered messages. The metrics could be collected and analyzed with Prometheus or OpenTelemetry.
-- **Event Workflow Orchestration**: EventMesh Workflow could receive an event and decide which command to trigger next based on the workflow definitions and the current workflow state. The workflow definition could be written with the [Serverless Workflow](https://serverlessworkflow.io) DSL.
+**EventMesh云原生结构：**
 
-## Components
+![architecture2](../images/eventmesh-panels.png)
 
-Apache EventMesh (Incubating) consists of multiple components that integrate different middlewares and messaging protocols to enhance the functionalities of the application runtime.
+Event Mesh允许将来自一个应用程序的事件动态路由到任何其他应用程序. Event Mesh的一般功能:
 
-- **eventmesh-runtime**: The middleware that transmits events between producers and consumers, which supports cloud-native apps and microservices.
-- **eventmesh-sdk-java**: The Java SDK that supports HTTP, HTTPS, TCP, and [gRPC](https://grpc.io) protocols.
-- **eventmesh-connector-plugin**: The collection of plugins that connects middlewares such as [Apache Kafka](https://kafka.apache.org), [Apache RocketMQ](https://rocketmq.apache.org), [Apache Pulsar](https://pulsar.apache.org/), and [Redis](https://redis.io).
-- **eventmesh-registry-plugin**: The collection of plugins that integrate service registries such as [Nacos](https://nacos.io) and [etcd](https://etcd.io).
-- **eventmesh-security-plugin**: The collection of plugins that implement security mechanisms, such as ACL (access control list), authentication, and authorization.
-- **eventmesh-protocol-plugin**: The collection of plugins that implement messaging protocols, such as [CloudEvents](https://cloudevents.io) and [MQTT](https://mqtt.org).
-- **eventmesh-admin**: The control plane that manages clients, topics, and subscriptions.
+* 事件驱动;
+* 事件治理;
+* 动态路由;
+* 云原生
 
-## Contributors
+部件：
 
-Each contributor has played an important role in promoting the robust development of Apache EventMesh (Incubating). We sincerely appreciate all contributors who have contributed code and documents. The following is the list of contributors in EventMesh-related repositories.
+* eventmesh-runtime：一种中间件，用于在事件生产者和消费者之间传输事件，支持云原生应用程序和微服务
+* eventmesh-sdk-java：当前支持HTTP、HHTTP、TCP和 [gRPC](https://grpc.io) 协议
 
-- [apache/incubator-eventmesh](https://github.com/apache/incubator-eventmesh/graphs/contributors)
-- [apache/incubator-eventmesh-site](https://github.com/apache/incubator-eventmesh-site/graphs/contributors)
+
+## 快速开始
+
+1. 构建并部署 event-store(RocketMQ), 请参见[说明](instruction/01-store.md)
+2. 构建并部署 eventmesh-runtime，请参见[说明](instruction/02-runtime.md)
+3. 运行 eventmesh-sdk-java 演示，请参见[说明](instruction/03-demo.md)
+
+## 贡献
+
+永远欢迎参与共建, 请参阅[贡献](../../03-new-contributor-guidelines.md)了解详细指南
+
+您可以从发现和解决问题开始～
+[GitHub Issues](https://github.com/apache/incubator-eventmesh/issues)
+
