@@ -17,15 +17,15 @@ sidebar_position: 2
 
 #### 3. Click on settings
 
-![gmail-setting](../images/email/gmail-setting.png)
+![gmail-setting](/images/email/gmail-setting.png)
 
 #### 4. Find your Apache email[#](https://shenyu.apache.org/community/use-apache-email/#4-find-your-apache-email)
 
 You should have an email from `root@apache.org` like this in your mailbox:
 
-- Titled `Welcome to the Apache Software Foundation`
+* Titled `Welcome to the Apache Software Foundation`
 
-- The content is as follows
+* The content is as follows
 
   ```text
   Dear YYYY,
@@ -34,17 +34,17 @@ You should have an email from `root@apache.org` like this in your mailbox:
   ......
   ```
 
-- Your Apache email is `xxxx@apache.org`
+* Your Apache email is `xxxx@apache.org`
 
 #### 5. Add Apache email
 
-- Login to [id.apache.org](https://id.apache.org/), config the forwarding email
+* Login to [id.apache.org](https://id.apache.org/), config the forwarding email
 
-![forwarding-email](../images/email/forwarding-email.png)
+![forwarding-email](/images/email/forwarding-email.png)
 
-- add the apache email to the Gmail settings
+* add the apache email to the Gmail settings
 
-![add-apache-email](../images/email/add-apache-email.png)
+![add-apache-email](/images/email/add-apache-email.png)
 
 > Before the config is set, the Gmail mailbox is used to send by default, and the apache mailbox can be added as the default sending email mailbox. This process requires related configuration and email confirmation verification.
 
@@ -57,38 +57,38 @@ You should have an email from `root@apache.org` like this in your mailbox:
 
 #### 2. Set your Apache email forward address
 
-![forwarding-email-2](../images/email/forwarding-email.png)
+![forwarding-email-2](/images/email/forwarding-email.png)
 
 after set this step, you can receive your apache email
 
 #### 3. Settings for 126 email
 
-![](../images/email/126email-settings.png)
+![](/images/email/126email-settings.png)
 
 1. choose settings
 2. add email sender
 3. write your apache email information and next step
 
-![](../images/email/126email-settings-2.png)
+![](/images/email/126email-settings-2.png)
 
 4. choose next step
 
-![](../images/email/126-default-sender.png)
+![](/images/email/126-default-sender.png)
 
 5. set apache email as default sender
 
 #### 4. Send email
 
-![](../images/email/126-send-email.png)
+![](/images/email/126-send-email.png)
 
 you can choose your email sender
 
 ## Appendix
 
-- **QQ mailbox switch to plain text format**
+* **QQ mailbox switch to plain text format**
 
 ![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
 
-- **Email configuration reply default subject keywords** Chinese `Reply: `There will be problems ![Email reply](../images/email/email-reply.png)
+* **Email configuration reply default subject keywords** Chinese `Reply:`There will be problems ![Email reply](/images/email/email-reply.png)
 
-- **Modify general mailbox settings** ![mailbox-settings](../images/email/mailbox-settings.png)
+* **Modify general mailbox settings** ![mailbox-settings](/images/email/mailbox-settings.png)

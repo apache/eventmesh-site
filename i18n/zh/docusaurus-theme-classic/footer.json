@@ -13,11 +13,11 @@
   },
   "link.item.label.Documentation": {
     "message": "文档",
-    "description": "The label of footer link with label=Documentation linking to /docs"
+    "description": "The label of footer link with label=Documentation linking to /docs/introduction"
   },
   "link.item.label.Events": {
     "message": "动态",
-    "description": "The label of footer link with label=Events linking to /events"
+    "description": "The label of footer link with label=Events linking to https://www.apache.org/events/current-event"
   },
   "link.item.label.Releases": {
     "message": "更新日志",
@@ -41,7 +41,7 @@
   },
   "link.item.label.License": {
     "message": "License",
-    "description": "The label of footer link with label=License linking to https://www.apache.org/licenses/LICENSE-2.0"
+    "description": "The label of footer link with label=License linking to https://www.apache.org/licenses/"
   },
   "link.item.label.Sponsorship": {
     "message": "Sponsorship",
@@ -54,5 +54,13 @@
   "copyright": {
     "message": "\n        Copyright © 2021 The Apache Software Foundation.\n        Apache EventMesh, Apache Incubator, EventMesh, Apache, the Apache feather logo,\n        the Apache EventMesh logo and the Apache Incubator project logo\n        are trademarks of The Apache Software Foundation.\n      ",
     "description": "The footer copyright"
+  },
+  "link.item.label.Security": {
+    "message": "Security",
+    "description": "The label of footer link with label=Security linking to https://www.apache.org/security/"
+  },
+  "link.item.label.Privacy": {
+    "message": "Privacy",
+    "description": "The label of footer link with label=Privacy linking to https://privacy.apache.org/policies/privacy-policy-public.html"
   }
 }

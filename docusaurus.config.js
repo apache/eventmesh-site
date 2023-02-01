@@ -21,7 +21,7 @@ const reverseSidebarItems = (items) => {
 module.exports = {
   title: 'Apache EventMesh',
   tagline: `
-    EventMesh is a fully serverless platform used to build distributed event-driven applications. 
+    EventMesh is a fully serverless platform used to build distributed event-driven applications.
   `,
   url: 'https://eventmesh.apache.org',
   baseUrl: '/',
@@ -74,9 +74,7 @@ module.exports = {
           label: 'Community',
         },
         {
-          type: 'doc',
-          docsPluginId: 'team',
-          docId: 'member',
+          to: '/team',
           position: 'left',
           label: 'Team',
         },
@@ -226,15 +224,6 @@ module.exports = {
           const sidebarItems = await defaultSidebarItemsGenerator(args);
           return reverseSidebarItems(sidebarItems);
         },
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'team',
-        path: 'team',
-        routeBasePath: 'team',
-        sidebarPath: require.resolve('./sidebars/team.js'),
       },
     ],
     [

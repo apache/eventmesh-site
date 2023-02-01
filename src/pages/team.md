@@ -1,6 +1,5 @@
 # Team Member
 
-
 The Apache EventMesh (Incubating) is developed by our PPMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
 
 ## PPMCs and Committers
@@ -54,9 +53,4 @@ Please refer to the following links, if you also want to make your contribution 
 
 Here is the [List of Contributors](https://github.com/apache/incubator-eventmesh/graphs/contributors), thank you all!
 
-<a href="https://github.com/apache/incubator-eventmesh/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=apache/incubator-eventmesh" />
-</a>
-
-
-
+[![Contributor](https://contrib.rocks/image?repo=apache/incubator-eventmesh)](https://github.com/apache/incubator-eventmesh/graphs/contributors)

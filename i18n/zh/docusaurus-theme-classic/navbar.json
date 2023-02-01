@@ -18,5 +18,13 @@
   "item.label.Events": {
     "message": "动态",
     "description": "Navbar item with label Events"
+  },
+  "item.label.Community": {
+    "message": "社区",
+    "description": "Navbar item with label Community"
+  },
+  "item.label.Team": {
+    "message": "团队",
+    "description": "Navbar item with label Team"
   }
 }
