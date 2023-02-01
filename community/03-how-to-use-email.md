@@ -1,6 +1,6 @@
 ---
 title: How to Use Email
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # How to Use Email

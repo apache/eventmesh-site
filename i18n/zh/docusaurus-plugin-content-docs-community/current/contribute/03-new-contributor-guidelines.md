@@ -1,3 +1,7 @@
+---
+title: 如何成为EventMesh的贡献者(Contributor)
+sidebar_position: 2
+---
 
 # 如何成为EventMesh的贡献者(Contributor)
 

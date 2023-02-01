@@ -1,6 +1,6 @@
 ---
 title: 如何使用邮件列表
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # 如何使用邮件列表
