@@ -50,4 +50,4 @@ For existing issues, if you are interested, you can reply and discuss as much as
 
 ## 4. Mail usage 
 
-Please refer to [How to use the mailing list](./how-to-email.md) for email specifications and tips
+Please refer to [How to use the mailing list](./how-to-use-email.md) for email specifications and tips
