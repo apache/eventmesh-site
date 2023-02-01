@@ -22,5 +22,5 @@ It is a member project of the [CNCF Serverless Working Group](https://github.com
 
 ## Open-source workflow runtimes
 <p align="center">
-<a href="https://serverlessworkflow.io" target="_blank"><img src="../images/serverlessworkflow-official.png" width="700px" alt="Serverlessworkflow"/></a>
+<a href="https://serverlessworkflow.io" target="_blank"><img src="/images/serverlessworkflow-official.png" width="700px" alt="Serverlessworkflow"/></a>
 </p>

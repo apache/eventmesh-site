@@ -1,3 +1,8 @@
+---
+title: Apache 发布指南
+sidebar_position: 3
+---
+
 # Apache 发布指南
 
 ## 理解 Apache 发布的内容和流程

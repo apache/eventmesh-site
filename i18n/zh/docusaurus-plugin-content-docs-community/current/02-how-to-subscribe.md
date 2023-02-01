@@ -1,5 +1,5 @@
 ---
-title: How to Subscribe
+title: 如何订阅
 sidebar_position: 1
 ---
 

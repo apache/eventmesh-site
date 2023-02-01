@@ -19,7 +19,7 @@ sidebar_position: 2
 
 ![gmail-setting](/images/email/gmail-setting.png)
 
-#### 4. Find your Apache email[#](https://shenyu.apache.org/community/use-apache-email/#4-find-your-apache-email)
+#### 4. Find your Apache email
 
 You should have an email from `root@apache.org` like this in your mailbox:
 

@@ -1,5 +1,5 @@
 ---
-title: How to Contribute
+title: 如何贡献
 sidebar_position: 0
 ---
 
