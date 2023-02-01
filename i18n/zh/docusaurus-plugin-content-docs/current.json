@@ -11,10 +11,6 @@
     "message": "EventMesh SDK for Java",
     "description": "The label for category EventMesh SDK for Java in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Contribute": {
-    "message": "贡献指南",
-    "description": "The label for category Contribute in sidebar tutorialSidebar"
-  },
   "sidebar.tutorialSidebar.category.Design Document": {
     "message": "设计文档",
     "description": "The label for category Design Document in sidebar tutorialSidebar"
