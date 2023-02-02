@@ -24,21 +24,20 @@ Apache 为每个项目配置了一系列邮件列表。邮件列表是 Apache �
 
 步骤如下：
 
-  1.发送一封没有任何内容和主题的邮件：`dev-subscribe@eventmesh.apache.org`
-  2. 等到收到一封主题为`确认订阅dev@eventmesh.apache.org`的邮件（如果长时间没有收到，请确认邮件是否被您的邮箱屏蔽，如果有未被屏蔽，长时间会收到回复，返回步骤1）
-  3. 直接回复电子邮件，不更改主题行或添加电子邮件内容。
-  4. 等到您收到一封主题为“WELCOME to dev@eventmesh.apache.org”的电子邮件。
-  5. 如果您收到来自（4）的邮件，则您已成功订阅该邮件。要发起讨论，您可以直接发送电子邮件至 `dev@eventmesh.apache.org`，这将发送给订阅邮件列表的每个人。
+1. 发送一封没有任何内容和主题的邮件：`dev-subscribe@eventmesh.apache.org`
+2. 等到收到一封主题为`确认订阅dev@eventmesh.apache.org`的邮件（如果长时间没有收到，请确认邮件是否被您的邮箱屏蔽，如果有未被屏蔽，长时间会收到回复，返回步骤1）
+3. 直接回复电子邮件，不更改主题行或添加电子邮件内容。
+4. 等到您收到一封主题为“WELCOME to dev@eventmesh.apache.org”的电子邮件。
+5. 如果您收到来自（4）的邮件，则您已成功订阅该邮件。要发起讨论，您可以直接发送电子邮件至 `dev@eventmesh.apache.org`，这将发送给订阅邮件列表的每个人。
 
 ## 2.退订邮件列表
 
 退订邮件列表的步骤与订阅邮件列表的步骤类似：
-
-1.发送一封没有任何内容或主题的电子邮件：`dev-unsubscribe@eventmesh.apache.org`
+1. 发送一封没有任何内容或主题的电子邮件：`dev-unsubscribe@eventmesh.apache.org`
 2. 等到您收到一封主题为“确认从 dev@eventmesh.apache.org 取消订阅”的电子邮件
-3.直接回复邮件，无需更改主题行或添加邮件内容
+3. 直接回复邮件，无需更改主题行或添加邮件内容
 4. 等到您收到一封主题为“来自 dev@eventmesh.apache.org 的 GOODBYE”的电子邮件
-5.退订成功
+5. 退订成功
 
 ## 3. 相关问题
 
