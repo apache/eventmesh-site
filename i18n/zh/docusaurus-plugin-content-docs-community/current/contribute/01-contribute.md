@@ -84,7 +84,7 @@ git rebase upstream_develop
 
 ### 文档改进
 
-- 您可以在 [evenmesh-docs](https://github.com/apache/incubator-eventmesh/tree/master/docs) 找到 eventmesh 文档，文档内容的补充和提升对EventMesh也很重要。
+- 您可以在 [eventmesh-docs](https://github.com/apache/incubator-eventmesh/tree/master/docs) 找到 eventmesh 文档，文档内容的补充和提升对EventMesh也很重要。
 
 ## 贡献方式
 
