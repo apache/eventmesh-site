@@ -48,8 +48,8 @@ git checkout -b fix_patch_xx
 4. 保持分支同步
 ```git
 git remote add upstream git@github.com:apache/incubator-eventmesh.git
-git fetch upstream develop:upstream_develop
-git rebase upstream_develop
+git fetch upstream master:upstream_master
+git rebase upstream_master
 ```
 
 5. 提交您的更改（确保您的提交信息简洁）
@@ -84,7 +84,7 @@ git rebase upstream_develop
 
 ### 文档改进
 
-- 您可以在 [evenmesh-docs](https://github.com/apache/incubator-eventmesh/tree/master/docs) 找到 eventmesh 文档，文档内容的补充和提升对EventMesh也很重要。
+- 您可以在 [eventmesh-docs](https://github.com/apache/incubator-eventmesh/tree/master/docs) 找到 eventmesh 文档，文档内容的补充和提升对EventMesh也很重要。
 
 ## 贡献方式
 
