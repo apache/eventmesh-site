@@ -15,8 +15,9 @@ As long as you subscribe to this mailing list, you can get the latest developmen
 
 |Name|Description|Subscribe|Unsubscribe|Archive|
 |:-----|:--------|:------|:-------|:-----|
-| [dev@eventmesh.apache.org](mailto:dev@eventmesh.apache.org) | community activity information | [subscribe](mailto:dev-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:dev-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-dev) |
-| [commits@eventmesh.apache.org](mailto:commits@eventmesh.apache.org) | Code repo update information | [subscribe](mailto:commits-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:commits-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-commits) |
+| [users@eventmesh.apache.org](mailto:users@eventmesh.apache.org) | User discussion | [subscribe](mailto:users-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:users-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-users) |
+| [dev@eventmesh.apache.org](mailto:dev@eventmesh.apache.org) | Development discussion (Design Documents, Issues, etc.) | [subscribe](mailto:dev-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:dev-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-dev) |
+| [commits@eventmesh.apache.org](mailto:commits@eventmesh.apache.org) | Commits to related repositories | [subscribe](mailto:commits-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:commits-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-commits) |
 
 
 
