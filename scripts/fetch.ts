@@ -3,7 +3,7 @@ import path from 'path';
 import simpleGit from 'simple-git';
 
 const rewriteMarkdown = (file: string) => {
-  const content = fs.readFileSync(file, 'utf-8');
+  const content = fs.readFileSync(file, 'utf-8').replace(/]\(.*images\//g, '](/images/');
   fs.writeFileSync(file, content, 'utf-8');
 };
 
