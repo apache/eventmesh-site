@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Apache EventMesh (Incubating)
 
 [![CI status](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml/badge.svg)](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml)
@@ -26,7 +22,6 @@ Event Mesh允许将来自一个应用程序的事件动态路由到任何其他�
 
 * eventmesh-runtime：一种中间件，用于在事件生产者和消费者之间传输事件，支持云原生应用程序和微服务
 * eventmesh-sdk-java：当前支持HTTP、HHTTP、TCP和 [gRPC](https://grpc.io) 协议
-
 
 ## 快速开始
 
