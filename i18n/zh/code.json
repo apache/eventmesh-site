@@ -392,5 +392,13 @@
   "theme.SearchModal.placeholder": {
     "message": "搜索文档",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
+  },
+  "eventmesh_intro": {
+    "message": "EventMesh是一个完全serverless平台用于构建分布式事件驱动应用程序",
+    "description": "Introduction to the EventMesh project."
+  },
+  "eventmesh_quick_start": {
+    "message": "快速开始",
+    "description": "Introduction to the EventMesh project."
   }
 }
