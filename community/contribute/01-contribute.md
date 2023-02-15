@@ -15,7 +15,19 @@ If you are a new contributor who wants to contribute to the eventmesh community,
 
 ### Code Style
 
-Import [EventMesh CheckStyle](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml) file to your IDEA.
+#### Import Code Style
+
+File location: Import the [`eventmesh-code-style.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/eventmesh-code-style.xml) file located in the `incubator-eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
+
+```
+Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
+```
+
+![import code style](../../images/contribute/import-codestyle.png)
+
+#### Import Check Style
+
+File location: Import the [`checkStyle.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml)file located in the `incubator-eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
 
 For IDEA, you can import check style file by:
 ```shell
