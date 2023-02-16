@@ -12,11 +12,11 @@ If you choose standalone mode, you could skip this file and go to the next step:
 
 ## Download
 
-Download the Binary code (recommended: 4.9.*) from [RocketMQ Official](https://rocketmq.apache.org/dowloading/releases/). Here we take 4.9.2 as an example.
+Download the Binary code (recommended: 4.9.*) from [RocketMQ Official](https://rocketmq.apache.org/download/). Here we take 4.9.4 as an example.
 
 ```
-unzip rocketmq-all-4.9.2-bin-release.zip
-cd rocketmq-4.9.2/
+unzip rocketmq-all-4.9.4-bin-release.zip
+cd rocketmq-4.9.4/
 ```
 
 ## Deploy
