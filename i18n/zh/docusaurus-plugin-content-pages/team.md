@@ -1,10 +1,10 @@
-# Team Member
+# 团队成员
 
-The Apache EventMesh (Incubating) is developed by our PPMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
+Apache EventMesh (Incubating) 由我们的 PPMC、Committer 和其他贡献者开发。无论是对于琐碎的清理，大的新功能，还是其他具有实际价值的贡献，我们都非常感激对 EventMesh 的所有贡献。
 
-## PPMCs and Committers
+## PPMCs & Committers
 
-The following is a list of contributors with commit privileges that have made great contribution to EventMesh in one way or another.
+以下是一份具有提交权限并在各种方式上为 EventMesh 做出了巨大贡献的贡献者列表。
 
 |Name| Github Id                                      | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:-----------------------------------------------|:---|:---|:--|
@@ -42,15 +42,15 @@ The following is a list of contributors with commit privileges that have made gr
 |Yongshe Feng| [@fengyongshe](https://github.com/fengyongshe)         |fengyongshe@apache.org |Committer| +8 |
 |Mark Li| [@Markliniubility](https://github.com/Markliniubility)         |markli@apache.org |Committer| +8 |
 
-## All Contributors
+## 所有贡献者
 
-Each contributor has played an important role in promoting the robust development of EventMesh. We sincerely appreciate all contributors who have contributed code and documents!
+每位贡献者都在推动 EventMesh 的稳健发展中扮演着重要角色。我们真诚地感谢所有为代码和文档做出贡献的贡献者！
 
-Please refer to the following links, if you also want to make your contribution to EventMesh. Look forward to your participation :)
+如果您也希望为 EventMesh 做出贡献，请参考以下链接。期待您的参与 :)
 
-- [Contributing Guideline](https://github.com/apache/incubator-eventmesh/blob/master/docs/en/contribute/03-new-contributor-guidelines.md)
+- [贡献指南](https://eventmesh.apache.org/zh/community/contribute/contribute)
 - [Good First Issues](https://github.com/apache/incubator-eventmesh/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
-Here is the [List of Contributors](https://github.com/apache/incubator-eventmesh/graphs/contributors), thank you all!
+以下是 [贡献者列表](https://github.com/apache/incubator-eventmesh/graphs/contributors), 感谢大家的贡献！
 
 [![Contributor](https://contrib.rocks/image?repo=apache/incubator-eventmesh)](https://github.com/apache/incubator-eventmesh/graphs/contributors)
