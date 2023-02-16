@@ -15,12 +15,24 @@ sidebar_position: 0
 
 ### 代码风格
 
-将 [EventMesh CheckStyle](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml) 文件导入您的 IDEA。
+#### 导入Code Style
+
+文件位置：源码 `incubator-eventmesh/style`目录下面的 [`eventmesh-code-style.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/eventmesh-code-style.xml) 文件导入 **`IntelliJ IDEA`**。
+
+```
+Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
+```
+
+![import code style](../../../../../images/contribute/import-codestyle.png)
+
+#### 导入Check Style
+
+文件位置：源码源码 `incubator-eventmesh/style`目录下面的 [`checkStyle.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml)文件导入您的  **`IntelliJ  IDEA`**。
 
 对于 IDEA，您可以通过以下方式导入检查样式文件：
 
 ```shell
-    Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configuration
+Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configuration
 ```
 
 如果在Import Scheme下看不到CheckStyle Configuration部分，可以先安装CheckStyle-IDEA插件，就可以看到了。
