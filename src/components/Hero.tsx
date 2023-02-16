@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './Hero.module.css';
 import ArchitectureImg from '../../static/images/eventmesh-architecture-2.png';
+import Translate, {translate} from '@docusaurus/Translate';
 
 const Hero = (): JSX.Element => {
   const { siteConfig } = useDocusaurusContext();
@@ -20,7 +21,7 @@ const Hero = (): JSX.Element => {
             </h2>
 
             <p className={styles.description}>
-              {siteConfig.tagline}
+              <Translate id="eventmesh_intro">{siteConfig.tagline}</Translate>
             </p>
 
             <div className={styles.buttons}>
@@ -28,7 +29,7 @@ const Hero = (): JSX.Element => {
                 className="button button--primary button--lg"
                 to="/docs/introduction"
               >
-                Get Started
+                <Translate id="eventmesh_quick_start">Get Started</Translate>
               </Link>
 
               <Link
