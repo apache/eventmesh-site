@@ -4,7 +4,7 @@
         <title>Apache EventMesh Blog</title>
         <link>https://eventmesh.apache.org/zh/blog</link>
         <description>Apache EventMesh Blog</description>
-        <lastBuildDate>Mon, 06 Mar 2023 11:46:38 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Mar 2023 11:46:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[CNCF Serverlessworkflow offical recommends EventMesh as runtime impl]]></title>
             <link>https://eventmesh.apache.org/zh/blog/cncf-serverlessworkflow-official-recommends-eventmesh-as-runtime-impl</link>
             <guid>https://eventmesh.apache.org/zh/blog/cncf-serverlessworkflow-official-recommends-eventmesh-as-runtime-impl</guid>
-            <pubDate>Mon, 06 Mar 2023 11:46:38 GMT</pubDate>
+            <pubDate>Mon, 06 Mar 2023 11:46:17 GMT</pubDate>
             <description><![CDATA[CNCF Serverless Workflow defines a vendor-neutral, open-source, and fully community-driven ecosystem for defining and running DSL-based workflows that target the Serverless technology domain.]]></description>
             <content:encoded><![CDATA[<h1>About</h1><p>CNCF <a href="https://serverlessworkflow.io/" target="_blank" rel="noopener noreferrer">Serverless Workflow</a> defines a vendor-neutral, open-source, and fully community-driven ecosystem for defining and running DSL-based workflows that target the Serverless technology domain.</p><p>This project is composed of:</p><ul><li><a href="/zh/blog/specification.md">Specification</a> for defining DSL-based workflows</li><li><a href="#sdks">Developer SDKs</a> for different programming languages</li><li><a href="#runtimes">Workflow runtimes</a> supporting the specification</li><li>Developer <a href="#tooling">tooling support</a> for writing DSL-based workflows</li></ul><p>CNCF Serverless Workflow is hosted by the <a href="https://www.cncf.io/" target="_blank" rel="noopener noreferrer">Cloud Native Computing Foundation (CNCF)</a> and was approved as a
 Cloud Native Sandbox level project on July 14, 2020.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="cncf-landscape">CNCF Landscape<a href="#cncf-landscape" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2><p>Serverless Workflow project falls under the <a href="https://landscape.cncf.io/card-mode?category=app-definition-and-development&amp;grouping=category" target="_blank" rel="noopener noreferrer">CNCF "App Definition and Development"</a> category.</p><p>It is a member project of the <a href="https://github.com/cncf/wg-serverless" target="_blank" rel="noopener noreferrer">CNCF Serverless Working Group</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-source-workflow-runtimes">Open-source workflow runtimes<a href="#open-source-workflow-runtimes" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2><p align="center"><a href="https://serverlessworkflow.io" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/images/serverlessworkflow-official.png" width="700px" alt="Serverlessworkflow" class="img_ev3q"></a></p>]]></content:encoded>
@@ -21,7 +21,7 @@ Cloud Native Sandbox level project on July 14, 2020.</p><h2 class="anchor anchor
             <title><![CDATA[Solving the standardization problem of SaaS combined application integration - The practical application of EventMesh in Huawei]]></title>
             <link>https://eventmesh.apache.org/zh/blog/the-practical-application-of-eventmesh-in-huawei</link>
             <guid>https://eventmesh.apache.org/zh/blog/the-practical-application-of-eventmesh-in-huawei</guid>
-            <pubDate>Mon, 06 Mar 2023 11:46:38 GMT</pubDate>
+            <pubDate>Mon, 06 Mar 2023 11:46:17 GMT</pubDate>
             <description><![CDATA[https://www.bilibili.com/video/BV1cA4y1d7uw/?vd_source=7fa3cce048d504c8a511cfe78a2ec8c5]]></description>
             <content:encoded><![CDATA[<p><a href="https://www.bilibili.com/video/BV1cA4y1d7uw/?vd_source=7fa3cce048d504c8a511cfe78a2ec8c5" target="_blank" rel="noopener noreferrer">https://www.bilibili.com/video/BV1cA4y1d7uw/?vd_source=7fa3cce048d504c8a511cfe78a2ec8c5</a></p>]]></content:encoded>
         </item>
