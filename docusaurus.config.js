@@ -21,7 +21,7 @@ const reverseSidebarItems = (items) => {
 module.exports = {
   title: 'Apache EventMesh',
   tagline: `
-    EventMesh is a fully serverless platform used to build distributed event-driven applications.
+    EventMesh is a new generation serverless event middleware for building distributed event-driven applications.
   `,
   url: 'https://eventmesh.apache.org',
   baseUrl: '/',
