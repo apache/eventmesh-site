@@ -34,7 +34,7 @@ const Hero = (): JSX.Element => {
 
               <Link
                 className="button button--secondary button--outline button--lg"
-                href="https://github.com/apache/incubator-eventmesh"
+                href="https://github.com/apache/eventmesh"
               >
                 GitHub
               </Link>
