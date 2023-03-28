@@ -1,7 +1,7 @@
 github:
   features:
     wiki: true
-  description: "Apache EventMesh (Incubating) Website"
+  description: "Apache EventMesh Website"
   homepage: https://eventmesh.apache.org
   enabled_merge_buttons:
     squash:  true
