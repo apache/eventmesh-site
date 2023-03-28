@@ -12,10 +12,11 @@ publish:
   whoami: asf-site
 
 notifications:
-  commits: commits@eventmesh.apache.org
-  issues: commits@eventmesh.apache.org
-  pullrequests_status: commits@eventmesh.apache.org
-  pullrequests_comment: commits@eventmesh.apache.org
-  issues_status: dev@eventmesh.apache.org
-  issues_comment: commits@eventmesh.apache.org
+  commits:      commits@eventmesh.apache.org
+  # Send all issue emails (new, closed, comments) to issues@
+  issues:       issues@eventmesh.apache.org
+  # Send new/closed PR notifications to dev@
+  pullrequests_status: dev@eventmesh.apache.org
+  # Send individual PR comments/reviews to issues@
+  pullrequests_comment: issues@eventmesh.apache.org
   jira_options: link label worklog
