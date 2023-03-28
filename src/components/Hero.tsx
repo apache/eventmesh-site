@@ -17,7 +17,7 @@ const Hero = (): JSX.Element => {
               {siteConfig.title}
             </h1>
             <h2 className={styles.subtitle}>
-              Incubating
+              
             </h2>
 
             <p className={styles.description}>
