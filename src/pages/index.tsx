@@ -9,7 +9,7 @@ import '@fontsource/inter/700.css';
 
 const Index = (): JSX.Element => (
   <Layout
-    description="Apache EventMesh (Incubating)"
+    description="Apache EventMesh"
   >
     <Hero />
   </Layout>
