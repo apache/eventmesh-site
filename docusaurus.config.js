@@ -29,7 +29,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'images/favicon.ico',
   organizationName: 'apache',
-  projectName: 'incubator-eventmesh',
+  projectName: 'eventmesh',
   themeConfig: {
     algolia: {
       appId: 'D5N4C17BGA',
@@ -37,7 +37,7 @@ module.exports = {
       indexName: 'apache_eventmesh',
     },
     navbar: {
-      title: 'Apache EventMesh (Incubating)',
+      title: 'Apache EventMesh',
       logo: {
         alt: 'Apache EventMesh Logo',
         src: 'images/logo.png',
@@ -83,7 +83,7 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://github.com/apache/incubator-eventmesh',
+          href: 'https://github.com/apache/eventmesh',
           className: 'header-github-link',
           'aria-label': 'GitHub',
           position: 'right',
@@ -106,7 +106,7 @@ module.exports = {
             },
             {
               label: 'Releases',
-              href: 'https://github.com/apache/incubator-eventmesh/releases',
+              href: 'https://github.com/apache/eventmesh/releases',
             },
           ],
         },
@@ -115,15 +115,15 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/apache/incubator-eventmesh',
+              href: 'https://github.com/apache/eventmesh',
             },
             {
               label: 'Issue Tracker',
-              href: 'https://github.com/apache/incubator-eventmesh/issues',
+              href: 'https://github.com/apache/eventmesh/issues',
             },
             {
               label: 'Pull Requests',
-              href: 'https://github.com/apache/incubator-eventmesh/pulls',
+              href: 'https://github.com/apache/eventmesh/pulls',
             },
           ],
         },
@@ -197,11 +197,11 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars/docs.js'),
-          editUrl: 'https://github.com/apache/incubator-eventmesh-site/edit/master/',
+          editUrl: 'https://github.com/apache/eventmesh-site/edit/master/',
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/apache/incubator-eventmesh-site/edit/master/blog/',
+          editUrl: 'https://github.com/apache/eventmesh-site/edit/master/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
