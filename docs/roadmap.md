@@ -39,8 +39,10 @@ The development roadmap of Apache EventMesh (Incubating) is an overview of the p
 | **Implemented in 1.7.0**                           | Support Zookeeper               | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
 | **Implemented in 1.7.0**                           | Support RabbitMQ as EventStore               | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/1553) |
 | **Implemented in 1.8.0**                           | Provide Dashboard                       | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/700), [GSoC '22](https://issues.apache.org/jira/browse/COMDEV-465)
-| **In Progress**                           | Filter and transform            | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/664) |
-| **In Progress**                           | Metadata consistency persistent | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/817)  |
+| **In Progress**                           | Source/Sink Connector            | [GitHub Issue](https://github.com/apache/eventmesh/issues/3492) |
+| **In Progress**                           | K8s integration                 | [GitHub Issue](https://github.com/apache/eventmesh/issues/3327)  |
+| **In Progress**                           | OpenFunction integration        | [GitHub Issue](https://github.com/apache/eventmesh/issues/2040)  |
+| **In Progress**                           | OpenSergo integration        | [GitHub Issue](https://github.com/apache/eventmesh/issues/2805)  |
 | Planned                                   | Transaction Event               | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/697) |
 | Planned                                   | Provide NodeJS SDK              | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
 | Planned                                   | Provide PHP    SDK              | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/1193) |
