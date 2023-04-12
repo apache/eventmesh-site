@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "include": [
+    "src/**/*.tsx",
+    "scripts/**/*.ts",
+    ".eslintrc.js",
+    "bable.config.js",
+    "docusaurus.config.js"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+  },
+}

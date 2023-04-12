@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Contribute": {
+    "message": "贡献指南",
+    "description": "The label for category Contribute in sidebar tutorialSidebar"
+  }
+}

@@ -1,21 +1,33 @@
-# Web site staging services:
+github:
+  features:
+    wiki: true
+  description: "Apache EventMesh Website"
+  homepage: https://eventmesh.apache.org
+  enabled_merge_buttons:
+    squash:  true
+    merge:   true
+    rebase:  false
+  protected_branches:
+    master:
+      required_status_checks:
+        strict: true
+      required_pull_request_reviews:
+        dismiss_stale_reviews: true
+        required_approving_review_count: 1
+
 staging:
   profile: ~
-  whoami: master
-  foo: trigger
-
-jekyll:
-  whoami: master
-  target: asf-site
+  whoami: asf-site
 
 publish:
   whoami: asf-site
-
+        
 notifications:
-  commits: commits@eventmesh.apache.org
-  issues: commits@eventmesh.apache.org
-  pullrequests_status: commits@eventmesh.apache.org
-  pullrequests_comment: commits@eventmesh.apache.org
-  issues_status: dev@eventmesh.apache.org
-  issues_comment: commits@eventmesh.apache.org
+  commits:      commits@eventmesh.apache.org
+  # Send all issue emails (new, closed, comments) to issues@
+  issues:       issues@eventmesh.apache.org
+  # Send new/closed PR notifications to dev@
+  pullrequests_status: dev@eventmesh.apache.org
+  # Send individual PR comments/reviews to issues@
+  pullrequests_comment: issues@eventmesh.apache.org
   jira_options: link label worklog

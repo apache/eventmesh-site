@@ -1,0 +1,35 @@
+.title {
+  opacity: 0.8;
+  font-size: 1.8rem;
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.description {
+  opacity: 0.6;
+}
+
+.feature {
+  margin-bottom: 0;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+@media screen and (max-width: 966px) {
+  .feature {
+    margin-bottom: 1.2rem;
+  }
+}
