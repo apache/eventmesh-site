@@ -23,7 +23,7 @@ sidebar_position: 0
 Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
 ```
 
-![import code style](../../../../../images/contribute/import-codestyle.png)
+![import code style](../../../../../static/images/contribute/import-codestyle.png)
 
 #### 导入Check Style
 
