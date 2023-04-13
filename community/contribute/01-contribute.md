@@ -23,7 +23,7 @@ File location: Import the [`eventmesh-code-style.xml`](https://github.com/apache
 Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
 ```
 
-![import code style](../../images/contribute/import-codestyle.png)
+![import code style](../../static/images/contribute/import-codestyle.png)
 
 #### Import Check Style
 
