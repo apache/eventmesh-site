@@ -1,5 +1,8 @@
 github:
   features:
+    # Enable issue management
+    issues: true
+    # Enable wiki
     wiki: true
   description: "Apache EventMesh Website"
   homepage: https://eventmesh.apache.org
