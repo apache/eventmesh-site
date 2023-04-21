@@ -1,25 +1,25 @@
 # Team Member
 
-The Apache EventMesh (Incubating) is developed by our PPMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
+The Apache EventMesh is developed by our PMCs, Committers and other Contributors. All contributions to EventMesh are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.
 
-## PPMCs and Committers
+## PMCs and Committers
 
 The following is a list of contributors with commit privileges that have made great contribution to EventMesh in one way or another.
 
 |Name| Github Id                                      | Email |[Roles](https://www.apache.org/foundation/how-it-works.html#roles)| Time Zone|
 |:---|:-----------------------------------------------|:---|:---|:--|
-|Francois Papon| [@fpapon](https://github.com/fpapon) |francois.papon@openobject.fr |Mentor| +1|
-|Jean-Baptiste Onofré| [@jbonofre](https://github.com/jbonofre)         |jbonofre@apache.org |Mentor| +1 |
-|Junping Du| [@JunpingDu](https://github.com/JunpingDu)         |junping_du@apache.org |Mentor| +8 |
-|Justin Mclean| [@justinmclean](https://github.com/justinmclean)     |justin@classsoftware.com |Mentor| +10 |
-|Von Gosling| [@vongosling](https://github.com/vongosling)         |vongosling@apache.org  |Mentor| +8 |
-|Guangsheng Chen| [@qqeasonchen](https://github.com/qqeasonchen) |chenguangsheng@apache.org |PPMC Member| +8|
-|Heng Du| [@duhenglucky](https://github.com/duhengforever)         |duhengforever@apache.org |PPMC Member| +8 |
-|Shannon Ding| [@dinglei](https://github.com/dinglei) |dinglei@apache.org |PPMC Member| +8|
-|Weiqiang Liang| [@wqliang](https://github.com/wqliang)         |wqliang@apache.org |PPMC Member| +8 |
-|Weiming Xue| [@xwm1992](https://github.com/xwm1992)         |mikexue@apache.org |PPMC Member| +8 |
-|Wenjun Ruan| [@ruanwenjun](https://github.com/ruanwenjun) |wenjun@apache.org |PPMC Member| +8|
-|Xiaoshuang Li| [@li-xiao-shuang](https://github.com/li-xiao-shuang)         |lixiaoshuang@apache.org |PPMC Member| +8 |
+|Francois Papon| [@fpapon](https://github.com/fpapon) |francois.papon@openobject.fr |PMC Member| +1|
+|Jean-Baptiste Onofré| [@jbonofre](https://github.com/jbonofre)         |jbonofre@apache.org |PMC Member| +1 |
+|Junping Du| [@JunpingDu](https://github.com/JunpingDu)         |junping_du@apache.org |PMC Member| +8 |
+|Justin Mclean| [@justinmclean](https://github.com/justinmclean)     |justin@classsoftware.com |PMC Member| +10 |
+|Von Gosling| [@vongosling](https://github.com/vongosling)         |vongosling@apache.org  |PMC Member| +8 |
+|Guangsheng Chen| [@qqeasonchen](https://github.com/qqeasonchen) |chenguangsheng@apache.org |PMC Chair| +8|
+|Heng Du| [@duhenglucky](https://github.com/duhengforever)         |duhengforever@apache.org |PMC Member| +8 |
+|Shannon Ding| [@dinglei](https://github.com/dinglei) |dinglei@apache.org |PMC Member| +8|
+|Weiqiang Liang| [@wqliang](https://github.com/wqliang)         |wqliang@apache.org |PMC Member| +8 |
+|Weiming Xue| [@xwm1992](https://github.com/xwm1992)         |mikexue@apache.org |PMC Member| +8 |
+|Wenjun Ruan| [@ruanwenjun](https://github.com/ruanwenjun) |wenjun@apache.org |PMC Member| +8|
+|Xiaoshuang Li| [@li-xiao-shuang](https://github.com/li-xiao-shuang)         |lixiaoshuang@apache.org |PMC Member| +8 |
 |Jun Yang| [@jonyangx](https://github.com/jonyangx)         |jonyang@apache.org |Committer| +8 |
 |Ronghua Liang| [@lrhkobe](https://github.com/lrhkobe)         |lrhkobe@apache.org |Committer| +8 |
 |Le Liu| [@walleliu](https://github.com/walleliu)         |walleliu@apache.org |Committer| +8 |
