@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Apache EventMesh (Incubating)
+# Apache EventMesh
 
 [![CI status](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml/badge.svg)](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml)
 [![CodeCov](https://codecov.io/gh/apache/incubator-eventmesh/branch/develop/graph/badge.svg)](https://codecov.io/gh/apache/incubator-eventmesh)
@@ -11,7 +11,7 @@ sidebar_position: 0
 [![GitHub release](https://img.shields.io/badge/release-download-orange.svg)](https://github.com/apache/incubator-eventmesh/releases)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-**Apache EventMesh (Incubating)** 是一个动态的云原生事件驱动架构基础设施，用于分离应用程序和后端中间件层，它支持广泛的用例，包括复杂的混合云、使用了不同技术栈的分布式架构。
+**Apache EventMesh** 是一个动态的云原生事件驱动架构基础设施，用于分离应用程序和后端中间件层，它支持广泛的用例，包括复杂的混合云、使用了不同技术栈的分布式架构。
 
 ## 特性
 
@@ -23,7 +23,7 @@ sidebar_position: 0
 
 ## 组件
 
-Apache EventMesh (Incubating) 由多个组件组成，这些组件集成了不同的中间件和消息协议，以增强应用程序运行时的功能。
+Apache EventMesh 由多个组件组成，这些组件集成了不同的中间件和消息协议，以增强应用程序运行时的功能。
 
 - **eventmesh-runtime**：中间件，在生产者和消费者之间传输事件，支持云原生应用程序和微服务。
 - **eventmesh-sdk-java**：支持HTTP，TCP和[gRPC](https://grpc.io/)协议的Java SDK。
@@ -35,7 +35,7 @@ Apache EventMesh (Incubating) 由多个组件组成，这些组件集成了不�
 
 ## 贡献者
 
-每位贡献者都在促进 Apache EventMesh (Incubating) 健壮发展方面发挥了重要作用。我们真诚地感谢所有贡献代码和文档的贡献者。以下是在 EventMesh 相关存储库中的贡献者列表。
+每位贡献者都在促进 Apache EventMesh 健壮发展方面发挥了重要作用。我们真诚地感谢所有贡献代码和文档的贡献者。以下是在 EventMesh 相关存储库中的贡献者列表。
 
 - [apache/incubator-eventmesh](https://github.com/apache/incubator-eventmesh/graphs/contributors)
 - [apache/incubator-eventmesh-site](https://github.com/apache/incubator-eventmesh-site/graphs/contributors)
