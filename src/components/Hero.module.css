@@ -1,5 +1,8 @@
 .title {
   font-size: 4rem;
+    background-image: linear-gradient(to right, #2A62AD, #4FB5D3);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .subtitle {
