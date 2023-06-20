@@ -72,8 +72,8 @@ Run an EventMesh container from the `eventmesh/eventmesh` image with the `docker
 
 ```shell
 sudo docker run -d -p 10000:10000 -p 10105:10105 \
--v /data/eventmesh/rocketmq/conf/eventmesh.properties:/data/app/eventmesh/conf/eventmesh.properties \
--v /data/eventmesh/rocketmq/conf/rocketmq-client.properties:/data/app/eventmesh/conf/rocketmq-client.properties \
+-v `pwd`/data/eventmesh/rocketmq/conf/eventmesh.properties:/data/app/eventmesh/conf/eventmesh.properties \
+-v `pwd`/data/eventmesh/rocketmq/conf/rocketmq-client.properties:/data/app/eventmesh/conf/rocketmq-client.properties \
 eventmesh/eventmesh:v1.4.0
 ```
 
