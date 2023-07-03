@@ -153,7 +153,7 @@ Pull the new branch from the master branch as the release branch. If you want to
 
 Update the following files of the official website project and submit them to the master branch:
 
-https://github.com/apache/incubator-eventmesh-site/tree/master/events/release-notes
+https://github.com/apache/eventmesh-site/tree/master/events/release-notes
 
 ### 4. Configure the gradle.properties file under the root project
 
@@ -201,7 +201,7 @@ publishing {
             pom {
                 name = 'EventMesh'
                 description = 'Apache EventMesh'
-                url = 'https://github.com/apache/incubator-eventmesh'
+                url = 'https://github.com/apache/eventmesh'
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
@@ -210,15 +210,15 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'Apache EventMesh(incubating)'
-                        name = 'Apache EventMesh(incubating) of ASF'
+                        id = 'Apache EventMesh'
+                        name = 'Apache EventMesh of ASF'
                         url = 'https://eventmesh.apache.org/'
                     }
                 }
                 scm {
-                    connection = 'scm:git:git@github.com:apache/incubator-eventmesh.git'
-                    developerConnection = 'scm:git:git@github.com:apache/incubator-eventmesh.git'
-                    url = 'https://github.com/apache/incubator-eventmesh'
+                    connection = 'scm:git:git@github.com:apache/eventmesh.git'
+                    developerConnection = 'scm:git:git@github.com:apache/eventmesh.git'
+                    url = 'https://github.com/apache/eventmesh'
                 }
             }
         }
@@ -261,13 +261,13 @@ After the above command is executed successfully, the version to be released wil
 ### 2. Checkout to local directory
 
 ```shell
-$ svn checkout https://dist.apache.org/repos/dist/dev/incubator/eventmesh/
+$ svn checkout https://dist.apache.org/repos/dist/dev/eventmesh/
 # the local directory is assumed to be ~/apache/eventmesh
 ```
 
 ### 3. Add gpg public key
 
-Add the public key to the [KEYS](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS) file and submit it to the SVN warehouse (the first time the person who publishes needs to do this operation, specifically refer to the description in the KEYS file for operation). KEYS is mainly for voters to import locally to verify the correctness of sign
+Add the public key to the [KEYS](https://dist.apache.org/repos/dist/dev/eventmesh/KEYS) file and submit it to the SVN warehouse (the first time the person who publishes needs to do this operation, specifically refer to the description in the KEYS file for operation). KEYS is mainly for voters to import locally to verify the correctness of sign
 
 Windows
 
@@ -300,10 +300,10 @@ $ git push origin --tags
 
 #### 4.2 Package source code
 
-Check the naming format of the project source package, name the source code `apache-eventmesh-${release_version}-incubating-src`, and package it in tar.gz format
+Check the naming format of the project source package, name the source code `apache-eventmesh-${release_version}-src`, and package it in tar.gz format
 
 ```shell
-$ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-eventmesh-${release_version}-incubating-src
+$ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-${release_version}-src
 ```
 
 > Note: Make sure that there are no binary files in the source package, such as gradle-wrapper.jar, etc.
@@ -312,13 +312,13 @@ $ tar -czvf apache-eventmesh-${release_version}-incubating-source.tar.gz apache-
 
 > Compile the source code packaged in the previous step
 
-Check the compiled file naming format, name the binary as `apache-eventmesh-${release_version}-incubating`
+Check the compiled file naming format, name the binary as `apache-eventmesh-${release_version}`
 
 > Note: You need to copy the `NOTICE` file in the root directory of the source code, the `DISCLAIMER-WIP` file and the `LICENSE` file in the `tools/third-party-licenses` directory to the binary package
 
 ```shell
 $ gradle clean jar dist && gradle installPlugin && gradle tar -x test
-$ tar -czvf apache-eventmesh-${release_version}-incubating-bin.tar.gz apache-eventmesh-${release_version}-incubating
+$ tar -czvf apache-eventmesh-${release_version}-bin.tar.gz apache-eventmesh-${release_version}
 ```
 
 Compress the source package and bin package, and copy the relevant compressed packages to the svn local warehouse directory `/apache/eventmesh/${release_version}-${rc_version}`
@@ -349,7 +349,7 @@ For a detailed check list, please refer to the official [check list](https://cwi
 Download the Release Candidates to be released to the local environment from the following address:
 
 ```shell
-https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version}/
+https://dist.apache.org/repos/dist/dev/eventmesh/${release_version}-${rc_version}/
 ```
 
 Then start the verification link, which includes but is not limited to the following content and forms
@@ -363,19 +363,19 @@ Then start the verification link, which includes but is not limited to the follo
 > Mac OS/Linux
 
 ```shell
-$ shasum -a apache-eventmesh-${release_version}-incubating-source.tar.gz
-#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512 file
-$ shasum -a apache-eventmesh-${release_version}-incubating-bin.tar.gz
-#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512 file
+$ shasum -a apache-eventmesh-${release_version}-source.tar.gz
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-source.tar.gz.sha512 file
+$ shasum -a apache-eventmesh-${release_version}-bin.tar.gz
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-bin.tar.gz.sha512 file
 ```
 
 > Windows
 
 ```shell
-$ certUtil -hashfile apache-eventmesh-${release_version}-incubating-source.tar.gz SHA512
-#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-source.tar.gz.sha512 file
-$ certUtil -hashfile apache-eventmesh-${release_version}-incubating-bin.tar.gz SHA512
-#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-incubating-bin.tar.gz.sha512 file
+$ certUtil -hashfile apache-eventmesh-${release_version}-source.tar.gz SHA512
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-source.tar.gz.sha512 file
+$ certUtil -hashfile apache-eventmesh-${release_version}-bin.tar.gz SHA512
+#and compare the output with the contents of the apache-eventmesh-${release_version}-${rc_version}-bin.tar.gz.sha512 file
 ```
 
 #### 1.2 Check gpg signature
@@ -383,7 +383,7 @@ $ certUtil -hashfile apache-eventmesh-${release_version}-incubating-bin.tar.gz S
 First import the release manager's public key. Import KEYS from the svn repository to the local environment. (The release manager does not need to import again, the person who helps to do the verification needs to import, and the user name can be filled with the user name of the release manager)
 
 ```shell
-$ curl https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS >> KEYS
+$ curl https://dist.apache.org/repos/dist/dev/eventmesh/KEYS >> KEYS
 $ gpg --import KEYS
 $ gpg --edit-key "${release manager gpg name}"
   > trust
@@ -406,17 +406,16 @@ Your decision? 5
 Then check the signature with the following command
 
 ```shell
-$ gpg --verify apache-eventmesh-${release_version}-incubating-source.tar.gz.asc apache-eventmesh-${release_version}-incubating-source-tar.gz
-$ gpg --verify apache-eventmesh-${release_version}-incubating-bin.tar.gz.asc apache-eventmesh-${release_version}-incubating-bin.tar.gz
+$ gpg --verify apache-eventmesh-${release_version}-source.tar.gz.asc apache-eventmesh-${release_version}-source-tar.gz
+$ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventmesh-${release_version}-bin.tar.gz
 ```
 
 ### 2. Check the file content of the source package
 
-Unzip `apache-eventmesh-${release_version}-incubating-source-tar.gz` and check as follows:
+Unzip `apache-eventmesh-${release_version}-source-tar.gz` and check as follows:
 
 - Check whether the source package contains unnecessary files, causing the tar package to be too large
 
-- the folder contains the word `incubating`
 - Presence of `LICENSE` and `NOTICE` files
 - Existence of `DISCLAIMER` file
 - correct year in `NOTICE` file
@@ -426,8 +425,6 @@ Unzip `apache-eventmesh-${release_version}-incubating-source-tar.gz` and check a
 - Check for redundant files or folders, such as empty folders, etc.
 
 ### 3. Check the file content of the binary package
-
-- the folder contains the word `incubating`
 
 - Presence of `LICENSE` and `NOTICE` files
 
@@ -451,10 +448,10 @@ You can refer to this article: [ASF third-party license policy](https://apache.o
 
 ## Initiates a vote
 
-> EventMesh is still incubating and requires two votes
+> EventMesh has graduated from incubation and only needs to be voted by the community
 
 - EventMesh community vote, send email to: `dev@eventmesh.apache.org`
-- Vote in the incubator community, send an email to: `general@incubator.apache.org` After graduation from EventMesh, you only need to vote in the EventMesh community
+- In ${Your EventMesh Release Manager} in the body of the community voting email, fill in the person responsible for this release, usually the sender of the email
 
 ### 1. EventMesh community voting stage
 
@@ -466,7 +463,7 @@ You can refer to this article: [ASF third-party license policy](https://apache.o
 Title：
 
 ```
-[VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
+[VOTE] Release Apache EventMesh ${release_version} ${rc_version}
 ```
 
 Content：
@@ -474,22 +471,22 @@ Content：
 ```
 Hello EventMesh Community,
 
-    This is a call for vote to release Apache EventMesh (incubating) version ${release_version}-${rc_version}.
+    This is a call for vote to release Apache EventMesh version ${release_version}-${rc_version}.
 
 	Release notes:
-	https://github.com/apache/incubator-eventmesh/releases/tag/v${release_version}-${rc_version}
+	https://github.com/apache/eventmesh/releases/tag/v${release_version}-${rc_version}
 
     The release candidates:
-    	https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version}/
+    	https://dist.apache.org/repos/dist/dev/eventmesh/${release_version}-${rc_version}/
 
     Maven artifacts are available in a staging repository at:
     https://repository.apache.org/content/repositories/orgapacheeventmesh-{staging-id}
 
 	Git tag for the release:
-	https://github.com/apache/incubator-eventmesh/tree/v${release_version}-${rc_version}
+	https://github.com/apache/eventmesh/tree/v${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
-	https://downloads.apache.org/incubator/eventmesh/KEYS
+	https://downloads.apache.org/eventmesh/KEYS
 
 	Hash for the release tag:
 	#hashCode of this release tag
@@ -525,7 +522,7 @@ Hello EventMesh Community,
     https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
 
 Thanks,
-Your EventMesh Release Manager
+${Your EventMesh Release Manager}
 ```
 
 ### 3. Announcing voting results template
@@ -533,117 +530,31 @@ Your EventMesh Release Manager
 Title：
 
 ```
-[RESULT][VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
+[RESULT][VOTE] Release Apache EventMesh ${release_version} ${rc_version}
 ```
 
 Content：
 
 ```
-Hello Apache EventMesh PPMC and Community,
+Hello Apache EventMesh PMC and Community,
 
     The vote closes now as 72hr have passed. The vote PASSES with
 
-    xx (+1 non-binding) votes from the PPMC,
-    xx (+1 binding) votes from the IPMC,
+    xx (+1 binding) votes from the PMC members,
+    member one
+    member two
+    member three
+    ...
+    
     xx (+1 non-binding) votes from the rest of the developer community,
     and no further 0 or -1 votes.
 
     The vote thread: {vote_mail_address}
 
-    I will now bring the vote to general@incubator.apache.org to get approval by the IPMC.
-    If this vote passes also, the release is accepted and will be published.
+    Many thanks for all people helping us with the release procedure. I will be working on publishing the artifacts soon.
 
 Thank you for your support.
-Your EventMesh Release Manager
-```
-
-### 4. Incubator community voting stage
-
-1. The Incubator community votes, send a voting email to `general@incubator.apache.org`, and 3 `+1 IPMC Member` votes are required to enter the next stage.
-2. To announce the voting result, send the voting result email to `general@incubator.apache.org` and copy to `dev@eventmesh.apache.org`.
-
-### 5. Incubator community voting template
-
-Title：
-
-```
-[VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
-```
-
-Content：
-
-```
-Hello Incubator Community,
-
-	This is a call for a vote to release Apache EventMesh(Incubating) version ${release_version} ${rc_version}
-
-	The Apache EventMesh community has voted on and approved a proposal to release
-    Apache EventMesh(Incubating) version ${release_version} ${rc_version}
-
-    We now kindly request the Incubator PMC members review and vote on this
-    incubator release.
-
-    EventMesh community vote thread:
-    • [voting thread]
-
-    Vote result thread:
-    • [voting result thread]
-
-    The release candidate:
-    •https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version}/
-
-	Git tag for the release:
-	• https://github.com/apache/incubator-eventmesh/tree/${release_version}-${rc_version}
-	Release notes:
-	• https://github.com/apache/incubator-eventmesh/releases/tag/${release_version}-${rc_version}
-
-	The artifacts signed with PGP key ${your gpg KEY}, corresponding to ${your email address}, that can be found in keys file:
-	• https://downloads.apache.org/incubator/eventmesh/KEYS
-
-	The vote will be open for at least 72 hours or until necessary number of votes are reached.
-
-	Please vote accordingly:
-
-	[ ] +1 approve
-	[ ] +0 no opinion
-	[ ] -1 disapprove with the reason
-
-Thanks,
-On behalf of Apache EventMesh(Incubating) community
-```
-
-### 6. Announcing voting results template
-
-Title：
-
-```
-[RESULT][VOTE] Release Apache EventMesh (incubating) ${release_version} ${rc_version}
-```
-
-Content：
-
-```
-Hi all,
-
-	Thanks for reviewing and voting for Apache EventMesh(Incubating) version ${release_version} ${rc_version} release, I am happy to announce the release voting has passed with [voting result number] binding votes, no +0 or -1 votes.
-
-	 Binding votes are from IPMC
-	   - xxx
-   	   - xxx
-       - xxx
-
-     Non-binding votes:
-       +1 xxx
-       +0 xxx
-       -1 xxx
-
-    The voting thread is:
-    • [voting result thread]
-
-    Many thanks for all our mentors helping us with the release procedure, and all IPMC helped us to review and vote for Apache EventMesh(Incubating) release. I will be working on publishing the artifacts soon.
-
-Thanks,
-On behalf of Apache EventMesh(Incubating) community
+${Your EventMesh Release Manager}
 ```
 
 ## Official release
@@ -666,18 +577,18 @@ $ git branch -d ${release_version}-release
 Move source and binary packages from the svn `dev` directory to the `release` directory
 
 ```shell
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/eventmesh/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/eventmesh/ -m "transfer packages for ${release_version}-${rc_version}" #Move source and binary packages
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/KEYS -m "delete KEYS" #Clear the KEYS in the original release directory
-$ svn cp https://dist.apache.org/repos/dist/dev/incubator/eventmesh/KEYS https://dist.apache.org/repos/dist/release/incubator/eventmesh/ -m "transfer KEYS for ${release_version}-${rc_version}" #Copy dev directory KEYS to release directory
+$ svn mv https://dist.apache.org/repos/dist/dev/eventmesh/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/eventmesh/ -m "transfer packages for ${release_version}-${rc_version}" #Move source and binary packages
+$ svn delete https://dist.apache.org/repos/dist/release/eventmesh/KEYS -m "delete KEYS" #Clear the KEYS in the original release directory
+$ svn cp https://dist.apache.org/repos/dist/dev/eventmesh/KEYS https://dist.apache.org/repos/dist/release/eventmesh/ -m "transfer KEYS for ${release_version}-${rc_version}" #Copy dev directory KEYS to release directory
 ```
 
 ### 3. Confirm that the packages under dev and release are correct
 
-- Confirmed that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/eventmesh/) has been removed
-- Delete the release package of the previous version under the directory [release](https://dist.apache.org/repos/dist/release/incubator/eventmesh/), these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/incubator/eventmesh/)
+- Confirmed that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/eventmesh/) has been removed
+- Delete the release package of the previous version under the directory [release](https://dist.apache.org/repos/dist/release/eventmesh/), these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/eventmesh/)
 
 ```shell
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/${last_release_version} -m "Delete ${last_release_version}"
+$ svn delete https://dist.apache.org/repos/dist/release/eventmesh/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
 ### 4. Publish releases in the Apache Staging repository
@@ -693,7 +604,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/eventmesh/${la
 
 1. Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. such as: after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1.2` only.
 
-2. Click `Edit` on the `${release_version}` version of the [GitHub Releases](https://github.com/apache/incubator-eventmesh/releases) page to edit the version number and version description, and click `Publish release`
+2. Click `Edit` on the `${release_version}` version of the [GitHub Releases](https://github.com/apache/eventmesh/releases) page to edit the version number and version description, and click `Publish release`
 
 ### 6. Update download page
 
@@ -703,7 +614,7 @@ https://eventmesh.apache.org/download/
 
 https://eventmesh.apache.org/zh/download/
 
-Download links for GPG signature files and hash verification files should use this prefix：`https://downloads.apache.org/incubator/eventmesh/`
+Download links for GPG signature files and hash verification files should use this prefix：`https://downloads.apache.org/eventmesh/`
 
 > Note: The project download link should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 
@@ -711,12 +622,12 @@ Download links for GPG signature files and hash verification files should use th
 
 > Please make sure that the Apache Staging warehouse has been released successfully, usually after 24 hours of this step.
 
-Email to `dev@eventmesh.apache.org` 、 `announce@apache.org`和`general@incubator.apache.org`
+Email to `dev@eventmesh.apache.org` 、 `announce@apache.org`
 
 Title：
 
 ```
-[ANNOUNCE] Apache EventMesh (incubating) ${release_version} available
+[ANNOUNCE] Apache EventMesh ${release_version} available
 ```
 
 Content：
@@ -724,9 +635,9 @@ Content：
 ```
 Hi all,
 
-Apache EventMesh (incubating) Team is glad to announce the new release of Apache EventMesh (incubating) ${release_version}.
+Apache EventMesh Team is glad to announce the new release of Apache EventMesh ${release_version}.
 
-Apache EventMesh (incubating) is a dynamic cloud-native eventing infrastructure used to decouple the application and backend middleware layer, which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
+Apache EventMesh is a dynamic cloud-native eventing infrastructure used to decouple the application and backend middleware layer, which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
 
 Download Links: https://eventmesh.apache.org/projects/eventmesh/download/
 
@@ -735,10 +646,10 @@ Release Notes: https://eventmesh.apache.org/events/release-notes/v${release_vers
 Website: https://eventmesh.apache.org/
 
 EventMesh Resources:
-- Issue: https://github.com/apache/incubator-eventmesh/issues
+- Issue: https://github.com/apache/eventmesh/issues
 - Mailing list: dev@eventmesh.apache.org
 
 
-Apache EventMesh (incubating) Team
+Apache EventMesh Team
 ```
 
