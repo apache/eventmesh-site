@@ -407,7 +407,7 @@ Your decision? 5
 然后使用如下命令检查签名
 
 ```shell
-$ gpg --verify apache-eventmesh-${release_version}-source.tar.gz.asc apache-eventmesh-${release_version}-source-tar.gz
+$ gpg --verify apache-eventmesh-${release_version}-source.tar.gz.asc apache-eventmesh-${release_version}-source.tar.gz
 $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventmesh-${release_version}-bin.tar.gz
 ```
 
