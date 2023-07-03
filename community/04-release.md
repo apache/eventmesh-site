@@ -406,13 +406,13 @@ Your decision? 5
 Then check the signature with the following command
 
 ```shell
-$ gpg --verify apache-eventmesh-${release_version}-source.tar.gz.asc apache-eventmesh-${release_version}-source-tar.gz
+$ gpg --verify apache-eventmesh-${release_version}-source.tar.gz.asc apache-eventmesh-${release_version}-source.tar.gz
 $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventmesh-${release_version}-bin.tar.gz
 ```
 
 ### 2. Check the file content of the source package
 
-Unzip `apache-eventmesh-${release_version}-source-tar.gz` and check as follows:
+Unzip `apache-eventmesh-${release_version}-source.tar.gz` and check as follows:
 
 - Check whether the source package contains unnecessary files, causing the tar package to be too large
 
