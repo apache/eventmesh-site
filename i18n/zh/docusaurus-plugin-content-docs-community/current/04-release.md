@@ -413,7 +413,7 @@ $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventme
 
 ### 2.检查源码包的文件内容
 
-解压缩`apache-eventmesh-${release_version}-source-tar.gz`，进行如下检查:
+解压缩`apache-eventmesh-${release_version}-source.tar.gz`，进行如下检查:
 
 - 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
 - 存在`LICENSE`和`NOTICE`文件
