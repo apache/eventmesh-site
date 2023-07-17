@@ -1,6 +1,6 @@
 ---
 title: 如何与社区联系
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # 如何与社区联系
