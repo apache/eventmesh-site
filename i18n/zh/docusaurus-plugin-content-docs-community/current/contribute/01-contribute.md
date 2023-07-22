@@ -15,30 +15,63 @@ sidebar_position: 0
 
 ### 代码风格
 
-#### 导入Code Style
+#### 导入 Code Style
 
-文件位置：源码 `incubator-eventmesh/style`目录下面的 [`eventmesh-code-style.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/eventmesh-code-style.xml) 文件导入 **`IntelliJ IDEA`**。
+文件位置：源码 `eventmesh/style`目录下面的 [`eventmesh-code-style.xml`](https://github.com/apache/eventmesh/blob/master/style/eventmesh-code-style.xml) 文件，请将其导入您的 **`IntelliJ IDEA`**。
 
 ```
-Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
+Settings -> Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
 ```
 
 ![import code style](../../../../../static/images/contribute/import-codestyle.png)
 
-#### 导入Check Style
+#### 导入 CheckStyle
 
-文件位置：源码源码 `incubator-eventmesh/style`目录下面的 [`checkStyle.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml)文件导入您的  **`IntelliJ  IDEA`**。
+文件位置：源码 `eventmesh/style`目录下面的 [`checkStyle.xml`](https://github.com/apache/eventmesh/blob/master/style/checkStyle.xml)文件。
 
-对于 IDEA，您可以通过以下方式导入检查样式文件：
+请安装 CheckStyle-IDEA 插件。对于 IDEA，您需要在以下两处设置项中导入 CheckStyle 代码风格文件：
 
-```shell
-Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configuration
+```
+Settings -> Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configuration
 ```
 
-如果在Import Scheme下看不到CheckStyle Configuration部分，可以先安装CheckStyle-IDEA插件，就可以看到了。
+```
+Settings -> Tools -> Checkstyle -> Configuration File
+```
 
-您还可以使用 ./gradlew check 来检查代码风格。
-（注意：此命令将检查项目中的所有文件，当您提交 pr 时，ci 将仅检查此 pr 中已更改的文件）。
+![image-20230722175044785](../../../../../static/images/contribute/import-checkstyle_1.png)
+
+![image](../../../../../static/images/contribute/import-checkstyle_2.png)
+
+#### 启用 CheckStyle
+
+您可以在`Tools - Checkstyle - Configuration File`中将 EventMesh 的代码风格文件设置为`Active`（默认选项），否则，您需要在运行 CheckStyle 检查之前，手动指定 EventMesh 的代码风格配置。
+
+![image](../../../../../static/images/contribute/enable-checkstyle.png)
+
+#### 使用 CheckStyle 插件
+
+要检查当前文件的代码风格，最简单的方式是在编辑器中右键并执行`Check Current File`：
+
+![image](../../../../../static/images/contribute/use-checkstyle_1.png)
+
+它将为您在底部打开一个选项卡，您可以观察是否输出了代码风格警告。如果没有，则一切都符合标准。
+
+![image-20230722175857630](../../../../../static/images/contribute/use-checkstyle_2.png)
+
+您可以进一步地在该选项卡左侧运行对当前模块和整个项目的扫描。
+
+（注意：当您提交 PR 时，CI 将仅检查此 PR 中已更改的文件）。
+
+#### 使用 CheckStyle 任务
+
+您可以在 IDEA 的右侧 Gradle 选项卡中执行对某个模块或整个项目的代码风格扫描：
+
+![image-20230722180856391](../../../../../static/images/contribute/use-checkstyle_3.png)
+
+![image-20230722181112398](../../../../../static/images/contribute/use-checkstyle_4.png)
+
+您还可以在终端中使用 `./gradlew check` 来检查项目中所有文件的代码风格。
 
 ### 工作流程
 
@@ -49,7 +82,7 @@ Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configurat
 2. clone fork到本地仓库
 
 ```git
-git clone git@github.com:yourgithub/incubator-eventmesh.git
+git clone git@github.com:yourgithub/eventmesh.git
 ```
 
 3. 创建一个新分支并处理它
@@ -59,7 +92,7 @@ git checkout -b fix_patch_xx
 
 4. 保持分支同步
 ```git
-git remote add upstream git@github.com:apache/incubator-eventmesh.git
+git remote add upstream git@github.com:apache/eventmesh.git
 git fetch upstream master:upstream_master
 git rebase upstream_master
 ```
@@ -68,7 +101,7 @@ git rebase upstream_master
 
 6. 将你的提交推送到你fork的远程仓库
 
-7. 创建pull request
+7. 创建Pull Request
 
 ## 解释
 
