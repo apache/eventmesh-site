@@ -39,25 +39,25 @@ Settings -> Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyl
 Settings -> Tools -> Checkstyle -> Configuration File
 ```
 
-![image-20230722175044785](../../../../../static/images/contribute/import-checkstyle_1.png)
+![](../../../../../static/images/contribute/import-checkstyle_1.png)
 
-![image](../../../../../static/images/contribute/import-checkstyle_2.png)
+![](../../../../../static/images/contribute/import-checkstyle_2.png)
 
 #### 启用 CheckStyle
 
 您可以在`Tools - Checkstyle - Configuration File`中将 EventMesh 的代码风格文件设置为`Active`（默认选项），否则，您需要在运行 CheckStyle 检查之前，手动指定 EventMesh 的代码风格配置。
 
-![image](../../../../../static/images/contribute/enable-checkstyle.png)
+![](../../../../../static/images/contribute/enable-checkstyle.png)
 
 #### 使用 CheckStyle 插件
 
 要检查当前文件的代码风格，最简单的方式是在编辑器中右键并执行`Check Current File`：
 
-![image](../../../../../static/images/contribute/use-checkstyle_1.png)
+![](../../../../../static/images/contribute/use-checkstyle_1.png)
 
-它将为您在底部打开一个选项卡，您可以观察是否输出了代码风格警告。如果没有，则一切都符合标准。
+它将为您在底部打开一个选项卡，您可以观察是否输出了代码风格警告。如果没有，则格式正确。
 
-![image-20230722175857630](../../../../../static/images/contribute/use-checkstyle_2.png)
+![](../../../../../static/images/contribute/use-checkstyle_2.png)
 
 您可以进一步地在该选项卡左侧运行对当前模块和整个项目的扫描。
 
@@ -67,9 +67,7 @@ Settings -> Tools -> Checkstyle -> Configuration File
 
 您可以在 IDEA 的右侧 Gradle 选项卡中执行对某个模块或整个项目的代码风格扫描：
 
-![image-20230722180856391](../../../../../static/images/contribute/use-checkstyle_3.png)
-
-![image-20230722181112398](../../../../../static/images/contribute/use-checkstyle_4.png)
+![](../../../../../static/images/contribute/use-checkstyle_3.png)
 
 您还可以在终端中使用 `./gradlew check` 来检查项目中所有文件的代码风格。
 
