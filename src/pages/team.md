@@ -41,6 +41,7 @@ The following is a list of contributors with commit privileges that have made gr
 |Wentong Shi| [@RiESAEX](https://github.com/RiESAEX)         |xwbx@apache.org |Committer| +8 |
 |Yongshe Feng| [@fengyongshe](https://github.com/fengyongshe)         |fengyongshe@apache.org |Committer| +8 |
 |Mark Li| [@Markliniubility](https://github.com/Markliniubility)         |markli@apache.org |Committer| +8 |
+|Jianbo Liu| [@mxsm](https://github.com/mxsm) |mxsm@apache.org |Committer| +8 |
 
 ## All Contributors
 
