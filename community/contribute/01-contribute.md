@@ -39,6 +39,18 @@ If you can't see CheckStyle Configuration section under Import Scheme, you can i
 You can also use `./gradlew check` to check the code style.  
 (Note: this command will check all file in project, when you submit a pr, the ci will only check the file has been changed in this pr).
 
+### Continuous Integration
+
+This configuration is not mandatory. You may enable GitHub Actions workflows in the Fork repository to promptly observe if new commits introduce compilation errors and reduce the waiting time for CI results after submitting a PR.
+
+To do this, simply set `Workflow Permissions` to `Read and write permissions` at the following location: 
+
+```
+Your Forked Repository -> Settings -> Actions -> General -> Workflow Permissions
+```
+
+![](../../static/images/contribute/enable-ci.png)
+
 ### Workflow
 
 Here are the workflow for contributors:
@@ -70,17 +82,17 @@ git rebase upstream_master
 
 ## Explanation
 
-The original warehouse: https://github.com/apache/incubator-eventmesh The apache warehouse of eventmesh is called the original warehouse in the text.
+The original repository: https://github.com/apache/eventmesh Apache's EventMesh repository is called the original repository in this article.
 
-The Fork library: From https://github.com/apache/eventmesh fork to your own personal repository to become a fork library.
+The Forked repository: A fork from the original repository to your own personal repository is a fork repository.
 
-So fork the original EventMesh repository into your own repository.
+So please fork the original EventMesh repository into your own repository.
 
 ## Development branch
 
-**The current development branch of eventmesh is Master. Please submit PR to this branch.**
+**The current development branch of EventMesh is Master. Please submit PR to this branch.**
 
-- We recommend that you create a new branch in your repository for development and submit the branch to the master branch of eventmesh.
+- We recommend that you create a new branch in your repository for development and submit the branch to the master branch of EventMesh.
 
 ## Contribution Categories
 

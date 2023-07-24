@@ -40,6 +40,18 @@ Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configurat
 您还可以使用 ./gradlew check 来检查代码风格。
 （注意：此命令将检查项目中的所有文件，当您提交 pr 时，ci 将仅检查此 pr 中已更改的文件）。
 
+### CI 持续集成
+
+此配置不是必须的。您可以在 Fork 仓库中开启 GitHub Actions 工作流，来及时观察新的 commit 是否会引入编译错误，并减少在提交 PR 后等待 CI 运行结果的时间。
+
+在以下位置将`Workflow Permissions`设置为`Read and write permissions`即可：
+
+```
+Your Forked Repository -> Settings -> Actions -> General -> Workflow Permissions
+```
+
+![](../../../../../static/images/contribute/enable-ci.png)
+
 ### 工作流程
 
 以下是贡献者的工作流程：
@@ -72,17 +84,17 @@ git rebase upstream_master
 
 ## 解释
 
-[原仓库](https://github.com/apache/incubator-eventmesh )：eventmesh的apache仓库在文中称为原仓库。
+[原仓库](https://github.com/apache/eventmesh )：Apache 的 EventMesh 仓库在文中称为原仓库。
 
-[Fork仓库](https://github.com/apache/eventmesh)：从原仓库fork到你自己的个人仓库成为一个fork库。
+Fork 仓库：从原仓库 fork 到您的账号中的个人仓库是一个 Fork 仓库。
 
-因此，将原始 EventMesh 存储库 fork 到您自己的存储库中。
+因此，请将原始 EventMesh 存储库 fork 到您自己的存储库中。
 
 ## 开发分支
 
-**eventmesh目前的开发分支是Master。请向该分支提交 PR。**
+**EventMesh 目前的开发分支是 Master。请向该分支提交 PR。**
 
-> 我们建议您在您的开发仓库中创建一个新的分支，并将该分支提交pull request到eventmesh 的master 分支。
+> 我们建议您在您的开发仓库中创建一个新的分支，并将该分支提交 Pull Request 到 EventMesh 的 master 分支。
 
 ## 贡献类别
 
