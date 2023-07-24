@@ -5,7 +5,7 @@ sidebar_position: 0
 
 # How to Contribute
 
-If you are a new contributor who wants to contribute to the eventmesh community, please read this document, which describes how to contribute to the community, and if you find any questions in the document, feel free to leave comments or suggestions.
+If you are a new contributor who wants to contribute to the EventMesh community, please read this document, which describes how to contribute to the community, and if you find any questions in the document, feel free to leave comments or suggestions.
 
 ## Preparation
 
@@ -102,45 +102,45 @@ So please fork the original EventMesh repository into your own repository.
 
 ### Implementation of functions, refactoring
 
-- If you plan to implement a new feature (or refactoring), be sure to communicate with the eventmesh core development team via an Issue or other means, and describe the new feature (or refactoring), mechanism and scenario in detail during the communication process.
+- If you plan to implement a new feature (or refactoring), be sure to communicate with the EventMesh core development team via an Issue or other means, and describe the new feature (or refactoring), mechanism and scenario in detail during the communication process.
 
 ### Documentation Improvement
 
-- You can find the eventmesh documentation at [eventmesh-docs](https://eventmesh.apache.org/docs/introduction), and the documentation is supplemented or improved in a way that is also essential for eventmesh.
+- You can find the EventMesh documentation at [eventmesh-site](https://github.com/apache/eventmesh-site), and the documentation is supplemented or improved in a way that is also essential for EventMesh.
 
 ## Contribution method
 
-There are two ways for new contributors to contribute to the eventmesh community:
+There are two ways for new contributors to contribute to the EventMesh community:
 
-- If you find a bug in the eventmesh code that you want to fix, or if you provide a new feature for the eventmesh, submit an issue in the eventmesh and submit a pr to the eventmesh.
+- If you find a bug in the EventMesh code that you want to fix, or if you provide a new feature for the EventMesh, submit an issue in the EventMesh and submit a PR to the EventMesh.
 
-- Other contributors in the eventmesh community have raised issues, the [`issue for first-time contributors`](https://github.com/apache/incubator-eventmesh/issues/888) sorted out by the community here are relatively simple PR, which can help you familiarize yourself with the process of making contributions to the eventmesh community.
+- Other contributors in the EventMesh community have raised issues, the [`issue for first-time contributors`](https://github.com/apache/eventmesh/issues/888) sorted out by the community here are relatively simple PR, which can help you familiarize yourself with the process of making contributions to the EventMesh community.
 
 ## Submit issue guidelines
 
-- If you don't know how to raise an issue on eventmesh, please read [about the issue](https://docs.github.com/cn/issues/tracking-your-work-with-issues/quickstart).
+- If you don't know how to raise an issue on EventMesh, please read [about the issue](https://docs.github.com/cn/issues/tracking-your-work-with-issues/quickstart).
 
-- In the eventmesh community, there are issue templates that can be used for reference, if the type matches please use the template, if the issue template does not meet your requirements, you can open an empty issue template, for the issue please bring its matching feature labels.
+- In the EventMesh community, there are issue templates that can be used for reference, if the type matches please use the template, if the issue template does not meet your requirements, you can open an empty issue template, for the issue please bring its matching feature labels.
 
 - For the name of the issue, please briefly describe your question or purpose in one sentence, and write in English for better global communication.
 
-##  pull request (pr) submission guidelines
+##  Pull Request (PR) submission guidelines
 
-- If you don't know how to initiate a pr for eventmesh, please see [about pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+- If you don't know how to initiate a PR for EventMesh, please see [about Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
-- Whether it's a bug fix, or a new feature development (if this pr is a new feature development, then documentation updates about the new feature should be included in this pr), please submit a PR to the current development branch master.
+- Whether it's a bug fix, or a new feature development (if this PR is a new feature development, then documentation updates about the new feature should be included in this PR), please submit a PR to the current development branch master.
 
-- The pr submission should follow the template provided by eventmesh as well as the need to write the submission information, a brief description of what the pr you are submitting does is sufficient, please see the [template for details](https://github.com/apache/incubator-eventmesh/blob/master/.github/PULL_REQUEST_TEMPLATE.md).
+- The PR submission should follow the template provided by EventMesh as well as the need to write the submission information, a brief description of what the PR you are submitting does is sufficient, please see the [template for details](https://github.com/apache/eventmesh/blob/master/.github/PULL_REQUEST_TEMPLATE.md).
 
-- The pr you submit needs to be associated with the issue you are fixing, or the issue you are raising,so your PR title should start with [ISSUE #xx].
+- The PR you submit needs to be associated with the issue you are fixing, or the issue you are raising,so your PR title should start with [ISSUE #xx].
 
 - If your change is about a typo or small optimize, you needn't create an Issue, just submit a PR and title with [MINOR].
 
 **Note:**
 
-- A single pull request should not be too large. If heavy changes are required, it's better to separate the changes to a few individual PRs.
+- A single Pull Request should not be too large. If heavy changes are required, it's better to separate the changes to a few individual PRs.
 
-- After creating a PR, one or more committers will help to review the pull request, after approve, this PR will be merged in to eventmesh repository, and the related Issue will be closed.
+- After creating a PR, one or more committers will help to review the Pull Request, after approve, this PR will be merged in to EventMesh repository, and the related Issue will be closed.
 
 ## review
 
@@ -148,7 +148,7 @@ There are two ways for new contributors to contribute to the eventmesh community
 
 All code should be well reviewed by one or more committers. Some principles:
 
-- Readability: Important code should be well-documented. Comply with our [code style](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml).
+- Readability: Important code should be well-documented. Comply with our [code style](https://github.com/apache/eventmesh/blob/master/style/checkStyle.xml).
 
 - Elegance: New functions, classes or components should be well-designed.
 
@@ -156,15 +156,13 @@ All code should be well reviewed by one or more committers. Some principles:
 
 ### License review
 
-EventMesh follows [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) policy. All source files should
-have the Apache License header added to the file header. EventMesh uses the [apache/skywalking-eyes](https://github.com/apache/skywalking-eyes) to check
-the source file header.
+EventMesh follows [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) policy. All source files should have the Apache License header added to the file header. EventMesh uses the [apache/skywalking-eyes](https://github.com/apache/skywalking-eyes) to check the source file header.
 
 ### PR merge
 
-After a PR is approved by at least one committer, it can be merged. Before the merge, the committer can make changes to the commits message, requiring the commits
-message to be clear without duplication, and use Squash and Merge to make sure one PR should only contain one commits.
-For large multi-person PR, use Merge to merge, and fix the commits by rebase before merging.
+After a PR is approved by at least one committer, it can be merged. Before the merge, the committer can make changes to the commits message, requiring the commits message to be clear without duplication, and use `Squash` and `Merge` to make sure one PR should only contain one commits.
+
+For large multi-person PR, use `Merge` to merge, and fix the commits by `rebase` before merging.
 
 ## Community
 
