@@ -17,27 +17,58 @@ If you are a new contributor who wants to contribute to the EventMesh community,
 
 #### Import Code Style
 
-File location: Import the [`eventmesh-code-style.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/eventmesh-code-style.xml) file located in the `incubator-eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
+File location: Import the [`eventmesh-code-style.xml`](https://github.com/apache/eventmesh/blob/master/style/eventmesh-code-style.xml) file located in the `eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
 
 ```
-Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
+Settings -> Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XML
 ```
 
 ![import code style](../../static/images/contribute/import-codestyle.png)
 
-#### Import Check Style
+#### Import CheckStyle
 
-File location: Import the [`checkStyle.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml)file located in the `incubator-eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
+File location: Import the [`checkStyle.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml)file located in the `eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
 
-For IDEA, you can import check style file by:
+Please install the CheckStyle-IDEA plugin. For IDEA, you need to import the CheckStyle code style file in the following two settings:
 ```shell
-    Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configuration
+Settings -> Editor -> Code Style -> Java -> Scheme -> Import Scheme -> CheckStyle Configuration
 ```
 
-If you can't see CheckStyle Configuration section under Import Scheme, you can install CheckStyle-IDEA plugin first, and you will see it.
+```
+Settings -> Tools -> Checkstyle -> Configuration File
+```
 
-You can also use `./gradlew check` to check the code style.  
-(Note: this command will check all file in project, when you submit a pr, the ci will only check the file has been changed in this pr).
+![](../../static/images/contribute/import-checkstyle_1.png)
+
+![](../../static/images/contribute/import-checkstyle_2.png)
+
+#### Enable CheckStyle
+
+You can set EventMesh's code style file to `Active` (default option) in `Tools -> Checkstyle -> Configuration File`. Otherwise, before running CheckStyle checks, you will need to manually specify EventMesh's code style configuration.
+
+![](../../static/images/contribute/enable-checkstyle.png)
+
+#### Use CheckStyle Plugin
+
+To check the code style of the current file, the simplest way is to right-click in the editor and execute `Check Current File`:
+
+![](../../static/images/contribute/use-checkstyle_1.png)
+
+It will open a tab at the bottom where you can observe code style warnings output. If none appear, everything complies with the standards.
+
+![](../../static/images/contribute/use-checkstyle_2.png)
+
+You can further run scans for the current module or the entire project on the left side of this tab.
+
+(Note: When you submit a PR, the CI will only check the files that were changed in that PR).
+
+#### Use CheckStyle Task
+
+You can perform a code style scan for a specific module or the entire project in the right-side Gradle tab in IDEA:
+
+![](../../static/images/contribute/use-checkstyle_3.png)
+
+You can also use `./gradlew check` in the terminal to check the code style of all files in the project.
 
 ### Continuous Integration
 
