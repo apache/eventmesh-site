@@ -136,30 +136,6 @@ contentType： application/json
 ```
 输出参数：１　成功，０失败
 
-##### 删除接口
-路径： /webhook/deleteWebHookConfig
-方法： POST
-contentType： application/json
-
-输入参数：
-| 字段 | 说明 | 类型 |　必须 | 默认值　|
-| -- | -- | -- | -- | -- |
-| callbackPath | 调用地址，唯一地址 | string | 是　| null　|
-
-
-列子：
-
-```json
-
-{
-	"callbackPath":"/webhook/github/eventmesh/all"
-}
-
-```
-
-
-输出参数：１　成功，０失败
-
 ##### 通过callbackPath查询WebHookConfig
 路径： /webhook/queryWebHookConfigById
 方法： POST
@@ -169,16 +145,16 @@ contentType： application/json
 | 字段 | 说明 | 类型 |　必须 | 默认值　|
 | -- | -- | -- | -- | -- |
 | callbackPath | 调用地址，唯一地址 | string | 是　| null　|
+| manufacturerName | 调用地址的提供方 | string | 是　| null　|
 
 
 列子：
 
 ```json
-
 {
-	"callbackPath":"/webhook/github/eventmesh/all"
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github"
 }
-
 ```
 
 
@@ -235,8 +211,34 @@ contentType： application/json
 | cloudEventSource | 事件来源可以填写 | string | 是　| null　|
 | cloudEventIdGenerateMode | cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)  | string | 否　| manufacturerEventId　|
 
+##### 删除接口
+
+路径： /webhook/deleteWebHookConfig
+方法： POST
+contentType： application/json
+
+输入参数：
+
+| 字段             | 说明               | 类型   | 必须 | 默认值 |
+| ---------------- | ------------------ | ------ | ---- | ------ |
+| callbackPath     | 调用地址，唯一地址 | string | 是   | null   |
+| manufacturerName | 调用地址的提供方   | string | 是   | null   |
+
+
+列子：
+
+```json
+{
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github"
+}
+```
+
+
+输出参数：１　成功，０失败
 
 #### 第三步：查看配置是否成功
+
 1. file存储模式。请到eventMesh.webHook.fileMode.filePath 目录下查看。文件名为callbackPath转移后的
 2. nacos存储模式。请到eventMesh.webHook.nacosMode.serverAddr 配置的nacos服务去看
 
@@ -262,7 +264,6 @@ contentType： application/json
 Payload URL: 服务地址以及pahts。[http or https ]://[域名 or IP 【厂商可以被调用】]:[端口]/webhook/[callbackPath]
 Content type：http header content type
 secret: 验签字符串
-
 
 
 

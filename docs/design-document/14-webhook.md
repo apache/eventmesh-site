@@ -92,7 +92,7 @@ Configuration information description
 
 ```
 
-##### Add webhook config
+##### Add WebHook config
 
 path: /webhook/insertWebHookConfig
 method: POST
@@ -117,7 +117,6 @@ input params:
 E.g:
 
 ```json
-
 {
 	"callbackPath":"/webhook/github/eventmesh/all",
 	"manufacturerName":"github",
@@ -126,36 +125,11 @@ E.g:
 	"cloudEventName":"github-eventmesh",
 	"cloudEventSource":"github"
 }
-
 ```
 
 Output params: 1 for success, 0 for failure
 
-##### delete webhook config
-path: /webhook/deleteWebHookConfig
-method: POST
-contentType： application/json
-
-input params:
-
-| field | desc | type |　necessary | default　|
-| -- | -- | -- | -- | -- |
-| callbackPath | call address, unique address | string | Y　| null　|
-
-
-E.g:
-
-```json
-
-{
-	"callbackPath":"/webhook/github/eventmesh/all"
-}
-
-```
-
-Output params: 1 for success, 0 for failure
-
-##### select WebHookConfig by callbackPath
+##### Query WebHook config by callback path
 path: /webhook/queryWebHookConfigById
 method: POST
 contentType： application/json
@@ -165,15 +139,15 @@ input params:
 | field | desc | type |　necessary | default　|
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
+| manufacturerName | the provider of this callbackPath belongs to | string | Y　| null　|
 
 E.g:
 
 ```json
-
 {
-	"callbackPath":"/webhook/github/eventmesh/all"
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github"
 }
-
 ```
 
 Output params:
@@ -231,6 +205,30 @@ Output params:
 | cloudEventSource | cloudEvent source | string | Y　| null　|
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N　| manufacturerEventId　|
 
+##### Delete WebHook config
+
+path: /webhook/deleteWebHookConfig
+method: POST
+contentType： application/json
+
+input params:
+
+| field            | desc                                         | type   | necessary | default |
+| ---------------- | -------------------------------------------- | ------ | --------- | ------- |
+| callbackPath     | call address, unique address                 | string | Y         | null    |
+| manufacturerName | the provider of this callbackPath belongs to | string | Y         | null    |
+
+
+E.g:
+
+```json
+{
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github"
+}
+```
+
+Output params: 1 for success, 0 for failure
 
 #### The third step: Check if the configuration is successful
 
@@ -269,7 +267,6 @@ Output params:
 Payload URL: Service address and pahts. [http or https]://[domain or IP]:[port]/webhook/[callbackPath]
 Content type: http header content type
 secret: signature string
-
 
 
 
