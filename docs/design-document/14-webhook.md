@@ -39,6 +39,11 @@ Configuration information description
     private String manufacturerName;
 
     /**
+     * manufacturer domain name, like www.github.com
+     */
+    private String manufacturerDomain;
+
+    /**
      * webhook event name, like rep-push
      */
     private String manufacturerEventName;
@@ -78,12 +83,7 @@ Configuration information description
      * roll out data format -> CloudEvent serialization mode
      * If HTTP protocol is used, the request header contentType needs to be marked
      */
-    private String dataContentType = "application/json";;
-
-    /**
-     * source of event
-     */
-    private String cloudEventSource;
+    private String dataContentType = "application/json";
 
     /**
      * id of cloudEvent, like uuid/manufacturerEventId
@@ -104,15 +104,15 @@ input params:
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
 | manufacturerName | manufacturer name | string | Y　| null　|
-| manufacturerEventName | manufacturer EventName  | string | Y　| null　|
+| manufacturerDomain | manufacturer domain name | string | Y　| null　|
+| manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
 | secret | signature string | string | N　| null　|
 | userName | username | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name  | string | Y　| null　|
-| cloudEventSource | cloudEvent source | string | Y　| null　|
-| cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N manufacturerEventId　|
+| cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N　|manufacturerEventId|
 
 E.g:
 
@@ -155,6 +155,7 @@ Output params:
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
 | manufacturerName | manufacturer name | string | Y　| null　|
+| manufacturerDomain | manufacturer domain name | string | Y　| null　|
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
@@ -162,7 +163,6 @@ Output params:
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
-| cloudEventSource | cloudEvent source | string | Y　| null　|
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id | string | N　| manufacturerEventId　|
 
 
@@ -194,6 +194,7 @@ Output params:
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
 | manufacturerName | manufacturer name | string | Y　| null　|
+| manufacturerDomain | manufacturer domain name | string | Y　| null　|
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
@@ -201,7 +202,6 @@ Output params:
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
-| cloudEventSource | cloudEvent source | string | Y　| null　|
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N　| manufacturerEventId　|
 
 ##### Delete WebHook config

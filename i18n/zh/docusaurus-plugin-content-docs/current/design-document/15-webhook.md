@@ -39,6 +39,12 @@ eventMesh.webHook.producer.connector=standalone
     private String manufacturerName;
 
     /**
+     * 厂商的域名
+     * manufacturer domain name, like www.github.com
+     */
+    private String manufacturerDomain;
+
+    /**
      * 厂商的事件名
      * webhook event name ,like rep-push
      */
@@ -86,12 +92,7 @@ eventMesh.webHook.producer.connector=standalone
      * roll out data format -> CloudEvent serialization mode
      * If HTTP protocol is used, the request header contentType needs to be marked
      */
-    private String dataContentType = "application/json";;
-
-    /**
-     * source of event
-     */
-    private String cloudEventSource;
+    private String dataContentType = "application/json";
 
     /**
      * cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)
@@ -111,14 +112,14 @@ contentType： application/json
 | -- | -- | -- | -- | -- |
 | callbackPath | 调用地址，唯一地址 | string | 是　| null　|
 | manufacturerName | 厂商名 | string | 是　| null　|
+| manufacturerDomain | 厂商的域名 | string | 是　| null　|
 | manufacturerEventName | 厂商事件名 | string | 是　| null　|
 | contentType | http connettype | string | 否　| application/json　|
 | description | 配置说明 | string | 否　| null　|
 | secret | 验签密钥 | string | 否　| null　|
 | userName | 用户名 | string | 否　| null　|
 | password | 用户密码 | string | 否　| null　|
-| cloudEventName | 事件名（） | string | 是　| null　|
-| cloudEventSource | 事件来源可以填写 | string | 是　| null　|
+| cloudEventName | 事件名 | string | 是　| null　|
 | cloudEventIdGenerateMode | cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)  | string | 否　| manufacturerEventId　|
 
 列子：
@@ -160,6 +161,7 @@ contentType： application/json
 | -- | -- | -- | -- | -- |
 | callbackPath | 调用地址，唯一地址 | string | 是　| null　|
 | manufacturerName | 厂商名 | string | 是　| null　|
+| manufacturerDomain | 厂商的域名 | string | 是　| null　|
 | manufacturerEventName | 厂商事件名 | string | 是　| null　|
 | contentType | http connettype | string | 否　| application/json　|
 | description | 配置说明 | string | 否　| null　|
@@ -167,7 +169,6 @@ contentType： application/json
 | userName | 用户名 | string | 否　| null　|
 | password | 用户密码 | string | 否　| null　|
 | cloudEventName | 事件名（） | string | 是　| null　|
-| cloudEventSource | 事件来源可以填写 | string | 是　| null　|
 | cloudEventIdGenerateMode | cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)  | string | 否　| manufacturerEventId　|
 
 
@@ -198,6 +199,7 @@ contentType： application/json
 | -- | -- | -- | -- | -- |
 | callbackPath | 调用地址，唯一地址 | string | 是　| null　|
 | manufacturerName | 厂商名 | string | 是　| null　|
+| manufacturerDomain | 厂商的域名 | string | 是　| null　|
 | manufacturerEventName | 厂商事件名 | string | 是　| null　|
 | contentType | http connettype | string | 否　| application/json　|
 | description | 配置说明 | string | 否　| null　|
@@ -205,7 +207,6 @@ contentType： application/json
 | userName | 用户名 | string | 否　| null　|
 | password | 用户密码 | string | 否　| null　|
 | cloudEventName | 事件名（） | string | 是　| null　|
-| cloudEventSource | 事件来源可以填写 | string | 是　| null　|
 | cloudEventIdGenerateMode | cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)  | string | 否　| manufacturerEventId　|
 
 ##### 删除接口
