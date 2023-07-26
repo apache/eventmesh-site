@@ -139,7 +139,7 @@ input params:
 | field | desc | type |　necessary | default　|
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
-| manufacturerName | the provider of this callbackPath belongs to | string | Y　| null　|
+| manufacturerName | the caller of this callbackPath belongs to | string | Y　| null　|
 
 E.g:
 
@@ -213,10 +213,10 @@ contentType： application/json
 
 input params:
 
-| field            | desc                                         | type   | necessary | default |
-| ---------------- | -------------------------------------------- | ------ | --------- | ------- |
-| callbackPath     | call address, unique address                 | string | Y         | null    |
-| manufacturerName | the provider of this callbackPath belongs to | string | Y         | null    |
+| field            | desc                                       | type   | necessary | default |
+| ---------------- | ------------------------------------------ | ------ | --------- | ------- |
+| callbackPath     | call address, unique address               | string | Y         | null    |
+| manufacturerName | the caller of this callbackPath belongs to | string | Y         | null    |
 
 
 E.g:
