@@ -123,16 +123,13 @@ contentType： application/json
 
 列子：
 ```json
-
 {
-	"callbackPath":"/webhook/github/eventmesh/all",
-	"manufacturerName":"github",
-	"manufacturerEventName":"all",
-	"secret":"eventmesh",
-	"cloudEventName":"github-eventmesh",
-	"cloudEventSource":"github"
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github",
+    "manufacturerDomain":"www.github.com",
+    "manufacturerEventName":"all",
+    "cloudEventName":"github-eventmesh"
 }
-
 ```
 输出参数：１　成功，０失败
 
