@@ -26,8 +26,8 @@ eventMesh.webHook.producer.connector=standalone
 ```java
    /**
     * 厂商调用的path。厂商事件调用地址、 [http or https ]://[域名 or IP 【厂商可以被调用】]:[端口]/webhook/[callbackPath]
-    * 比如：http://127.0.0.1:10504/webhook/test/event 需要把全完url填入厂商调用输入中
-    * callbackPath 是唯一
+    * 比如：http://127.0.0.1:10504/webhook/test/event 需要把完整url填入callbackPath中
+    * callbackPath 唯一
     * manufacturer callback path
     */
     private String callbackPath;
@@ -207,16 +207,18 @@ contentType： application/json
 | 字段 | 说明 | 类型 |　必须 | 默认值　|
 | -- | -- | -- | -- | -- |
 | manufacturerName | 厂商名 | string | 是　| null　|
+| pageNum | 分页查询中的页数 | string | 是　| null　|
+| pageSize | 每一页的结果数量 | string | 是　| null　|
 
 
 列子：
 
 ```json
-
 {
-	"manufacturerName":"github"
+    "manufacturerName":"github",
+    "pageNum":1,
+    "pageSize":2
 }
-
 ```
 
 
@@ -262,7 +264,6 @@ contentType： application/json
 Payload URL: 服务地址以及pahts。[http or https ]://[域名 or IP 【厂商可以被调用】]:[端口]/webhook/[callbackPath]
 Content type：http header content type
 secret: 验签字符串
-
 
 
 
