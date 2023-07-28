@@ -39,6 +39,11 @@ Configuration information description
     private String manufacturerName;
 
     /**
+     * manufacturer domain name, like www.github.com
+     */
+    private String manufacturerDomain;
+
+    /**
      * webhook event name, like rep-push
      */
     private String manufacturerEventName;
@@ -78,12 +83,7 @@ Configuration information description
      * roll out data format -> CloudEvent serialization mode
      * If HTTP protocol is used, the request header contentType needs to be marked
      */
-    private String dataContentType = "application/json";;
-
-    /**
-     * source of event
-     */
-    private String cloudEventSource;
+    private String dataContentType = "application/json";
 
     /**
      * id of cloudEvent, like uuid/manufacturerEventId
@@ -92,7 +92,7 @@ Configuration information description
 
 ```
 
-##### Add webhook config
+##### Add WebHook config
 
 path: /webhook/insertWebHookConfig
 method: POST
@@ -104,58 +104,31 @@ input params:
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
 | manufacturerName | manufacturer name | string | Y　| null　|
-| manufacturerEventName | manufacturer EventName  | string | Y　| null　|
+| manufacturerDomain | manufacturer domain name | string | Y　| null　|
+| manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
 | secret | signature string | string | N　| null　|
 | userName | username | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name  | string | Y　| null　|
-| cloudEventSource | cloudEvent source | string | Y　| null　|
-| cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N manufacturerEventId　|
+| cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N　|manufacturerEventId|
 
 E.g:
 
 ```json
-
 {
-	"callbackPath":"/webhook/github/eventmesh/all",
-	"manufacturerName":"github",
-	"manufacturerEventName":"all",
-	"secret":"eventmesh",
-	"cloudEventName":"github-eventmesh",
-	"cloudEventSource":"github"
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github",
+    "manufacturerDomain":"www.github.com",
+    "manufacturerEventName":"all",
+    "cloudEventName":"github-eventmesh"
 }
-
 ```
 
 Output params: 1 for success, 0 for failure
 
-##### delete webhook config
-path: /webhook/deleteWebHookConfig
-method: POST
-contentType： application/json
-
-input params:
-
-| field | desc | type |　necessary | default　|
-| -- | -- | -- | -- | -- |
-| callbackPath | call address, unique address | string | Y　| null　|
-
-
-E.g:
-
-```json
-
-{
-	"callbackPath":"/webhook/github/eventmesh/all"
-}
-
-```
-
-Output params: 1 for success, 0 for failure
-
-##### select WebHookConfig by callbackPath
+##### Query WebHook config by callback path
 path: /webhook/queryWebHookConfigById
 method: POST
 contentType： application/json
@@ -165,15 +138,15 @@ input params:
 | field | desc | type |　necessary | default　|
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
+| manufacturerName | the caller of this callbackPath belongs to | string | Y　| null　|
 
 E.g:
 
 ```json
-
 {
-	"callbackPath":"/webhook/github/eventmesh/all"
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github"
 }
-
 ```
 
 Output params:
@@ -182,6 +155,7 @@ Output params:
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
 | manufacturerName | manufacturer name | string | Y　| null　|
+| manufacturerDomain | manufacturer domain name | string | Y　| null　|
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
@@ -189,7 +163,6 @@ Output params:
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
-| cloudEventSource | cloudEvent source | string | Y　| null　|
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id | string | N　| manufacturerEventId　|
 
 
@@ -221,6 +194,7 @@ Output params:
 | -- | -- | -- | -- | -- |
 | callbackPath | call address, unique address | string | Y　| null　|
 | manufacturerName | manufacturer name | string | Y　| null　|
+| manufacturerDomain | manufacturer domain name | string | Y　| null　|
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
@@ -228,9 +202,32 @@ Output params:
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
-| cloudEventSource | cloudEvent source | string | Y　| null　|
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N　| manufacturerEventId　|
 
+##### Delete WebHook config
+
+path: /webhook/deleteWebHookConfig
+method: POST
+contentType： application/json
+
+input params:
+
+| field            | desc                                       | type   | necessary | default |
+| ---------------- | ------------------------------------------ | ------ | --------- | ------- |
+| callbackPath     | call address, unique address               | string | Y         | null    |
+| manufacturerName | the caller of this callbackPath belongs to | string | Y         | null    |
+
+
+E.g:
+
+```json
+{
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github"
+}
+```
+
+Output params: 1 for success, 0 for failure
 
 #### The third step: Check if the configuration is successful
 
@@ -269,7 +266,6 @@ Output params:
 Payload URL: Service address and pahts. [http or https]://[domain or IP]:[port]/webhook/[callbackPath]
 Content type: http header content type
 secret: signature string
-
 
 
 
