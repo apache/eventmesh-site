@@ -166,7 +166,7 @@ Output params:
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id | string | N　| manufacturerEventId　|
 
 
-##### 通过manufacturer查询WebHookConfig列表
+##### Query WebHook config by manufacturer
 path: /webhook/queryWebHookConfigByManufacturer
 method: POST
 contentType： application/json
@@ -176,16 +176,18 @@ input params:
 | field | desc | type |　necessary | default　|
 | -- | -- | -- | -- | -- |
 | manufacturerName | manufacturer name | string | Y　| null　|
+| pageNum | page number of paging query | string | Y　| null　|
+| pageSize | page size of each page | string | Y　| null　|
 
 
 E.g:
 
 ```json
-
 {
-	"manufacturerName":"github"
+    "manufacturerName":"github",
+    "pageNum":1,
+    "pageSize":2
 }
-
 ```
 
 Output params:
