@@ -1,4 +1,4 @@
-# Guidelines of eventmesh-store with Docker
+# EventMesh Store with Docker
 
 ## Dependencies
 

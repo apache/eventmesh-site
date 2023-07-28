@@ -79,6 +79,11 @@ module.exports = {
           label: 'Team',
         },
         {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+        },
+        {
           type: 'localeDropdown',
           position: 'right',
         },
