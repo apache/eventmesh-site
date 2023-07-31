@@ -1,4 +1,4 @@
-# eventmesh-store 快速入门说明
+# 部署 EventMesh 的事件存储（使用 Docker）
 
 ## 依赖
 
