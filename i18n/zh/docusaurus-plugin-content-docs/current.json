@@ -1,7 +1,7 @@
 {
   "version.label": {
     "message": "Next",
-    "description": "The label for version current"
+    "description": "The label for current version"
   },
   "sidebar.tutorialSidebar.category.Installation and Deployment": {
     "message": "安装与部署",
