@@ -142,7 +142,7 @@ contentType： application/json
 }
 ```
 
-输出参数：1 成功，0失败
+输出参数：1 成功，0 失败
 
 #### 通过 callbackPath 查询 WebHookConfig
 
@@ -225,6 +225,44 @@ contentType： application/json
 | cloudEventName | 事件名（） | string | 是 | null |
 | cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)  | string | 否 | manufacturerEventId |
 
+#### 更新接口
+
+路径： /webhook/updateWebHookConfig
+
+方法：POST
+
+contentType： application/json
+
+输入参数：
+
+| 字段                     | 说明                                                         | 类型   | 必须 | 默认值              |
+| ------------------------ | ------------------------------------------------------------ | ------ | ---- | ------------------- |
+| callbackPath             | 调用地址，唯一地址                                           | string | 是   | null                |
+| manufacturerName         | 厂商名                                                       | string | 是   | null                |
+| manufacturerDomain       | 厂商的域名                                                   | string | 是   | null                |
+| manufacturerEventName    | 厂商事件名                                                   | string | 是   | null                |
+| contentType              | http connettype                                              | string | 否   | application/json    |
+| description              | 配置说明                                                     | string | 否   | null                |
+| secret                   | 验签密钥                                                     | string | 否   | null                |
+| userName                 | 用户名                                                       | string | 否   | null                |
+| password                 | 用户密码                                                     | string | 否   | null                |
+| cloudEventName           | 事件名                                                       | string | 是   | null                |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id) | string | 否   | manufacturerEventId |
+
+例子：
+
+```json
+{
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github",
+    "manufacturerDomain":"www.github.com",
+    "manufacturerEventName":"all",
+    "cloudEventName":"github-eventmesh"
+}
+```
+
+输出参数：1 成功，0 失败
+
 #### 删除接口
 
 路径： /webhook/deleteWebHookConfig
@@ -249,11 +287,11 @@ contentType： application/json
 }
 ```
 
-输出参数：1 成功，0失败
+输出参数：1 成功，0 失败
 
 ### 第三步：查看配置是否成功
 
-1. file 存储模式。请到 eventMesh.webHook.fileMode.filePath 目录下查看。文件名为 callbackPath，其中`/`转换为了`.`。
+1. file 存储模式。请到 eventMesh.webHook.fileMode.filePath 目录下查看。文件名为`/`转换为`.`的 callbackPath。
 2. nacos 存储模式。请到 eventMesh.webHook.nacosMode.serverAddr 配置的 nacos 服务中查看。
 
 ### 第四步：配置 cloudevent 的消费者
