@@ -1,4 +1,4 @@
-# EventMesh 导入 Eclipse 快速入门说明
+# Import EventMesh into eclipse
 
 我们推荐使用 `Intellij IDEA` 进行开发，如果您希望使用 `Eclipse`，可以参考下面的步骤导入项目。
 
