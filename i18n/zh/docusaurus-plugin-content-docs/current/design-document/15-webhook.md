@@ -253,13 +253,20 @@ contentType： application/json
 ### github 注册
 #### 第一步：进入对应的项目
 #### 第二步：点击setting
-![](/images/design-document/webhook/webhook-github-setting.png)
+
+![](../../../../../static/images/design-document/webhook/webhook-github-setting.png)
+
 #### 第三步：点击Webhooks
-![](/images/design-document/webhook/webhook-github-webhooks.png)
+
+![](../../../../../static/images/design-document/webhook/webhook-github-webhooks.png)
+
 #### 第四步：点击 Add webhook
-![](/images/design-document/webhook/webhook-github-add.png)
+
+![](../../../../../static/images/design-document/webhook/webhook-github-add.png)
+
 #### 第五步: 填写webhook信息
-![](/images/design-document/webhook/webhook-github-info.png)
+
+![](../../../../../static/images/design-document/webhook/webhook-github-info.png)
 
 Payload URL: 服务地址以及pahts。[http or https ]://[域名 or IP 【厂商可以被调用】]:[端口]/webhook/[callbackPath]
 Content type：http header content type
