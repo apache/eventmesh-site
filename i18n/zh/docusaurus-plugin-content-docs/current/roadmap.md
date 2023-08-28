@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# EventMesh产品路线图
+# EventMesh 产品路线图
 
 下表列出了EventMesh的新特性和bug修复情况，详情请参考 [release notes](https://eventmesh.apache.org/events/release-notes/v1.4.0).
 

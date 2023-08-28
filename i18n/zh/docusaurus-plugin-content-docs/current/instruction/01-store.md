@@ -1,4 +1,4 @@
-# eventmesh-store 快速入门说明
+# 部署 EventMesh 的事件存储
 
 ## 依赖
 
@@ -13,7 +13,7 @@ eventmesh在非standalone模式下，依赖RocketMQ作为存储层；若采用st
 
 ## 下载
 
-从[RocketMQ官方网站](https://rocketmq.apache.org/download/) 下载Binary代码（推荐使用4.9.*版本），这里以4.9.4为例
+从 [RocketMQ官方网站](https://rocketmq.apache.org/download/) 下载Binary代码（推荐使用4.9.*版本），这里以4.9.4为例
 
 ```
 unzip rocketmq-all-4.9.4-bin-release.zip
