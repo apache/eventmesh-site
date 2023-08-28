@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "1.9.0",
+    "message": "v1.9.0",
     "description": "The label for current version"
   },
   "sidebar.tutorialSidebar.category.Installation and Deployment": {

@@ -124,7 +124,7 @@ contentType： application/json
 | manufacturerEventName | 厂商事件名 | string | 是 | null |
 | contentType | http connettype | string | 否 | application/json |
 | description | 配置说明 | string | 否 | null |
-| secret | 验签密钥 | string | 否 | null |
+| secret | 验签密钥 | string | 是 | null |
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名 | string | 是 | null |
@@ -138,7 +138,8 @@ contentType： application/json
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh"
+    "cloudEventName":"github-eventmesh",
+    "secret": "testSecret"
 }
 ```
 
@@ -177,7 +178,7 @@ contentType： application/json
 | manufacturerEventName | 厂商事件名 | string | 是 | null |
 | contentType | http connettype | string | 否 | application/json |
 | description | 配置说明 | string | 否 | null |
-| secret | 验签密钥 | string | 否 | null |
+| secret | 验签密钥 | string | 是 | null |
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名（） | string | 是 | null |
@@ -219,7 +220,7 @@ contentType： application/json
 | manufacturerEventName | 厂商事件名 | string | 是 | null |
 | contentType | http connettype | string | 否 | application/json |
 | description | 配置说明 | string | 否 | null |
-| secret | 验签密钥 | string | 否 | null |
+| secret | 验签密钥 | string | 是 | null |
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名（） | string | 是 | null |
@@ -243,7 +244,7 @@ contentType： application/json
 | manufacturerEventName    | 厂商事件名                                                   | string | 是   | null                |
 | contentType              | http connettype                                              | string | 否   | application/json    |
 | description              | 配置说明                                                     | string | 否   | null                |
-| secret                   | 验签密钥                                                     | string | 否   | null                |
+| secret                   | 验签密钥                                                     | string | 是   | null                |
 | userName                 | 用户名                                                       | string | 否   | null                |
 | password                 | 用户密码                                                     | string | 否   | null                |
 | cloudEventName           | 事件名                                                       | string | 是   | null                |
@@ -257,7 +258,8 @@ contentType： application/json
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh"
+    "cloudEventName":"github-eventmesh",
+    "secret": "testSecret"
 }
 ```
 
@@ -307,21 +309,21 @@ contentType： application/json
 
 #### 第一步：进入对应的项目
 
-#### 第二步：点击 setting
+#### 第二步：点击setting
 
-![](/images/design-document/webhook/webhook-github-setting.png)
+![](../../../../../static/images/design-document/webhook/webhook-github-setting.png)
 
-#### 第三步：点击 Webhooks
+#### 第三步：点击Webhooks
 
-![](/images/design-document/webhook/webhook-github-webhooks.png)
+![](../../../../../static/images/design-document/webhook/webhook-github-webhooks.png)
 
-#### 第四步：点击 Add Webhook
+#### 第四步：点击 Add webhook
 
-![](/images/design-document/webhook/webhook-github-add.png)
+![](../../../../../static/images/design-document/webhook/webhook-github-add.png)
 
-#### 第五步: 填写 Webhook 信息
+#### 第五步: 填写webhook信息
 
-![](/images/design-document/webhook/webhook-github-info.png)
+![](../../../../../static/images/design-document/webhook/webhook-github-info.png)
 
 Payload URL: EventMesh 服务地址和调用地址，需包含协议头。例如，当调用地址 `callbackPath` 为 `/webhook/github/eventmesh/all` 时，Payload URL 为 `http://www.example.com:10105/webhook/github/eventmesh/all`
 
