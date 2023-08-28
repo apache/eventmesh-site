@@ -1,4 +1,4 @@
-# Run our demos
+# Run eventmesh-sdk-java demo
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java)
 
@@ -8,9 +8,9 @@
 >
 > EventMesh-sdk-java support HTTP, TCP and gRPC.
 
-The test demos of TCP, HTTP 和 GRPC are in the module **eventmesh-examples**
+The test demos of TCP, HTTP 和 GRPC are in the module **eventmesh-examples**:
 
-## 1 TCP DEMO
+## 1. TCP DEMO
 
 ### 1.1 ASYNC
 
@@ -44,7 +44,6 @@ More information about EventMesh-TCP, please refer to [EventMesh TCP](../sdk-jav
 
 
 ## 2 HTTP DEMO
-
 
 ### 2.1 ASYNC
 
@@ -101,52 +100,109 @@ Run the main method of org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPubli
 
 More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-java/04-grpc.md)
 
-## 4 Run these demos by yourself
+## 4. Run these demos by yourself
 
 Please refer to [EventMesh Store](./01-store.md) and [EventMesh Runtime](./02-runtime.md) to finish the necessary deployment before try our demo
 
 After finishing the deployment of store and runtime, you can run our demos in module `eventmesh-examples`:
 
-### TCP Sub
+gradle：
 
-  ```shell
-  cd bin
-  sh tcp_eventmeshmessage_sub.sh
-  ```
+```shell
+cd apache-eventmesh-1.9.0-src/eventmesh-examples
+gradle clean dist
 
-### TCP Pub
+cd ./dist/bin
+```
 
-  ```shell
-  cd bin
-  sh tcp_pub_eventmeshmessage.sh
-  ```
+![demo_1](/images/install/demo_1.png)
 
-### TCP Sub Broadcast
+### 4.1 TCP
+TCP Sub
 
-  ```shell
-  cd bin
-  sh tcp_sub_eventmeshmessage_broadcast.sh
-  ```
+```shell
+bash tcp_eventmeshmessage_sub.sh
+```
 
-### TCP Pub Broadcast
+Open the corresponding log file to view the log:
+```
+cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
+tail -f demo_tcp_pub.out
+```
+![demo_2](/images/install/demo_2.png)
 
-  ```shell
-  cd bin
-  sh tcp_pub_eventmeshmessage_broadcast.sh
-  ```
+TCP Pub
 
-### HTTP Sub
+```shell
+bash tcp_pub_eventmeshmessage.sh
+```
 
-  ```shell
-  cd bin
-  sh http_sub.sh
-  ```
+Open the corresponding log file to view the log:
+```
+cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
+tail -f demo_tcp_sub.out
+```
 
-### HTTP Pub
+![demo_3](/images/install/demo_3.png)
 
-  ```shell
-  cd bin
-  sh http_pub_eventmeshmessage.sh
-  ```
+### 4.2 TCP Broadcast
 
-You can review the log in the folder `/logs`
+TCP Sub Broadcast
+
+```shell
+sh tcp_sub_eventmeshmessage_broadcast.sh
+```
+
+Open the corresponding log file to view the log:
+```
+cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
+tail -f demo_tcp_sub_broadcast.out
+```
+
+![demo_4](/images/install/demo_4.png)
+
+TCP Pub Broadcast
+
+```shell
+sh tcp_pub_eventmeshmessage_broadcast.sh
+```
+
+Open the corresponding log file to view the log:
+```
+cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
+tail -f demo_tcp_pub_broadcast.out
+```
+
+![demo_5](/images/install/demo_5.png)
+
+### 4.3 HTTP
+
+HTTP Sub
+
+```shell
+sh http_sub.sh
+```
+
+Open the corresponding log file to view the log:
+```
+cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
+tail -f demo_http_sub.out
+```
+
+![demo_6](/images/install/demo_6.png)
+
+HTTP Pub
+
+```shell
+sh http_pub_eventmeshmessage.sh
+```
+
+Open the corresponding log file to view the log:
+```
+cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
+tail -f demo_http_pub.out
+```
+
+![demo_7](/images/install/demo_7.png)
+
+You can see the run logs for the different modes under the `/logs` directory.

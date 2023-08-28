@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Development Roadmap
 
-The development roadmap of Apache EventMesh is an overview of the planned features and milestones involved in the next several releases. The recent features and bug fixes are documented in the [release notes](https://eventmesh.apache.org/events/release-notes/v1.4.0). The order of the features listed below doesn't correspond to their priorities.
+The development roadmap of Apache EventMesh is an overview of the planned features and milestones involved in the next several releases. The recent features and bug fixes are documented in the [release notes](https://eventmesh.apache.org/events/release-notes/v1.9.0/). The order of the features listed below doesn't correspond to their priorities.
 
 ## List of Features and Milestones
 
@@ -25,6 +25,7 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 | **Implemented in 1.5.0**                  | Support Nacos Registry          | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
 | **Implemented in 1.5.0**                  | Support Mesh Bridge             | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
 | **Implemented in 1.5.0**                  | Support  Federal Government     | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
+| **Implemented in 1.5.0**                  | Support Mesh Bridge             | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
 | **Implemented in 1.6.0**                  | Integrate with Consul           | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
 | **Implemented in 1.6.0**                  | Support Webhook                 | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |
 | **Implemented in 1.6.0**                  | Support etcd                    | [GitHub Issue](https://github.com/apache/incubator-eventmesh/issues/417) |

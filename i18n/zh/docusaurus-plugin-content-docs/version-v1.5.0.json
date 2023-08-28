@@ -1,0 +1,21 @@
+{
+  "version.label": {
+    "message": "v1.5.0"
+  },
+  "sidebar.tutorialSidebar.category.Installation and Deployment": {
+    "message": "安装与部署",
+    "description": "The label for category Installation and Deployment in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.EventMesh SDK for Java": {
+    "message": "Java SDK",
+    "description": "The label for category EventMesh SDK for Java in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Design Document": {
+    "message": "设计文档",
+    "description": "The label for category Design Document in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Upgrade Guide": {
+    "message": "升级指南",
+    "description": "The label for category Upgrade Guide in sidebar tutorialSidebar"
+  }
+}

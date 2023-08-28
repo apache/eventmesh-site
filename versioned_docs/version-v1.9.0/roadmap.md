@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Development Roadmap
 
-The development roadmap of Apache EventMesh is an overview of the planned features and milestones involved in the next several releases. The recent features and bug fixes are documented in the [release notes](https://eventmesh.apache.org/events/release-notes/v1.4.0). The order of the features listed below doesn't correspond to their priorities.
+The development roadmap of Apache EventMesh is an overview of the planned features and milestones involved in the next several releases. The recent features and bug fixes are documented in the [release notes](https://eventmesh.apache.org/events/release-notes/v1.9.0/). The order of the features listed below doesn't correspond to their priorities.
 
 ## List of Features and Milestones
 
