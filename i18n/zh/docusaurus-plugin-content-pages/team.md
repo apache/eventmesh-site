@@ -42,6 +42,7 @@ Apache EventMesh (Incubating) 由我们的 PPMC、Committer 和其他贡献者�
 |Yongshe Feng| [@fengyongshe](https://github.com/fengyongshe)         |fengyongshe@apache.org |Committer| +8 |
 |Mark Li| [@Markliniubility](https://github.com/Markliniubility)         |markli@apache.org |Committer| +8 |
 |Jianbo Liu| [@mxsm](https://github.com/mxsm) |mxsm@apache.org |Committer| +8 |
+|Harshitha Sudhakar| [@harshithasudhakar](https://github.com/harshithasudhakar) |harshitha@apache.org |Committer| +6 |
 
 ## 所有贡献者
 
