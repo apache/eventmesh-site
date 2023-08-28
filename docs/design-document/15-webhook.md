@@ -1,13 +1,16 @@
+# Use Webhook to subscribe events
 
 ## Webhook usage process
-#### The first step: Configure webhook related information in eventmesh and start
 
-##### Configuration
+### The first step: Configure Webhook related information in eventmesh and start
+
+Configuration:
+
 ```
-# Whether to start the webhook admin service
+# Whether to start the Webhook admin service
 eventMesh.webHook.admin.start=true
 
-# webhook event configuration storage mode. But currently only supports file and nacos
+# Webhook event configuration storage mode. But currently only supports file and nacos
 eventMesh.webHook.operationMode=file
 
 # The file path of fileMode. If you write #{eventMeshHome}, in the eventMesh root directory
@@ -17,13 +20,13 @@ eventMesh.webHook.fileMode.filePath= #{eventMeshHome}/webhook
 ## address of nacos
 eventMesh.webHook.nacosMode.serverAddr=127.0.0.1:8848
 
-# webhook eventcloud send mode. Same as eventMesh.connector.plugin.type configuration
+# Webhook CloudEvent sending mode. This property is the same as the eventMesh.storage.plugin.type configuration.
 eventMesh.webHook.producer.connector=standalone
 ```
 
-#### The second step: Add webhook configuration information
+### The second step: Add Webhook configuration information
 
-Configuration information description
+Configuration information description:
 
 ```java
    /**
@@ -44,7 +47,7 @@ Configuration information description
     private String manufacturerDomain;
 
     /**
-     * webhook event name, like rep-push
+     * Webhook event name, like rep-push
      */
     private String manufacturerEventName;
 
@@ -92,10 +95,12 @@ Configuration information description
 
 ```
 
-##### Add WebHook config
+#### Add WebHook config
 
 path: /webhook/insertWebHookConfig
+
 method: POST
+
 contentType: application/json
 
 input params:
@@ -128,9 +133,12 @@ E.g:
 
 Output params: 1 for success, 0 for failure
 
-##### Query WebHook config by callback path
+#### Query WebHook config by callback path
+
 path: /webhook/queryWebHookConfigById
+
 method: POST
+
 contentType： application/json
 
 input params:
@@ -165,10 +173,12 @@ Output params:
 | cloudEventName | cloudEvent name | string | Y　| null　|
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id | string | N　| manufacturerEventId　|
 
+#### Query WebHook config by manufacturer
 
-##### Query WebHook config by manufacturer
 path: /webhook/queryWebHookConfigByManufacturer
+
 method: POST
+
 contentType： application/json
 
 input params:
@@ -178,7 +188,6 @@ input params:
 | manufacturerName | manufacturer name | string | Y　| null　|
 | pageNum | page number of paging query | string | Y　| null　|
 | pageSize | page size of each page | string | Y　| null　|
-
 
 E.g:
 
@@ -206,10 +215,50 @@ Output params:
 | cloudEventName | cloudEvent name | string | Y　| null　|
 | cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id  | string | N　| manufacturerEventId　|
 
-##### Delete WebHook config
+#### Update WebHook config
+
+path: /webhook/updateWebHookConfig
+
+method: POST
+
+contentType: application/json
+
+input params:
+
+| field                    | desc                                                         | type   | necessary | default             |
+| ------------------------ | ------------------------------------------------------------ | ------ | --------- | ------------------- |
+| callbackPath             | call address, unique address                                 | string | Y         | null                |
+| manufacturerName         | manufacturer name                                            | string | Y         | null                |
+| manufacturerDomain       | manufacturer domain name                                     | string | Y         | null                |
+| manufacturerEventName    | manufacturer event name                                      | string | Y         | null                |
+| contentType              | http connettype                                              | string | N         | application/json    |
+| description              | configuration instructions                                   | string | N         | null                |
+| secret                   | signature string                                             | string | N         | null                |
+| userName                 | username                                                     | string | N         | null                |
+| password                 | password                                                     | string | N         | null                |
+| cloudEventName           | cloudEvent name                                              | string | Y         | null                |
+| cloudEventIdGenerateMode | cloudEvent event object identification method, uuid or event id | string | N         | manufacturerEventId |
+
+E.g:
+
+```json
+{
+    "callbackPath":"/webhook/github/eventmesh/all",
+    "manufacturerName":"github",
+    "manufacturerDomain":"www.github.com",
+    "manufacturerEventName":"all",
+    "cloudEventName":"github-eventmesh"
+}
+```
+
+Output params: 1 for success, 0 for failure
+
+#### Delete WebHook config
 
 path: /webhook/deleteWebHookConfig
+
 method: POST
+
 contentType： application/json
 
 input params:
@@ -218,7 +267,6 @@ input params:
 | ---------------- | ------------------------------------------ | ------ | --------- | ------- |
 | callbackPath     | call address, unique address               | string | Y         | null    |
 | manufacturerName | the caller of this callbackPath belongs to | string | Y         | null    |
-
 
 E.g:
 
@@ -231,19 +279,18 @@ E.g:
 
 Output params: 1 for success, 0 for failure
 
-#### The third step: Check if the configuration is successful
+### The third step: Check if the configuration is successful
 
-1. file storage mode. Please go to the eventMesh.webHook.fileMode.filePath directory to view. filename callbackPath.
+1. file storage mode. Please go to the eventMesh.webHook.fileMode.filePath directory to view. The Filename is callbackPath.
+2. nacos storage mode. Please go to the nacos service configured by eventMesh.webHook.nacosMode.serverAddr to see this.
 
-2. nacos storage mode. Please go to the nacos service configured by eventMesh.webHook.nacosMode.serverAddr to see.
+### The fourth step: Configure the consumer of cloudevent
 
-#### The fourth step: Configure the consumer of cloudevent
+### The fifth step: Configure Webhook related information in the manufacturer
 
-#### The fifth step: Configure webhook related information in the manufacturer
+> For manufacturer's operation, please refer to [Manufacturer's Webhook operation instructions](#Manufacturer's-Webhook-operation-instructions).
 
-> For manufacturer's operation, please refer to [Manufacturer's webhook operation instructions] .
-
-## Manufacturer's webhook operation instructions
+## Manufacturer's Webhook operation instructions
 
 ### github sign up
 
@@ -257,17 +304,21 @@ Output params: 1 for success, 0 for failure
 
 ![](/images/design-document/webhook/webhook-github-webhooks.png)
 
-#### The fourth step: Click on Add webhook
+#### The fourth step: Click on Add Webhook
 
 ![](/images/design-document/webhook/webhook-github-add.png)
 
-#### The fifth step: Fill in the webhook information
+#### The fifth step: Fill in the Webhook information
 
 ![](/images/design-document/webhook/webhook-github-info.png)
 
-Payload URL: Service address and pahts. [http or https]://[domain or IP]:[port]/webhook/[callbackPath]
+Payload URL: EventMesh service address and callbackPath, which must include the protocol header. For example, when the callback address `callbackPath` is `/webhook/github/eventmesh/all`, the Payload URL is `http://www.example.com:10105/webhook/github/eventmesh/all`.
+
+[http or https]://[domain or IP]:[port]/webhook/[callbackPath]
+
 Content type: http header content type
-secret: signature string
+
+Secret: signature string
 
 
 
