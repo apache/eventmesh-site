@@ -124,7 +124,7 @@ contentType： application/json
 | manufacturerEventName | 厂商事件名 | string | 是 | null |
 | contentType | http connettype | string | 否 | application/json |
 | description | 配置说明 | string | 否 | null |
-| secret | 验签密钥 | string | 否 | null |
+| secret | 验签密钥 | string | 是 | null |
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名 | string | 是 | null |
@@ -138,7 +138,8 @@ contentType： application/json
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh"
+    "cloudEventName":"github-eventmesh",
+    "secret": "testSecret"
 }
 ```
 
@@ -177,7 +178,7 @@ contentType： application/json
 | manufacturerEventName | 厂商事件名 | string | 是 | null |
 | contentType | http connettype | string | 否 | application/json |
 | description | 配置说明 | string | 否 | null |
-| secret | 验签密钥 | string | 否 | null |
+| secret | 验签密钥 | string | 是 | null |
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名（） | string | 是 | null |
@@ -219,7 +220,7 @@ contentType： application/json
 | manufacturerEventName | 厂商事件名 | string | 是 | null |
 | contentType | http connettype | string | 否 | application/json |
 | description | 配置说明 | string | 否 | null |
-| secret | 验签密钥 | string | 否 | null |
+| secret | 验签密钥 | string | 是 | null |
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名（） | string | 是 | null |
@@ -243,7 +244,7 @@ contentType： application/json
 | manufacturerEventName    | 厂商事件名                                                   | string | 是   | null                |
 | contentType              | http connettype                                              | string | 否   | application/json    |
 | description              | 配置说明                                                     | string | 否   | null                |
-| secret                   | 验签密钥                                                     | string | 否   | null                |
+| secret                   | 验签密钥                                                     | string | 是   | null                |
 | userName                 | 用户名                                                       | string | 否   | null                |
 | password                 | 用户密码                                                     | string | 否   | null                |
 | cloudEventName           | 事件名                                                       | string | 是   | null                |
@@ -257,7 +258,8 @@ contentType： application/json
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh"
+    "cloudEventName":"github-eventmesh",
+    "secret": "testSecret"
 }
 ```
 

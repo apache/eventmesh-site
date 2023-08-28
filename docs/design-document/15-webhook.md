@@ -113,7 +113,7 @@ input params:
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
-| secret | signature string | string | N　| null　|
+| secret | signature string | string | Y　| null　|
 | userName | username | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name  | string | Y　| null　|
@@ -127,7 +127,8 @@ E.g:
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh"
+    "cloudEventName":"github-eventmesh",
+    "secret": "testSecret"
 }
 ```
 
@@ -167,7 +168,7 @@ Output params:
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
-| secret | signature key | string | N　| null　|
+| secret | signature key | string | Y　| null　|
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
@@ -209,7 +210,7 @@ Output params:
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
-| secret | signature key | string | N　| null　|
+| secret | signature key | string | Y　| null　|
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
@@ -233,7 +234,7 @@ input params:
 | manufacturerEventName    | manufacturer event name                                      | string | Y         | null                |
 | contentType              | http connettype                                              | string | N         | application/json    |
 | description              | configuration instructions                                   | string | N         | null                |
-| secret                   | signature string                                             | string | N         | null                |
+| secret                   | signature string                                             | string | Y         | null                |
 | userName                 | username                                                     | string | N         | null                |
 | password                 | password                                                     | string | N         | null                |
 | cloudEventName           | cloudEvent name                                              | string | Y         | null                |
@@ -247,7 +248,8 @@ E.g:
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh"
+    "cloudEventName":"github-eventmesh",
+    "secret": "testSecret"
 }
 ```
 
