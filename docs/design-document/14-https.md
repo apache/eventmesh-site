@@ -1,32 +1,30 @@
 # HTTPS
 
-1.在eventmesh-runtime 中配置
+1. Configuration in eventmesh-runtime
 
 ```
-eventMesh.properties(添加如下配置)
-eventMesh.server.useTls.enabled=true   //默认值 false
+eventMesh.properties (add the following configurations)
+eventMesh.server.useTls.enabled=true   // Default value: false
 
-
-config env varible
--Dssl.server.protocol=TLSv1.1   //默认值 TLSv1.1
--Dssl.server.cer=sChat2.jks     //把文件放到启动脚本start.sh 指定的conPath目录下
+Configuring environment variable
+-Dssl.server.protocol=TLSv1.1   // Default value: TLSv1.1
+-Dssl.server.cer=sChat2.jks     // Place the file in the conPath directory specified by the startup script start.sh
 -Dssl.server.pass=sNetty
 ```
 
-2.在eventmesh-sdk-java 中配置
+2. Configuration in eventmesh-sdk-java
 
 ```
-//创建producer
-LiteClientConfig eventMeshHttpClientConfig = new eventMeshHttpClientConfig();
+// Create a producer
+LiteClientConfig eventMeshHttpClientConfig = new LiteClientConfig();
 ...
 
-//设置开启TLS
+// Enable TLS
 eventMeshHttpClientConfig.setUseTls(true);
 LiteProducer producer = new LiteProducer(eventMeshHttpClientConfig);
 
-
-//配置环境变量
--Dssl.client.protocol=TLSv1.1   //默认值 TLSv1.1
--Dssl.client.cer=sChat2.jks     //把文件放到应用指定的conPath目录下
+// Configure environment variables
+-Dssl.client.protocol=TLSv1.1   // Default value: TLSv1.1
+-Dssl.client.cer=sChat2.jks     // Place the file in the conPath directory specified by the application
 -Dssl.client.pass=sNetty
 ```
