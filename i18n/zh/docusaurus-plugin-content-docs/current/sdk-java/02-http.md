@@ -53,7 +53,7 @@ public class HTTP {
 }
 ```
 
-EventMesh runtime 将发送一个包含 [CloudEvents 格式](https://github.com/cloudevents/spec) 信息的 POST 请求到这个回调的 URL 地址。类 [SubController.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/http/demo/sub/controller/SubController.java) 实现了 Spring Boot controller，它将接收并解析回调信息。
+EventMesh runtime 将发送一个包含 [CloudEvents 格式](https://github.com/cloudevents/spec) 信息的 POST 请求到这个回调的 URL 地址。类 [SubController.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/http/demo/sub/controller/SubController.java) 实现了 Spring Boot controller，它将接收并解析回调信息。
 
 ## HTTP 生产者
 

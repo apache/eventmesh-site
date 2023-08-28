@@ -25,9 +25,9 @@ eventMesh.metrics.prometheus.port=19090
 
 双击Prometheus.exe运行
 
-运行eventmesh-starter(参考[eventmesh-runtime-quickstart](eventmesh-runtime-quickstart.md))
+运行eventmesh-starter(参考[eventmesh-runtime-quickstart](../../instruction/03-runtime.md))
 
-运行eventmesh-example(参考[eventmesh-sdk-java-quickstart](eventmesh-sdk-java-quickstart.md))
+运行eventmesh-example(参考[eventmesh-sdk-java-quickstart](../../instruction/05-demo.md))
 
 打开浏览器访问：http://localhost:9090/
 

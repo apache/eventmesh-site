@@ -12,7 +12,7 @@ eclipse 已安装gradle插件或者eclipse自带gradle插件
 
 git init
 
-git clone <https://github.com/apache/incubator-eventmesh.git>
+git clone <https://github.com/apache/eventmesh.git>
 
 ### 项目编译eclipse环境
 

@@ -2,8 +2,6 @@
 
 本篇快速入门将详细介绍使用 docker 部署 EventMesh，以 RocketMQ 作为对接的中间件。
 
-可选语言: [英文版本](../../en/instructions/eventmesh-runtime-quickstart-with-docker.md)，[中文版本](02-runtime-with-docker.md)。
-
 ## 1. 前提
 
 1. 建议使用64位的 linux 系统；
@@ -59,7 +57,7 @@ sudo touch rocketmq-client.properties
 sudo vim eventmesh.properties
 ```
 
-你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/incubator-eventmesh/blob/1.3.0/eventmesh-runtime/conf/eventmesh.properties> 。
+你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/eventmesh.properties> 。
 
 请检查配置文件里的默认端口是否已被占用，如果被占用请修改成未被占用的端口：
 
@@ -79,7 +77,7 @@ sudo vim eventmesh.properties
 sudo vim rocketmq-client.properties
 ```
 
-你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/incubator-eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties> 。请注意，如果您正在运行的 namesetver 地址不是配置文件中的默认值，请将其修改为实际正在运行的nameserver地址。
+你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties> 。请注意，如果您正在运行的 namesetver 地址不是配置文件中的默认值，请将其修改为实际正在运行的nameserver地址。
 
 请检查配置文件里的默认namesrvAddr是否已被占用，如果被占用请修改成未被占用的地址：
 
@@ -154,6 +152,6 @@ sudo docker rm -f [your container id or name]
 
 ## 8. 探索更多
 
-现在 EventMesh 已经通过容器运行了，你可以参考 [```eventmesh-examples``` 模块](https://github.com/apache/incubator-eventmesh/tree/master/eventmesh-examples) 编写并测试自己的代码了。
+现在 EventMesh 已经通过容器运行了，你可以参考 [```eventmesh-examples``` 模块](https://github.com/apache/eventmesh/tree/master/eventmesh-examples代码了。
 
 希望你享受这个过程并获得更多收获！

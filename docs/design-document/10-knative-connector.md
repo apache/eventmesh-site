@@ -6,7 +6,7 @@ We use the *cloudevents-player* [Knative service](https://knative.dev/docs/servi
 
 
 ### Set up EventMesh Configuration
-- Add the following lines to [eventmesh-starter/build.gradle](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-starter/build.gradle) file.
+- Add the following lines to [eventmesh-starter/build.gradle](https://github.com/apache/eventmesh/blob/master/eventmesh-starter/build.gradle) file.
 ```
 plugins {
     id 'application'
@@ -24,7 +24,7 @@ dependencies {
     implementation project(":eventmesh-runtime")
 }
 ```
-- Add the following lines to [eventmesh-examples/build.gradle](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/build.gradle) file.
+- Add the following lines to [eventmesh-examples/build.gradle](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/build.gradle) file.
 ```
 plugins {
     id 'application'
@@ -34,7 +34,7 @@ application {
     mainClass = project.hasProperty("mainClass") ? project.getProperty("mainClass") : 'NULL'
 }
 ```
-- Set ```eventMesh.connector.plugin.type=knative``` in [eventmesh-runtime/conf/eventmesh.properties](https://github.com/pchengma/incubator-eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) file.
+- Set ```eventMesh.connector.plugin.type=knative``` in [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) file.
 
 ## Demo
 ### Publish an Event Message from Knative and Subscribe from EventMesh
@@ -50,7 +50,7 @@ $ curl -i http://cloudevents-player.default.127.0.0.1.sslip.io -H "Content-Type:
 ```
 
 #### Step 3: Subscribe from an EventMesh
-- Set ```public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";``` in [ExampleConstants.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) file.
+- Set ```public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";``` in [ExampleConstants.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) file.
 ```bash
 $ cd eventmesh-examples
 $ ../gradlew -PmainClass=org.apache.eventmesh.http.demo.sub.SpringBootDemoApplication run

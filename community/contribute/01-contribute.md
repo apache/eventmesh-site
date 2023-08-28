@@ -27,7 +27,7 @@ Settings -> Editor -> Code Style -> Import Scheme -> IntelliJ IDEA code style XM
 
 #### Import CheckStyle
 
-File location: Import the [`checkStyle.xml`](https://github.com/apache/incubator-eventmesh/blob/master/style/checkStyle.xml)file located in the `eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
+File location: Import the [`checkStyle.xml`](https://github.com/apache/eventmesh/blob/master/style/checkStyle.xml)file located in the `eventmesh/style` directory of the source code into **`IntelliJ IDEA`**.
 
 Please install the CheckStyle-IDEA plugin. For IDEA, you need to import the CheckStyle code style file in the following two settings:
 ```shell
@@ -90,7 +90,7 @@ Here are the workflow for contributors:
 
 2. Clone fork to local repository
 ```git
-git clone git@github.com:yourgithub/incubator-eventmesh.git
+git clone git@github.com:yourgithub/eventmesh.git
 ```
 
 3. Create a new branch and work on it
@@ -100,7 +100,7 @@ git checkout -b fix_patch_xx
 
 4. Keep your branch in sync
 ```git
-git remote add upstream git@github.com:apache/incubator-eventmesh.git
+git remote add upstream git@github.com:apache/eventmesh.git
 git fetch upstream master:upstream_master
 git rebase upstream_master
 ```

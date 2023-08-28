@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java/badge.svg?style=for-the-badge)](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java)
 
-EventMesh Java SDK 是在一个 Java 应用中集成 Eventmesh 所需的 Java 组件集合。SDK 支持使用 TCP、HTTP 和 gRPC 协议来发送和接收同步消息、异步消息和广播消息。SDK 实现了 EventMesh 消息、CloudEvents 和 OpenMessaging 形式。您可以在 [`eventmesh-example`](https://github.com/apache/incubator-eventmesh/tree/master/eventmesh-examples) 模块中查看示例项目。
+EventMesh Java SDK 是在一个 Java 应用中集成 Eventmesh 所需的 Java 组件集合。SDK 支持使用 TCP、HTTP 和 gRPC 协议来发送和接收同步消息、异步消息和广播消息。SDK 实现了 EventMesh 消息、CloudEvents 和 OpenMessaging 形式。您可以在 [`eventmesh-example`](https://github.com/apache/eventmesh/tree/master/eventmesh-examples目。
 
 
 

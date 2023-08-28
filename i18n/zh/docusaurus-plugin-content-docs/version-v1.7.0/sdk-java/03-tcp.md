@@ -21,7 +21,7 @@ public class AsyncSubscribe implements ReceiveMsgHook<CloudEvent> {
 
 ## TCP 消费者
 
-消费者应该实现 `ReceiveMsgHook` 类，其被定义在 [ReceiveMsgHook.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/tcp/common/ReceiveMsgHook.java)。
+消费者应该实现 `ReceiveMsgHook` 类，其被定义在 [ReceiveMsgHook.java](https://github.com/apache/eventmesh/blob/master/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/tcp/common/ReceiveMsgHook.java)。
 
 ```java
 public interface ReceiveMsgHook<ProtocolMessage> {

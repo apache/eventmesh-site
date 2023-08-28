@@ -2,7 +2,7 @@
 
 ## 介绍
 
-[EventMesh(incubating)](https://github.com/apache/incubator-eventmesh) 是一个动态的云原生事件基础设施.
+[EventMesh](https://github.com/apache/eventmesh) 是一个动态的云原生事件基础设施。
 
 ## OpenTelemetry 概述
 

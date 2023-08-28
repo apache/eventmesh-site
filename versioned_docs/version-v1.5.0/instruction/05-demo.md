@@ -102,7 +102,7 @@ More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-j
 
 ## 4. Run these demos by yourself
 
-Please refer to [EventMesh Store](./01-store.md) and [EventMesh Runtime](./02-runtime.md) to finish the necessary deployment before try our demo
+Please refer to [EventMesh Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo
 
 After finishing the deployment of store and runtime, you can run our demos in module `eventmesh-examples`:
 

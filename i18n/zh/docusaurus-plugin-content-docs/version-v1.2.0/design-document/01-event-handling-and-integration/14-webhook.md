@@ -311,19 +311,19 @@ contentType： application/json
 
 #### 第二步：点击setting
 
-![](../../../../../static/images/design-document/webhook/webhook-github-setting.png)
+![](/images/design-document/webhook/webhook-github-setting.png)
 
 #### 第三步：点击Webhooks
 
-![](../../../../../static/images/design-document/webhook/webhook-github-webhooks.png)
+![](/images/design-document/webhook/webhook-github-webhooks.png)
 
 #### 第四步：点击 Add webhook
 
-![](../../../../../static/images/design-document/webhook/webhook-github-add.png)
+![](/images/design-document/webhook/webhook-github-add.png)
 
 #### 第五步: 填写webhook信息
 
-![](../../../../../static/images/design-document/webhook/webhook-github-info.png)
+![](/images/design-document/webhook/webhook-github-info.png)
 
 Payload URL: EventMesh 服务地址和调用地址，需包含协议头。例如，当调用地址 `callbackPath` 为 `/webhook/github/eventmesh/all` 时，Payload URL 为 `http://www.example.com:10105/webhook/github/eventmesh/all`
 

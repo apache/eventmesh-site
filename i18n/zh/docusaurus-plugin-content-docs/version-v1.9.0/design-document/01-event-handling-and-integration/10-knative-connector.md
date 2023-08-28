@@ -5,7 +5,7 @@
 我们使用 *cloudevents-player* [Knative服务](https://knative.dev/docs/serving/)作为例子。如果您不知道如何创建 *cloudevents-player* Knative服务作为source和sink，请按照这个[链接](https://knative.dev/docs/getting-started/first-source/#creating-your-first-source)的步骤进行创建。
 
 ### EventMesh配置文件
-- 将以下配置加入 [eventmesh-starter/build.gradle](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-starter/build.gradle) 文件
+- 将以下配置加入 [eventmesh-starter/build.gradle](https://github.com/apache/eventmesh/r/eventmesh-starter/build.gradle) 文件
 ```bash
 plugins {
     id 'application'
@@ -23,7 +23,7 @@ dependencies {
     implementation project(":eventmesh-runtime")
 }
 ```
-- 将以下配置加入 [eventmesh-examples/build.gradle](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/build.gradle)文件
+- 将以下配置加入 [eventmesh-examples/build.gradle](https://github.com/apache/eventmesh/r/eventmesh-examples/build.gradle)文件
 ```bash
 plugins {
     id 'application'
@@ -33,7 +33,7 @@ application {
     mainClass = project.hasProperty("mainClass") ? project.getProperty("mainClass") : 'NULL'
 }
 ```
-- 在 [eventmesh-runtime/conf/eventmesh.properties](https://github.com/pchengma/incubator-eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) 文件中设置```eventMesh.connector.plugin.type=knative```变量
+- 在 [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.propertiesentMesh.connector.plugin.type=knative```变量
 
 ## 演示
 ### Knative发布事件消息/EventMesh订阅
@@ -49,7 +49,7 @@ $ curl -i http://cloudevents-player.default.127.0.0.1.sslip.io -H "Content-Type:
 ```
 
 #### 步骤3：从EventMesh订阅
-- 在 [ExampleConstants.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) 文件中设置 ```public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";```变量
+- 在 [ExampleConstants.java](https://github.com/apache/eventmesh/r/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) 文件中设置 ```public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";```变量
 ```bash
 $ cd eventmesh-examples
 $ ../gradlew -PmainClass=org.apache.eventmesh.http.demo.sub.SpringBootDemoApplication run

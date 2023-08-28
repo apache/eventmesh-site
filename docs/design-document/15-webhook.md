@@ -113,7 +113,7 @@ input params:
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
-| secret | signature string | string | Y　| null　|
+| secret | signature string | string | N　| null　|
 | userName | username | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name  | string | Y　| null　|
@@ -127,8 +127,7 @@ E.g:
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh",
-    "secret": "testSecret"
+    "cloudEventName":"github-eventmesh"
 }
 ```
 
@@ -168,7 +167,7 @@ Output params:
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
-| secret | signature key | string | Y　| null　|
+| secret | signature key | string | N　| null　|
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
@@ -210,7 +209,7 @@ Output params:
 | manufacturerEventName | manufacturer event name | string | Y　| null　|
 | contentType | http connettype | string | N　| application/json　|
 | description | configuration instructions | string | N　| null　|
-| secret | signature key | string | Y　| null　|
+| secret | signature key | string | N　| null　|
 | userName | user name | string | N　| null　|
 | password | password | string | N　| null　|
 | cloudEventName | cloudEvent name | string | Y　| null　|
@@ -234,7 +233,7 @@ input params:
 | manufacturerEventName    | manufacturer event name                                      | string | Y         | null                |
 | contentType              | http connettype                                              | string | N         | application/json    |
 | description              | configuration instructions                                   | string | N         | null                |
-| secret                   | signature string                                             | string | Y         | null                |
+| secret                   | signature string                                             | string | N         | null                |
 | userName                 | username                                                     | string | N         | null                |
 | password                 | password                                                     | string | N         | null                |
 | cloudEventName           | cloudEvent name                                              | string | Y         | null                |
@@ -248,8 +247,7 @@ E.g:
     "manufacturerName":"github",
     "manufacturerDomain":"www.github.com",
     "manufacturerEventName":"all",
-    "cloudEventName":"github-eventmesh",
-    "secret": "testSecret"
+    "cloudEventName":"github-eventmesh"
 }
 ```
 
@@ -300,19 +298,19 @@ Output params: 1 for success, 0 for failure
 
 #### The second step: click setting
 
-![](../../static/images/design-document/webhook/webhook-github-setting.png)
+![](../../../static/images/design-document/webhook/webhook-github-setting.png)
 
 #### The third step: click Webhooks
 
-![](../../static/images/design-document/webhook/webhook-github-webhooks.png)
+![](../../../static/images/design-document/webhook/webhook-github-webhooks.png)
 
 #### The fourth step: Click on Add Webhook
 
-![](../../static/images/design-document/webhook/webhook-github-add.png)
+![](../../../static/images/design-document/webhook/webhook-github-add.png)
 
 #### The fifth step: Fill in the Webhook information
 
-![](../../static/images/design-document/webhook/webhook-github-info.png)
+![](../../../static/images/design-document/webhook/webhook-github-info.png)
 
 Payload URL: EventMesh service address and callbackPath, which must include the protocol header. For example, when the callback address `callbackPath` is `/webhook/github/eventmesh/all`, the Payload URL is `http://www.example.com:10105/webhook/github/eventmesh/all`.
 

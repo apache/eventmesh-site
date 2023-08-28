@@ -298,19 +298,19 @@ Output params: 1 for success, 0 for failure
 
 #### The second step: click setting
 
-![](../../../static/images/design-document/webhook/webhook-github-setting.png)
+![](/images/design-document/webhook/webhook-github-setting.png)
 
 #### The third step: click Webhooks
 
-![](../../../static/images/design-document/webhook/webhook-github-webhooks.png)
+![](/images/design-document/webhook/webhook-github-webhooks.png)
 
 #### The fourth step: Click on Add Webhook
 
-![](../../../static/images/design-document/webhook/webhook-github-add.png)
+![](/images/design-document/webhook/webhook-github-add.png)
 
 #### The fifth step: Fill in the Webhook information
 
-![](../../../static/images/design-document/webhook/webhook-github-info.png)
+![](/images/design-document/webhook/webhook-github-info.png)
 
 Payload URL: EventMesh service address and callbackPath, which must include the protocol header. For example, when the callback address `callbackPath` is `/webhook/github/eventmesh/all`, the Payload URL is `http://www.example.com:10105/webhook/github/eventmesh/all`.
 

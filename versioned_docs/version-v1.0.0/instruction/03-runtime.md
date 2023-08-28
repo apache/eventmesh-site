@@ -1,6 +1,6 @@
 # EventMesh Runtime
 
-EventMesh Runtime is the core component of Apache EventMesh (Incubating). It is the middleware that transmits events between producers and consumers. The documentation introduces the step to install and start the latest release of EventMesh Runtime in the local or test environment. The EventMesh Runtime requires a Linux-based system with JDK (Java Development Kit) 8+.
+EventMesh Runtime is the core component of Apache EventMesh. It is the middleware that transmits events between producers and consumers. The documentation introduces the step to install and start the latest release of EventMesh Runtime in the local or test environment. The EventMesh Runtime requires a Linux-based system with JDK (Java Development Kit) 8+.
 
 Here, we take JDK 8 as an example. JDK 8 could be installed with the system package manager or the [openjdk:8-jdk](https://hub.docker.com/_/openjdk) Docker image.
 
@@ -15,7 +15,7 @@ Gradle 7.0+, we recommend 7.0.*;
 4g+ available disk to deploy eventmesh-store;
 ```
 
-Gradle is the build automation tool used by Apache EventMesh (Incubating). Please refer to the [offical guide](https://docs.gradle.org/current/userguide/installation.html) to install the latest release of Gradle.
+Gradle is the build automation tool used by Apache EventMesh. Please refer to the [offical guide](https://docs.gradle.org/current/userguide/installation.html) to install the latest release of Gradle.
 
 ### 1.2 Download Source Code
 
@@ -45,7 +45,7 @@ vim conf/eventmesh.properties
 
 ### 1.3 Build and Load Plugins
 
-Apache EventMesh (Incubating) introduces the SPI (Service Provider Interface) mechanism, which enables EventMesh to discover and load the plugins at runtime. The plugins could be installed with these methods:
+Apache EventMesh introduces the SPI (Service Provider Interface) mechanism, which enables EventMesh to discover and load the plugins at runtime. The plugins could be installed with these methods:
 
 - Gradle Dependencies: Declare the plugins as the build dependencies in `eventmesh-starter/build.gradle`.
 

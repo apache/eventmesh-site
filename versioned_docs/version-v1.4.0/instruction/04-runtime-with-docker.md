@@ -45,7 +45,7 @@ sudo touch rocketmq-client.properties
 
 ### 4. Configure `eventmesh.properties`
 
-The `eventmesh.properties` file contains the properties of EventMesh runtime environment and integrated plugins. Please refer to the [default configuration file](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) for the available configuration keys.
+The `eventmesh.properties` file contains the properties of EventMesh runtime environment and integrated plugins. Please refer to the [default configuration file](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) for the available configuration keys.
 
 ```shell
 sudo vim eventmesh.properties
@@ -65,7 +65,7 @@ The `rocketmq-client.properties` file contains the properties of the Apache Rock
 sudo vim rocketmq-client.properties
 ```
 
-Please refer to the [default configuration file](https://github.com/apache/incubator-eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties) and change the value of `eventMesh.server.rocketmq.namesrvAddr` to the nameserver address of RocketMQ.
+Please refer to the [default configuration file](https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties) and change the value of `eventMesh.server.rocketmq.namesrvAddr` to the nameserver address of RocketMQ.
 
 | Configuration Key | Default Value | Description |
 |-|-|-|
@@ -125,6 +125,6 @@ sudo docker rm -f [container id or name]
 
 ## 8. Explore more
 
-Now that EventMesh is running through a container, you can refer to the [``eventmesh-examples`` module](https://github.com/apache/incubator-eventmesh/tree/master/eventmesh- examples) to write and test your own code.
+Now that EventMesh is running through a container, you can refer to the [``eventmesh-examples`` module](https://github.com/apache/eventmesh/tree/master/eventmesh-examples) to write and test your own code.
 
 I hope you enjoy the process and get more out of it!

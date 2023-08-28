@@ -247,9 +247,6 @@ After receiving the notification email that the account was created successfully
 - Use the [GitBox Account Linking Utility] (https://gitbox.apache.org/setup/) to obtain the write permission of the EventMesh project.
 - [eventmesh-website](https://eventmesh.apache.org/team) related page update
 
-
-For detailed instructions, see [PMC/Committer Related Permission Configuration](pmc-related-permission-configuration.md)
-
 If you want to make a public appearance in the Apache GitHub organization, you need to go to the [Apache GitHub people page](https://github.com/orgs/apache/people),
 Search for yourself, then select `Organization visibility` for `Public`.
 

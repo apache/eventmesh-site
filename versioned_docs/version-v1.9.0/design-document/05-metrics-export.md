@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[EventMesh(incubating)](https://github.com/apache/incubator-eventmesh) is a dynamic cloud-native eventing infrastructure.
+[EventMesh](https://github.com/apache/eventmesh) is a dynamic cloud-native eventing infrastructure.
 
 ## An overview of OpenTelemetry
 

@@ -1,6 +1,6 @@
 # 团队成员
 
-Apache EventMesh (Incubating) 由我们的 PPMC、Committer 和其他贡献者开发。无论是对于琐碎的清理，大的新功能，还是其他具有实际价值的贡献，我们都非常感激对 EventMesh 的所有贡献。
+Apache EventMesh 由我们的 PPMC、Committer 和其他贡献者开发。无论是对于琐碎的清理，大的新功能，还是其他具有实际价值的贡献，我们都非常感激对 EventMesh 的所有贡献。
 
 ## PPMCs & Committers
 
@@ -51,8 +51,8 @@ Apache EventMesh (Incubating) 由我们的 PPMC、Committer 和其他贡献者�
 如果您也希望为 EventMesh 做出贡献，请参考以下链接。期待您的参与 :)
 
 - [贡献指南](https://eventmesh.apache.org/zh/community/contribute/contribute)
-- [Good First Issues](https://github.com/apache/incubator-eventmesh/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+- [Good First Issues](https://github.com/apache/eventmesh/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
-以下是 [贡献者列表](https://github.com/apache/incubator-eventmesh/graphs/contributors), 感谢大家的贡献！
+以下是 [贡献者列表](https://github.com/apache/eventmesh/graphs/contributors), 感谢大家的贡献！
 
-[![Contributor](https://contrib.rocks/image?repo=apache/incubator-eventmesh)](https://github.com/apache/incubator-eventmesh/graphs/contributors)
+[![Contributor](https://contrib.rocks/image?repo=apache/eventmesh)](https://github.com/apache/eventmesh/graphs/contributors)
