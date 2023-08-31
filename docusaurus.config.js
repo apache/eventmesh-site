@@ -203,24 +203,6 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars/docs.js'),
           editUrl: 'https://github.com/apache/eventmesh-site/edit/master/',
-          lastVersion: 'v1.9.0', // 引用 versions.json 文件中的实际版本
-          versions: {
-            current: {
-              label: 'v1.9.0',
-              path: 'version-v1.9.0',
-            },
-          },
-          onlyIncludeVersions: [
-          "v1.9.0",
-          "v1.8.0",
-          "v1.7.0",
-          "v1.6.0",
-          "v1.5.0",
-          "v1.4.0",
-          "v1.3.0",
-          "v1.2.0",
-          "v1.1.1",
-          "v1.0.0"],
         },
         blog: {
           showReadingTime: true,
