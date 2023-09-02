@@ -1,4 +1,4 @@
-# eventmesh-store docker部署
+# 部署 EventMesh 的事件存储（使用 Docker）
 
 eventmesh在非standalone模式下，依赖RocketMQ作为存储层；若采用standalone模式，则可跳过该步，直接进行runtime的部署。
 

@@ -1,4 +1,4 @@
-# eventMesh 导入Eclipse 快速入门说明
+# 导入 Eclipse 快速入门说明
 
 ### 依赖
 

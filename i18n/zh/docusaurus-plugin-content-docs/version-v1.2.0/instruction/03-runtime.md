@@ -1,4 +1,4 @@
-# Eventmesh-runtime 部署
+# Eventmesh-runtime 快速入门说明
 
 EventMesh Runtime 是 Apache EventMesh（孵化）的核心组件。它是在生产者和消费者之间传输事件的中间件。该文档介绍了在本地或测试环境中安装和启动最新版 EventMesh Runtime 的步骤。EventMesh Runtime 需要一个基于 Linux 的系统，并配备 JDK（Java 开发包）8+。
 

@@ -8,7 +8,7 @@
     "description": "The label for category Installation and Deployment in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.EventMesh SDK for Java": {
-    "message": "Java SDK",
+    "message": "EventMesh SDK for Java",
     "description": "The label for category EventMesh SDK for Java in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Design Document": {
