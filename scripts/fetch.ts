@@ -33,7 +33,7 @@ const copyFolder = (srcDir: string, tarDir: string) => {
 };
 
 const fetch = async () => {
-  console.log('[Apache EventMesh Site] Fetch apache/incubator-eventmesh');
+  console.log('[Apache EventMesh Site] Fetch apache/eventmesh');
   if (fs.existsSync('./tmp')) {
     fs.rmSync('./tmp', {
       recursive: true,
@@ -41,17 +41,17 @@ const fetch = async () => {
   }
   const git = simpleGit();
   await git.clone(
-    'https://github.com/apache/incubator-eventmesh.git',
-    './tmp/incubator-eventmesh',
+    'https://github.com/apache/eventmesh.git',
+    './tmp/eventmesh',
   );
 
-  console.log('[Apache EventMesh Site] Extract documentation from apache/incubator-eventmesh');
-  await git.cwd('./tmp/incubator-eventmesh').checkout('master', ['-f']);
-  copyFolder('./tmp/incubator-eventmesh/docs/images/', './static/images/');
-  copyFolder('./tmp/incubator-eventmesh/docs/en/', './docs/');
-  copyFolder('./tmp/incubator-eventmesh/docs/zh/', './i18n/zh/docusaurus-plugin-content-docs/current/');
+  console.log('[Apache EventMesh Site] Extract documentation from apache/eventmesh');
+  await git.cwd('./tmp/eventmesh').checkout('master', ['-f']);
+  copyFolder('./tmp/eventmesh/docs/images/', './static/images/');
+  copyFolder('./tmp/eventmesh/docs/en/', './docs/');
+  copyFolder('./tmp/eventmesh/docs/zh/', './i18n/zh/docusaurus-plugin-content-docs/current/');
 
-  console.log('[Apache EventMesh Site] Removed tmp/incubator-eventmesh');
+  console.log('[Apache EventMesh Site] Removed tmp/eventmesh');
   fs.rmSync('./tmp', {
     recursive: true,
   });

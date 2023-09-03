@@ -21,7 +21,7 @@ public class AsyncSubscribe implements ReceiveMsgHook<CloudEvent> {
 
 ## TCP Consumer
 
-The consumer should implement the `ReceiveMsgHook` class, which is defined in [`ReceiveMsgHook.java`](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/tcp/common/ReceiveMsgHook.java).
+The consumer should implement the `ReceiveMsgHook` class, which is defined in [`ReceiveMsgHook.java`](https://github.com/apache/eventmesh/r/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/tcp/common/ReceiveMsgHook.java).
 
 ```java
 public interface ReceiveMsgHook<ProtocolMessage> {

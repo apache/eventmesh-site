@@ -1,4 +1,4 @@
-# eventMesh 导入Eclipse 快速入门说明
+# 导入 Eclipse 快速入门说明
 
 ### 依赖
 
@@ -12,7 +12,7 @@ eclipse 已安装gradle插件或者eclipse自带gradle插件
 
 git init
 
-git clone <https://github.com/apache/incubator-eventmesh.git>
+git clone <https://github.com/apache/eventmesh.git>
 
 ### 项目编译eclipse环境
 

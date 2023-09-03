@@ -50,9 +50,9 @@ Each contributor has played an important role in promoting the robust developmen
 
 Please refer to the following links, if you also want to make your contribution to EventMesh. Look forward to your participation :)
 
-- [Contributing Guideline](https://github.com/apache/incubator-eventmesh/blob/master/docs/en/contribute/03-new-contributor-guidelines.md)
-- [Good First Issues](https://github.com/apache/incubator-eventmesh/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+- [Contributing Guideline](https://github.com/apache/eventmesh/r/docs/en/contribute/03-new-contributor-guidelines.md)
+- [Good First Issues](https://github.com/apache/eventmesh/s%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
-Here is the [List of Contributors](https://github.com/apache/incubator-eventmesh/graphs/contributors), thank you all!
+Here is the [List of Contributors](https://github.com/apache/eventmesh/tributors), thank you all!
 
-[![Contributor](https://contrib.rocks/image?repo=apache/incubator-eventmesh)](https://github.com/apache/incubator-eventmesh/graphs/contributors)
+[![Contributor](https://contrib.rocks/image?repo=apache/eventmesh)](https://github.com/apache/eventmesh/tributors)

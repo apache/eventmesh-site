@@ -4,12 +4,11 @@ sidebar_position: 0
 
 # Apache EventMesh
 
-[![CI status](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml/badge.svg)](https://github.com/apache/incubator-eventmesh/actions/workflows/ci.yml)
-[![CodeCov](https://codecov.io/gh/apache/incubator-eventmesh/branch/develop/graph/badge.svg)](https://codecov.io/gh/apache/incubator-eventmesh)
-[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/apache/incubator-eventmesh.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/apache/incubator-eventmesh/context:java)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/apache/incubator-eventmesh.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/apache/incubator-eventmesh/alerts/)
-[![GitHub release](https://img.shields.io/badge/release-download-orange.svg)](https://github.com/apache/incubator-eventmesh/releases)
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![CI status](https://img.shields.io/github/actions/workflow/status/apache/eventmesh/ci.yml?logo=github&style=for-the-badge)](https://github.com/apache/eventmesh/actions/workflows/ci.yml)
+[![CodeCov](https://img.shields.io/codecov/c/gh/apache/eventmesh/master?logo=codecov&style=for-the-badge)](https://codecov.io/gh/apache/eventmesh)
+[![License](https://img.shields.io/github/license/apache/eventmesh?style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![GitHub Release](https://img.shields.io/github/v/release/apache/eventmesh?style=for-the-badge)](https://github.com/apache/eventmesh/releases)
+[![Slack Status](https://img.shields.io/badge/slack-join_chat-blue.svg?logo=slack&style=for-the-badge)](https://join.slack.com/t/the-asf/shared_invite/zt-1y375qcox-UW1898e4kZE_pqrNsrBM2g)
 
 **Apache EventMesh** 是一个动态的云原生事件驱动架构基础设施，用于分离应用程序和后端中间件层，它支持广泛的用例，包括复杂的混合云、使用了不同技术栈的分布式架构。
 
@@ -32,11 +31,3 @@ Apache EventMesh 由多个组件组成，这些组件集成了不同的中间件
 - **eventmesh-security-plugin**：插件集合，实现安全机制，例如ACL（访问控制列表），身份验证和授权。
 - **eventmesh-protocol-plugin**：插件集合，实现消息协议，例如[CloudEvents](https://cloudevents.io/)和[MQTT](https://mqtt.org/)。
 - **eventmesh-admin**：控制面板，管理客户端，主题和订阅。
-
-## 贡献者
-
-每位贡献者都在促进 Apache EventMesh 健壮发展方面发挥了重要作用。我们真诚地感谢所有贡献代码和文档的贡献者。以下是在 EventMesh 相关存储库中的贡献者列表。
-
-- [apache/incubator-eventmesh](https://github.com/apache/incubator-eventmesh/graphs/contributors)
-- [apache/incubator-eventmesh-site](https://github.com/apache/incubator-eventmesh-site/graphs/contributors)
-

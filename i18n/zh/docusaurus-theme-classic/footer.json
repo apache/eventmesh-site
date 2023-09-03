@@ -21,19 +21,19 @@
   },
   "link.item.label.Releases": {
     "message": "更新日志",
-    "description": "The label of footer link with label=Releases linking to https://github.com/apache/incubator-eventmesh/releases"
+    "description": "The label of footer link with label=Releases linking to https://github.com/apache/eventmesh/releases"
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/apache/incubator-eventmesh"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/apache/eventmesh"
   },
   "link.item.label.Issue Tracker": {
     "message": "Issue Tracker",
-    "description": "The label of footer link with label=Issue Tracker linking to https://github.com/apache/incubator-eventmesh/issues"
+    "description": "The label of footer link with label=Issue Tracker linking to https://github.com/apache/eventmesh/issues"
   },
   "link.item.label.Pull Requests": {
     "message": "Pull Requests",
-    "description": "The label of footer link with label=Pull Requests linking to https://github.com/apache/incubator-eventmesh/pulls"
+    "description": "The label of footer link with label=Pull Requests linking to https://github.com/apache/eventmesh/pulls"
   },
   "link.item.label.Foundation": {
     "message": "Foundation",
