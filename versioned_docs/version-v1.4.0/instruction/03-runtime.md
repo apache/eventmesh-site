@@ -66,7 +66,7 @@ gradle installPlugin
 
 ![runtime_5](/images/install/runtime_5.png)
 
-### 1.4 启动Runtime
+### 1.4 Run Runtime
 
 Execute the `start.sh` script to start the EventMesh Runtime server.
 
