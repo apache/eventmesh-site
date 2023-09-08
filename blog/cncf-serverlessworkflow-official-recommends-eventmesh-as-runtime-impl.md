@@ -6,7 +6,7 @@ CNCF [Serverless Workflow](https://serverlessworkflow.io/) defines a vendor-neut
 
 This project is composed of:
 
-* [Specification](https://github.com/serverlessworkflow/specification/blob/main/specification.md#using-functions-for-async-api-service-invocations) for defining DSL-based workflows
+* [Specification](https://github.com/serverlessworkflow/specification/blob/main/specification.md) for defining DSL-based workflows
 * [Developer SDKs](#sdks) for different programming languages
 * [Workflow runtimes](#runtimes) supporting the specification
 * Developer [tooling support](#tooling) for writing DSL-based workflows
