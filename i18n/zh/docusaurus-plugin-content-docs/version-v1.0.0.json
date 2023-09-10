@@ -1,6 +1,7 @@
 {
   "version.label": {
-    "message": "v1.0.0"
+    "message": "v1.0.0",
+    "description": "The label for version v1.0.0"
   },
   "sidebar.tutorialSidebar.category.Installation and Deployment": {
     "message": "安装与部署",
