@@ -34,7 +34,7 @@ application {
     mainClass = project.hasProperty("mainClass") ? project.getProperty("mainClass") : 'NULL'
 }
 ```
-- Set ```eventMesh.connector.plugin.type=knative``` in [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties
+- Set ```eventMesh.connector.plugin.type=knative``` in [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) file.
 
 ## Demo
 ### Publish an Event Message from Knative and Subscribe from EventMesh

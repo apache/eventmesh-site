@@ -10,9 +10,7 @@
 
 运行eventmesh-starter(参考[eventmesh-runtime-quickstart](../../instruction/03-runtime.md))
 
-运行eventmesh-example(参考[eventmesh-sdk-java-quickstart](../../instruction/05-demo.md
-
-
+运行eventmesh-example(参考[eventmesh-sdk-java-quickstart](../../instruction/05-demo.md))
 
 ### 3、相关的设置
 
