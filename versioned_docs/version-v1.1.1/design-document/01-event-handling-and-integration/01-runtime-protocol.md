@@ -16,7 +16,7 @@
 
 #### Message Composition
 
-The `Package` class in the [`Package.java` file](https://github.com/apache/eventmesh/r/eventmesh-common/src/main/java/org/apache/eventmesh/common/protocol/tcp/Package.java) is the TCP message object used in business logic layer. The class contains the `header` and `body` fields.
+The `Package` class in the [`Package.java` file](https://github.com/apache/eventmesh/blob/master/eventmesh-common/src/main/java/org/apache/eventmesh/common/protocol/tcp/Package.java) is the TCP message object used in business logic layer. The class contains the `header` and `body` fields.
 
 ```java
 public class Package {
@@ -142,7 +142,7 @@ public enum Command {
 
 ### Protocol Format
 
-The `EventMeshMessage` class in the  [`EventMeshMessage.java` file](https://github.com/apache/eventmesh/r/eventmesh-common/src/main/java/org/apache/eventmesh/common/EventMeshMessage.java) is the HTTP message definition of EventMesh Runtime.
+The `EventMeshMessage` class in the  [`EventMeshMessage.java` file](https://github.com/apache/eventmesh/blob/master/eventmesh-common/src/main/java/org/apache/eventmesh/common/EventMeshMessage.java) is the HTTP message definition of EventMesh Runtime.
 
 ```java
 public class EventMeshMessage {
@@ -246,7 +246,7 @@ The request header of the Send Async message is identical to the request header 
 
 ### Protobuf
 
-The `eventmesh-protocol-gprc` module contains the [protobuf definition file](https://github.com/apache/eventmesh/r/eventmesh-protocol-plugin/eventmesh-protocol-grpc/src/main/proto/eventmesh-client.proto) of the Eventmesh client. The `gradle build` command generates the gRPC codes, which are located in `/build/generated/source/proto/main`. The generated gRPC codes are used in `eventmesh-sdk-java` module.
+The `eventmesh-protocol-gprc` module contains the [protobuf definition file](https://github.com/apache/eventmesh/blob/master/eventmesh-protocol-plugin/eventmesh-protocol-grpc/src/main/proto/eventmesh-client.proto) of the Eventmesh client. The `gradle build` command generates the gRPC codes, which are located in `/build/generated/source/proto/main`. The generated gRPC codes are used in `eventmesh-sdk-java` module.
 
 ### Data Model
 

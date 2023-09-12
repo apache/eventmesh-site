@@ -11,7 +11,7 @@ sidebar_position: 6
 
 | 微信助手                                              | 微信公众号                                    | Slack                                                                                                         |
 |---------------------------------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| <img src="/images/contact/wechat-assistant.jpg" width="128"/> | <img src="/images/contact/wechat-official.jpg" width="128"/> | [Join Slack Chat](https://join.slack.com/t/apacheeventmesh/shared_invite/zt-1vpgrvm5u-hh~5H9Aj4TGThaP9tusFfw) |
+| <img src="/images/contact/wechat-assistant.jpg" width="128"/> | <img src="/images/contact/wechat-official.jpg" width="128"/> | [Join Slack Chat](https://join.slack.com/t/the-asf/shared_invite/zt-1y375qcox-UW1898e4kZE_pqrNsrBM2g) |
 
 ## 邮件列表
 

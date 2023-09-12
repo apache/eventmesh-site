@@ -57,7 +57,7 @@ sudo touch rocketmq-client.properties
 sudo vim eventmesh.properties
 ```
 
-你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh//eventmesh-runtime/conf/eventmesh.properties> 。
+你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/eventmesh.properties> 。
 
 请检查配置文件里的默认端口是否已被占用，如果被占用请修改成未被占用的端口：
 
@@ -77,7 +77,7 @@ sudo vim eventmesh.properties
 sudo vim rocketmq-client.properties
 ```
 
-你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh//eventmesh-runtime/conf/rocketmq-client.properties> 。请注意，如果您正在运行的 namesetver 地址不是配置文件中的默认值，请将其修改为实际正在运行的nameserver地址。
+你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties> 。请注意，如果您正在运行的 namesetver 地址不是配置文件中的默认值，请将其修改为实际正在运行的nameserver地址。
 
 请检查配置文件里的默认namesrvAddr是否已被占用，如果被占用请修改成未被占用的地址：
 
