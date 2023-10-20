@@ -40,7 +40,7 @@ application {
 }
 ```
 
-- 在 [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) 文件中设置```eventMesh.connector.plugin.type=knative```变量
+- 在 [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) 文件中设置`eventMesh.connector.plugin.type=knative`变量
 
 ## 演示
 
@@ -61,7 +61,7 @@ $ curl -i http://cloudevents-player.default.127.0.0.1.sslip.io -H "Content-Type:
 
 #### 步骤 3：从 EventMesh 订阅
 
-- 在 [ExampleConstants.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) 文件中设置 ```public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";```变量
+- 在 [ExampleConstants.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) 文件中设置 `public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";`变量
 
 ```bash
 $ cd eventmesh-examples
@@ -70,7 +70,7 @@ $ ../gradlew -PmainClass=org.apache.eventmesh.http.demo.sub.SpringBootDemoApplic
 
 #### 预期结果
 
-以下```data```为```Hello CloudEvents!```的消息将会打印在 EventMesh 服务器的控制台上。
+以下`data`为`Hello CloudEvents!`的消息将会打印在 EventMesh 服务器的控制台上。
 
 ```bash
 2022-09-05 16:37:58,237 INFO  [eventMesh-clientManage-] DefaultConsumer(DefaultConsumer.java:60) - \
@@ -105,7 +105,7 @@ $ curl http://cloudevents-player.default.127.0.0.1.sslip.io/messages
 
 #### 预期结果
 
-以下```data```为```Hello Knative from EventMesh!```的消息将会打印在 EventMesh 服务器的控制台上。
+以下`data`为`Hello Knative from EventMesh!`的消息将会打印在 EventMesh 服务器的控制台上。
 
 ```bash
 2022-09-05 16:52:41,633 INFO  [eventMesh-clientManage-] DefaultConsumer(DefaultConsumer.java:60) - \
