@@ -6,6 +6,11 @@
 Configuration:
 
 ```
+# Webhook HTTP payload listening port
+eventMesh.server.http.port=10105
+# Webhook config admin port
+eventMesh.server.admin.http.port=10106
+
 # Whether to start the Webhook admin service
 eventMesh.webHook.admin.start=true
 
@@ -30,7 +35,7 @@ Configuration information description:
 ```java
    /**
     * The path called by the manufacturer. Manufacturer event call address, [http or https]://[domain or IP]:[port]/webhook/[callbackPath]
-    * for example: http://127.0.0.1:10504/webhook/test/event , The full url needs to be filled in the manufacturer call input
+    * for example: http://127.0.0.1:10105/webhook/test/event , The full url needs to be filled in the manufacturer call input
     * callbackPath is the only
     */
     private String callbackPath;
