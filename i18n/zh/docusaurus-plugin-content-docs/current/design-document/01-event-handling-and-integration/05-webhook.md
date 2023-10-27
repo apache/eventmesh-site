@@ -7,6 +7,11 @@
 配置说明：
 
 ```
+# Webhook HTTP payload监听端口
+eventMesh.server.http.port=10105
+# Webhook配置管理端口
+eventMesh.server.admin.http.port=10106
+
 # 是否启动Webhook admin服务
 eventMesh.webHook.admin.start=true
 
@@ -30,7 +35,7 @@ eventMesh.webHook.producer.connector=standalone
 ```java
    /**
     * 厂商发送事件时调用的地址。[http or https]://[domain or IP]:[port]/webhook/[callbackPath]
-    * 在厂商的Webhook配置中需要填写完整url，比如：http://127.0.0.1:10504/webhook/test/event
+    * 在厂商的Webhook配置中需要填写完整url，比如：http://127.0.0.1:10105/webhook/test/event
     * callbackPath 唯一
     * manufacturer callback path
     */
