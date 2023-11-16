@@ -78,7 +78,7 @@ eventMesh.connector.plugin.type=rocketmq
 **1.1.3.4 启动运行**
 
 ```
-运行org.apache.eventmesh.starter.StartUp的主要方法
+运行org.apache.eventmesh.starter.StartUp的main方法
 ```
 
 ### 1.2 本地二进制构建
