@@ -298,5 +298,5 @@ The Apache EventMesh PMC
 3. 2-5天内收到apache账户创建成功邮件
 4. 使用邮件提示内容找回密码或重置密码
 5. 登录id.apache.org或whimsy.apache.org关联github账号
-6. 开启Github的2FA认证（双英子认证）
+6. 开启Github的2FA认证（双因子认证）
 7. 使用gitbox.apache.org获得仓库写入权限  
