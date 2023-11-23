@@ -27,7 +27,7 @@ sudo docker pull apache/rocketmq:4.9.4
 sudo docker images
 ```
 
-如果终端显示如下所示的镜像信息，则说明 EventMesh 镜像已经成功下载到本地。
+如果终端显示如下所示的镜像信息，则说明 RocketMQ 镜像已经成功下载到本地。
 
 ```shell
 REPOSITORY        TAG       IMAGE ID       CREATED         SIZE
