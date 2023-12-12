@@ -1,4 +1,4 @@
-# Knative Connector
+# Knative
 
 ## Prerequisite
 ### Create Knative Source and Sink

@@ -1,4 +1,4 @@
-# eventmesh-connector-lark
+# Lark
 
 ## Lark Sink Server Config And Start
 
