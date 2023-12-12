@@ -1,74 +1,49 @@
-# Connectors
+# 连接器
 
-## Connector
+## 连接器
 
-A connector is a bridge that interacts with a specific external service or underlying data source (e.g., Databases) on behalf of user applications. A connector is either a Source or a Sink.
+连接器是一个桥梁，代表用户应用程序与特定的外部服务或底层数据源（例如数据库）进行交互。连接器的类型可以是源（Source）或汇（Sink）。
 
-## Source
+## 数据源（Source端）
 
-A source connector obtains data from an underlying data producer, and delivers it to targets after original data has been transformed into CloudEvents. It doesn't limit the way how a source retrieves data. (e.g., A source may pull data from a message queue or act as an HTTP server waiting for data sent to it).
+源连接器从底层数据生产者获取数据，并在原始数据被转换为CloudEvents后将其传递给目标。源连接器不限制源如何检索数据（例如，源可以从消息队列中获取数据，也可以充当等待接收数据的HTTP服务器）。
 
-## Sink
+CloudEvents是以通用格式描述事件数据的规范，以提供服务、平台和系统之间的互操作性。
 
-A sink connector receives CloudEvents and does some specific business logics. (e.g., A MySQL Sink extracts useful data from CloudEvents and writes them to a MySQL database).
-CloudEvents - A specification for describing event data in common formats to provide interoperability across services, platforms and systems.
+## 数据汇（Sink端）
 
-## Implements
+汇连接器接收CloudEvents并执行特定的业务逻辑（例如，MySQL的汇连接器从CloudEvents中提取有用的数据，并将其写入MySQL数据库）。
 
-Add a new connector by implementing the source/sink interface using :
+## 实现
 
-[eventmesh-openconnect-java](https://github.com/apache/eventmesh/tree/master/eventmesh-openconnect/eventmesh-openconnect-java)
+使用[eventmesh-openconnect-java](https://github.com/apache/eventmesh/tree/master/eventmesh-openconnect/eventmesh-openconnect-java)实现源/汇接口即可添加新的连接器。
 
-## Connector Status
+## 连接器实现状态
 
-|                  Connector Name                  |    Type     | Status  |
-|:------------------------------------------------:|:-----------:|:-------:|
-|     [RocketMQ](eventmesh-connector-rocketmq)     |   Source    |    ✅    |
-|     [RocketMQ](eventmesh-connector-rocketmq)     |    Sink     |    ✅    |
-|                     ChatGPT                      |   Source    |    ⬜    |
-|                     ChatGPT                      |    Sink     |    ⬜    |
-|                    ClickHouse                    |   Source    |    ⬜    |
-|                    ClickHouse                    |    Sink     |    ⬜    |
-|                     DingDing                     |   Source    |    ⬜    |
-|     [Dingtalk](eventmesh-connector-dingtalk)     |    Sink     |    ✅    |
-|                      Email                       |   Source    |    ⬜    |
-|                      Email                       |    Sink     |    ⬜    |
-|                      Lark                        |   Source    |    ⬜    |
-|         [Lark](eventmesh-connector-lark)         |    Sink     |    ✅    |
-|         [File](eventmesh-connector-file)         |   Source    |    ✅    |
-|         [File](eventmesh-connector-file)         |    Sink     |    ✅    |
-|                      Github                      |   Source    |    ⬜    |
-|                      Github                      |    Sink     |    ⬜    |
-|                       Http                       |   Source    |    ⬜    |
-|                       Http                       |    Sink     |    ⬜    |
-|                       Jdbc                       |   Source    |    ⬜    |
-|         [Jdbc](eventmesh-connector-jdbc)         |    Sink     |    ✅    |
-|        [Kafka](eventmesh-connector-kafka)        |   Source    |    ✅    |
-|        [Kafka](eventmesh-connector-kafka)        |    Sink     |    ✅    |
-|      [Knative](eventmesh-connector-knative)      |   Source    |    ✅    |
-|      [Knative](eventmesh-connector-knative)      |    Sink     |    ✅    |
-|      [MongoDB](eventmesh-connector-mongodb)      |   Source    |    ✅    |
-|      [MongoDB](eventmesh-connector-mongodb)      |    Sink     |    ✅    |
-| [OpenFunction](eventmesh-connector-openfunction) |   Source    |    ✅    |
-| [OpenFunction](eventmesh-connector-openfunction) |    Sink     |    ✅    |
-|      [Pravega](eventmesh-connector-pravega)      |   Source    |    ✅    |
-|      [Pravega](eventmesh-connector-pravega)      |    Sink     |    ✅    |
-|   [Promethues](eventmesh-connector-prometheus)   |   Source    |    ✅    |
-|   [Promethues](eventmesh-connector-prometheus)   |    Sink     |    ⬜    |
-|       [Pulsar](eventmesh-connector-pulsar)       |   Source    |    ✅    |
-|       [Pulsar](eventmesh-connector-pulsar)       |    Sink     |    ✅    |
-|     [Rabbitmq](eventmesh-connector-rabbitmq)     |   Source    |    ✅    |
-|     [Rabbitmq](eventmesh-connector-rabbitmq)     |    Sink     |    ✅    |
-|        [Redis](eventmesh-connector-redis)        |   Source    |    ✅    |
-|        [Redis](eventmesh-connector-redis)        |    Sink     |    ✅    |
-|                      S3File                      |   Source    |    ⬜    |
-|         [S3File](eventmesh-connector-s3)         |    Sink     |    ✅    |
-|        [Slack](eventmesh-connector-slack)        |   Source    |    ⬜    |
-|        [Slack](eventmesh-connector-slack)        |    Sink     |    ✅    |
-|       [Spring](eventmesh-connector-spring)       |   Source    |    ✅    |
-|       [Spring](eventmesh-connector-spring)       |    Sink     |    ✅    |
-|                      WeCom                       |   Source    |    ⬜    |
-|        [WeCom](eventmesh-connector-wecom)        |    Sink     |    ✅    |
-|                      WeChat                      |   Source    |    ⬜    |
-|       [WeChat](eventmesh-connector-wechat)       |    Sink     |    ✅    |
-|         More connectors will be added...         | Source/Sink |   N/A   |
+|                  连接器名称                  | Source |   Sink   |
+|:------------------------------------------:|:------:|:------:|
+|     [RocketMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rocketmq)     |    ✅    |    ✅    |
+|                     ChatGPT                      |    ⬜    |    ⬜    |
+|                    ClickHouse                    |    ⬜    |    ⬜    |
+|     [Dingtalk](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-dingtalk)     |    ⬜    |    ✅    |
+|                      Email                       |    ⬜    |    ⬜    |
+|     [Feishu/Lark](../lark-connector)      |    ⬜    |    ✅    |
+|         [File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-file)         |    ✅    |    ✅    |
+|                      Github                      |    ⬜    |    ⬜    |
+|         [Http](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-http)         |    ✅    |    ⬜    |
+|         [Jdbc](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-jdbc)         |    ⬜    |    ✅    |
+|        [Kafka](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-kafka)        |    ✅    |    ✅    |
+|      [Knative](../knative-connector)      |    ✅    |    ✅    |
+|      [MongoDB](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-mongodb)      |    ✅    |    ✅    |
+| [OpenFunction](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-openfunction) |    ✅    |    ✅    |
+|      [Pravega](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pravega)      |    ✅    |    ✅    |
+|   [Prometheus](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-prometheus)   |    ✅    |    ⬜    |
+|       [Pulsar](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pulsar)       |    ✅    |    ✅    |
+|     [RabbitMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rabbitmq)     |    ✅    |    ✅    |
+|        [Redis](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-redis)        |    ✅    |    ✅    |
+|        [S3 File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-s3)         |    ⬜    |    ✅    |
+|        [Slack](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-slack)        |    ⬜    |    ✅    |
+|       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |    ✅    |    ✅    |
+|        [WeCom](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wecom)        |    ⬜    |    ✅    |
+|       [WeChat](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wechat)       |    ⬜    |    ✅    |
+|         更多连接器正在计划中...         |   N/A   |   N/A   |

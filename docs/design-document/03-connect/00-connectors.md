@@ -8,10 +8,11 @@ A connector is a bridge that interacts with a specific external service or under
 
 A source connector obtains data from an underlying data producer, and delivers it to targets after original data has been transformed into CloudEvents. It doesn't limit the way how a source retrieves data. (e.g., A source may pull data from a message queue or act as an HTTP server waiting for data sent to it).
 
+CloudEvents is a specification for describing event data in common formats to provide interoperability across services, platforms and systems.
+
 ## Sink
 
 A sink connector receives CloudEvents and does some specific business logics. (e.g., A MySQL Sink extracts useful data from CloudEvents and writes them to a MySQL database).
-CloudEvents - A specification for describing event data in common formats to provide interoperability across services, platforms and systems.
 
 ## Implements
 
