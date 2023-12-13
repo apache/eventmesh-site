@@ -1,5 +1,7 @@
 # Knative
 
+>随着 Knative Connector 设计的变动，这篇文档目前暂时过时了。
+
 ## 准备
 
 ### 创建 Knative Source 和 Sink

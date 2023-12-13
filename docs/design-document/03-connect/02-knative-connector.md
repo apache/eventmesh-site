@@ -1,5 +1,7 @@
 # Knative
 
+>With the changes in the design of the Knative connector, this document is currently temporarily outdated.
+
 ## Prerequisite
 ### Create Knative Source and Sink
 We use the *cloudevents-player* [Knative service](https://knative.dev/docs/serving/) as an example. If you do not know how to create *cloudevents-player* Knative service as source and sink, please follow the steps in this [link](https://knative.dev/docs/getting-started/first-source/#creating-your-first-source).
