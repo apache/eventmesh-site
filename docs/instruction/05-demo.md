@@ -2,13 +2,13 @@
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java)
 
-> EventMesh-sdk-java as the client，and comminucate with eventmesh-runtime，to finish the message sub and pub
+> eventMesh-sdk-java as the client, and communicate with eventmesh-runtime, to finish the message sub and pub
 >
-> EventMesh-sdk-java support both async and broadcast.
+> eventMesh-sdk-java support both async and broadcast.
 >
-> EventMesh-sdk-java support HTTP, TCP and gRPC.
+> eventMesh-sdk-java support HTTP, TCP and gRPC.
 
-The test demos of TCP, HTTP 和 GRPC are in the module **eventmesh-examples**:
+The test demos of TCP, HTTP and GRPC are in the module **eventmesh-examples**:
 
 ## 1. TCP DEMO
 
@@ -98,11 +98,11 @@ Run the main method of org.apache.eventmesh.grpc.sub.EventmeshAsyncSubscribe
 Run the main method of org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPublishInstance
 ```
 
-More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-java/04-grpc.md)
+More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-java/04-grpc.md).
 
 ## 4. Run these demos by yourself
 
-Please refer to [EventMesh Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo
+Please refer to [EventMesh Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo.
 
 After finishing the deployment of store and runtime, you can run our demos in module `eventmesh-examples`:
 
