@@ -2,11 +2,11 @@
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java)
 
-> eventMesh-sdk-java 作为客户端，与 eventmesh-runtime 通信，用于完成消息的发送和接收。
+> eventmesh-sdk-java 作为客户端，与 EventMesh Runtime 通信，用于完成消息的发送和接收。
 >
-> eventMesh-sdk-java 支持异步消息和广播消息。异步消息表示生产者只发送消息，不关心回复消息。广播消息表示生产者发送一次消息，所有订阅广播主题的消费者都将收到消息
+> eventmesh-sdk-java 支持异步消息和广播消息。异步消息表示生产者只发送消息，不关心回复消息。广播消息表示生产者发送一次消息，所有订阅广播主题的消费者都将收到消息。
 >
-> eventMesh-sdk-java 支持 HTTP、TCP 和 GRPC 协议。
+> eventmesh-sdk-java 支持 HTTP、TCP 和 GRPC 协议。
 
 TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
@@ -50,7 +50,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 > 对于 HTTP，eventmesh-sdk-java 对异步事件实现了发送与订阅。
 >
-> 在演示中，Java 类`LiteMessage`的`content`字段表示一个特殊的协议，因此，如果您要使用 eventmesh-sdk-java 的 http-client，则只需设计协议的内容并在同一时间提供消费者的应用程序。
+> 在Demo中，Java 类`LiteMessage`的`content`字段表示一个特殊的协议。因此，如果您要使用 eventmesh-sdk-java 的 http-client，则只需设计协议的内容并在同一时间提供消费者的应用程序。
 
 ### 2.1 异步事件
 
@@ -72,19 +72,19 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 运行 org.apache.eventmesh.http.demo.pub.eventmeshmessage.AsyncPublishInstance 的main方法
 ```
 
-更多关于 HTTP 部分的内容，请参考 [EventMesh HTTP](../sdk-java/02-http.md)
+更多关于 HTTP 部分的内容，请参考 [EventMesh HTTP](../sdk-java/02-http.md)。
 
 ## 3. GRPC
 
-> eventmesh-sdk-java 实现了 gRPC 协议。它能异步或同步地发送事件到 eventmesh-runtime。
+> eventmesh-sdk-java 实现了 gRPC 协议。它能异步或同步地发送事件到 EventMesh Runtime。
 >
 > 它可以通过 Webhook 和事件流方式订阅消费事件，同时也支持 CNCF CloudEvents 协议。
 
 ### 3.1 异步事件发送 和 Webhook 订阅
 
-> Async 生产者可以异步地发送事件到 eventmesh-runtime，不需要等待事件储存到 `event-store`。
+> 生产者可以异步地发送事件到 EventMesh Runtime，不需要等待事件储存到 `event-store`。
 >
-> 对于 Webhook 消费者，事件会推送到消费者的 HTTP Endpoint。这个 URL 在消费者的 `Subscription` 模型定于。这方法跟前面的 Http eventmsh client 类似。
+> 对于 Webhook 消费者，事件会推送到消费者的 HTTP Endpoint URL，即消费者的`subscribeUrl`。此方法和前面的 Http eventmesh client 类似。
 
 - 在 rocketmq 创建主题 TEST-TOPIC-GRPC-ASYNC
 - 启动 publisher 发送事件
@@ -101,8 +101,9 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 ### 3.2 同步事件发送和事件流订阅
 
-> 同步生产者 发送事件到 eventmesh-runtime, 同时等待事件储存到 `event-store`
-> 在事件流消费者，事件以流的形式推送到 `ReceiveMsgHook` 客户端。这方法类似 eventmesh client.
+> 生产者同步地发送事件到 EventMesh Runtime，同时等待事件储存到 `event-store`。
+>
+> 对于事件流消费者，事件以流的形式推送到 `ReceiveMsgHook` 客户端。此方法类似于 eventmesh client。
 
 - 在 rocketmq 创建主题 TEST-TOPIC-GRPC-RR
 - 启动 Request-Reply publisher 发送事件
@@ -119,7 +120,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 ### 3.3 批量事件发布
 
-> 批量发布多个事件到 eventmesh-runtime. 这是异步操作
+> 异步地批量发布多个事件到 EventMesh Runtime。
 
 - 在 rocketmq 创建主题 TEST-TOPIC-GRPC-ASYNC
 - 启动 publisher 来批量发布事件
@@ -128,9 +129,9 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPublishInstance 的main方法
 ```
 
-更多关于 gRPC 部分的内容，请参考 [EventMesh gRPC](../sdk-java/04-grpc.md)
+更多关于 gRPC 部分的内容，请参考 [EventMesh gRPC](../sdk-java/04-grpc.md)。
 
-## 4. 测试
+## 4. 使用 Shell 脚本运行 Demo
 
 请参考[EventMesh Store](./01-store.md) 和 [EventMesh Runtime](./03-runtime.md) 完成运行环境的部署
 
@@ -149,7 +150,7 @@ cd ./dist/bin
 
 ### 4.1 TCP
 
-TCP Sub
+#### TCP Sub
 
 ```shell
 bash tcp_eventmeshmessage_sub.sh
@@ -164,8 +165,7 @@ tail -f demo_tcp_pub.out
 
 ![demo_2](/images/install/demo_2.png)
 
-
-TCP Pub
+#### TCP Pub
 
 ```shell
 bash tcp_pub_eventmeshmessage.sh
@@ -182,7 +182,7 @@ tail -f demo_tcp_sub.out
 
 ### 4.2 TCP Broadcast
 
-TCP Sub Broadcast
+#### TCP Sub Broadcast
 
 ```shell
 sh tcp_sub_eventmeshmessage_broadcast.sh
@@ -197,7 +197,7 @@ tail -f demo_tcp_sub_broadcast.out
 
 ![demo_4](/images/install/demo_3.png)
 
-TCP Pub Broadcast
+#### TCP Pub Broadcast
 
 ```shell
 sh tcp_pub_eventmeshmessage_broadcast.sh
@@ -214,7 +214,7 @@ tail -f demo_tcp_pub_broadcast.out
 
 ### 4.3 HTTP
 
-HTTP Sub
+#### HTTP Sub
 
 ```shell
 sh http_sub.sh
@@ -229,7 +229,7 @@ tail -f demo_http_sub.out
 
 ![demo_6](/images/install/demo_6.png)
 
-HTTP Pub
+#### HTTP Pub
 
 ```shell
 sh http_pub_eventmeshmessage.sh

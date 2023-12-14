@@ -1,6 +1,6 @@
 # EventMesh Runtime
 
-The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is responsible for event transfer between the Source Connector and the Sink Connector, and can use EventMesh Storage as a storage queue for events.
+The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is responsible for event transfer between the Source Connector and the Sink Connector, and can use Event Store as a storage queue for events.
 
 ![EventMesh Runtime](/images/design-document/runtime.png)
 
