@@ -1,6 +1,6 @@
 # HTTP Protocol
 
-EventMesh SDK for Java implements the HTTP producer and consumer of asynchronous messages. Both the producer and consumer require an instance of `EventMeshHttpClientConfig` class that specifies the configuration of EventMesh HTTP client. The `liteEventMeshAddr`, `userName`, and `password` fields should match the `eventmesh.properties` file of EventMesh runtime.
+EventMesh SDK for Java implements the HTTP producer and consumer of asynchronous messages. Both the producer and consumer require an instance of `EventMeshHttpClientConfig` class that specifies the configuration of EventMesh HTTP client. The `liteEventMeshAddr`, `userName`, and `password` fields should match the `eventmesh.properties` file of EventMesh Runtime.
 
 ```java
 import org.apache.eventmesh.client.http.conf.EventMeshHttpClientConfig;
@@ -53,7 +53,7 @@ public class HTTP {
 }
 ```
 
-The EventMesh runtime will send a POST request that contains the message in the [CloudEvents format](https://github.com/cloudevents/spec) to the callback URL. The [`SubController.java` file](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/http/demo/sub/controller/SubController.java) implements a Spring Boot controller that receives and parses the callback messages.
+The EventMesh Runtime will send a POST request that contains the message in the [CloudEvents format](https://github.com/cloudevents/spec) to the callback URL. The [`SubController.java` file](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/http/demo/sub/controller/SubController.java) implements a Spring Boot controller that receives and parses the callback messages.
 
 ## HTTP Producer
 
@@ -103,7 +103,7 @@ You can also publish/subscribe event without eventmesh SDK.
 curl -H "Content-Type:application/json" -X POST -d '{"name": "admin", "pass":"12345678"}' http://127.0.0.1:10105/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC
 ```
 
-After you start the eventmesh runtime server, you can use the curl command publish the event to the specific topic with the HTTP POST method and the package body must be in JSON format. The publish url like (http://127.0.0.1:10105/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC), and you will get the publish successful result.
+After you start the EventMesh Runtime server, you can use the curl command publish the event to the specific topic with the HTTP POST method and the package body must be in JSON format. The publish url like (http://127.0.0.1:10105/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC), and you will get the publish successful result.
 
 ### Subscribe
 
@@ -111,5 +111,7 @@ After you start the eventmesh runtime server, you can use the curl command publi
 curl -H "Content-Type:application/json" -X POST -d '{"url": "http://127.0.0.1:8088/sub/test", "consumerGroup":"TEST-GROUP", "topic":[{"mode":"CLUSTERING","topic":"TEST-TOPIC-HTTP-ASYNC","type":"ASYNC"}]}' http://127.0.0.1:10105/eventmesh/subscribe/local
 ```
 
-After you start the eventmesh runtime server, you can use the curl command to subscribe the specific topic list with the HTTP POST method, and the package body must be in JSON format. The subscribe url like (http://127.0.0.1:10105/eventmesh/subscribe/local), and you will get the subscribe successful result. You should pay attention to the `url` field in the package body, which means you need to set up an HTTP service at the specified URL, you can see the example in the `eventmesh-examples` module.
+After you start the EventMesh Runtime server, you can use the curl command to subscribe the specific topic list with the HTTP POST method, and the package body must be in JSON format. The subscribe url like (http://127.0.0.1:10105/eventmesh/subscribe/local), and you will get the subscribe successful result. You should pay attention to the `url` field in the package body, which means you need to set up an HTTP service at the specified URL.
+
+You can see the example in the `eventmesh-examples` module.
 

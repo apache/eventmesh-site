@@ -1,6 +1,6 @@
 # TCP 协议
 
-EventMesh Java SDK 实现了同步、异步和广播 TCP 消息的生产者和消费者。 二者都需要一个 `EventMeshHttpClientConfig` 类实例来指定 EventMesh TCP 客户端的配置信息。其中的 `host` 和 `port` 字段需要和 EventMesh runtime `eventmesh.properties` 文件中的相匹配。
+EventMesh Java SDK 实现了同步、异步和广播 TCP 消息的生产者和消费者。二者都需要一个 `EventMeshHttpClientConfig` 类实例来指定 EventMesh TCP 客户端的配置信息。其中的 `host` 和 `port` 字段需要和 EventMesh Runtime `eventmesh.properties` 文件中的相匹配。
 
 ```java
 import org.apache.eventmesh.client.tcp.conf.EventMeshTCPClientConfig;

@@ -45,7 +45,7 @@ sudo touch rocketmq-client.properties
 
 ### 4. Configure `eventmesh.properties`
 
-The `eventmesh.properties` file contains the properties of EventMesh runtime environment and integrated plugins. Please refer to the [default configuration file](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) for the available configuration keys.
+The `eventmesh.properties` file contains the properties of EventMesh Runtime environment and integrated plugins. Please refer to the [default configuration file](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) for the available configuration keys.
 
 ```shell
 sudo vim eventmesh.properties

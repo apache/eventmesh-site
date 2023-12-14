@@ -26,7 +26,7 @@ Download and extract the source code of the latest release from [EventMesh downl
 - eventmesh-common : eventmesh public classes and methods module
 - eventmesh-connector-api : eventmesh connector plugin interface definition module
 - eventmesh-connector-plugin : eventmesh connector plugin module
-- eventmesh-runtime : eventmesh runtime module
+- eventmesh-runtime : EventMesh Runtime module
 - eventmesh-sdk-java : eventmesh java client sdk
 - eventmesh-starter : eventmesh local startup and runtime project portal
 - eventmesh-spi : eventmesh SPI loader module

@@ -8,7 +8,7 @@
 
 ## 2. Service upgrade installation
 
-The upgrade and startup of the EventMesh runtime module can be done in accordance with the [deployment guide](https://eventmesh.apache.org/docs/instruction/runtime).
+The upgrade and startup of the EventMesh Runtime module can be done in accordance with the [deployment guide](https://eventmesh.apache.org/docs/instruction/runtime).
 
 For differences and changes between versions, please refer to the [release notes](https://eventmesh.apache.org/events/release-notes) of different versions. Compatibility between versions can be achieved.
 
