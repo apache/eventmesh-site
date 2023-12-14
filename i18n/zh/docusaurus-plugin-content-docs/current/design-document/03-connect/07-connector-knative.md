@@ -1,4 +1,4 @@
-# Knative Connector 插件
+# Knative连接器
 
 ## 准备
 
