@@ -18,7 +18,7 @@ EventMesh Java SDK 是在一个 Java 应用中集成 EventMesh 所需的 Java �
 
 ```groovy
 dependencies {
-  implementation 'org.apache.eventmesh:eventmesh-sdk-java:1.4.0'
+  implementation 'org.apache.eventmesh:eventmesh-sdk-java:1.9.0'
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
   <dependency>
     <groupId>org.apache.eventmesh</groupId>
     <artifactId>eventmesh-sdk-java</artifactId>
-    <version>1.4.0</version>
+    <version>1.9.0</version>
   </dependency>
 </dependencies>
 ```
