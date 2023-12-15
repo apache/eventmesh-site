@@ -162,11 +162,11 @@ tail -f logs/eventmesh.out
 
 ### 2.1 依赖
 
-```
-建议使用64位操作系统，建议使用Linux / Unix；
-64位JDK 1.8+;
-Gradle至少为7.0, 推荐 7.0.*
-```
+- 建议使用 64 位操作系统，建议使用 Linux / Unix。
+
+- 64 位 JDK 1.8 或 JDK 11
+
+- Gradle 7.0+, 可于 `gradle/wrapper/gradle-wrapper.properties` 文件中查看当前版本推荐的 Gradle 版本。
 
 ### 2.2 下载
 

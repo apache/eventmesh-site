@@ -162,12 +162,11 @@ tail -f logs/eventmesh.out
 
 ### 2.1 Dependencies
 
-```
-64-bit OS，we recommend Linux/Unix；
-64-bit JDK 1.8+;
-Gradle 7.0+, we recommend 7.0.*;
-4GB+ available disk to deploy Event Store;
-```
+- 64-bit OS, we recommend Linux/Unix.
+
+- 64-bit JDK 1.8 or JDK 11
+
+- Gradle 7.0+, The current recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
 
 ### 2.2 Download
 

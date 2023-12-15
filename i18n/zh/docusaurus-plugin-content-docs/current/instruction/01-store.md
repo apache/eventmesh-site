@@ -2,15 +2,15 @@
 
 ## 1 依赖
 
-```
-建议使用64位操作系统，建议使用Linux/Unix；
-64位JDK 1.8+;
-Gradle至少为7.0, 推荐7.0.*
-4GB+可用磁盘用于Event Store服务器
-eventmesh在非standalone模式下，依赖RocketMQ作为存储层；若采用standalone模式，则可跳过该步，直接进行runtime的部署
-```
+- 建议使用 64 位操作系统，建议使用 Linux / Unix。
 
-### 2 下载
+- 64 位 JDK 1.8 或 JDK 11
+
+- 4GB+ 可用磁盘，用于 Event Store 服务器。
+
+EventMesh 在非 standalone 模式下，依赖 RocketMQ 作为存储层；若采用 standalone 模式，则可跳过该步，直接进行 EventMesh Runtime 的部署。
+
+## 2 下载
 
 从[RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.*版本），这里以 4.9.4 为例：
 
@@ -21,7 +21,7 @@ cd rocketmq-all-4.9.4-bin-release/
 
 ![rocketmq_1](/images/install/rocketmq_1.png)
 
-### 3 启动
+## 3 启动
 
 启动 Name Server：
 
@@ -40,10 +40,11 @@ nohup sh bin/mqbroker -n localhost:9876 &
 tail -f ~/logs/rocketmqlogs/broker.log
 ```
 
-如果在看到 The broker boot success...，则说明 Broker 启动成功
+如果看到 The broker boot success...，则说明 Broker 启动成功
 
-至此 Event Store 的部署已完成，请转至下一步完成 [eventmesh-runtime](https://github.com/apache/incubator-eventmesh/blob/master/docs/zh/instruction/03-runtime.md) 的部署
+至此 Event Store 的部署已完成，请转至下一步完成 [EventMesh Runtime](./03-runtime.md) 的部署
 
 
 ## 参考
+
 关于 RocketMQ 的其他更多资料，请参考 <https://rocketmq.apache.org/docs/quick-start/>

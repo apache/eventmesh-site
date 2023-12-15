@@ -4,14 +4,14 @@
 
 ## 1. 前提
 
-1. 建议使用 64 位的 linux 系统；
+1. 建议使用 64 位的 Linux 系统；
 2. 请预先安装 Docker Engine。Docker 的安装过程可以参考 [docker 官方文档](https://docs.docker.com/engine/install/)；
 3. 建议掌握基础的 docker 概念和命令行，例如注册中心、挂载等等。不过这不是必须的，因为本次操作所需的命令都已为您列出；
 4. 若您选择非 standalone 模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 ip 地址访问到；若您选择 standalone 模式，则无需启动 RocketMQ。
 
 ## 2. 获取 EventMesh 镜像
 
-首先，你可以打开一个命令行，并且使用下面的 ```pull``` 命令从 [Docker Hub](https://registry.hub.docker.com/r/eventmesh/eventmesh/tags) 中下载[最新发布的 EventMesh](https://eventmesh.apache.org/events/release-notes/v1.3.0/) 。
+首先，你可以打开一个命令行，并且使用下面的 `pull` 命令从 [Docker Hub](https://registry.hub.docker.com/r/eventmesh/eventmesh/tags) 中下载[最新发布的 EventMesh](https://eventmesh.apache.org/events/release-notes/v1.3.0/) 。
 
 ```shell
 sudo docker pull eventmesh/eventmesh:v1.4.0
@@ -35,7 +35,7 @@ eventmesh/eventmesh   v1.4.0    6e2964599c78   16 months ago   937MB
 
 ## 3. 创建配置文件
 
-在根据 EventMesh 镜像运行对应容器之前，你需要创建两个配置文件，分别是：```eventMesh.properties``` 和 ```rocketmq-client.properties```。
+在根据 EventMesh 镜像运行对应容器之前，你需要创建两个配置文件，分别是：`eventMesh.properties` 和 `rocketmq-client.properties`。
 
 首先，你需要使用下面的命令创建这两个文件。
 
@@ -51,7 +51,7 @@ sudo touch rocketmq-client.properties
 
 这个配置文件中包含 EventMesh 运行时环境和集成进来的其他插件所需的参数。
 
-使用下面的 ```vim``` 命令编辑 ```eventmesh.properties```。
+使用下面的 `vim` 命令编辑 `eventmesh.properties`。
 
 ```shell
 sudo vim eventmesh.properties
@@ -71,7 +71,7 @@ sudo vim eventmesh.properties
 
 这个配置文件中包含 RocketMQ nameserver 的信息。
 
-使用下面的 ```vim``` 命令编辑 ```rocketmq-client.properties```。
+使用下面的 `vim` 命令编辑 `rocketmq-client.properties`。
 
 ```shell
 sudo vim rocketmq-client.properties
@@ -89,10 +89,10 @@ sudo vim rocketmq-client.properties
 
 现在你就可以开始根据下载好的 EventMesh 镜像运行容器了。
 
-使用到的命令是 ```docker run```，有以下两点内容需要格外注意。
+使用到的命令是 `docker run`，有以下两点内容需要格外注意。
 
-1. 绑定容器端口和宿主机端口：使用 ```docker run``` 的 ```-p``` 选项。
-2. 将宿主机中的两份配置文件挂在到容器中：使用 ```docker run``` 的 ```-v``` 选项。
+1. 绑定容器端口和宿主机端口：使用 `docker run` 的 `-p` 选项。
+2. 将宿主机中的两份配置文件挂在到容器中：使用 `docker run` 的 `-v` 选项。
 
 综合一下，对应的启动命令为：
 
@@ -121,7 +121,7 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 
 ![runtime_docker_3](/images/install/runtime_docker_3.png)
 
-从这个信息中可以看出，```container id``` 是 ```5bb6b6092672```，```name``` 是 ```eager_driscoll```，它们都可以用来唯一标识这个容器。**注意**：在你的电脑中，它们的值可能跟这里的不同。
+从这个信息中可以看出，`container id` 是 `5bb6b6092672`，`name` 是 `eager_driscoll`，它们都可以用来唯一标识这个容器。**注意**：在你的电脑中，它们的值可能跟这里的不同。
 
 ## 7. 管理 EventMesh 容器
 
@@ -152,6 +152,6 @@ sudo docker rm -f [your container id or name]
 
 ## 8. 探索更多
 
-现在 EventMesh 已经通过容器运行了，你可以参考 [```eventmesh-examples``` 模块](https://github.com/apache/eventmesh/tree/master/eventmesh-examples) 编写并测试自己的代码了。
+现在 EventMesh 已经通过容器运行了，你可以参考 [`eventmesh-examples` 模块](https://github.com/apache/eventmesh/tree/master/eventmesh-examples) 编写并测试自己的代码了。
 
 希望你享受这个过程并获得更多收获！

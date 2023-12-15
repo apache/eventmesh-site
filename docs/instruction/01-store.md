@@ -2,13 +2,15 @@
 
 ## 1 Dependencies
 
-```text
-64-bit OS, we recommend Linux/Unix.
-64-bit JDK 1.8+;
-Gradle 7.0+, we recommend 7.0.*
-4GB+ available disk to deploy Event Store
+- 64-bit OS, we recommend Linux/Unix.
+
+- 64-bit JDK 1.8 or JDK 11
+
+- Gradle 7.0+, The recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
+
+- 4GB+ available disk to deploy Event Store
+
 If you choose standalone mode, you could skip this file and go to the next step: Start EventMesh Runtime; if not, you could choose RocketMQ as the store layer.
-```
 
 ## 2 Download
 
@@ -21,7 +23,7 @@ cd rocketmq-4.9.4/
 
 ![rocketmq_1](/images/install/rocketmq_1.png)
 
-### 3 Start
+## 3 Start
 
 Start Name Server:
 
@@ -39,7 +41,7 @@ nohup sh bin/mqbroker -n localhost:9876 &
 tail -f ~/logs/rocketmqlogs/broker.log
 ```
 
-The deployment of Event Store has finished, please go to the next step: [Start EventMesh Runtime](03-runtime.md)
+The deployment of Event Store has finished, please go to the next step: [Start EventMesh Runtime](./03-runtime.md)
 
 ## Reference
 
