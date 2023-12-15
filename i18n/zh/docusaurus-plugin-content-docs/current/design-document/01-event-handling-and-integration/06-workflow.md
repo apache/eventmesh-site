@@ -18,21 +18,21 @@ CNCF Serverless 工作流定义了一个厂商中立、开源和完全社区驱�
 
 Serverless 工作流定义了一种领域特定语言（DSL）来描述有状态和无状态的基于工作流的 serverless 函数和微服务编排。
 
-详见[官方 github](https://github.com/serverlessworkflow/specification)
+详见 [官方 github](https://github.com/serverlessworkflow/specification)
 
 ## EventMesh 工作流
 
-我们利用 Serverless 工作流 DSL 来描述 EventMesh 工作流。根据其规范，工作流由一系列用于描述控制流逻辑的工作流状态组成。目前，我们仅支持与事件相关的工作流状态。请参见[工作流 DSL 设计](#workflow-dsl-design-wip)中支持的状态。
+我们利用 Serverless 工作流 DSL 来描述 EventMesh 工作流。根据其规范，工作流由一系列用于描述控制流逻辑的工作流状态组成。目前，我们仅支持与事件相关的工作流状态。请参见 [工作流 DSL 设计](#workflow-dsl-design-wip) 中支持的状态。
 
 `工作流状态`可以包含通用的`操作`，或在工作流执行期间应调用的服务/函数。这些`操作`可以引用可复用的`函数`定义（应如何调用这些函数/服务），还可以引用触发基于事件的服务调用的事件，以及要等待的事件，这些事件表示这种基于事件的服务调用完成。
 
-在 EDA 解决方案中，我们通常使用 AsyncAPI 定义事件驱动的微服务。Serverless 工作流“函数”定义支持使用 AsyncAPI 定义调用语义。有关详细信息，请参见[Using Funtions for AsyncAPI Service](https://github.com/serverlessworkflow/specification/blob/main/specification.md#using-functions-for-async-api-service-invocations)。
+在 EDA 解决方案中，我们通常使用 AsyncAPI 定义事件驱动的微服务。Serverless 工作流“函数”定义支持使用 AsyncAPI 定义调用语义。有关详细信息，请参见 [Using Funtions for AsyncAPI Service](https://github.com/serverlessworkflow/specification/blob/main/specification.md#using-functions-for-async-api-service-invocations)。
 
 ### AsyncAPI
 
 AsyncAPI 是一项开源计划，旨在改善事件驱动体系结构（EDA）的当前状态。我们的长期目标是让使用 EDA 和使用 REST API 一样容易。包括从文档到代码生成、发现到事件管理。现在应用于 REST API 的大多数流程也适用于事件驱动/异步 API。
 
-详见[AsyncAPI 官网](https://www.asyncapi.com/docs/guides)
+详见 [AsyncAPI 官网](https://www.asyncapi.com/docs/guides)
 
 ### 工作流示例
 

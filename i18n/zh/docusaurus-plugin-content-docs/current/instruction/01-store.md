@@ -12,7 +12,7 @@ EventMesh 在非 standalone 模式下，依赖 RocketMQ 作为存储层；若采
 
 ## 2 下载
 
-从[RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.*版本），这里以 4.9.4 为例：
+从 [RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.*版本），这里以 4.9.4 为例：
 
 ```
 unzip rocketmq-all-4.9.4-bin-release.zip
@@ -43,7 +43,6 @@ tail -f ~/logs/rocketmqlogs/broker.log
 如果看到 The broker boot success...，则说明 Broker 启动成功
 
 至此 Event Store 的部署已完成，请转至下一步完成 [EventMesh Runtime](./03-runtime.md) 的部署
-
 
 ## 参考
 

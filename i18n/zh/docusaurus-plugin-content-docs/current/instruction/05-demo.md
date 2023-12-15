@@ -19,13 +19,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动消费者，订阅上一步骤已经创建的 Topic
 
 ```
-运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribe 的main方法
+运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribe 的 main 方法
 ```
 
 - 启动发送端，发送消息
 
 ```
-运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublish 的main方法
+运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublish 的 main 方法
 ```
 
 ### 1.2 广播消息
@@ -35,13 +35,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动消费端，订阅上一步骤已经创建的 Topic
 
 ```
-运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribeBroadcast 的main方法
+运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribeBroadcast 的 main 方法
 ```
 
 - 启动发送端，发送广播消息
 
 ```
-运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublishBroadcast 的main方法
+运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublishBroadcast 的 main 方法
 ```
 
 更多关于 TCP 部分的内容，请参考 [EventMesh TCP](../sdk-java/03-tcp.md)
@@ -63,13 +63,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
   异步事件消费端为 SpringBoot Demo，运行 Demo 即可启动服务并完成 Topic 订阅
 
 ```
-运行 org.apache.eventmesh.http.demo.sub.SpringBootDemoApplication 的main方法
+运行 org.apache.eventmesh.http.demo.sub.SpringBootDemoApplication 的 main 方法
 ```
 
 - 启动发送端，发送消息
 
 ```
-运行 org.apache.eventmesh.http.demo.pub.eventmeshmessage.AsyncPublishInstance 的main方法
+运行 org.apache.eventmesh.http.demo.pub.eventmeshmessage.AsyncPublishInstance 的 main 方法
 ```
 
 更多关于 HTTP 部分的内容，请参考 [EventMesh HTTP](../sdk-java/02-http.md)。
@@ -90,13 +90,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动 publisher 发送事件
 
 ```
-运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.AsyncPublishInstance 的main方法
+运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.AsyncPublishInstance 的 main 方法
 ```
 
 - 启动 webhook 消费者
 
 ```
-运行 org.apache.eventmesh.grpc.sub.app.SpringBootDemoApplication 的main方法
+运行 org.apache.eventmesh.grpc.sub.app.SpringBootDemoApplication 的 main 方法
 ```
 
 ### 3.2 同步事件发送和事件流订阅
@@ -109,13 +109,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动 Request-Reply publisher 发送事件
 
 ```
-运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.RequestReplyInstance 的main方法
+运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.RequestReplyInstance 的 main 方法
 ```
 
 - 启动 stream subscriber
 
 ```
-运行 org.apache.eventmesh.grpc.sub.EventmeshAsyncSubscribe 的main方法
+运行 org.apache.eventmesh.grpc.sub.EventmeshAsyncSubscribe 的 main 方法
 ```
 
 ### 3.3 批量事件发布
@@ -126,7 +126,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动 publisher 来批量发布事件
 
 ```
-运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPublishInstance 的main方法
+运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPublishInstance 的 main 方法
 ```
 
 更多关于 gRPC 部分的内容，请参考 [EventMesh gRPC](../sdk-java/04-grpc.md)。

@@ -80,7 +80,7 @@ eventMesh.connector.plugin.type=rocketmq
 **1.1.3.4 启动运行**
 
 ```
-运行org.apache.eventmesh.starter.StartUp的main方法
+运行 org.apache.eventmesh.starter.StartUp 的 main 方法
 ```
 
 ### 1.2 本地二进制构建
@@ -195,7 +195,6 @@ bash bin/start.sh
 如果看到"EventMeshTCPServer[port=10000] started...."，则说明设置成功。
 
 ![runtime_6](/images/install/runtime_6.png)
-
 
 查看输出日志：
 

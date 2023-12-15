@@ -5,9 +5,9 @@
 ### 依赖
 
 ```
-64位JDK 1.8+;
-Gradle至少为7.0, 推荐 7.0.*
-eclipse 已安装gradle插件或者eclipse自带gradle插件
+64 位 JDK 1.8+;
+Gradle 至少为 7.0, 推荐 7.0.*
+eclipse 已安装 gradle 插件或者 eclipse 自带 gradle 插件
 ```
 
 ### 下载源码

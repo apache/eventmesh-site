@@ -11,7 +11,7 @@
 
 ## 2. 获取 EventMesh 镜像
 
-首先，你可以打开一个命令行，并且使用下面的 `pull` 命令从 [Docker Hub](https://registry.hub.docker.com/r/eventmesh/eventmesh/tags) 中下载[最新发布的 EventMesh](https://eventmesh.apache.org/events/release-notes/v1.3.0/) 。
+首先，你可以打开一个命令行，并且使用下面的 `pull` 命令从 [Docker Hub](https://registry.hub.docker.com/r/eventmesh/eventmesh/tags) 中下载 [最新发布的 EventMesh](https://eventmesh.apache.org/events/release-notes/v1.3.0/) 。
 
 ```shell
 sudo docker pull eventmesh/eventmesh:v1.4.0

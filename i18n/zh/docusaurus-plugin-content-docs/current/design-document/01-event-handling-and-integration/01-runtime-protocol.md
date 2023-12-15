@@ -5,17 +5,17 @@
 **消息组成详解：**
 
 ```
-魔术字：9位，当前值为“EventMesh”
+魔术字：9 位，当前值为“EventMesh”
 
-通信协议版本号：4位，当前值为“0000”
+通信协议版本号：4 位，当前值为“0000”
 
-消息总长度值(length)：4位，int类型
+消息总长度值 (length)：4 位，int 类型
 
-消息头长度值(headerLength)：4位，int类型
+消息头长度值 (headerLength)：4 位，int 类型
 
-消息头(header)：长度 = headerLength
+消息头 (header)：长度 = headerLength
 
-消息体(body)：长度 = length - headerLength - 4 - 4
+消息体 (body)：长度 = length - headerLength - 4 - 4
 ```
 
 #### 2. 业务逻辑层
@@ -30,7 +30,6 @@ public class Package {
     private Header header;
     private Object body;
 }
-
 
 public class Header {
 
@@ -399,10 +398,10 @@ service PublisherService {
 
 ```
 service ConsumerService {
-   # 所消费事件通过 HTTP Webhook推送事件
+   # 所消费事件通过 HTTP Webhook 推送事件
    rpc subscribe(Subscription) returns (Response);
 
-   # 所消费事件通过 TCP stream推送事件
+   # 所消费事件通过 TCP stream 推送事件
    rpc subscribeStream(Subscription) returns (stream SimpleMessage);
 
    rpc unsubscribe(Subscription) returns (Response);

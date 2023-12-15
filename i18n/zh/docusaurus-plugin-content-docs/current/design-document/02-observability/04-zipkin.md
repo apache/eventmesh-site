@@ -4,19 +4,15 @@
 
 请参考 https://zipkin.io/pages/quickstart.html
 
-
-
 ### 2、运行 eventmesh
 
-运行 eventmesh-starter(参考[eventmesh-runtime-quickstart](../../instruction/03-runtime.md))
+运行 eventmesh-starter（参考 [eventmesh-runtime-quickstart](../../instruction/03-runtime.md))
 
-运行 eventmesh-example(参考[eventmesh-sdk-java-quickstart](../../instruction/05-demo.md))
-
-
+运行 eventmesh-example（参考 [eventmesh-sdk-java-quickstart](../../instruction/05-demo.md))
 
 ### 3、相关的设置
 
-eventmesh-runtime/conf/eventmesh.properties中：
+eventmesh-runtime/conf/eventmesh.properties 中：
 
 默认的 exporter 是 log，需要手动改成 Zipkin
 
@@ -41,8 +37,6 @@ eventmesh.trace.export.zipkin.port=9411
 ```
 
 以上都是相关的配置，如果你十分熟悉 Zipkin 的话可以自行修改。
-
-
 
 ### 4、观察
 

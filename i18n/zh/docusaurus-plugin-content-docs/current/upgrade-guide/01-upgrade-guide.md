@@ -10,7 +10,6 @@
 
 EventMesh 运行时模块的升级和启动可以按照 [设计文档](https://eventmesh.apache.org/docs/instruction/runtime) 完成。
 
-版本之间的差异和变化，请参考不同版本的[release notes](https://eventmesh.apache.org/events/release-notes)。可以满足不同版本间的兼容性。
+版本之间的差异和变化，请参考不同版本的 [release notes](https://eventmesh.apache.org/events/release-notes)。可以满足不同版本间的兼容性。
 
-如果需要使用最新的功能，按照版本说明升级到相应的版本即可，不同的插件模块组件可以单独打包配置。可以参考相应的[功能设计文档和指南](https://eventmesh.apache.org/docs/design-document/)
-
+如果需要使用最新的功能，按照版本说明升级到相应的版本即可，不同的插件模块组件可以单独打包配置。可以参考相应的 [功能设计文档和指南](https://eventmesh.apache.org/docs/design-document/)
