@@ -172,7 +172,6 @@ tail -f logs/eventmesh.out
 
 Download and extract the executable binaries of the latest release from [EventMesh download](https://eventmesh.apache.org/download).For example, with the current latest version, you will get `apache-eventmesh-1.9.0.tar.gz`.
 
-
 ```console
 tar -xvzf apache-eventmesh-1.9.0-bin.tar.gz
 cd apache-eventmesh-1.9.0
@@ -195,7 +194,6 @@ bash bin/start.sh
 If you see "EventMeshTCPServer[port=10000] started...." , then the setup was successful.
 
 ![runtime_6](/images/install/runtime_6.png)
-
 
 View the output log:
 

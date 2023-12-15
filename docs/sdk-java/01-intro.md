@@ -35,7 +35,5 @@ To install EventMesh SDK for Java with Maven, declare `org.apache.eventmesh:even
 </dependencies>
 ```
 
-
-
 </TabItem>
 </Tabs>

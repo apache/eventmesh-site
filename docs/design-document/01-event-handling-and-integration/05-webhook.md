@@ -80,7 +80,6 @@ Configuration information description:
      */
     private String password;
 
-
     /**
      * roll out event name, like topic to mq
      */

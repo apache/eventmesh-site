@@ -96,7 +96,6 @@ As you can see from this message, the ```container id``` is ``5bb6b6092672``, an
 
 After successfully running an EventMesh container, you can manage the container by entering it, viewing logs, deleting it, and so on.
 
-
 To connect to the EventMesh container:
 
 ```shell
