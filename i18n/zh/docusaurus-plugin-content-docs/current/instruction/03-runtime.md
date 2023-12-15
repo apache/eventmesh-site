@@ -1,6 +1,6 @@
 # Eventmesh-runtime 快速入门说明
 
-EventMesh Runtime 是 EventMesh 集群中有状态的 Mesh 节点，负责 Source Connector 与 Sink Connector 之间的事件传输，并可以使用 EventMesh Storage 作为事件的存储队列。
+EventMesh Runtime 是 EventMesh 集群中有状态的 Mesh 节点，负责 Source Connector 与 Sink Connector 之间的事件传输，并可以使用 Event Store 作为事件的存储队列。
 
 ![EventMesh Runtime](/images/design-document/runtime.png)
 

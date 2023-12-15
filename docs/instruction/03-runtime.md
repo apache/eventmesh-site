@@ -1,6 +1,6 @@
 # EventMesh Runtime
 
-The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is responsible for event transfer between the Source Connector and the Sink Connector, and can use EventMesh Storage as a storage queue for events.
+The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is responsible for event transfer between the Source Connector and the Sink Connector, and can use Event Store as a storage queue for events.
 
 ![EventMesh Runtime](/images/design-document/runtime.png)
 
@@ -26,7 +26,7 @@ Download and extract the source code of the latest release from [EventMesh downl
 - eventmesh-common : eventmesh public classes and methods module
 - eventmesh-connector-api : eventmesh connector plugin interface definition module
 - eventmesh-connector-plugin : eventmesh connector plugin module
-- eventmesh-runtime : eventmesh runtime module
+- eventmesh-runtime : EventMesh Runtime module
 - eventmesh-sdk-java : eventmesh java client sdk
 - eventmesh-starter : eventmesh local startup and runtime project portal
 - eventmesh-spi : eventmesh SPI loader module
