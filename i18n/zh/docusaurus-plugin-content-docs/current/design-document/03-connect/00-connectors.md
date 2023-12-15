@@ -22,25 +22,26 @@ CloudEvents 是一种以通用格式描述事件数据的规范，以提供服�
 
 ## 技术方案
 ### 结构与处理流程
-![source-sink connector architecture](https://github.com/apache/eventmesh/assets/13237619/e1897cd6-cc91-4dc4-b6d8-facd7b0538b3)
+![source-sink connector architecture](../../../static/images/design-document/connector-architecture.png)
 
 ### 详细设计
-![eventmesh-connect-detail](https://github.com/apache/eventmesh/assets/13237619/bc90925d-8503-4f32-8b5c-5ebc10c13c62)
+![eventmesh-connect-detail](../../../static/images/design-document/connector-design-detail.png)
 
 ### 描述
-**Worker**
+
+#### Worker
 
 Worker分为Source Worker与Sink Worker，由`Application`类进行触发运行，分别实现了`ConnectorWorker`接口的方法，其中包含了worker的运行生命周期，worker承载了connector的运行。Worker可以通过镜像的方式轻量的独立运行，内部集成了eventmesh-sdk-java模块，采用cloudevents协议与eventmesh进行交互，目前默认采用tcp客户端，后续可以考虑支持动态可配
 
-**Connector**
+#### Connector
 
 Connector分为Source Connector与Sink Connector，connector有各自的配置文件，以及独立运行的方式，通过worker进行反射加载与配置解析，完成Connector的初始化以及后续运行工作，其中Source Connector实现poll方法，Sink Connector实现put方法，统一使用`ConnectorRecord`承载数据。Source Connector与Sink Connector均可独立运行。
 
-**ConnectorRecord with CloudEvents**
+#### ConnectorRecord with CloudEvents
 
 `ConnectorRecord`为connector层数据协议，当worker与eventmesh进行交互时需开发协议适配器进行`ConnectorRecord`到CloudEvents的协议转换。
 
-**Registry**
+#### Registry
 
 `Registry`模块负责存储同步不同Connector实例的数据的同步进度，确保多个Connector镜像或实例之间的高可用。
 

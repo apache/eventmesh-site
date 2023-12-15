@@ -23,25 +23,26 @@ Add a new connector by implementing the source/sink interface using [eventmesh-o
 ## Technical Solution
 
 ### Structure and process
-![source-sink connector architecture](https://github.com/apache/eventmesh/assets/13237619/e1897cd6-cc91-4dc4-b6d8-facd7b0538b3)
+![source-sink connector architecture](../../../static/images/design-document/connector-architecture.png)
 
 ### Design Detail
-![eventmesh-connect-detail](https://github.com/apache/eventmesh/assets/13237619/bc90925d-8503-4f32-8b5c-5ebc10c13c62)
+![eventmesh-connect-detail](../../../static/images/design-document/connector-design-detail.png)
 
 ### Describe
-**Worker**
+
+#### Worker
 
 Worker is divided into Source Worker and Sink Worker, which are triggered by the `Application` class and implement the methods of the `ConnectorWorker` interface respectively, which include the worker's running life cycle, and the worker carries the running of the connector. Workers can be lightweight and independent through mirroring Running, the eventmesh-sdk-java module is integrated internally, and the cloudevents protocol is used to interact with eventmesh. Currently, the tcp client is used by default. In the future, support for dynamic configuration can be considered
 
-**Connector**
+#### Connector
 
 Connectors are divided into Source Connector and Sink Connector. Connectors have their own configuration files and run independently. Workers perform reflective loading and configuration analysis to complete Connector initialization and subsequent operation. Source Connector implements the poll method, and Sink Connector implements The put method uniformly uses `ConnectorRecord` to carry data. Both Source Connector and Sink Connector can operate independently.
 
-**ConnectorRecord with CloudEvents**
+#### ConnectorRecord with CloudEvents
 
 `ConnectorRecord` is a connector layer data protocol. When workers interact with eventmesh, a protocol adapter needs to be developed to convert `ConnectorRecord` to CloudEvents protocol.
 
-**Registry**
+#### Registry
 
 The Registry module is responsible for storing the synchronization progress of synchronizing data of different Connector instances, ensuring high availability between multiple Connector images or instances.
 
