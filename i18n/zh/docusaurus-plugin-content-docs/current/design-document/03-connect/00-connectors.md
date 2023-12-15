@@ -22,10 +22,10 @@ CloudEvents 是一种以通用格式描述事件数据的规范，以提供服�
 
 ## 技术方案
 ### 结构与处理流程
-![source-sink connector architecture](../../../static/images/design-document/connector-architecture.png)
+![source-sink connector architecture](../../../../../../static/images/design-document/connector-architecture.png)
 
 ### 详细设计
-![eventmesh-connect-detail](../../../static/images/design-document/connector-design-detail.png)
+![eventmesh-connect-detail](../../../../../../static/images/design-document/connector-design-detail.png)
 
 ### 描述
 
