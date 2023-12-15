@@ -50,7 +50,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 > 对于 HTTP，eventmesh-sdk-java 对异步事件实现了发送与订阅。
 >
-> 在 Demo 中，Java 类`LiteMessage`的`content`字段表示一个特殊的协议。因此，如果您要使用 eventmesh-sdk-java 的 http-client，则只需设计协议的内容并在同一时间提供消费者的应用程序。
+> 在 Demo 中，Java 类`EventMeshMessage`的`content`字段表示一个特殊的协议。因此，如果您要使用 eventmesh-sdk-java 的 http-client，则只需设计协议的内容并在同一时间提供消费者的应用程序。
 
 ### 2.1 异步事件
 

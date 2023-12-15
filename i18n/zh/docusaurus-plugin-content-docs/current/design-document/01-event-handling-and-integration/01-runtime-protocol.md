@@ -152,10 +152,10 @@ public enum Command {
 
 ## HTTP协议文档
 
-Java类`LiteMessage`的`content`字段表示一个特殊的协议，因此，如果您要使用eventmesh-sdk-java的http-client，则只需设计协议的`content`即可。`LiteMessage`组成如下：
+Java类`EventMeshMessage`的`content`字段表示一个特殊的协议，因此，如果您要使用eventmesh-sdk-java的http-client，则只需设计协议的`content`即可。`EventMeshMessage`组成如下：
 
 ```java
-public class LiteMessage {
+public class EventMeshMessage {
 
     private String bizSeqNo;
 

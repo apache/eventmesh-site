@@ -46,7 +46,7 @@ More information about EventMesh-TCP, please refer to [EventMesh TCP](../sdk-jav
 
 >For HTTP, the eventmesh-sdk-java implements sending and subscribing to asynchronous events.
 >
->In the demo, the `content` field of the Java class `LiteMessage` represents a special protocol. Therefore, if you are using the eventmesh-sdk-java's http-client, you only need to design the content of the protocol and provide the consumer's application at the same time.
+>In the demo, the `content` field of the Java class `EventMeshMessage` represents a special protocol. Therefore, if you are using the eventmesh-sdk-java's http-client, you only need to design the content of the protocol and provide the consumer's application at the same time.
 
 ### 2.1 ASYNC
 
