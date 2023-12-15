@@ -6,7 +6,7 @@
 建议使用64位操作系统，建议使用Linux/Unix；
 64位JDK 1.8+;
 Gradle至少为7.0, 推荐7.0.*
-4g+可用磁盘用于eventmesh-store服务器
+4GB+可用磁盘用于Event Store服务器
 eventmesh在非standalone模式下，依赖RocketMQ作为存储层；若采用standalone模式，则可跳过该步，直接进行runtime的部署
 ```
 
@@ -42,7 +42,7 @@ tail -f ~/logs/rocketmqlogs/broker.log
 
 如果在看到 The broker boot success...，则说明 Broker 启动成功
 
-至此 eventmesh-store 的部署已完成，请转至下一步完成 [eventmesh-runtime](https://github.com/apache/incubator-eventmesh/blob/master/docs/zh/instruction/03-runtime.md) 的部署
+至此 Event Store 的部署已完成，请转至下一步完成 [eventmesh-runtime](https://github.com/apache/incubator-eventmesh/blob/master/docs/zh/instruction/03-runtime.md) 的部署
 
 
 ## 参考

@@ -8,7 +8,7 @@ The documentation introduces the steps to install the latest release of EventMes
 64-bit OS，we recommend Linux/Unix；
 64-bit JDK 1.8+;
 Gradle 7.0+, we recommend 7.0.*
-4g+ available disk to deploy eventmesh-store
+4GB+ available disk to deploy Event Store
 If you choose standalone mode, you could skip this file and go to the next step: Start EventMesh Runtime; if not, you could choose RocketMQ as the store layer.
 ```
 

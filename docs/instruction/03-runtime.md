@@ -166,7 +166,7 @@ tail -f logs/eventmesh.out
 64-bit OS，we recommend Linux/Unix；
 64-bit JDK 1.8+;
 Gradle 7.0+, we recommend 7.0.*;
-4g+ available disk to deploy eventmesh-store;
+4GB+ available disk to deploy Event Store;
 ```
 
 ### 2.2 Download

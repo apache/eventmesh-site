@@ -82,7 +82,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 ### 3.1 异步事件发送 和 Webhook 订阅
 
-> 生产者可以异步地发送事件到 EventMesh Runtime，不需要等待事件储存到 `event-store`。
+> 生产者可以异步地发送事件到 EventMesh Runtime，不需要等待事件储存到 Event Store。
 >
 > 对于 Webhook 消费者，事件会推送到消费者的 HTTP Endpoint URL，即消费者的`subscribeUrl`。此方法和前面的 Http EventMesh client 类似。
 
@@ -101,7 +101,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 ### 3.2 同步事件发送和事件流订阅
 
-> 生产者同步地发送事件到 EventMesh Runtime，同时等待事件储存到 `event-store`。
+> 生产者同步地发送事件到 EventMesh Runtime，同时等待事件储存到 Event Store。
 >
 > 对于事件流消费者，事件以流的形式推送到 `ReceiveMsgHook` 客户端。此方法类似于 EventMesh client。
 
@@ -133,7 +133,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 ## 4. 使用 Shell 脚本运行 Demo
 
-请参考 [EventMesh Store](./01-store.md) 和 [EventMesh Runtime](./03-runtime.md) 完成运行环境的部署
+请参考 [Event Store](./01-store.md) 和 [EventMesh Runtime](./03-runtime.md) 完成运行环境的部署
 
 完成 store 和 runtime 的部署后，就可以在 eventmesh-examples 模块下运行我们的 demo 来体验 EventMesh 了：
 

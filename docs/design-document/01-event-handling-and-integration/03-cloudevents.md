@@ -29,7 +29,7 @@ for users to prefer using a SDK with CloudEvents support:
 | F-2            | EventMesh users should continue to have access to existing EventMesh client features (e.g. load balancing) with an SDK that supports CloudEvent | Feature Parity |
 | F-3            | EventMesh developers should be able to sync `eventmesh-sdk-java` and an SDK with CloudEvents support without much effort/pain | Maintainability |
 | F-4 | EventMesh support pluggable protocols for developers integrate other protocols (e.g. CloudEvents\EventMesh Message\OpenMessage\MQTT ...) | Functionality |
-| F-5 | EventMesh support the unified api for publish/subscribe events to/from event store | Functionality |
+| F-5 | EventMesh support the unified api for publish/subscribe events to/from Event Store | Functionality |
 
 ### Performance Requirements
 

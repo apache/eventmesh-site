@@ -47,7 +47,7 @@ Event Bridge 可以支持跨 mesh 集群的消息投递，下面展示这一功�
 
 ## 02 本地订阅
 
-**描述**：向 cluster2 的 EventMesh 实例发起本地订阅指令，cluster2 的 EventMesh 收到订阅指令后会启动本地监听从 event store 收下来的消息，并推送给订阅信息中的 url。
+**描述**：向 cluster2 的 EventMesh 实例发起本地订阅指令，cluster2 的 EventMesh 收到订阅指令后会启动本地监听从 Event Store 收下来的消息，并推送给订阅信息中的 url。
 
 **URL**: http://{cluster2 address}/eventmesh/subscribe/local
 
@@ -82,7 +82,7 @@ Event Bridge 可以支持跨 mesh 集群的消息投递，下面展示这一功�
 
 ## 03 发送消息
 
-**描述**：向 cluster1 的 EventMesh 实例发送消息，cluster1 的 EventMesh 收到消息后会发送到 event store，再从 event store 收下来消息推送给 cluster2 的 EventMesh url `/eventmesh/bridge/publish`。
+**描述**：向 cluster1 的 EventMesh 实例发送消息，cluster1 的 EventMesh 收到消息后会发送到 Event Store，再从 Event Store 收下来消息推送给 cluster2 的 EventMesh url `/eventmesh/bridge/publish`。
 
 **URL**: http://{cluster1 address}/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC
 

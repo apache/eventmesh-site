@@ -71,7 +71,7 @@ More information about EventMesh-HTTP, please refer to [EventMesh HTTP](../sdk-j
 
 ### 3.1 ASYNC Publish & Webhook Subscribe
 
->Producers can asynchronously send events to the EventMesh Runtime without waiting for the events to be stored in the `event-store`.
+>Producers can asynchronously send events to the EventMesh Runtime without waiting for the events to be stored in the Event Store.
 >
 >For Webhook consumers, events will be pushed to the consumer's HTTP Endpoint URL, i.e., the consumer's `subscribeUrl`. This method is similar to the previously mentioned Http EventMesh client.
 
@@ -89,7 +89,7 @@ Run the main method of org.apache.eventmesh.grpc.sub.app.SpringBootDemoApplicati
 
 ###  3.2 SYNC Publish & Stream Subscribe
 
->Producers synchronously send events to the EventMesh Runtime while waiting for the events to be stored in the `event-store`.
+>Producers synchronously send events to the EventMesh Runtime while waiting for the events to be stored in the Event Store.
 >
 >For event stream consumers, events are pushed in a streaming to the `ReceiveMsgHook` client. This method is similar to the EventMesh client.
 
@@ -119,7 +119,7 @@ More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-j
 
 ## 4. Run Demo with shell scripts
 
-Please refer to [EventMesh Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo.
+Please refer to [Event Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo.
 
 After finishing the deployment of store and runtime, you can run our demos in module `eventmesh-examples`:
 
