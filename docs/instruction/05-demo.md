@@ -121,7 +121,7 @@ More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-j
 
 Please refer to [Event Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo.
 
-After finishing the deployment of store and runtime, you can run our demos in module `eventmesh-examples`:
+After finishing the deployment of Store and Runtime, you can run our demos in module `eventmesh-examples`:
 
 gradle：
 

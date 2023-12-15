@@ -4,7 +4,7 @@
 
 请参考 https://zipkin.io/pages/quickstart.html
 
-### 2、运行 eventmesh
+### 2、运行 EventMesh
 
 运行 eventmesh-starter（参考 [eventmesh-runtime-quickstart](../../instruction/03-runtime.md))
 
@@ -40,4 +40,4 @@ eventmesh.trace.export.zipkin.port=9411
 
 ### 4、观察
 
-浏览器打开： **localhost:9411**
+浏览器打开 `localhost:9411`

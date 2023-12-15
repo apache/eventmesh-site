@@ -135,7 +135,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 请参考 [Event Store](./01-store.md) 和 [EventMesh Runtime](./03-runtime.md) 完成运行环境的部署
 
-完成 store 和 runtime 的部署后，就可以在 eventmesh-examples 模块下运行我们的 demo 来体验 EventMesh 了：
+完成 Store 和 Runtime 的部署后，就可以在 eventmesh-examples 模块下运行我们的 Demo 来体验 EventMesh 了：
 
 gradle 编译：
 
