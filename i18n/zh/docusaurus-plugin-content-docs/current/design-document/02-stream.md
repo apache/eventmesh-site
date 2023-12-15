@@ -20,14 +20,14 @@
 
 | 需求编号 | 需求描述 | 注释 |
 | -------------- | ----------------------- | -------- |
-| F-1            | EventMesh用户应该能够在 EventMesh 中实现事件流功能 | 功能性 |
-| F-2            | EventMesh用户可以为路由、过滤、转换等应用动态用户特定逻辑 | 功能性 |
+| F-1            | EventMesh 用户应该能够在 EventMesh 中实现事件流功能 | 功能性 |
+| F-2            | EventMesh 用户可以为路由、过滤、转换等应用动态用户特定逻辑 | 功能性 |
 
 ## 设计细节
 
 我们引入了 EventMesh Stream 组件，允许我们在 Apache Camel 中本地使用来自 Spring Cloud Stream 的编程模型和绑定器抽象。
 
-[Spring-Cloud-Stream](https://spring.io/projects/spring-cloud-stream) Spring Cloud Stream是一个用于构建
+[Spring-Cloud-Stream](https://spring.io/projects/spring-cloud-stream) Spring Cloud Stream 是一个用于构建
 与共享消息传递系统连接的、高度可扩展的事件驱动微服务框架。
 
 [Apache Camel](https://camel.apache.org/) Camel 是一个开源集成框架，使您能够快速轻松地集成各种消费或生产数据的系统。

@@ -92,7 +92,7 @@ EventMesh 的用户非常渴望能得到对 CloudEvents 的支持。有许多理
 ##### 服务端订阅
 
 - 更新 `EventMeshConsumer.subscribe()`
-- 更新 `HandleMsgContext`， 将入参 `Message` 改为 `CloudEvent`
+- 更新 `HandleMsgContext`，将入参 `Message` 改为 `CloudEvent`
 - 更新 `AsyncHttpPushRequest.tryHTTPRequest()`
 
 ## 附录

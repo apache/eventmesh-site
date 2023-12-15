@@ -15,14 +15,14 @@ Gradle 7.0+, we recommend 7.0.*
 
 ### 2.1 Pull Images
 
-Pull RocketMQ image from Docker Hub：
+Pull RocketMQ image from Docker Hub:
 
 ```shell
 #Pull rocketmq image
 sudo docker pull apache/rocketmq:4.9.4
 ```
 
-You can list and view existing local mirrors with the following command：
+You can list and view existing local mirrors with the following command:
 
 ```shell
 sudo docker images

@@ -35,7 +35,7 @@ eventMesh.webHook.producer.connector=standalone
 ```java
    /**
     * 厂商发送事件时调用的地址。[http or https]://[domain or IP]:[port]/webhook/[callbackPath]
-    * 在厂商的Webhook配置中需要填写完整url，比如：http://127.0.0.1:10105/webhook/test/event
+    * 在厂商的 Webhook 配置中需要填写完整 url，比如：http://127.0.0.1:10105/webhook/test/event
     * callbackPath 唯一
     * manufacturer callback path
     */
@@ -314,11 +314,11 @@ contentType： application/json
 
 #### 第一步：进入对应的项目
 
-#### 第二步：点击setting
+#### 第二步：点击 setting
 
 ![](/images/design-document/webhook/webhook-github-setting.png)
 
-#### 第三步：点击Webhooks
+#### 第三步：点击 Webhooks
 
 ![](/images/design-document/webhook/webhook-github-webhooks.png)
 
@@ -326,7 +326,7 @@ contentType： application/json
 
 ![](/images/design-document/webhook/webhook-github-add.png)
 
-#### 第五步: 填写webhook信息
+#### 第五步：填写 webhook 信息
 
 ![](/images/design-document/webhook/webhook-github-info.png)
 
