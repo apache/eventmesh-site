@@ -1,4 +1,4 @@
-# EventMesh Runtime
+# EventMesh Runtime Quick Start
 
 The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is responsible for event transfer between the Source Connector and the Sink Connector, and can use Event Store as a storage queue for events.
 
@@ -10,11 +10,12 @@ The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is re
 
 #### 1.1.1 Dependencies
 
-```
-64-bit OS，we recommend Linux/Unix；
-64-bit JDK 1.8+;
-Gradle 7.0+, we recommend 7.0.*;
-```
+- 64-bit OS, we recommend Linux/Unix.
+
+- 64-bit JDK 1.8 or JDK 11
+
+- Gradle 7.0+, The recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
+
 #### 1.1.2 Download source code
 
 Download and extract the source code of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.9.0-source.tar.gz`.
@@ -23,16 +24,18 @@ Download and extract the source code of the latest release from [EventMesh downl
 
 **1.1.3.1 Description of the project structure:**
 
-- eventmesh-common : eventmesh public classes and methods module
-- eventmesh-connector-api : eventmesh connector plugin interface definition module
-- eventmesh-connector-plugin : eventmesh connector plugin module
+- eventmesh-common : EventMesh public classes and methods module
+- eventmesh-connector-api : EventMesh Connector plugin interface definition module
+- eventmesh-connector-plugin : EventMesh Connector plugin module
 - eventmesh-runtime : EventMesh Runtime module
-- eventmesh-sdk-java : eventmesh java client sdk
-- eventmesh-starter : eventmesh local startup and runtime project portal
-- eventmesh-spi : eventmesh SPI loader module
+- eventmesh-sdk-java : EventMesh Java client SDK
+- eventmesh-starter : EventMesh Runtime local startup and project portal
+- eventmesh-spi : EventMesh SPI loader module
 
-> Note: Plugin modules follow the SPI specification defined by eventmesh, custom SPI interfaces need to be marked with the annotation @EventMeshSPI.
-> Plugin instances need to be configured in the corresponding module under /main/resources/META-INF/eventmesh with a mapping file of the relevant interfaces to their implementation classes, with the name of the file being the full class name of the SPI interface.
+> Note: Plugin modules follow the SPI specification defined by eventmesh, custom SPI interfaces need to be marked with the annotation `@EventMeshSPI`.
+>
+> Plugin instances need to be configured in the corresponding module under `/main/resources/META-INF/eventmesh` with a mapping file of the relevant interfaces to their implementation classes, with the name of the file being the full class name of the SPI interface.
+>
 > The content of the file is the mapping from the plugin instance name to the plugin instance, see eventmesh-connector-rocketmq plugin module for details.
 
 **1.1.3.2 Plugin Description**
@@ -55,7 +58,7 @@ There are two ways to install the plugin
 
 ***1.1.3.2.2 Using Plugins ***
 
-EventMesh will load plugins in the dist/plugin directory by default, you can change the plugin directory with `-DeventMeshPluginDir=your_plugin_directory`. Examples of plugins to be used at runtime can be found in the
+EventMesh will load plugins in the `dist/plugin` directory by default, you can change the plugin directory with `-DeventMeshPluginDir=your_plugin_directory`. Examples of plugins to be used at runtime can be found in the
 `confPath` directory under `eventmesh.properties`. For example declare the use of the rocketmq plugin at runtime with the following settings.
 
 ```properties
@@ -84,11 +87,11 @@ Run org.apache.eventmesh.starter.
 
 #### 1.1.1 Dependencies
 
-```
-64-bit OS，we recommend Linux/Unix；
-64-bit JDK 1.8+;
-Gradle 7.0+, we recommend 7.0.*;
-```
+- 64-bit OS, we recommend Linux/Unix.
+
+- 64-bit JDK 1.8 or JDK 11
+
+- Gradle 7.0+, The current recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
 
 Gradle is the build automation tool used by Apache EventMesh. Please refer to the [offical guide](https://docs.gradle.org/current/userguide/installation.html) to install the latest release of Gradle.
 
@@ -136,7 +139,8 @@ dependencies {
 ```console
 gradle installPlugin
 ```
-### 1.1.4 启动Runtime
+
+### 1.1.4 启动 Runtime
 
 Execute the `start.sh` script to start the EventMesh Runtime server.
 
@@ -151,6 +155,7 @@ View the output log:
 ```console
 tail -f logs/eventmesh.out
 ```
+
 ![runtime_3](/images/install/runtime_3.png)
 
 ## 2 Remote deployment
@@ -199,13 +204,15 @@ View the output log:
 cd /root/apache-eventmesh-1.9.0/logs
 tail -f eventmesh.out
 ```
+
 ![runtime_7](/images/install/runtime_7.png)
 
-You can stop the run with the following command：
+You can stop the run with the following command:
 
 ```console
 bash bin/stop.sh
 ```
 
 ![runtime_8](/images/install/runtime_8.png)
+
 ![runtime_9](/images/install/runtime_9.png)
