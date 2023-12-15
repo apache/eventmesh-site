@@ -73,7 +73,7 @@ More information about EventMesh-HTTP, please refer to [EventMesh HTTP](../sdk-j
 
 >Producers can asynchronously send events to the EventMesh Runtime without waiting for the events to be stored in the `event-store`.
 >
->For Webhook consumers, events will be pushed to the consumer's HTTP Endpoint URL, i.e., the consumer's `subscribeUrl`. This method is similar to the previously mentioned Http eventmesh client.
+>For Webhook consumers, events will be pushed to the consumer's HTTP Endpoint URL, i.e., the consumer's `subscribeUrl`. This method is similar to the previously mentioned Http EventMesh client.
 
 - Start publisher to publish message (we have created the topic TEST-TOPIC-GRPC-ASYNC by default, you can also create other topic to test)
 
@@ -91,7 +91,7 @@ Run the main method of org.apache.eventmesh.grpc.sub.app.SpringBootDemoApplicati
 
 >Producers synchronously send events to the EventMesh Runtime while waiting for the events to be stored in the `event-store`.
 >
->For event stream consumers, events are pushed in a streaming to the `ReceiveMsgHook` client. This method is similar to the eventmesh client.
+>For event stream consumers, events are pushed in a streaming to the `ReceiveMsgHook` client. This method is similar to the EventMesh client.
 
 - Start Request-Reply publisher to publish message (we have created the topic TEST-TOPIC-GRPC-RR by default, you can also create other topic to test)
 

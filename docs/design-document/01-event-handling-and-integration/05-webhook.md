@@ -1,7 +1,7 @@
 # Use Webhook to subscribe events
 ## Webhook usage process
 
-### The first step: Configure Webhook related information in eventmesh and start
+### The first step: Configure Webhook related information in EventMesh and start
 
 Configuration:
 

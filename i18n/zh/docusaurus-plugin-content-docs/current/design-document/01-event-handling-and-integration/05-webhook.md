@@ -2,7 +2,7 @@
 
 ## Webhook 使用流程
 
-### 第一步：在 eventmesh 配置 Webhook 相关信息并且启动
+### 第一步：在 EventMesh 配置 Webhook 相关信息并且启动
 
 配置说明：
 

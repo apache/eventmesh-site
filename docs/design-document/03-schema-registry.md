@@ -73,7 +73,7 @@ The proposal has two aspects.
 First is a separated Open Schema Registry, which includes storage and compatibility check for schema.
 This proposal is under developing.
 
-Second is the integration of Open Schema in Eventmesh, which includes validation for schema. This proposal is to be developed.
+Second is the integration of Open Schema in EventMesh, which includes validation for schema. This proposal is to be developed.
 
 As for the first proposal, some developing statuses are as follows.
 

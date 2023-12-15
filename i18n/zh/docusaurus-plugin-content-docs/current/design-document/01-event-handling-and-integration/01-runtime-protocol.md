@@ -261,7 +261,7 @@ public class EventMeshMessage {
 
 #### 1. protobuf
 
-在 `eventmesh-protocol-gprc` 模块有 Eventmesh gRPC 客户端的 protobuf 文件. the protobuf 文件路径是 `/src/main/proto/eventmesh-client.proto`.
+在 `eventmesh-protocol-gprc` 模块有 EventMesh gRPC 客户端的 protobuf 文件. the protobuf 文件路径是 `/src/main/proto/eventmesh-client.proto`.
 
 用gradle build 生成 gRPC 代码在 `/build/generated/source/proto/main`. 生成代码用于 `eventmesh-sdk-java` 模块.
 

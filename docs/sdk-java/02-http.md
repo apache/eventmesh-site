@@ -95,7 +95,7 @@ public class HTTP {
 
 ## Using Curl Command
 
-You can also publish/subscribe event without eventmesh SDK.
+You can also publish/subscribe event without EventMesh SDK.
 
 ### Publish
 

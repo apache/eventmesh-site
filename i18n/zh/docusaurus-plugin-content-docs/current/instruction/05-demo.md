@@ -84,7 +84,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 > 生产者可以异步地发送事件到 EventMesh Runtime，不需要等待事件储存到 `event-store`。
 >
-> 对于 Webhook 消费者，事件会推送到消费者的 HTTP Endpoint URL，即消费者的`subscribeUrl`。此方法和前面的 Http eventmesh client 类似。
+> 对于 Webhook 消费者，事件会推送到消费者的 HTTP Endpoint URL，即消费者的`subscribeUrl`。此方法和前面的 Http EventMesh client 类似。
 
 - 在 rocketmq 创建主题 TEST-TOPIC-GRPC-ASYNC
 - 启动 publisher 发送事件
@@ -103,7 +103,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 > 生产者同步地发送事件到 EventMesh Runtime，同时等待事件储存到 `event-store`。
 >
-> 对于事件流消费者，事件以流的形式推送到 `ReceiveMsgHook` 客户端。此方法类似于 eventmesh client。
+> 对于事件流消费者，事件以流的形式推送到 `ReceiveMsgHook` 客户端。此方法类似于 EventMesh client。
 
 - 在 rocketmq 创建主题 TEST-TOPIC-GRPC-RR
 - 启动 Request-Reply publisher 发送事件
@@ -135,7 +135,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 请参考 [EventMesh Store](./01-store.md) 和 [EventMesh Runtime](./03-runtime.md) 完成运行环境的部署
 
-完成 store 和 runtime 的部署后，就可以在 eventmesh-examples 模块下运行我们的 demo 来体验 eventmesh 了：
+完成 store 和 runtime 的部署后，就可以在 eventmesh-examples 模块下运行我们的 demo 来体验 EventMesh 了：
 
 gradle 编译：
 
