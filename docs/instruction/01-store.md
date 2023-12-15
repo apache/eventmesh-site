@@ -7,7 +7,7 @@
 64-bit JDK 1.8+;
 Gradle 7.0+, we recommend 7.0.*
 4g+ available disk to deploy eventmesh-store
-If you choose standalone mode, you could skip this file and go to the next step: Start Eventmesh-Runtime; if not, you could choose RocketMQ as the store layer.
+If you choose standalone mode, you could skip this file and go to the next step: Start EventMesh Runtime; if not, you could choose RocketMQ as the store layer.
 ```
 
 ## 2 Download
@@ -39,7 +39,7 @@ nohup sh bin/mqbroker -n localhost:9876 &
 tail -f ~/logs/rocketmqlogs/broker.log
 ```
 
-The deployment of eventmesh-store has finished, please go to the next step: [Start Eventmesh-Runtime](03-runtime.md)
+The deployment of eventmesh-store has finished, please go to the next step: [Start EventMesh Runtime](03-runtime.md)
 
 ## Reference
 

@@ -55,7 +55,7 @@ public class Header {
 | REQUEST_TO_SERVER, REQUEST_TO_CLIENT, RESPONSE_TO_SERVER, RESPONSE_TO_CLIENT, ASYNC_MESSAGE_TO_SERVER, ASYNC_MESSAGE_TO_CLIENT, BROADCAST_MESSAGE_TO_SERVER, BROADCAST_MESSAGE_TO_CLIENT, ASYNC_MESSAGE_TO_CLIENT_ACK, BROADCAST_MESSAGE_TO_CLIENT_ACK, RESPONSE_TO_CLIENT_ACK, REQUEST_TO_CLIENT_ACK | OpenMessage  |
 | REDIRECT_TO_CLIENT                                           | RedirectInfo |
 
-#### 3. Client 与 Eventmesh-Runtime(Server)交互场景详解
+#### 3. Client 与 EventMesh Runtime(Server)交互场景详解
 
 ```java
 public enum Command {

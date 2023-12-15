@@ -40,7 +40,7 @@ application {
 
 ## Demo
 ### Publish an Event Message from Knative and Subscribe from EventMesh
-#### Step 1: Start an Eventmesh-Runtime Server
+#### Step 1: Start an EventMesh Runtime Server
 ```bash
 $ cd eventmesh-starter
 $ ../gradlew -PmainClass=org.apache.eventmesh.starter.StartUp run
@@ -68,7 +68,7 @@ The following message with `data` field as `Hello CloudEvents!` will be printed 
 ```
 
 ### Publish an Event Message from EventMesh and Subscribe from Knative
-#### Step 1: Start an Eventmesh-Runtime Server
+#### Step 1: Start an EventMesh Runtime Server
 ```bash
 $ cd eventmesh-starter
 $ ../gradlew -PmainClass=org.apache.eventmesh.starter.StartUp run

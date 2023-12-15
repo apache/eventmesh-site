@@ -9,7 +9,7 @@ The documentation introduces the steps to install the latest release of EventMes
 64-bit JDK 1.8+;
 Gradle 7.0+, we recommend 7.0.*
 4g+ available disk to deploy eventmesh-store
-If you choose standalone mode, you could skip this file and go to the next step: Start Eventmesh-Runtime; if not, you could choose RocketMQ as the store layer.
+If you choose standalone mode, you could skip this file and go to the next step: Start EventMesh Runtime; if not, you could choose RocketMQ as the store layer.
 ```
 
 ## 2. Pull EventMesh Image

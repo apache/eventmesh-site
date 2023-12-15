@@ -1,6 +1,6 @@
 # EventMesh Store with Docker
 
-If you choose standalone mode, you could skip this file and go to the next step: Start Eventmesh-Runtime; if not, you could choose RocketMQ as the store layer.
+If you choose standalone mode, you could skip this file and go to the next step: Start EventMesh Runtime; if not, you could choose RocketMQ as the store layer.
 
 ## 1. Dependencies
 
@@ -70,4 +70,4 @@ sudo docker run -d -p 10911:10911 -p 10909:10909 \
 
 Please note that the **rocketmq-broker ip** is **pod ip**. If you want to modify this ip, you can set it your custom value in **broker.conf**。
 
-By now, the deployment of eventmesh-store has finished, please go to the next step: [Start Eventmesh-Runtime Using Docker](04-runtime-with-docker.md)
+By now, the deployment of eventmesh-store has finished, please go to the next step: [Start EventMesh Runtime Using Docker](04-runtime-with-docker.md)
