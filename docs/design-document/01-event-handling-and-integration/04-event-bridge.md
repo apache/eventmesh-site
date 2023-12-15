@@ -2,33 +2,33 @@
 
 ![event-bridge](/images/eventmesh-bridge.png)
 
-Event Bridge 可以支持跨mesh集群的消息投递，下面展示这一功能的详细设计与体验步骤
+Event Bridge supports message delivery across mesh clusters. Below is a detailed design and experience steps for this feature.
 
 ![event-bridge-detail](/images/design-document/event-bridge-detail.png)
 
-> 注：在本地体验这一功能时需要启动两台eventmesh实例，同时要修改`eventmesh-runtime`目录下的`eventmesh.properties`文件中的端口配置，避免端口冲突。便于下文描述，event-bridge特性按照上图信息进行表述。
+> Note: To experience this feature locally, you need to start two EventMesh instances and modify the port configuration in the `eventmesh-runtime` directory's `eventmesh.properties` file to avoid port conflicts. For the sake of the following descriptions, the event-bridge feature is presented according to the information in the above diagram.
 
-## 01 远程订阅
+## 01 Remote Subscription
 
-**描述**：向cluster2 eventmesh发起远程订阅指令，cluster2 eventmesh收到指令后会携带订阅信息调用cluster1 eventmesh的本地订阅接口
+**Description**: Initiates a remote subscription command to cluster2 EventMesh. Upon receiving the command, cluster2 EventMesh will invoke the local subscription interface of cluster1 EventMesh with the subscription information.
 
 **URL**: http://{cluster2 address}/eventmesh/subscribe/remote
 
-**请求方式**：POST
+**Request Method**: POST
 
-**请求参数：**application/json 格式
+**Request Parameters**: application/json format
 
-| 参数名        | 类型   | 是否必填 | 说明                                                         |
-| ------------- | ------ | -------- | ------------------------------------------------------------ |
-| url           | String | 是       | 标识订阅url信息，暂时无用，后续可移除，目前仅为强校验，实际会被（/eventmesh/bridge/publish）替换 |
-| consumerGroup | String | 是       | 标识消费组信息，实际会被cluster2的eventmesh配置信息替换      |
-| topic         | List   | 是       | 标识订阅信息列表                                             |
-| mode          | String | 是       | 标识消费模式，分为集群模式和广播模式                         |
-| topic         | String | 是       | 标识订阅的topic                                              |
-| type          | String | 是       | 标识消费类型，分为同步和异步                                 |
-| remoteMesh    | String | 否       | 标识远程mesh地址，优先根据topic从注册中心获取，获取不到使用该字段替换 |
+| Parameter      | Type   | Required | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| url            | String | Yes      | Identifies the subscription URL, temporarily useless, will be replaced by (/eventmesh/bridge/publish) later, currently only for strong validation, will actually be replaced by the cluster2 EventMesh configuration information |
+| consumerGroup  | String | Yes      | Identifies the consumer group information, will be replaced by the configuration information of cluster2 EventMesh |
+| topic          | List   | Yes      | Identifies the subscription information list                 |
+| mode           | String | Yes      | Identifies the consumption mode, divided into clustering mode and broadcast mode |
+| topic          | String | Yes      | Identifies the subscribed topic                               |
+| type           | String | Yes      | Identifies the consumption type, divided into synchronous and asynchronous |
+| remoteMesh     | String | No       | Identifies the remote mesh address, prioritized by obtaining from the registration center based on the topic, if not obtained, use this field to replace |
 
-**请求样例：**
+**Request Example**:
 
 ```json
 {
@@ -45,26 +45,26 @@ Event Bridge 可以支持跨mesh集群的消息投递，下面展示这一功能
 }
 ```
 
-## 02 本地订阅
+## 02 Local Subscription
 
-**描述**：向cluster2的EventMesh实例发起本地订阅指令，cluster2的EventMesh收到订阅指令后会启动本地监听从event store收下来的消息，并推送给订阅信息中的url。
+**Description**: Initiates a local subscription command to cluster2 EventMesh. Upon receiving the subscription command, cluster2 EventMesh will start locally listening for messages received from Event Store and push them to the URL in the subscription information.
 
 **URL**: http://{cluster2 address}/eventmesh/subscribe/local
 
-**请求方式**：POST
+**Request Method**: POST
 
-**请求参数：**application/json 格式
+**Request Parameters**: application/json format
 
-| 参数名        | 类型   | 是否必填 | 说明                                 |
-| ------------- | ------ | -------- | ------------------------------------ |
-| url           | String | 是       | 标识订阅url信息                      |
-| consumerGroup | String | 是       | 标识消费组信息                       |
-| topic         | List   | 是       | 标识订阅信息列表                     |
-| mode          | String | 是       | 标识消费模式，分为集群模式和广播模式 |
-| topic         | String | 是       | 标识订阅的topic                      |
-| type          | String | 是       | 标识消费类型，分为同步和异步         |
+| Parameter      | Type   | Required | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| url            | String | Yes      | Identifies the subscription URL                               |
+| consumerGroup  | String | Yes      | Identifies the consumer group information                    |
+| topic          | List   | Yes      | Identifies the subscription information list                 |
+| mode           | String | Yes      | Identifies the consumption mode, divided into clustering mode and broadcast mode |
+| topic          | String | Yes      | Identifies the subscribed topic                               |
+| type           | String | Yes      | Identifies the consumption type, divided into synchronous and asynchronous |
 
-**请求样例：**
+**Request Example**:
 
 ```JSON
 {
@@ -80,17 +80,17 @@ Event Bridge 可以支持跨mesh集群的消息投递，下面展示这一功能
 }
 ```
 
-## 03 发送消息
+## 03 Send Message
 
-**描述**：向cluster1的EventMesh实例发送消息，cluster1的EventMesh收到消息后会发送到event store，再从event store收下来消息推送给cluster2的EventMesh url `/eventmesh/bridge/publish`。
+**Description**: Sends a message to cluster1 EventMesh. Upon receiving the message, cluster1 EventMesh will send it to Event Store, and then push the message received from Event Store to the URL `/eventmesh/bridge/publish` of cluster2 EventMesh.
 
 **URL**: http://{cluster1 address}/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC
 
-**请求方式**：POST
+**Request Method**: POST
 
-**请求参数：**application/json 格式
+**Request Parameters**: application/json format
 
-**请求样例：**
+**Request Example**:
 
 ```json
 {
@@ -99,23 +99,23 @@ Event Bridge 可以支持跨mesh集群的消息投递，下面展示这一功能
 }
 ```
 
-## 04远程去订阅
+## 04 Remote Unsubscribe
 
-**描述**：向cluster2的EventMesh实例发送去除订阅指令，cluster2的EventMesh收到指令后会发送cluster1的EventMesh，cluster1的EventMesh会本地执行去除订阅
+**Description**: Sends an unsubscribe command to cluster2 EventMesh. Upon receiving the command, cluster2 EventMesh will send it to cluster1 EventMesh, and cluster1 EventMesh will locally execute the unsubscribe.
 
 **URL**: http://{cluster2 address}/eventmesh/unsubscribe/remote
 
-**请求方式**：POST
+**Request Method**: POST
 
-**请求参数：**application/json 格式
+**Request Parameters**: application/json format
 
-| 参数名        | 类型   | 是否必填 | 说明                                                         |
-| ------------- | ------ | -------- | ------------------------------------------------------------ |
-| url           | String | 是       | 标识要去除订阅url信息，暂时无用，后续可移除，目前仅为强校验，实际会被（/eventmesh/bridge/publish）替换 |
-| consumerGroup | String | 是       | 标识要去除的消费组信息，实际会使用EventMesh cluster2的group信息替换 |
-| topic         | List   | 是       | 标识订阅topic信息列表                                        |
+| Parameter      | Type   | Required | Description                                                  |
+| -------------- | ------ | -------- | ------------------------------------------------------------ |
+| url            | String | Yes      | Identifies the URL to unsubscribe, temporarily useless, will be replaced by (/eventmesh/bridge/publish) later, currently only for strong validation, will actually be replaced by the group information of cluster2 eventmesh |
+| consumerGroup  | String | Yes      | Identifies the consumer group information to unsubscribe from, will use the group information of EventMesh cluster2 to replace |
+| topic          | List   | Yes      | Identifies the subscription topic information list            |
 
-**请求样例：**
+**Request Example**:
 
 ```json
 {
@@ -127,23 +127,23 @@ Event Bridge 可以支持跨mesh集群的消息投递，下面展示这一功能
 }
 ```
 
-## 05本地去订阅
+## 05 Local Unsubscribe
 
-**描述**：向cluster2的EventMesh实例发送去除订阅指令，cluster2的EventMesh收到指令后会本地执行去除订阅
+**Description**: Sends an unsubscribe command to cluster2 EventMesh. Upon receiving the command, cluster2 EventMesh will locally execute the unsubscribe.
 
 **URL**: http://{cluster2 address}/eventmesh/unsubscribe/local
 
-**请求方式**：POST
+**Request Method**: POST
 
-**请求参数：**application/json 格式
+**Request Parameters**: application/json format
 
-| 参数名        | 类型   | 是否必填 | 说明                   |
-| ------------- | ------ | -------- | ---------------------- |
-| url           | String | 是       | 标识要去除订阅url信息  |
-| consumerGroup | String | 是       | 标识要去除的消费组信息 |
-| topic         | List   | 是       | 标识订阅topic信息列表  |
+| Parameter      | Type   | Required | Description                  |
+| -------------- | ------ | -------- | ---------------------------- |
+| url            | String | Yes      | Identifies the URL to unsubscribe from |
+| consumerGroup  | String | Yes      | Identifies the consumer group information to unsubscribe from |
+| topic          | List   | Yes      | Identifies the subscription topic information list |
 
-**请求样例：**
+**Request Example**:
 
 ```json
 {
