@@ -23,16 +23,18 @@ Add a new connector by implementing the source/sink interface using [eventmesh-o
 ## Technical Solution
 
 ### Structure and process
+
 ![source-sink connector architecture](../../../static/images/design-document/connector-architecture.png)
 
 ### Design Detail
+
 ![eventmesh-connect-detail](../../../static/images/design-document/connector-design-detail.png)
 
-### Describe
+### Description
 
 #### Worker
 
-Worker is divided into Source Worker and Sink Worker, which are triggered by the `Application` class and implement the methods of the `ConnectorWorker` interface respectively, which include the worker's running life cycle, and the worker carries the running of the connector. Workers can be lightweight and independent through mirroring Running, the eventmesh-sdk-java module is integrated internally, and the cloudevents protocol is used to interact with eventmesh. Currently, the tcp client is used by default. In the future, support for dynamic configuration can be considered
+Worker is divided into Source Worker and Sink Worker, which are triggered by the `Application` class and implement the methods of the `ConnectorWorker` interface respectively, which include the worker's running life cycle, and the worker carries the running of the connector. Workers can be lightweight and independent through mirroring Running, the eventmesh-sdk-java module is integrated internally, and the CloudEvents protocol is used to interact with EventMesh. Currently, the TCP client is used by default. In the future, support for dynamic configuration can be considered.
 
 #### Connector
 
@@ -40,7 +42,7 @@ Connectors are divided into Source Connector and Sink Connector. Connectors have
 
 #### ConnectorRecord with CloudEvents
 
-`ConnectorRecord` is a connector layer data protocol. When workers interact with eventmesh, a protocol adapter needs to be developed to convert `ConnectorRecord` to CloudEvents protocol.
+`ConnectorRecord` is a connector layer data protocol. When workers interact with EventMesh, a protocol adapter needs to be developed to convert `ConnectorRecord` to CloudEvents protocol.
 
 #### Registry
 
@@ -74,4 +76,4 @@ The Registry module is responsible for storing the synchronization progress of s
 |       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |      ✅      |    ✅    |
 |        [WeCom](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wecom)        |      ⬜      |    ✅    |
 |       [WeChat](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wechat)       |      ⬜      |    ✅    |
-|         More connectors will be added...         |   N/A       |   N/A   |
+|         More connectors will be added ...         |   N/A       |   N/A   |

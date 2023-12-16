@@ -21,29 +21,32 @@ CloudEvents 是一种以通用格式描述事件数据的规范，以提供服�
 使用 [eventmesh-openconnect-java](https://github.com/apache/eventmesh/tree/master/eventmesh-openconnect/eventmesh-openconnect-java) 实现 Source/Sink 接口即可添加新的连接器。
 
 ## 技术方案
+
 ### 结构与处理流程
+
 ![source-sink connector architecture](../../../../../../static/images/design-document/connector-architecture.png)
 
 ### 详细设计
+
 ![eventmesh-connect-detail](../../../../../../static/images/design-document/connector-design-detail.png)
 
 ### 描述
 
 #### Worker
 
-Worker分为Source Worker与Sink Worker，由`Application`类进行触发运行，分别实现了`ConnectorWorker`接口的方法，其中包含了worker的运行生命周期，worker承载了connector的运行。Worker可以通过镜像的方式轻量的独立运行，内部集成了eventmesh-sdk-java模块，采用cloudevents协议与eventmesh进行交互，目前默认采用tcp客户端，后续可以考虑支持动态可配
+Worker 分为 Source Worker 与 Sink Worker，由`Application`类进行触发运行，分别实现了`ConnectorWorker`接口的方法，其中包含了 worker 的运行生命周期，worker 承载了 connector 的运行。Worker 可以通过镜像的方式轻量的独立运行，内部集成了 eventmesh-sdk-java 模块，采用 CloudEvents 协议与 EventMesh 进行交互，目前默认采用 TCP 客户端，后续可以考虑支持动态可配。
 
 #### Connector
 
-Connector分为Source Connector与Sink Connector，connector有各自的配置文件，以及独立运行的方式，通过worker进行反射加载与配置解析，完成Connector的初始化以及后续运行工作，其中Source Connector实现poll方法，Sink Connector实现put方法，统一使用`ConnectorRecord`承载数据。Source Connector与Sink Connector均可独立运行。
+Connector 分为 Source Connector 与 Sink Connector，connector 有各自的配置文件，以及独立运行的方式，通过 worker 进行反射加载与配置解析，完成 Connector 的初始化以及后续运行工作，其中 Source Connector 实现 poll 方法，Sink Connector 实现 put 方法，统一使用`ConnectorRecord`承载数据。Source Connector 与 Sink Connector 均可独立运行。
 
 #### ConnectorRecord with CloudEvents
 
-`ConnectorRecord`为connector层数据协议，当worker与eventmesh进行交互时需开发协议适配器进行`ConnectorRecord`到CloudEvents的协议转换。
+`ConnectorRecord`为 connector 层数据协议，当 worker 与 EventMesh 进行交互时需开发协议适配器进行`ConnectorRecord`到 CloudEvents 的协议转换。
 
 #### Registry
 
-`Registry`模块负责存储同步不同Connector实例的数据的同步进度，确保多个Connector镜像或实例之间的高可用。
+`Registry`模块负责存储同步不同 Connector 实例的数据的同步进度，确保多个 Connector 镜像或实例之间的高可用。
 
 ## 连接器实现状态
 
@@ -73,4 +76,4 @@ Connector分为Source Connector与Sink Connector，connector有各自的配置�
 |       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |    ✅    |    ✅    |
 |        [企业微信](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wecom)        |    ⬜    |    ✅    |
 |       [微信](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wechat)       |    ⬜    |    ✅    |
-|         更多连接器正在计划中...         |   N/A   |   N/A   |
+|         更多连接器正在计划中 ...         |   N/A   |   N/A   |
