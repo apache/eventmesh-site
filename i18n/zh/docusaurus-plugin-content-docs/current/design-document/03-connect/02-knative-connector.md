@@ -6,7 +6,7 @@
 
 ### 创建 Knative Source 和 Sink
 
-我们使用 *cloudevents-player* [Knative 服务](https://knative.dev/docs/serving/)作为例子。如果您不知道如何创建 *cloudevents-player* Knative 服务作为 source 和 sink，请按照这个[链接](https://knative.dev/docs/getting-started/first-source/#creating-your-first-source)的步骤进行创建。
+我们使用 *cloudevents-player* [Knative 服务](https://knative.dev/docs/serving/) 作为例子。如果您不知道如何创建 *cloudevents-player* Knative 服务作为 source 和 sink，请按照这个 [链接](https://knative.dev/docs/getting-started/first-source/#creating-your-first-source) 的步骤进行创建。
 
 ### EventMesh 配置文件
 
@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-- 将以下配置加入 [eventmesh-examples/build.gradle](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/build.gradle)文件
+- 将以下配置加入 [eventmesh-examples/build.gradle](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/build.gradle) 文件
 
 ```bash
 plugins {

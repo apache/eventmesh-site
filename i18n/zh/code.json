@@ -394,7 +394,7 @@
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
   "eventmesh_intro": {
-    "message": "EventMesh是一个完全serverless平台用于构建分布式事件驱动应用程序",
+    "message": "EventMesh 是用于构建分布式事件驱动应用的新一代无服务器事件中间件",
     "description": "Introduction to the EventMesh project."
   },
   "eventmesh_quick_start": {

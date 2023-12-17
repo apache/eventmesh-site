@@ -6,7 +6,6 @@
 ### Create Knative Source and Sink
 We use the *cloudevents-player* [Knative service](https://knative.dev/docs/serving/) as an example. If you do not know how to create *cloudevents-player* Knative service as source and sink, please follow the steps in this [link](https://knative.dev/docs/getting-started/first-source/#creating-your-first-source).
 
-
 ### Set up EventMesh Configuration
 - Add the following lines to [eventmesh-starter/build.gradle](https://github.com/apache/eventmesh/blob/master/eventmesh-starter/build.gradle) file.
 ```
@@ -40,7 +39,7 @@ application {
 
 ## Demo
 ### Publish an Event Message from Knative and Subscribe from EventMesh
-#### Step 1: Start an Eventmesh-Runtime Server
+#### Step 1: Start an EventMesh Runtime Server
 ```bash
 $ cd eventmesh-starter
 $ ../gradlew -PmainClass=org.apache.eventmesh.starter.StartUp run
@@ -68,7 +67,7 @@ The following message with `data` field as `Hello CloudEvents!` will be printed 
 ```
 
 ### Publish an Event Message from EventMesh and Subscribe from Knative
-#### Step 1: Start an Eventmesh-Runtime Server
+#### Step 1: Start an EventMesh Runtime Server
 ```bash
 $ cd eventmesh-starter
 $ ../gradlew -PmainClass=org.apache.eventmesh.starter.StartUp run

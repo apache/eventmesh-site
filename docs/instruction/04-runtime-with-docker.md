@@ -4,13 +4,11 @@ The documentation introduces the steps to install the latest release of EventMes
 
 ## 1. Dependencies
 
-```
-64-bit OS，we recommend Linux/Unix；
-64-bit JDK 1.8+;
-Gradle 7.0+, we recommend 7.0.*
-4g+ available disk to deploy eventmesh-store
-If you choose standalone mode, you could skip this file and go to the next step: Start Eventmesh-Runtime; if not, you could choose RocketMQ as the store layer.
-```
+- 64-bit OS, we recommend Linux/Unix.
+
+- 64-bit JDK 1.8 or JDK 11
+
+- Gradle 7.0+, The recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
 
 ## 2. Pull EventMesh Image
 
@@ -97,7 +95,6 @@ As you can see from this message, the ```container id``` is ``5bb6b6092672``, an
 ## 7. Managing EventMesh Containers
 
 After successfully running an EventMesh container, you can manage the container by entering it, viewing logs, deleting it, and so on.
-
 
 To connect to the EventMesh container:
 

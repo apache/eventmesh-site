@@ -19,13 +19,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动消费者，订阅上一步骤已经创建的 Topic
 
 ```
-运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribe 的main方法
+运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribe 的 main 方法
 ```
 
 - 启动发送端，发送消息
 
 ```
-运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublish 的main方法
+运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublish 的 main 方法
 ```
 
 ### 1.2 广播消息
@@ -35,13 +35,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动消费端，订阅上一步骤已经创建的 Topic
 
 ```
-运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribeBroadcast 的main方法
+运行 org.apache.eventmesh.tcp.demo.sub.eventmeshmessage.AsyncSubscribeBroadcast 的 main 方法
 ```
 
 - 启动发送端，发送广播消息
 
 ```
-运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublishBroadcast 的main方法
+运行 org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncPublishBroadcast 的 main 方法
 ```
 
 更多关于 TCP 部分的内容，请参考 [EventMesh TCP](../sdk-java/03-tcp.md)
@@ -50,7 +50,7 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 > 对于 HTTP，eventmesh-sdk-java 对异步事件实现了发送与订阅。
 >
-> 在Demo中，Java 类`LiteMessage`的`content`字段表示一个特殊的协议。因此，如果您要使用 eventmesh-sdk-java 的 http-client，则只需设计协议的内容并在同一时间提供消费者的应用程序。
+> 在 Demo 中，Java 类`EventMeshMessage`的`content`字段表示一个特殊的协议。因此，如果您要使用 eventmesh-sdk-java 的 http-client，则只需设计协议的内容并在同一时间提供消费者的应用程序。
 
 ### 2.1 异步事件
 
@@ -63,13 +63,13 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
   异步事件消费端为 SpringBoot Demo，运行 Demo 即可启动服务并完成 Topic 订阅
 
 ```
-运行 org.apache.eventmesh.http.demo.sub.SpringBootDemoApplication 的main方法
+运行 org.apache.eventmesh.http.demo.sub.SpringBootDemoApplication 的 main 方法
 ```
 
 - 启动发送端，发送消息
 
 ```
-运行 org.apache.eventmesh.http.demo.pub.eventmeshmessage.AsyncPublishInstance 的main方法
+运行 org.apache.eventmesh.http.demo.pub.eventmeshmessage.AsyncPublishInstance 的 main 方法
 ```
 
 更多关于 HTTP 部分的内容，请参考 [EventMesh HTTP](../sdk-java/02-http.md)。
@@ -82,40 +82,40 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 
 ### 3.1 异步事件发送 和 Webhook 订阅
 
-> 生产者可以异步地发送事件到 EventMesh Runtime，不需要等待事件储存到 `event-store`。
+> 生产者可以异步地发送事件到 EventMesh Runtime，不需要等待事件储存到 Event Store。
 >
-> 对于 Webhook 消费者，事件会推送到消费者的 HTTP Endpoint URL，即消费者的`subscribeUrl`。此方法和前面的 Http eventmesh client 类似。
+> 对于 Webhook 消费者，事件会推送到消费者的 HTTP Endpoint URL，即消费者的`subscribeUrl`。此方法和前面的 Http EventMesh client 类似。
 
 - 在 rocketmq 创建主题 TEST-TOPIC-GRPC-ASYNC
 - 启动 publisher 发送事件
 
 ```
-运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.AsyncPublishInstance 的main方法
+运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.AsyncPublishInstance 的 main 方法
 ```
 
 - 启动 webhook 消费者
 
 ```
-运行 org.apache.eventmesh.grpc.sub.app.SpringBootDemoApplication 的main方法
+运行 org.apache.eventmesh.grpc.sub.app.SpringBootDemoApplication 的 main 方法
 ```
 
 ### 3.2 同步事件发送和事件流订阅
 
-> 生产者同步地发送事件到 EventMesh Runtime，同时等待事件储存到 `event-store`。
+> 生产者同步地发送事件到 EventMesh Runtime，同时等待事件储存到 Event Store。
 >
-> 对于事件流消费者，事件以流的形式推送到 `ReceiveMsgHook` 客户端。此方法类似于 eventmesh client。
+> 对于事件流消费者，事件以流的形式推送到 `ReceiveMsgHook` 客户端。此方法类似于 EventMesh client。
 
 - 在 rocketmq 创建主题 TEST-TOPIC-GRPC-RR
 - 启动 Request-Reply publisher 发送事件
 
 ```
-运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.RequestReplyInstance 的main方法
+运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.RequestReplyInstance 的 main 方法
 ```
 
 - 启动 stream subscriber
 
 ```
-运行 org.apache.eventmesh.grpc.sub.EventmeshAsyncSubscribe 的main方法
+运行 org.apache.eventmesh.grpc.sub.EventmeshAsyncSubscribe 的 main 方法
 ```
 
 ### 3.3 批量事件发布
@@ -126,16 +126,16 @@ TCP、HTTP 和 GRPC 示例都在`eventmesh-examples`模块下。
 - 启动 publisher 来批量发布事件
 
 ```
-运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPublishInstance 的main方法
+运行 org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPublishInstance 的 main 方法
 ```
 
 更多关于 gRPC 部分的内容，请参考 [EventMesh gRPC](../sdk-java/04-grpc.md)。
 
 ## 4. 使用 Shell 脚本运行 Demo
 
-请参考[EventMesh Store](./01-store.md) 和 [EventMesh Runtime](./03-runtime.md) 完成运行环境的部署
+请参考 [Event Store](./01-store.md) 和 [EventMesh Runtime](./03-runtime.md) 完成运行环境的部署
 
-完成 store 和 runtime 的部署后，就可以在 eventmesh-examples 模块下运行我们的 demo 来体验 eventmesh 了：
+完成 Store 和 Runtime 的部署后，就可以在 eventmesh-examples 模块下运行我们的 Demo 来体验 EventMesh 了：
 
 gradle 编译：
 

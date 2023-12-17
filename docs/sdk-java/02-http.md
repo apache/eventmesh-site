@@ -95,7 +95,7 @@ public class HTTP {
 
 ## Using Curl Command
 
-You can also publish/subscribe event without eventmesh SDK.
+You can also publish/subscribe event without EventMesh SDK.
 
 ### Publish
 
@@ -114,4 +114,3 @@ curl -H "Content-Type:application/json" -X POST -d '{"url": "http://127.0.0.1:80
 After you start the EventMesh Runtime server, you can use the curl command to subscribe the specific topic list with the HTTP POST method, and the package body must be in JSON format. The subscribe url like (http://127.0.0.1:10105/eventmesh/subscribe/local), and you will get the subscribe successful result. You should pay attention to the `url` field in the package body, which means you need to set up an HTTP service at the specified URL.
 
 You can see the example in the `eventmesh-examples` module.
-

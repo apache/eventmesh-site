@@ -4,7 +4,7 @@
 
 [Jaeger](https://www.jaegertracing.io/) 是 [Uber](https://uber.github.io/) 开发的分布式跟踪系统，现已成为 [CNCF](https://cncf.io/) 开源项目，其灵感来源于 Google 的 [Dapper](https://research.google.com/pubs/pub36356.html) 和 Twitter 的 [Zipkin](https://zipkin.io/)，用于监控基于微服务的分布式系统。
 
-Jaeger 的安装可以参考[官方文档](https://www.jaegertracing.io/docs/latest/getting-started/)，推荐使用官方的 Docker 镜像 `jaegertracing/all-in-one` 来快速搭建环境进行测试。
+Jaeger 的安装可以参考 [官方文档](https://www.jaegertracing.io/docs/latest/getting-started/)，推荐使用官方的 Docker 镜像 `jaegertracing/all-in-one` 来快速搭建环境进行测试。
 
 ## 配置
 
