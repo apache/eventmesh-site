@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Development Roadmap
 
-The development roadmap of Apache EventMesh is an overview of the planned features and milestones involved in the next several releases. The recent features and bug fixes are documented in the [Release Notes](https://eventmesh.apache.org/events/release-notes/v1.10.0/). The order of the features listed below doesn't correspond to their priorities.
+The development roadmap of Apache EventMesh is an overview of the planned features and milestones involved in the next several releases. The recent features and bug fixes are documented in the [release notes](https://eventmesh.apache.org/events/release-notes/v1.10.0/). The order of the features listed below doesn't correspond to their priorities.
 
 ## List of Features and Milestones
 
@@ -48,3 +48,4 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 | Planned                                   | Provide PHP    SDK              | [GitHub Issue](https://github.com/apache/eventmesh/3) |
 | Planned                                   | Event Query Language (EQL)      | [GitHub Issue](https://github.com/apache/eventmesh/) |
 | Planned                                   | WebAssembly Runtime             | [GitHub Issue](https://github.com/apache/eventmesh/) |
+
