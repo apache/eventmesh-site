@@ -14,7 +14,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import ThemedImage, { Props as ThemedImageProps } from '@theme/ThemedImage';
 import styles from './styles.module.css';
-import Incubation from '../../components/Incubation';
 
 function FooterLink({
   to,
@@ -108,7 +107,6 @@ function Footer(): JSX.Element | null {
             ))}
           </div>
         )}
-        <Incubation />
         {(logo || copyright) && (
           <div className="footer__bottom text--center">
             {logo && (logo.src || logo.srcDark) && (
