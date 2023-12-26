@@ -78,7 +78,7 @@ function Footer(): JSX.Element | null {
         {links && links.length > 0 && (
           <div className="row footer__links">
             <div  className="col footer__col">
-              <img src='https://doris.apache.org/images/asf_logo_apache.svg' />
+              <img src={'images/asf_logo.svg'} />
             </div>
             {[{logoSrc: ''},...links].map((linkItem, i) => {
               return (
