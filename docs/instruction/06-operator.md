@@ -1,4 +1,4 @@
-# EventMesh integrate with K8S  
+# Integrate EventMesh with K8S  
 
 ### 1. Dependencies
 

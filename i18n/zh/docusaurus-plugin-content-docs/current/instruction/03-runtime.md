@@ -1,4 +1,4 @@
-# EventMesh Runtime 快速入门说明
+# EventMesh Runtime 快速开始
 
 EventMesh Runtime 是 EventMesh 集群中有状态的 Mesh 节点，负责 Source Connector 与 Sink Connector 之间的事件传输，并可以使用 Event Store 作为事件的存储队列。
 
@@ -18,7 +18,7 @@ EventMesh Runtime 是 EventMesh 集群中有状态的 Mesh 节点，负责 Sourc
 
 #### 1.1.2 下载源码
 
-从 [EventMesh download](https://eventmesh.apache.org/download) 下载并提取最新版本的源代码。比如目前最新版，您将获得`apache-eventmesh-1.9.0-source.tar.gz`。
+从 [EventMesh download](https://eventmesh.apache.org/download) 下载并提取最新版本的源代码。比如目前最新版，您将获得`apache-eventmesh-1.10.0-source.tar.gz`。
 
 #### 1.1.3 本地启动
 
@@ -97,11 +97,11 @@ Gradle 是 Apache EventMesh 使用的构建自动化工具。请参考 [官方�
 
 #### 1.2.2 下载源码
 
-从 [EventMesh download](https://eventmesh.apache.org/download) 下载并提取最新版本的源代码。比如目前最新版，您将获得`apache-eventmesh-1.9.0-source.tar.gz`。
+从 [EventMesh download](https://eventmesh.apache.org/download) 下载并提取最新版本的源代码。比如目前最新版，您将获得`apache-eventmesh-1.10.0-source.tar.gz`。
 
 ```console
-tar -xvzf apache-eventmesh-1.9.0-source.tar.gz
-cd apache-eventmesh-1.9.0-src/
+tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
+cd apache-eventmesh-1.10.0-src/
 ```
 
 使用 Gradle 构建源代码。
@@ -170,12 +170,12 @@ tail -f logs/eventmesh.out
 
 ### 2.2 下载
 
-在 [EventMesh download](https://eventmesh.apache.org/download) 页面选择 1.5.0 版本的 Binary Distribution 进行下载，您将获得`apache-eventmesh-1.9.0-bin.tar.gz`。
+在 [EventMesh download](https://eventmesh.apache.org/download) 页面选择最新版本的 Binary Distribution 进行下载，您将获得`apache-eventmesh-1.10.0-bin.tar.gz`。
 
 ```console
 # 解压
-tar -xvzf apache-eventmesh-1.9.0-bin.tar.gz
-cd apache-eventmesh-1.9.0
+tar -xvzf apache-eventmesh-1.10.0-bin.tar.gz
+cd apache-eventmesh-1.10.0
 ```
 
 ### 2.3 部署
@@ -199,7 +199,7 @@ bash bin/start.sh
 查看输出日志：
 
 ```console
-cd /root/apache-eventmesh-1.9.0/logs
+cd /root/apache-eventmesh-1.10.0/logs
 tail -f eventmesh.out
 ```
 

@@ -18,7 +18,7 @@ The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is re
 
 #### 1.1.2 Download source code
 
-Download and extract the source code of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.9.0-source.tar.gz`.
+Download and extract the source code of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.10.0-source.tar.gz`.
 
 #### 1.1.3 Run form local
 
@@ -97,11 +97,11 @@ Gradle is the build automation tool used by Apache EventMesh. Please refer to th
 
 ### 1.1.2 Download Source Code
 
-Download and extract the source code of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.9.0-source.tar.gz`.
+Download and extract the source code of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.10.0-source.tar.gz`.
 
 ```console
-tar -xvzf apache-eventmesh-1.9.0-source.tar.gz
-cd apache-eventmesh-1.9.0-src/
+tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
+cd apache-eventmesh-1.10.0-src/
 ```
 
 Build the source code with Gradle.
@@ -170,11 +170,11 @@ tail -f logs/eventmesh.out
 
 ### 2.2 Download
 
-Download and extract the executable binaries of the latest release from [EventMesh download](https://eventmesh.apache.org/download).For example, with the current latest version, you will get `apache-eventmesh-1.9.0.tar.gz`.
+Download and extract the executable binaries of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.10.0.tar.gz`.
 
 ```console
-tar -xvzf apache-eventmesh-1.9.0-bin.tar.gz
-cd apache-eventmesh-1.9.0
+tar -xvzf apache-eventmesh-1.10.0-bin.tar.gz
+cd apache-eventmesh-1.10.0
 ```
 
 ### 2.3 Deploy
@@ -198,7 +198,7 @@ If you see "EventMeshTCPServer[port=10000] started...." , then the setup was suc
 View the output log:
 
 ```console
-cd /root/apache-eventmesh-1.9.0/logs
+cd /root/apache-eventmesh-1.10.0/logs
 tail -f eventmesh.out
 ```
 
