@@ -48,3 +48,33 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 | Planned                                   | Provide PHP    SDK              | [GitHub Issue](https://github.com/apache/eventmesh/3) |
 | Planned                                   | Event Query Language (EQL)      | [GitHub Issue](https://github.com/apache/eventmesh/) |
 | Planned                                   | WebAssembly Runtime             | [GitHub Issue](https://github.com/apache/eventmesh/) |
+
+## Connector Status
+
+|                  Connector Name                  |   Source    |   Sink   |
+|:------------------------------------------------:|:-----------:|:-------:|
+|     [RocketMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rocketmq)     |      ✅      |    ✅    |
+|                     ChatGPT                      |      ⬜      |    ⬜    |
+|                    ClickHouse                    |      ⬜      |    ⬜    |
+|     [DingTalk](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-dingtalk)     |      ⬜      |    ✅    |
+|                      Email                       |      ⬜      |    ⬜    |
+|     [Feishu/Lark](./design-document/connect/lark-connector)      |      ⬜      |    ✅    |
+|         [File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-file)         |      ✅      |    ✅    |
+|                      GitHub                      |      ⬜      |    ⬜    |
+|         [HTTP](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-http)         |      ✅      |    ⬜    |
+|         [Jdbc](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-jdbc)         |      ⬜      |    ✅    |
+|        [Kafka](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-kafka)        |      ✅      |    ✅    |
+|      [Knative](./design-document/connect/knative-connector)      |      ✅      |    ✅    |
+|      [MongoDB](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-mongodb)      |      ✅      |    ✅    |
+| [OpenFunction](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-openfunction) |      ✅      |    ✅    |
+|      [Pravega](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pravega)      |      ✅      |    ✅    |
+|   [Prometheus](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-prometheus)   |      ✅      |    ⬜    |
+|       [Pulsar](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pulsar)       |      ✅      |    ✅    |
+|     [RabbitMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rabbitmq)     |      ✅      |    ✅    |
+|        [Redis](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-redis)        |      ✅      |    ✅    |
+|        [S3 File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-s3)         |      ⬜      |    ✅    |
+|        [Slack](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-slack)        |      ⬜      |    ✅    |
+|       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |      ✅      |    ✅    |
+|        [WeCom](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wecom)        |      ⬜      |    ✅    |
+|       [WeChat](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wechat)       |      ⬜      |    ✅    |
+|         More connectors will be added ...         |   N/A       |   N/A   |

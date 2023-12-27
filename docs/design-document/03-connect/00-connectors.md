@@ -49,33 +49,3 @@ Connectors are divided into Source Connector and Sink Connector. Connectors have
 #### Registry
 
 The Registry module is responsible for storing the synchronization progress of synchronizing data of different Connector instances, ensuring high availability between multiple Connector images or instances.
-
-## Connector Status
-
-|                  Connector Name                  |   Source    |   Sink   |
-|:------------------------------------------------:|:-----------:|:-------:|
-|     [RocketMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rocketmq)     |      ✅      |    ✅    |
-|                     ChatGPT                      |      ⬜      |    ⬜    |
-|                    ClickHouse                    |      ⬜      |    ⬜    |
-|     [DingTalk](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-dingtalk)     |      ⬜      |    ✅    |
-|                      Email                       |      ⬜      |    ⬜    |
-|     [Feishu/Lark](./lark-connector)      |      ⬜      |    ✅    |
-|         [File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-file)         |      ✅      |    ✅    |
-|                      GitHub                      |      ⬜      |    ⬜    |
-|         [HTTP](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-http)         |      ✅      |    ⬜    |
-|         [Jdbc](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-jdbc)         |      ⬜      |    ✅    |
-|        [Kafka](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-kafka)        |      ✅      |    ✅    |
-|      [Knative](./knative-connector)      |      ✅      |    ✅    |
-|      [MongoDB](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-mongodb)      |      ✅      |    ✅    |
-| [OpenFunction](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-openfunction) |      ✅      |    ✅    |
-|      [Pravega](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pravega)      |      ✅      |    ✅    |
-|   [Prometheus](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-prometheus)   |      ✅      |    ⬜    |
-|       [Pulsar](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pulsar)       |      ✅      |    ✅    |
-|     [RabbitMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rabbitmq)     |      ✅      |    ✅    |
-|        [Redis](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-redis)        |      ✅      |    ✅    |
-|        [S3 File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-s3)         |      ⬜      |    ✅    |
-|        [Slack](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-slack)        |      ⬜      |    ✅    |
-|       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |      ✅      |    ✅    |
-|        [WeCom](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wecom)        |      ⬜      |    ✅    |
-|       [WeChat](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wechat)       |      ⬜      |    ✅    |
-|         More connectors will be added ...         |   N/A       |   N/A   |
