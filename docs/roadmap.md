@@ -56,17 +56,17 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 |     [RocketMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rocketmq)     |    ✅    |    ✅    |
 |        [Kafka](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-kafka)        |    ✅    |    ✅    |
 |       [Pulsar](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pulsar)       |    ✅    |    ✅    |
-|     [RabbitMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rabbitmq)     |    ✅    |    ✅    |
-|         [HTTP](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-http)         |    ✅    |    ⬜    |
+|     [RabbitMQ](./design-document/connect/rabbitmq-connector)     |    ✅    |    ✅    |
+|         [HTTP](./design-document/connect/http-connector)         |    ✅    |    ⬜    |
 |         [JDBC](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-jdbc)         |    ⬜    |    ✅    |
 |       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |    ✅    |    ✅    |
 | [OpenFunction](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-openfunction) |    ✅    |    ✅    |
 |         [File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-file)         |    ✅    |    ✅    |
 |                      Email                  |    ⬜    |    ⬜    |
-|        [Redis](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-redis)        |    ✅    |    ✅    |
+|        [Redis](./design-document/connect/redis-connector)        |    ✅    |    ✅    |
 |        [S3 File](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-s3)        |    ⬜    |    ✅    |
 |                    ClickHouse                    |    ⬜    |    ⬜    |
-|      [MongoDB](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-mongodb)      |    ✅    |    ✅    |
+|      [MongoDB](./design-document/connect/mongodb-connector)      |    ✅    |    ✅    |
 |   [Prometheus](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-prometheus)   |    ✅    |    ⬜    |
 |      [Knative](./design-document/connect/knative-connector)      |    ✅    |    ✅    |
 |      [Pravega](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pravega)      |    ✅    |    ✅    |
@@ -75,10 +75,10 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 |                  Platform / Product                  | Source |   Sink   |
 |:------------------------------------------:|:------:|:------:|
 | [Feishu/Lark](./design-document/connect/lark-connector) |    ⬜    |    ✅    |
-|     [DingTalk](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-dingtalk)     |    ⬜    |    ✅    |
-|        [WeCom](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wecom)        |    ⬜    |    ✅    |
+|     [DingTalk](./design-document/connect/dingtalk-connector)     |    ⬜    |    ✅    |
+|        [WeCom](./design-document/connect/wecom-connector)        |    ⬜    |    ✅    |
 |       [WeChat](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wechat)       |    ⬜    |    ✅    |
 |                      GitHub                      |    ⬜    |    ⬜    |
 |                     ChatGPT                      |    ⬜    |    ⬜    |
-|        [Slack](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-slack)        |    ⬜    |    ✅    |
+|        [Slack](./design-document/connect/slack-connector)        |    ⬜    |    ✅    |
 |         More connectors will be added ...         |   N/A   |   N/A   |

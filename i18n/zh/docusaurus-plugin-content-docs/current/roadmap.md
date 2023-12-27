@@ -52,17 +52,17 @@ sidebar_position: 1
 |     [RocketMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rocketmq)     |    ✅    |    ✅    |
 |        [Kafka](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-kafka)        |    ✅    |    ✅    |
 |       [Pulsar](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pulsar)       |    ✅    |    ✅    |
-|     [RabbitMQ](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-rabbitmq)     |    ✅    |    ✅    |
-|         [HTTP](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-http)         |    ✅    |    ⬜    |
+|     [RabbitMQ](./design-document/connect/rabbitmq-connector)     |    ✅    |    ✅    |
+|         [HTTP](./design-document/connect/http-connector)         |    ✅    |    ⬜    |
 |         [JDBC](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-jdbc)         |    ⬜    |    ✅    |
 |       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |    ✅    |    ✅    |
 | [OpenFunction](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-openfunction) |    ✅    |    ✅    |
 |         [文件](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-file)         |    ✅    |    ✅    |
 |                      邮件                       |    ⬜    |    ⬜    |
-|        [Redis](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-redis)        |    ✅    |    ✅    |
+|        [Redis](./design-document/connect/redis-connector)        |    ✅    |    ✅    |
 |        [S3 存储](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-s3)        |    ⬜    |    ✅    |
 |                    ClickHouse                    |    ⬜    |    ⬜    |
-|      [MongoDB](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-mongodb)      |    ✅    |    ✅    |
+|      [MongoDB](./design-document/connect/mongodb-connector)      |    ✅    |    ✅    |
 |   [Prometheus](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-prometheus)   |    ✅    |    ⬜    |
 |      [Knative](./design-document/connect/knative-connector)      |    ✅    |    ✅    |
 |      [Pravega](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pravega)      |    ✅    |    ✅    |
@@ -71,10 +71,10 @@ sidebar_position: 1
 |                  平台和产品                  | 源 |   汇   |
 |:------------------------------------------:|:------:|:------:|
 |     [飞书/Lark](./design-document/connect/lark-connector)      |    ⬜    |    ✅    |
-|     [钉钉](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-dingtalk)     |    ⬜    |    ✅    |
-|        [企业微信](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wecom)        |    ⬜    |    ✅    |
+|     [钉钉](./design-document/connect/dingtalk-connector)     |    ⬜    |    ✅    |
+|        [企业微信](./design-document/connect/wecom-connector)        |    ⬜    |    ✅    |
 |       [微信](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-wechat)       |    ⬜    |    ✅    |
 |                      GitHub                      |    ⬜    |    ⬜    |
 |                     ChatGPT                      |    ⬜    |    ⬜    |
-|        [Slack](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-slack)        |    ⬜    |    ✅    |
+|        [Slack](./design-document/connect/slack-connector)        |    ⬜    |    ✅    |
 |         更多连接器正在计划中 ...         |   N/A   |   N/A   |
