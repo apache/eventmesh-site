@@ -1,8 +1,8 @@
 # HTTP
 
-## 1 HTTP Source Connector
+## HTTP Source Connector
 
-### 1.1 配置
+### 配置
 
 使用 HTTP source connector 前，需要进行 server 的配置。
 - 请在 `/resource/server-config.yml` 中配置 `sourceEnable`为`true` 以开启 source 功能。
@@ -12,14 +12,14 @@
   - （必需） `port`, 接口的端口
   - `idleTimeout`, 空闲 TCP 连接超时时间，单位为秒。超过 `idleTimeout` 秒没有进行数据接收或发送的连接将会发生超时并被关闭。默认为 0, 不会发生超时。
 
-### 1.2 启动
+### 启动
 
 1. 启动 EventMesh Runtime
 2. 启动 eventmesh-connector-http
 
 完成后，HTTP source connector 会作为一个 HTTP 服务器对外提供服务。
 
-### 1.3 发送消息
+### 发送消息
 
 你可以通过 HTTP 向 source connector 发送消息。
 

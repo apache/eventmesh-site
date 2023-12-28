@@ -1,8 +1,8 @@
 # HTTP
 
-## 1 HTTP Source Connector
+## HTTP Source Connector
 
-### 1.1 Configuration
+### Configuration
 
 Before using HTTP source connector, you need to configure the server.
 - Please configure `sourceEnable` to `true` in `/resource/server-config.yml` to enable source functionality.
@@ -12,14 +12,14 @@ Before using HTTP source connector, you need to configure the server.
   - (required) `port`, port of the API.
   - `idleTimeout`, idle TCP connection timeout in seconds. A connection will timeout and be closed if no data is received nor sent within the `idleTimeout` seconds. The default is 0, which means don't timeout.
 
-### 1.2 Startup
+### Startup
 
 1. start EventMesh Runtime
 2. start eventmesh-connector-http
 
 When finished, the HTTP source connector will act as an HTTP server.
 
-### 1.3 Sending messages
+### Sending messages
 
 You can send messages to the source connector via HTTP.
 
