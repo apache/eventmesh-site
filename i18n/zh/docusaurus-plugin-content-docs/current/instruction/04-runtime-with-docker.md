@@ -1,20 +1,20 @@
-# 使用 Docker 快速入门 EventMesh（暂时只支持到 1.4.0 版本）
+# EventMesh Runtime 快速开始（使用 Docker）
 
-本篇快速入门将详细介绍使用 docker 部署 EventMesh，以 RocketMQ 作为对接的中间件。
+您可以使用 Docker 部署 EventMesh Runtime。本文将以 RocketMQ 事件存储为例，您也可以选择其它 [EventMesh 支持的事件存储](https://github.com/apache/eventmesh/tree/master/eventmesh-storage-plugin)。
 
 ## 1. 前提
 
 1. 建议使用 64 位的 Linux 系统；
-2. 请预先安装 Docker Engine。Docker 的安装过程可以参考 [docker 官方文档](https://docs.docker.com/engine/install/)；
-3. 建议掌握基础的 docker 概念和命令行，例如注册中心、挂载等等。不过这不是必须的，因为本次操作所需的命令都已为您列出；
-4. 若您选择非 standalone 模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 ip 地址访问到；若您选择 standalone 模式，则无需启动 RocketMQ。
+2. 请预先安装 Docker Engine。Docker 的安装过程可以参考 [Docker 官方文档](https://docs.docker.com/engine/install/)；
+3. 建议掌握基础的 Docker 概念和命令行，例如注册中心、挂载等等。不过这不是必须的，因为本次操作所需的命令都已为您列出；
+4. 若您选择非 standalone 模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 IP 地址访问到；若您保持默认的 standalone 模式，则无需启动 RocketMQ。
 
-## 2. 获取 EventMesh 镜像
+## 2. 获取 EventMesh Runtime 镜像
 
-首先，你可以打开一个命令行，并且使用下面的 `pull` 命令从 [Docker Hub](https://registry.hub.docker.com/r/eventmesh/eventmesh/tags) 中下载 [最新发布的 EventMesh](https://eventmesh.apache.org/events/release-notes/v1.3.0/) 。
+首先，您可以打开一个命令行，并且使用下面的 `pull` 命令从 [Docker Hub](https://hub.docker.com/r/apache/eventmesh/tags) 中下载 [最新版本的 EventMesh](https://eventmesh.apache.org/events/release-notes/) 。
 
 ```shell
-sudo docker pull eventmesh/eventmesh:v1.4.0
+sudo docker pull apache/eventmesh:latest
 ```
 
 您可以使用以下命令列出并查看本地已有的镜像。
@@ -27,131 +27,143 @@ sudo docker images
 
 ```shell
 $ sudo docker images
-REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
-eventmesh/eventmesh   v1.4.0    6e2964599c78   16 months ago   937MB
+REPOSITORY         TAG       IMAGE ID       CREATED      SIZE
+apache/eventmesh   latest    f32f9e5e4694   2 days ago   917MB
 ```
 
-![runtime_docker_1](/images/install/runtime_docker_1.png)
+## 3. 挂载配置文件
 
-## 3. 创建配置文件
+如果您使用 standalone 模式启动 EventMesh Runtime，并且没有自定义配置，可以跳转至下一步骤。
 
-在根据 EventMesh 镜像运行对应容器之前，你需要创建两个配置文件，分别是：`eventMesh.properties` 和 `rocketmq-client.properties`。
-
-首先，你需要使用下面的命令创建这两个文件。
+首先，在宿主机上创建 EventMesh 的配置文件目录。此目录可以自由指定：
 
 ```shell
-sudo mkdir -p /data/eventmesh/rocketmq/conf
-cd /data/eventmesh/rocketmq/conf
-sudo touch eventmesh.properties
-sudo touch rocketmq-client.properties
+sudo mkdir -p /data/eventmesh/conf
+cd /data/eventmesh/conf
 ```
-![runtime_docker_2](/images/install/runtime_docker_2.png)
 
-### 4. 配置 eventMesh.properties
+### 3.1 EventMesh Runtime 配置
 
-这个配置文件中包含 EventMesh 运行时环境和集成进来的其他插件所需的参数。
+此配置文件中包含 EventMesh Runtime 环境和集成的插件的配置。
 
-使用下面的 `vim` 命令编辑 `eventmesh.properties`。
+下载配置文件（替换下载链接中的`1.10.0`为您正在使用的版本）：
+
+```shell
+sudo wget https://raw.githubusercontent.com/apache/eventmesh/1.10.0-prepare/eventmesh-runtime/conf/eventmesh.properties
+```
+
+编辑 `eventmesh.properties`：
 
 ```shell
 sudo vim eventmesh.properties
 ```
 
-你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/eventmesh.properties> 。
+指定事件存储为 RocketMQ：
 
-请检查配置文件里的默认端口是否已被占用，如果被占用请修改成未被占用的端口：
+```properties
+# storage plugin
+eventMesh.storage.plugin.type=rocketmq
+```
 
-| 属性                         | 默认值   | 备注                         |
-|----------------------------|-------|----------------------------|
-| eventMesh.server.http.port | 10105 | EventMesh http server port |
-| eventMesh.server.tcp.port  | 10000 | EventMesh tcp server port  |
-| eventMesh.server.grpc.port | 10205 | EventMesh grpc server port |
+请检查配置文件里的默认端口是否已被占用，如果被占用，请修改为未被占用的端口：
 
-### 5. 配置 rocketmq-client.properties
+| 属性                             | 默认值 | 备注          |
+| -------------------------------- | ------ | ------------- |
+| eventMesh.server.tcp.port        | 10000  | TCP 监听接口  |
+| eventMesh.server.http.port       | 10105  | HTTP 监听接口 |
+| eventMesh.server.grpc.port       | 10205  | gRPC 监听接口 |
+| eventMesh.server.admin.http.port | 10106  | HTTP 管理接口 |
 
-这个配置文件中包含 RocketMQ nameserver 的信息。
+### 3.2 事件存储配置
 
-使用下面的 `vim` 命令编辑 `rocketmq-client.properties`。
+以 RocketMQ 为例，配置文件中包含连接 RocketMQ namesrv 所需的参数。
+
+下载配置文件（替换下载链接中的`1.10.0`为您正在使用的版本）：
+
+```shell
+sudo wget https://raw.githubusercontent.com/apache/eventmesh/1.10.0-prepare/eventmesh-storage-plugin/eventmesh-storage-rocketmq/src/main/resources/rocketmq-client.properties
+```
+
+编辑 `rocketmq-client.properties`：
 
 ```shell
 sudo vim rocketmq-client.properties
 ```
 
-你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties> 。请注意，如果您正在运行的 namesetver 地址不是配置文件中的默认值，请将其修改为实际正在运行的 nameserver 地址。
+如果您正在运行的 namesrv 地址不是配置文件中的默认值，请将其修改为实际正在运行的 namesrv 地址。
 
-请检查配置文件里的默认 namesrvAddr 是否已被占用，如果被占用请修改成未被占用的地址：
+| 属性                                  | 默认值                        | 备注                     |
+| ------------------------------------- | ----------------------------- | ------------------------ |
+| eventMesh.server.rocketmq.namesrvAddr | 127.0.0.1:9876;127.0.0.1:9876 | RocketMQ namesrv address |
 
-| 属性                                    | 默认值                           | 备注                               |
-|---------------------------------------|-------------------------------|----------------------------------|
-| eventMesh.server.rocketmq.namesrvAddr | 127.0.0.1:9876;127.0.0.1:9876 | RocketMQ namesrv default address |
+>如果您无法使用给出的链接下载配置文件，您可以在 EventMesh 二进制发行版的`conf`路径下找到所有的配置文件。
 
-## 6. 运行 EventMesh
+## 4. 运行 EventMesh Runtime 容器
 
-现在你就可以开始根据下载好的 EventMesh 镜像运行容器了。
-
-使用到的命令是 `docker run`，有以下两点内容需要格外注意。
-
-1. 绑定容器端口和宿主机端口：使用 `docker run` 的 `-p` 选项。
-2. 将宿主机中的两份配置文件挂在到容器中：使用 `docker run` 的 `-v` 选项。
-
-综合一下，对应的启动命令为：
+使用以下命令启动 EventMesh 容器：
 
 ```shell
-sudo docker run -d \
-    -p 10000:10000 -p 10105:10105 \
-    -v /data/eventmesh/rocketmq/conf/eventMesh.properties:/data/app/eventmesh/conf/eventMesh.properties \
-    -v /data/eventmesh/rocketmq/conf/rocketmq-client.properties:/data/app/eventmesh/conf/rocketmq-client.properties \
-    eventmesh/eventmesh:v1.4.0
+sudo docker run -d --name eventmesh -p 10000:10000 -p 10105:10105 -p 10205:10205 -p 10106:10106 -v /data/eventmesh/conf/eventmesh.properties:/data/app/eventmesh/conf/eventmesh.properties -v /data/eventmesh/conf/rocketmq-client.properties:/data/app/eventmesh/conf/rocketmq-client.properties -t apache/eventmesh:latest
 ```
 
-如果运行命令之后看到新输出一行字符串，那么运行 EventMesh 镜像的容器就启动成功了。
+`docker run`命令参数介绍：
 
-接下来，你可以使用下面的命令查看容器的状态。
+- `-p <宿主机端口>:<容器端口>`：绑定容器端口和宿主机端口。如果您修改过 EventMesh Runtime 配置中的默认端口，或者宿主机的端口已被占用，请相应地修改为您指定的端口。
+
+- `-v <宿主机路径>:<容器路径>`：将宿主机中的配置文件挂载到容器中。如果您存放 EventMesh 配置文件的路径不是`/data/eventmesh/conf`，请修改宿主机路径为您指定的路径。如果您没有自定义配置文件，请删除此参数。
+- `--name eventmesh`：自定义的容器名称。此名称是唯一的。
+- `-t apache/eventmesh:latest`：容器使用的镜像。
+
+执行`docker run`命令后，将会返回容器的 ID。使用此命令查看所有正在运行的容器的状态：
 
 ```shell
 sudo docker ps
 ```
 
-如果成功的话，你会看到终端打印出了如下所示容器的信息，其中就有运行 EventMesh 镜像的容器。
+将会打印：
 
 ```shell
-CONTAINER ID   IMAGE                        COMMAND                  CREATED         STATUS         PORTS                                                                                          NAMES
-5bb6b6092672   eventmesh/eventmesh:v1.4.0   "/bin/sh -c 'sh star…"   5 seconds ago   Up 3 seconds   0.0.0.0:10000->10000/tcp, :::10000->10000/tcp, 0.0.0.0:10105->10105/tcp, :::10105->10105/tcp   eager_driscoll
+CONTAINER ID   IMAGE                      COMMAND               CREATED          STATUS         PORTS                                                                                                                                                                 NAMES
+b7a1546ee96a   apache/eventmesh:latest   "bash bin/start.sh"   10 seconds ago   Up 8 seconds   0.0.0.0:10000->10000/tcp, :::10000->10000/tcp, 0.0.0.0:10105-10106->10105-10106/tcp, :::10105-10106->10105-10106/tcp, 0.0.0.0:10205->10205/tcp, :::10205->10205/tcp   eventmesh
 ```
 
-![runtime_docker_3](/images/install/runtime_docker_3.png)
-
-从这个信息中可以看出，`container id` 是 `5bb6b6092672`，`name` 是 `eager_driscoll`，它们都可以用来唯一标识这个容器。**注意**：在你的电脑中，它们的值可能跟这里的不同。
-
-## 7. 管理 EventMesh 容器
-
-在成功的运行了 EventMesh 容器后，你可以通过进入容器、查看日志、删除容器等方式管理容器。
-
-**进入容器** 命令示例：
+如果 EventMesh Runtime 容器不在此命令打印的列表中，则代表容器未能成功启动。您可以使用以下命令查看启动时的日志（将`eventmesh`替换为您指定的容器名称或 ID）：
 
 ```shell
-sudo docker exec -it [your container id or name] /bin/bash
+sudo docker logs eventmesh
 ```
 
-在容器中 **查看日志** 命令示例：
+## 5. 查看 EventMesh 日志
+
+成功启动 EventMesh 容器后，您可以通过以下步骤查看 EventMesh Runtime 输出的日志，检查 EventMesh 的运行状态。
+
+进入容器（将`eventmesh`替换为您指定的容器名称或 ID）：
 
 ```shell
-cd ../logs
-tail -f eventmesh.out
+sudo docker exec -it eventmesh /bin/bash
 ```
 
-![runtime_docker_4](/images/install/runtime_docker_4.png)
-
-**删除容器** 命令示例：
+查看日志：
 
 ```shell
-sudo docker rm -f [your container id or name]
+cd logs
+tail -n 50 -f eventmesh.out
 ```
 
-![runtime_docker_5](/images/install/runtime_docker_5.png)
+当日志输出`server state:RUNNING`，则代表 EventMesh Runtime 启动成功了。
 
-## 8. 探索更多
+## 6. 构建 EventMesh Runtime 镜像（可选）
 
-现在 EventMesh 已经通过容器运行了，你可以参考 [`eventmesh-examples` 模块](https://github.com/apache/eventmesh/tree/master/eventmesh-examples) 编写并测试自己的代码了。
+EventMesh 基于 JDK8 开发，二进制发行版和容器镜像基于 JDK8 构建。
 
-希望你享受这个过程并获得更多收获！
+要在 JDK8 环境下运行容器，请在 EventMesh 源代码的项目根目录下执行：
+
+```shell
+sudo docker build -t yourname/eventmesh:yourtag -f docker/Dockerfile_jdk8 .
+```
+
+如果您希望以 JDK11 作为容器的运行环境，则执行：
+
+```shell
+sudo docker build -t yourname/eventmesh:yourtag -f docker/Dockerfile_jdk11 .
+```

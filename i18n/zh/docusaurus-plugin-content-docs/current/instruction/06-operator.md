@@ -1,4 +1,4 @@
-# EventMesh 与 K8S 集成  
+# EventMesh 与 K8S 集成
 
 ### 1. 依赖
 
