@@ -1,6 +1,6 @@
 # EventMesh Runtime with Docker
 
-You can deploy EventMesh Runtime using Docker. This document provides an example of deploying it with RocketMQ as Event Store, but you can also choose another [Event Store supported by EventMesh](https://github.com/apache/eventmesh/tree/master/eventmesh-storage-plugin).
+You can deploy EventMesh Runtime using Docker. This document provides an example of deploying it with RocketMQ as Event Store, but you can also choose another [Event Store supported by EventMesh](../roadmap.md#event-store-implementation-status).
 
 ## 1. Prerequisites
 
