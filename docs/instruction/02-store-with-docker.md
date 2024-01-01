@@ -1,6 +1,6 @@
 # Event Store with Docker
 
-## 1. Dependencies
+## 1. Prerequisites
 
 - 64-bit OS, we recommend Linux/Unix.
 - 4GB+ available disk to deploy Event Store

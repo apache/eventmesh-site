@@ -1,6 +1,6 @@
 # Event Store
 
-## 1 Dependencies
+## 1. Prerequisites
 
 - 64-bit OS, we recommend Linux/Unix.
 
@@ -10,7 +10,7 @@
 
 If you choose standalone mode, you could skip this file and go to the next step: Start EventMesh Runtime; if not, you could choose RocketMQ as the store layer.
 
-## 2 Download
+## 2. Download
 
 Download the Binary code (recommended: 4.9.*) from [RocketMQ Official](https://rocketmq.apache.org/download/). Here we take 4.9.4 as an example.
 
@@ -21,7 +21,7 @@ cd rocketmq-4.9.4/
 
 ![rocketmq_1](/images/install/rocketmq_1.png)
 
-## 3 Start
+## 3. Start
 
 Start Name Server:
 
