@@ -2,10 +2,7 @@
 
 ## 1. 依赖
 
-- 建议使用 64 位操作系统，建议使用 Linux / Unix。
-
-- 64 位 JDK 1.8 或 JDK 11
-
+- 建议使用 64 位的 Linux / Unix 系统
 - 4GB+ 可用磁盘，用于 Event Store 服务器。
 
 EventMesh 在非 standalone 模式下，依赖 RocketMQ 作为存储层；若采用 standalone 模式，则可跳过该步，直接进行 EventMesh Runtime 的部署。
@@ -65,6 +62,6 @@ sudo docker run -d -p 10911:10911 -p 10909:10909 \
 
 ![rocketmq_docker_2](/images/install/rocketmq_docker_2.png)
 
-请注意 **rocketmq-broker ip** 是 **pod ip**, 如果你想修改这个 ip, 可以通过挂载容器中 **broker.conf** 文件的方式并修改文件中的 **brokerIP1** 配置项为自定义值。
+请注意 `rocketmq-broker ip` 是 `pod ip`, 如果你想修改这个 ip, 可以通过挂载容器中 `broker.conf` 文件的方式并修改文件中的 `brokerIP1` 配置项为自定义值。
 
 至此 Event Store 的部署已完成，请转至下一步完成 [EventMesh Runtime](04-runtime-with-docker.md) 的部署。

@@ -4,7 +4,7 @@
 
 - 建议使用 64 位操作系统，建议使用 Linux / Unix。
 
-- 64 位 JDK 1.8 或 JDK 11
+- 64 位 JDK 8 或 JDK 11
 
 - 4GB+ 可用磁盘，用于 Event Store 服务器。
 
@@ -12,7 +12,7 @@ EventMesh 在非 standalone 模式下，依赖 RocketMQ 作为存储层；若采
 
 ## 2 下载
 
-从 [RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.*版本），这里以 4.9.4 为例：
+从 [RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.* 版本），这里以 4.9.4 为例：
 
 ```
 unzip rocketmq-all-4.9.4-bin-release.zip
@@ -46,4 +46,4 @@ tail -f ~/logs/rocketmqlogs/broker.log
 
 ## 参考
 
-关于 RocketMQ 的其他更多资料，请参考 <https://rocketmq.apache.org/docs/quick-start/>
+关于 RocketMQ 的其他更多资料，请参考 https://rocketmq.apache.org/docs/quick-start/.

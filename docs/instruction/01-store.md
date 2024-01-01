@@ -4,9 +4,7 @@
 
 - 64-bit OS, we recommend Linux/Unix.
 
-- 64-bit JDK 1.8 or JDK 11
-
-- Gradle 7.0+, The recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
+- 64-bit JDK 8 or JDK 11
 
 - 4GB+ available disk to deploy Event Store
 
@@ -45,4 +43,4 @@ The deployment of Event Store has finished, please go to the next step: [Start E
 
 ## Reference
 
-For more details about RocketMQ, please refer to <https://rocketmq.apache.org/docs/quick-start/>
+For more details about RocketMQ, please refer to https://rocketmq.apache.org/docs/quick-start/.

@@ -4,9 +4,9 @@
 
 ## 1. 前提
 
-1. 建议使用 64 位的 Linux 系统；
-2. 请预先安装 Docker Engine。Docker 的安装过程可以参考 [Docker 官方文档](https://docs.docker.com/engine/install/)；
-3. 建议掌握基础的 Docker 概念和命令行，例如注册中心、挂载等等。不过这不是必须的，因为本次操作所需的命令都已为您列出；
+1. 建议使用 64 位的 Linux / Unix 系统。
+2. 请预先安装 Docker Engine。Docker 的安装过程可以参考 [Docker 官方文档](https://docs.docker.com/engine/install/)。
+3. 建议掌握基础的 Docker 概念和命令行，例如注册中心、挂载等等。不过这不是必须的，因为本次操作所需的命令都已为您列出。
 4. 若您选择非 standalone 模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 IP 地址访问到；若您保持默认的 standalone 模式，则无需启动 RocketMQ。
 
 ## 2. 获取 EventMesh Runtime 镜像

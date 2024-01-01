@@ -3,11 +3,6 @@
 ## 1. Dependencies
 
 - 64-bit OS, we recommend Linux/Unix.
-
-- 64-bit JDK 1.8 or JDK 11
-
-- Gradle 7.0+, The recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
-
 - 4GB+ available disk to deploy Event Store
 
 If you choose standalone mode, you could skip this file and go to the next step: Start EventMesh Runtime; if not, you could choose RocketMQ as the store layer.
@@ -69,6 +64,6 @@ sudo docker run -d -p 10911:10911 -p 10909:10909 \
 
 ![rocketmq_docker_2](/images/install/rocketmq_docker_2.png)
 
-Please note that the **rocketmq-broker ip** is **pod ip**. If you want to modify this ip, you can set it your custom value in **broker.conf**。
+Please note that the `rocketmq-broker ip` is `pod ip`. If you want to modify this ip, you can set it your custom value in `broker.conf`。
 
 By now, the deployment of Event Store has finished, please go to the next step: [Start EventMesh Runtime Using Docker](./04-runtime-with-docker.md)
