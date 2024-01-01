@@ -78,3 +78,15 @@ sidebar_position: 1
 |                     ChatGPT                      |    ⬜    |    ⬜    |
 |        [Slack](./design-document/connect/slack-connector)        |    ⬜    |    ✅    |
 |         更多连接器正在计划中 ...         |   N/A   |   N/A   |
+
+## 事件存储实现状态
+
+|                  服务和中间件                  | 接入 |   Topic 管理   |
+|:------------------------------------------:|:------:|:------:|
+|     RocketMQ     |    ✅    |    ✅    |
+|     Kafka     |    ✅    |    ✅    |
+|        Standalone        |    ✅    |    ✅    |
+|       Pulsar       |    ✅    |    ⬜    |
+|                      RabbitMQ                      |  ✅   |    ⬜    |
+|                     Redis                     |    ✅    |    ⬜    |
+|         支持实现更多事件存储 ...         |   N/A   |   N/A   |

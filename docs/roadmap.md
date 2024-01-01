@@ -49,7 +49,7 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 | Planned                                   | Event Query Language (EQL)      | [GitHub Issue](https://github.com/apache/eventmesh/) |
 | Planned                                   | WebAssembly Runtime             | [GitHub Issue](https://github.com/apache/eventmesh/) |
 
-## Connector Status
+## Connector Implementation Status
 
 |                  Service / Middleware                  | Source |   Sink   |
 |:------------------------------------------:|:------:|:------:|
@@ -70,7 +70,7 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 |   [Prometheus](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-prometheus)   |    ✅    |    ⬜    |
 |      [Knative](./design-document/connect/knative-connector)      |    ✅    |    ✅    |
 |      [Pravega](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pravega)      |    ✅    |    ✅    |
-|         More connectors will be added ...         |   N/A   |   N/A   |
+|         More connectors will be added...         |   N/A   |   N/A   |
 
 |                  Platform / Product                  | Source |   Sink   |
 |:------------------------------------------:|:------:|:------:|
@@ -81,4 +81,16 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 |                      GitHub                      |    ⬜    |    ⬜    |
 |                     ChatGPT                      |    ⬜    |    ⬜    |
 |        [Slack](./design-document/connect/slack-connector)        |    ⬜    |    ✅    |
-|         More connectors will be added ...         |   N/A   |   N/A   |
+|         More connectors will be added...         |   N/A   |   N/A   |
+
+## Event Store Implementation Status
+
+| Service / Middleware | Ingress | Topic Management |
+|:------------------------:|:------:|:------:|
+| RocketMQ | ✅ | ✅ |
+| Kafka | ✅ | ✅ |
+| Standalone | ✅ | ✅ |
+| Pulsar | ✅ | ⬜ |
+| RabbitMQ | ✅ | ⬜ |
+| Redis | ✅ | ⬜ |
+| Support for more Event Stores... | N/A | N/A |
