@@ -31,8 +31,6 @@ REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
 eventmesh/eventmesh   v1.4.0    6e2964599c78   16 months ago   937MB
 ```
 
-![runtime_docker_1](/images/install/runtime_docker_1.png)
-
 ## 3. 创建配置文件
 
 在根据 EventMesh 镜像运行对应容器之前，你需要创建两个配置文件，分别是：```eventMesh.properties``` 和 ```rocketmq-client.properties```。
@@ -45,7 +43,6 @@ cd /data/eventmesh/rocketmq/conf
 sudo touch eventmesh.properties
 sudo touch rocketmq-client.properties
 ```
-![runtime_docker_2](/images/install/runtime_docker_2.png)
 
 ### 4. 配置 eventMesh.properties
 
@@ -119,8 +116,6 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 5bb6b6092672   eventmesh/eventmesh:v1.4.0   "/bin/sh -c 'sh star…"   5 seconds ago   Up 3 seconds   0.0.0.0:10000->10000/tcp, :::10000->10000/tcp, 0.0.0.0:10105->10105/tcp, :::10105->10105/tcp   eager_driscoll
 ```
 
-![runtime_docker_3](/images/install/runtime_docker_3.png)
-
 从这个信息中可以看出，```container id``` 是 ```5bb6b6092672```，```name``` 是 ```eager_driscoll```，它们都可以用来唯一标识这个容器。**注意**：在你的电脑中，它们的值可能跟这里的不同。
 
 ## 7. 管理 EventMesh 容器
@@ -140,15 +135,11 @@ cd ../logs
 tail -f eventmesh.out
 ```
 
-![runtime_docker_4](/images/install/runtime_docker_4.png)
-
 **删除容器** 命令示例:
 
 ```shell
 sudo docker rm -f [your container id or name]
 ```
-
-![runtime_docker_5](/images/install/runtime_docker_5.png)
 
 ## 8. 探索更多
 

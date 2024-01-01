@@ -28,8 +28,6 @@ REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
 eventmesh/eventmesh   v1.4.0    6e2964599c78   16 months ago   937MB
 ```
 
-![runtime_docker_1](/images/install/runtime_docker_1.png)
-
 ## 3. Edit Configuration
 
 Edit the `eventmesh.properties` to change the configuration (e.g. TCP port, client blacklist) of EventMesh Runtime. To integrate RocketMQ as a connector, these two configuration files should be created: `eventmesh.properties` and `rocketmq-client.properties`.
@@ -40,8 +38,6 @@ cd /data/eventmesh/rocketmq/conf
 sudo touch eventmesh.properties
 sudo touch rocketmq-client.properties
 ```
-
-![runtime_docker_2](/images/install/runtime_docker_2.png)
 
 ### 4. Configure `eventmesh.properties`
 
@@ -90,8 +86,6 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 5bb6b6092672   eventmesh/eventmesh:v1.4.0   "/bin/sh -c 'sh star…"   5 seconds ago   Up 3 seconds   0.0.0.0:10000->10000/tcp, :::10000->10000/tcp, 0.0.0.0:10105->10105/tcp, :::10105->10105/tcp   eager_driscoll
 ```
 
-![runtime_docker_3](/images/install/runtime_docker_3.png)
-
 As you can see from this message, the ```container id``` is ``5bb6b6092672``, and the ```name`` is ``eager_driscoll``, and they can both be used to uniquely identify this container. **Note**: On your computer, their values may be different from the ones here.
 
 ## 7. Managing EventMesh Containers
@@ -111,8 +105,6 @@ To read the log of the EventMesh container:
 tail -f ../logs/eventmesh.out
 ```
 
-![runtime_docker_4](/images/install/runtime_docker_4.png)
-
 To stop or remove the container:
 
 ```shell
@@ -120,8 +112,6 @@ sudo docker stop [container id or name]
 
 sudo docker rm -f [container id or name]
 ```
-
-![runtime_docker_5](/images/install/runtime_docker_5.png)
 
 ## 8. Explore more
 

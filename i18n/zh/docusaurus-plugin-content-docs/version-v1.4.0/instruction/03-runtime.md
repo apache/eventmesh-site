@@ -106,8 +106,6 @@ cd apache-eventmesh-1.9.0-src/
 gradle clean dist
 ```
 
-![runtime_2](/images/install/runtime_2.png)
-
 编辑 `eventmesh.properties` 以更改 EventMesh Runtime 的配置（如 TCP 端口、客户端黑名单）。
 
 ```console
@@ -143,14 +141,12 @@ gradle installPlugin
 ```console
 bash bin/start.sh
 ```
-![runtime_4](/images/install/runtime_4.png)
 
 查看输出日志：
 
 ```console
 tail -f logs/eventmesh.out
 ```
-![runtime_3](/images/install/runtime_3.png)
 
 ## 2 远程部署
 
@@ -187,22 +183,15 @@ bash bin/start.sh
 ```
 如果看到"EventMeshTCPServer[port=10000] started...."，则说明设置成功。
 
-![runtime_6](/images/install/runtime_6.png)
-
-
 查看输出日志：
 
 ```console
 cd /root/apache-eventmesh-1.9.0/logs
 tail -f eventmesh.out
 ```
-![runtime_7](/images/install/runtime_7.png)
 
 停止：
 
 ```console
 bash bin/stop.sh
 ```
-
-![runtime_8](/images/install/runtime_8.png)
-![runtime_9](/images/install/runtime_9.png)
