@@ -11,7 +11,7 @@
 
 EventMesh 的用户非常渴望能得到对 CloudEvents 的支持。有许多理由使得用户倾向于使用集成了 CloudEvents 支持的 SDK：
 
-- CloudEvents 是一种更为广泛接受和支持的描述事件的方式。目前，`eventmesh-sdk-java` 使用的是 `LiteMessage` 结构
+- CloudEvents 是一种更为广泛接受和支持的描述事件的方式。目前，`eventmesh-sdk-java` 使用的是 `EventMeshMessage` 结构
   来描述事件，其标准化程度较低。
 - CloudEvents 的 Java SDK 有更广泛的分发方式。比如，目前 EventMesh 的用户需要使用 SDK 的 tar 包，或对每个 EventMesh 的
   发布版本从源码编译。有了 CloudEvents 的支持，用户可以更方便地通过 CloudEvents 的公开分发（比如，配置 Maven）来添加
@@ -92,7 +92,7 @@ EventMesh 的用户非常渴望能得到对 CloudEvents 的支持。有许多理
 ##### 服务端订阅
 
 - 更新 `EventMeshConsumer.subscribe()`
-- 更新 `HandleMsgContext`， 将入参 `Message` 改为 `CloudEvent`
+- 更新 `HandleMsgContext`，将入参 `Message` 改为 `CloudEvent`
 - 更新 `AsyncHttpPushRequest.tryHTTPRequest()`
 
 ## 附录

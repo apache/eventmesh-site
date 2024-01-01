@@ -1,16 +1,16 @@
-# Run eventmesh-sdk-java demo
+# Run Java SDK Demo
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.eventmesh/eventmesh-sdk-java)
 
-> EventMesh-sdk-java as the client，and comminucate with eventmesh-runtime，to finish the message sub and pub
+> eventmesh-sdk-java acts as a client of EventMesh Runtime and communicates with it, to publish and subscribe the messages.
 >
-> EventMesh-sdk-java support both async and broadcast.
+> The eventmesh-sdk-java supports ASYNC messages and BROADCAST messages. ASYNC messages indicate that producers only send messages and do not care about receiving reply messages. BROADCAST messages mean that producers send a message once, and all consumers subscribed to the broadcast topic will receive the message.
 >
-> EventMesh-sdk-java support HTTP, TCP and gRPC.
+> eventmesh-sdk-java supports HTTP, TCP and gRPC protocols.
 
-The test demos of TCP, HTTP 和 GRPC are in the module **eventmesh-examples**:
+The test demos of TCP, HTTP and GRPC are in the module `eventmesh-examples`.
 
-## 1. TCP DEMO
+## 1. TCP
 
 ### 1.1 ASYNC
 
@@ -42,8 +42,11 @@ Run the main method of org.apache.eventmesh.tcp.demo.pub.eventmeshmessage.AsyncP
 
 More information about EventMesh-TCP, please refer to [EventMesh TCP](../sdk-java/03-tcp.md)
 
+## 2 HTTP
 
-## 2 HTTP DEMO
+>For HTTP, the eventmesh-sdk-java implements sending and subscribing to asynchronous events.
+>
+>In the demo, the `content` field of the Java class `EventMeshMessage` represents a special protocol. Therefore, if you are using the eventmesh-sdk-java's http-client, you only need to design the content of the protocol and provide the consumer's application at the same time.
 
 ### 2.1 ASYNC
 
@@ -60,9 +63,17 @@ Run the main method of org.apache.eventmesh.http.demo.pub.eventmeshmessage.Async
 ```
 More information about EventMesh-HTTP, please refer to [EventMesh HTTP](../sdk-java/02-http.md)
 
-## 3 GRPC DEMO
+## 3 GRPC
 
-### 3.1 ASYNC PUBLISH & WEBHOOK SUBSCRIBE
+>The eventmesh-sdk-java implements the gRPC protocol. It can asynchronously or synchronously send events to the EventMesh Runtime.
+>
+>It can subscribe to consume events through Webhook and event streaming, and also supports the CNCF CloudEvents protocol.
+
+### 3.1 ASYNC Publish & Webhook Subscribe
+
+>Producers can asynchronously send events to the EventMesh Runtime without waiting for the events to be stored in the Event Store.
+>
+>For Webhook consumers, events will be pushed to the consumer's HTTP Endpoint URL, i.e., the consumer's `subscribeUrl`. This method is similar to the previously mentioned Http EventMesh client.
 
 - Start publisher to publish message (we have created the topic TEST-TOPIC-GRPC-ASYNC by default, you can also create other topic to test)
 
@@ -76,7 +87,11 @@ Run the main method of org.apache.eventmesh.grpc.pub.eventmeshmessage.AsyncPubli
 Run the main method of org.apache.eventmesh.grpc.sub.app.SpringBootDemoApplication
 ```
 
-###  3.2 SYNC PUBLISH & STREAM SUBSCRIBE
+###  3.2 SYNC Publish & Stream Subscribe
+
+>Producers synchronously send events to the EventMesh Runtime while waiting for the events to be stored in the Event Store.
+>
+>For event stream consumers, events are pushed in a streaming to the `ReceiveMsgHook` client. This method is similar to the EventMesh client.
 
 - Start Request-Reply publisher to publish message (we have created the topic TEST-TOPIC-GRPC-RR by default, you can also create other topic to test)
 
@@ -90,21 +105,23 @@ Run the main method of org.apache.eventmesh.grpc.pub.eventmeshmessage.RequestRep
 Run the main method of org.apache.eventmesh.grpc.sub.EventmeshAsyncSubscribe
 ```
 
-### 3.3 PUBLISH BATCH MESSAGE
+### 3.3 Publish BATCH Message
 
-- Start publisher to publish batch message (we have created the TEST-TOPIC-GRPC-ASYNC by default, you can also create other topic to test)
+>Asynchronously batch publish multiple events to the EventMesh Runtime.
+
+- Start publisher to publish batch message (we have created the TEST-TOPIC-GRPC-ASYNC by default, you can also create other topic to test.)
 
 ```
 Run the main method of org.apache.eventmesh.grpc.pub.eventmeshmessage.BatchPublishInstance
 ```
 
-More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-java/04-grpc.md)
+More information about EventMesh-gRPC, please refer to [EventMesh gRPC](../sdk-java/04-grpc.md).
 
-## 4. Run these demos by yourself
+## 4. Run Demo with shell scripts
 
-Please refer to [EventMesh Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo
+Please refer to [Event Store](./01-store.md) and [EventMesh Runtime](./03-runtime.md) to finish the necessary deployment before try our demo.
 
-After finishing the deployment of store and runtime, you can run our demos in module `eventmesh-examples`:
+After finishing the deployment of Store and Runtime, you can run our demos in module `eventmesh-examples`:
 
 gradle：
 
@@ -118,7 +135,7 @@ cd ./dist/bin
 ![demo_1](/images/install/demo_1.png)
 
 ### 4.1 TCP
-TCP Sub
+#### TCP Sub
 
 ```shell
 bash tcp_eventmeshmessage_sub.sh
@@ -131,7 +148,7 @@ tail -f demo_tcp_pub.out
 ```
 ![demo_2](/images/install/demo_2.png)
 
-TCP Pub
+#### TCP Pub
 
 ```shell
 bash tcp_pub_eventmeshmessage.sh
@@ -147,7 +164,7 @@ tail -f demo_tcp_sub.out
 
 ### 4.2 TCP Broadcast
 
-TCP Sub Broadcast
+#### TCP Sub Broadcast
 
 ```shell
 sh tcp_sub_eventmeshmessage_broadcast.sh
@@ -161,7 +178,7 @@ tail -f demo_tcp_sub_broadcast.out
 
 ![demo_4](/images/install/demo_4.png)
 
-TCP Pub Broadcast
+#### TCP Pub Broadcast
 
 ```shell
 sh tcp_pub_eventmeshmessage_broadcast.sh
@@ -177,7 +194,7 @@ tail -f demo_tcp_pub_broadcast.out
 
 ### 4.3 HTTP
 
-HTTP Sub
+#### HTTP Sub
 
 ```shell
 sh http_sub.sh
@@ -191,7 +208,7 @@ tail -f demo_http_sub.out
 
 ![demo_6](/images/install/demo_6.png)
 
-HTTP Pub
+#### HTTP Pub
 
 ```shell
 sh http_pub_eventmeshmessage.sh

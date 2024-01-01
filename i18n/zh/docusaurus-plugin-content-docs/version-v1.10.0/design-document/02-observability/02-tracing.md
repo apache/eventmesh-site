@@ -1,8 +1,8 @@
 # 分布式追踪 
 
-## OpenTelemetry概述 
+## OpenTelemetry 概述 
 
-OpenTelemetry是一组API和SDK的工具，您可以使用它来仪器化、生成、收集和导出遥测数据（指标、日志和追踪），以便进行分析，以了解您的软件性能和行为。
+OpenTelemetry 是一组 API 和 SDK 的工具，您可以使用它来仪器化、生成、收集和导出遥测数据（指标、日志和追踪），以便进行分析，以了解您的软件性能和行为。
 
 ## 需求
 
@@ -72,7 +72,7 @@ EventMeshExporter eventMeshExporter = (EventMeshExporter) Class.forName(classNam
 spanExporter = eventMeshExporter.getSpanExporter(configuration);
 ```
 
-另外，这将包含try catch。如果无法成功获取指定的导出器，则将使用默认的日志导出器。
+另外，这将包含 try catch。如果无法成功获取指定的导出器，则将使用默认的日志导出器。
 
 #### 不同导出器的改进
 

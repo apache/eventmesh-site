@@ -1,9 +1,10 @@
-# Knative Connector
+# Knative
+
+>With the changes in the design of the Knative connector, this document is currently temporarily outdated.
 
 ## Prerequisite
 ### Create Knative Source and Sink
 We use the *cloudevents-player* [Knative service](https://knative.dev/docs/serving/) as an example. If you do not know how to create *cloudevents-player* Knative service as source and sink, please follow the steps in this [link](https://knative.dev/docs/getting-started/first-source/#creating-your-first-source).
-
 
 ### Set up EventMesh Configuration
 - Add the following lines to [eventmesh-starter/build.gradle](https://github.com/apache/eventmesh/blob/master/eventmesh-starter/build.gradle) file.
@@ -34,11 +35,11 @@ application {
     mainClass = project.hasProperty("mainClass") ? project.getProperty("mainClass") : 'NULL'
 }
 ```
-- Set ```eventMesh.connector.plugin.type=knative``` in [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) file.
+- Set `eventMesh.connector.plugin.type=knative` in [eventmesh-runtime/conf/eventmesh.properties](https://github.com/apache/eventmesh/blob/master/eventmesh-runtime/conf/eventmesh.properties) file.
 
 ## Demo
 ### Publish an Event Message from Knative and Subscribe from EventMesh
-#### Step 1: Start an Eventmesh-Runtime Server
+#### Step 1: Start an EventMesh Runtime Server
 ```bash
 $ cd eventmesh-starter
 $ ../gradlew -PmainClass=org.apache.eventmesh.starter.StartUp run
@@ -50,14 +51,14 @@ $ curl -i http://cloudevents-player.default.127.0.0.1.sslip.io -H "Content-Type:
 ```
 
 #### Step 3: Subscribe from an EventMesh
-- Set ```public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";``` in [ExampleConstants.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) file.
+- Set `public static final String EVENTMESH_HTTP_ASYNC_TEST_TOPIC = "messages";` in [ExampleConstants.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/common/ExampleConstants.java) file.
 ```bash
 $ cd eventmesh-examples
 $ ../gradlew -PmainClass=org.apache.eventmesh.http.demo.sub.SpringBootDemoApplication run
 ```
 
 #### Expected Result
-The following message with ```data``` field as ```Hello CloudEvents!``` will be printed on the console of EventMesh server.
+The following message with `data` field as `Hello CloudEvents!` will be printed on the console of EventMesh server.
 ```bash
 2022-09-05 16:37:58,237 INFO  [eventMesh-clientManage-] DefaultConsumer(DefaultConsumer.java:60) - \
 [{"event":{"attributes":{"datacontenttype":"application/json","id":"123456789","mediaType":"application/json",\
@@ -66,7 +67,7 @@ The following message with ```data``` field as ```Hello CloudEvents!``` will be 
 ```
 
 ### Publish an Event Message from EventMesh and Subscribe from Knative
-#### Step 1: Start an Eventmesh-Runtime Server
+#### Step 1: Start an EventMesh Runtime Server
 ```bash
 $ cd eventmesh-starter
 $ ../gradlew -PmainClass=org.apache.eventmesh.starter.StartUp run
@@ -85,7 +86,7 @@ $ curl http://cloudevents-player.default.127.0.0.1.sslip.io/messages
 ```
 
 #### Expected Result
-The following message with ```data``` field as ```Hello Knative from EventMesh!``` will be printed on the console of EventMesh server.
+The following message with `data` field as `Hello Knative from EventMesh!` will be printed on the console of EventMesh server.
 ```bash
 2022-09-05 16:52:41,633 INFO  [eventMesh-clientManage-] DefaultConsumer(DefaultConsumer.java:60) - \
 [{"event":{"attributes":{"datacontenttype":"application/json","id":"1234","mediaType":"application/json",\

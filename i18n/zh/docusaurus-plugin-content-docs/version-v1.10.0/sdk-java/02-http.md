@@ -1,6 +1,6 @@
 # HTTP 协议
 
-EventMesh Java SDK 实现了 HTTP 异步消息的生产者和消费者。二者都需要一个 `EventMeshHttpClientConfig` 类实例来指定 EventMesh HTTP 客户端的配置信息。其中的 `liteEventMeshAddr`、`userName` 和 `password` 字段需要和 EventMesh runtime `eventmesh.properties` 文件中的相匹配。
+EventMesh Java SDK 实现了 HTTP 异步消息的生产者和消费者。二者都需要一个 `EventMeshHttpClientConfig` 类实例来指定 EventMesh HTTP 客户端的配置信息。其中的 `liteEventMeshAddr`、`userName` 和 `password` 字段需要和 EventMesh Runtime `eventmesh.properties` 文件中的相匹配。
 
 ```java
 import org.apache.eventmesh.client.http.conf.EventMeshHttpClientConfig;
@@ -53,7 +53,7 @@ public class HTTP {
 }
 ```
 
-EventMesh runtime 将发送一个包含 [CloudEvents 格式](https://github.com/cloudevents/spec) 信息的 POST 请求到这个回调的 URL 地址。类 [SubController.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/http/demo/sub/controller/SubController.java) 实现了 Spring Boot controller，它将接收并解析回调信息。
+EventMesh Runtime 将发送一个包含 [CloudEvents 格式](https://github.com/cloudevents/spec) 信息的 POST 请求到这个回调的 URL 地址。类 [SubController.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/http/demo/sub/controller/SubController.java) 实现了 Spring Boot controller，它将接收并解析回调信息。
 
 ## HTTP 生产者
 
@@ -93,23 +93,21 @@ public class HTTP {
 }
 ```
 
-## 使用Curl 命令
+## 使用 Curl 命令
 
-本段落介绍通过Curl命令体验事件的收发功能
+本段落介绍通过 Curl 命令体验事件的收发功能。
 
 ### 事件发送
 
-启动EventMesh Runtime服务后，可以使用Curl命令将事件用HTTP POST方法发布到指定的主题，Body内容必须是JSON格式，执行命令示例如下:
+启动 EventMesh Runtime 服务后，可以使用 Curl 命令将事件用 HTTP POST 方法发布到指定的主题，Body 内容必须是 JSON 格式，执行命令示例如下：
 
 ```shell
 curl -H "Content-Type:application/json" -X POST -d '{"name": "admin", "pass":"12345678"}' http://127.0.0.1:10105/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC
 ```
 
-
-
 ### 事件订阅
 
-启动EventMesh Runtime服务后，可以使用Curl命令用HTTP POST方法订阅指定的主题列表，Body内容必须是JSON格式，执行命令示例如下:
+启动 EventMesh Runtime 服务后，可以使用 Curl 命令用 HTTP POST 方法订阅指定的主题列表，Body 内容必须是 JSON 格式，执行命令示例如下：
 
 ```shell
 curl -H "Content-Type:application/json" -X POST -d '{"url": "http://127.0.0.1:8088/sub/test", "consumerGroup":"TEST-GROUP", "topic":[{"mode":"CLUSTERING","topic":"TEST-TOPIC-HTTP-ASYNC","type":"ASYNC"}]}' http://127.0.0.1:10105/eventmesh/subscribe/local

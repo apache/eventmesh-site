@@ -2,7 +2,7 @@
 
 ## 1 前提
 
-- 建议使用 64 位操作系统，建议使用 Linux / Unix。
+- 建议使用 64 位的 Linux / Unix 系统
 - 64 位 JDK 8 或 JDK 11
 - 4GB+ 可用磁盘，用于 Event Store 服务器。
 

@@ -2,21 +2,26 @@
 
 ## Webhook 使用流程
 
-### 第一步：在 eventmesh 配置 Webhook 相关信息并且启动
+### 第一步：在 EventMesh 配置 Webhook 相关信息并且启动
 
 配置说明：
 
 ```
-# 是否启动Webhook admin服务
+# Webhook HTTP payload 监听端口
+eventMesh.server.http.port=10105
+# Webhook 配置管理端口
+eventMesh.server.admin.http.port=10106
+
+# 是否启动 Webhook admin 服务
 eventMesh.webHook.admin.start=true
 
-# Webhook事件配置存储模式。目前只支持file与nacos
+# Webhook 事件配置存储模式。目前只支持 file 与 nacos
 eventMesh.webHook.operationMode=file
-# 文件存储模式的文件存放路径，如果写上#{eventMeshHome}，在eventMesh根目录
+# 文件存储模式的文件存放路径，如果写上#{eventMeshHome}，在 eventMesh 根目录
 eventMesh.webHook.fileMode.filePath= #{eventMeshHome}/webhook
 
-# nacos存储模式，配置命名规则是eventMesh.webHook.nacosMode.{nacos 原生配置key} 具体的配置请看 [nacos github api](https://github.com/alibaba/nacos/blob/develop/api/src/main/java/com/alibaba/nacos/api/SystemPropertyKeyConst.java)
-## nacos的地址
+# nacos 存储模式，配置命名规则是 eventMesh.webHook.nacosMode.{nacos 原生配置 key} 具体的配置请看 [nacos github api](https://github.com/alibaba/nacos/blob/develop/api/src/main/java/com/alibaba/nacos/api/SystemPropertyKeyConst.java)
+## nacos 的地址
 eventMesh.webHook.nacosMode.serverAddr=127.0.0.1:8848
 
 # Webhook CloudEvent 发送模式。与 eventMesh.connector.plugin.type 配置一样
@@ -30,7 +35,7 @@ eventMesh.webHook.producer.connector=standalone
 ```java
    /**
     * 厂商发送事件时调用的地址。[http or https]://[domain or IP]:[port]/webhook/[callbackPath]
-    * 在厂商的Webhook配置中需要填写完整url，比如：http://127.0.0.1:10504/webhook/test/event
+    * 在厂商的 Webhook 配置中需要填写完整 url，比如：http://127.0.0.1:10105/webhook/test/event
     * callbackPath 唯一
     * manufacturer callback path
     */
@@ -84,8 +89,6 @@ eventMesh.webHook.producer.connector=standalone
      */
     private String password;
 
-
-
     /**
      * 事件发送到那个 topic
      * roll out event name ,like topic to mq
@@ -99,7 +102,7 @@ eventMesh.webHook.producer.connector=standalone
     private String dataContentType = "application/json";
 
     /**
-     * cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)
+     * cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId（厂商 id)
      * id of cloudEvent ,like uuid/manufacturerEventId
      */
     private String cloudEventIdGenerateMode;
@@ -128,7 +131,7 @@ contentType： application/json
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名 | string | 是 | null |
-| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)  | string | 否 | manufacturerEventId |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId（厂商 id)  | string | 否 | manufacturerEventId |
 
 例子：
 
@@ -182,7 +185,7 @@ contentType： application/json
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名（） | string | 是 | null |
-| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)  | string | 否 | manufacturerEventId |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId（厂商 id)  | string | 否 | manufacturerEventId |
 
 #### 通过 manufacturer 查询 WebHookConfig 列表
 
@@ -224,7 +227,7 @@ contentType： application/json
 | userName | 用户名 | string | 否 | null |
 | password | 用户密码 | string | 否 | null |
 | cloudEventName | 事件名（） | string | 是 | null |
-| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)  | string | 否 | manufacturerEventId |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId（厂商 id)  | string | 否 | manufacturerEventId |
 
 #### 更新接口
 
@@ -248,7 +251,7 @@ contentType： application/json
 | userName                 | 用户名                                                       | string | 否   | null                |
 | password                 | 用户密码                                                     | string | 否   | null                |
 | cloudEventName           | 事件名                                                       | string | 是   | null                |
-| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id) | string | 否   | manufacturerEventId |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId（厂商 id) | string | 否   | manufacturerEventId |
 
 例子：
 
@@ -298,10 +301,9 @@ contentType： application/json
 
 ### 第四步：配置 cloudevent 的消费者
 
-
 ### 第五步：在厂商配置 Webhook 相关信息
 
-> 厂商操作请看[厂商 Webhook 操作说明](#厂商-Webhook-操作说明)
+> 厂商操作请看 [厂商 Webhook 操作说明](#厂商-Webhook-操作说明)
 
 ## 厂商 Webhook 操作说明
 
@@ -309,11 +311,11 @@ contentType： application/json
 
 #### 第一步：进入对应的项目
 
-#### 第二步：点击setting
+#### 第二步：点击 setting
 
 ![](/images/design-document/webhook/webhook-github-setting.png)
 
-#### 第三步：点击Webhooks
+#### 第三步：点击 Webhooks
 
 ![](/images/design-document/webhook/webhook-github-webhooks.png)
 
@@ -321,7 +323,7 @@ contentType： application/json
 
 ![](/images/design-document/webhook/webhook-github-add.png)
 
-#### 第五步: 填写webhook信息
+#### 第五步：填写 webhook 信息
 
 ![](/images/design-document/webhook/webhook-github-info.png)
 

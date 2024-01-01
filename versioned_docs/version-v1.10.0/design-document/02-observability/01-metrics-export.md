@@ -34,11 +34,11 @@ Power your metrics and alerting with a leading open-source monitoring solution.
 
 use the meter instrument provided by OpenTelemetry to observe the metrics exist in EventMesh then export to Prometheus.
 
-1、Initialize a meter instrument
+1. Initialize a meter instrument
 
-2、set the Prometheus server
+2. set the Prometheus server
 
-3、different metrics observer built
+3. different metrics observer built
 
 ## Appendix
 
