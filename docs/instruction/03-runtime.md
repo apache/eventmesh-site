@@ -1,72 +1,251 @@
 # EventMesh Runtime Quick Start
 
-The EventMesh Runtime is a stateful mesh node in an EventMesh cluster that is responsible for event transfer between the Source Connector and the Sink Connector, and can use Event Store as a storage queue for events.
+EventMesh Runtime is a stateful Mesh node in the EventMesh cluster, responsible for event transmission between Source Connectors and Sink Connectors. It uses Event Store as a storage queue for events.
 
-![EventMesh Runtime](/images/design-document/runtime.png)
+![EventMesh Runtime](../../static/images/design-document/runtime.png)
 
-## 1 Run on your local machine
+## 1. Binary Distribution Deployment
 
-### 1.1 Run from source code
+### 1.1 Environment
 
-#### 1.1.1 Dependencies
+- Recommended to use 64-bit Linux/Unix systems
+- 64-bit JDK 8 or JDK 11
 
-- 64-bit OS, we recommend Linux/Unix.
+### 1.2 Download
 
-- 64-bit JDK 1.8 or JDK 11
-
-- Gradle 7.0+, The recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
-
-#### 1.1.2 Download source code
-
-Download and extract the source code of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.10.0-source.tar.gz`.
-
-#### 1.1.3 Run form local
-
-**1.1.3.1 Description of the project structure:**
-
-- eventmesh-common : EventMesh public classes and methods module
-- eventmesh-connector-api : EventMesh Connector plugin interface definition module
-- eventmesh-connector-plugin : EventMesh Connector plugin module
-- eventmesh-runtime : EventMesh Runtime module
-- eventmesh-sdk-java : EventMesh Java client SDK
-- eventmesh-starter : EventMesh Runtime local startup and project portal
-- eventmesh-spi : EventMesh SPI loader module
-
-> Note: Plugin modules follow the SPI specification defined by eventmesh, custom SPI interfaces need to be marked with the annotation `@EventMeshSPI`.
->
-> Plugin instances need to be configured in the corresponding module under `/main/resources/META-INF/eventmesh` with a mapping file of the relevant interfaces to their implementation classes, with the name of the file being the full class name of the SPI interface.
->
-> The content of the file is the mapping from the plugin instance name to the plugin instance, see eventmesh-connector-rocketmq plugin module for details.
-
-**1.1.3.2 Plugin Description**
-
-***1.1.3.2.1 Installing the plugin***
-
-There are two ways to install the plugin
-
-- classpath loading: Local developers can install the plugin by declaring it in the eventmesh-starter module build.gradle, e.g., declare that it uses the rocketmq plugin
-
-```gradle
-   implementation project(":eventmesh-connectors:eventmesh-connector-rocketmq")
-```
-
-- File loading: By installing the plugin to the plugin directory, EventMesh will automatically load the plugins in the plugin directory according to the conditions at runtime, you can install the plugin by executing the following command
+Download the latest version of the Binary Distribution from the [EventMesh Download](https://eventmesh.apache.org/download) page and extract it:
 
 ```shell
-. /gradlew clean jar dist && . /gradlew installPlugin
+wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-bin.tar.gz
+tar -xvzf apache-eventmesh-1.10.0-bin.tar.gz
+cd apache-eventmesh-1.10.0
 ```
 
-***1.1.3.2.2 Using Plugins ***
+### 1.3 Configuration
 
-EventMesh will load plugins in the `dist/plugin` directory by default, you can change the plugin directory with `-DeventMeshPluginDir=your_plugin_directory`. Examples of plugins to be used at runtime can be found in the
-`confPath` directory under `eventmesh.properties`. For example declare the use of the rocketmq plugin at runtime with the following settings.
+If you choose a non-standalone mode, ensure that [RocketMQ is successfully started](https://rocketmq.apache.org/docs/quick-start/) and accessible via IP address. If you stick to the default standalone mode, RocketMQ doesn't need to be started.
+
+#### 1.3.1 EventMesh Runtime Configuration
+
+This configuration file includes settings for the EventMesh Runtime environment and integrated plugins.
+
+```shell
+vim conf/eventmesh.properties
+```
+
+Specify RocketMQ as Event Store:
 
 ```properties
-#connector plugin
+# storage plugin
+eventMesh.storage.plugin.type=rocketmq
+```
+
+Check if the default ports in the configuration file are occupied. If occupied, modify them to unused ports:
+
+| Property                           | Default | Remarks             |
+| ---------------------------------- | ------- | ------------------- |
+| eventMesh.server.tcp.port           | 10000   | TCP listening port  |
+| eventMesh.server.http.port          | 10105   | HTTP listening port |
+| eventMesh.server.grpc.port          | 10205   | gRPC listening port |
+| eventMesh.server.admin.http.port    | 10106   | HTTP management port |
+
+#### 1.3.2 Event Store Configuration
+
+In the case of RocketMQ, the configuration file includes parameters required to connect to the RocketMQ namesrv.
+
+Edit `rocketmq-client.properties`:
+
+```shell
+vim conf/rocketmq-client.properties
+```
+
+If the namesrv address you are running is different from the default value in the configuration file, modify it to the actual running namesrv address.
+
+| Property                                  | Default                        | Remarks                            |
+| ----------------------------------------- | ------------------------------ | ----------------------------------- |
+| eventMesh.server.rocketmq.namesrvAddr     | 127.0.0.1:9876;127.0.0.1:9876  | RocketMQ namesrv address           |
+
+### 1.4 Start
+
+Execute the `start.sh` script to start EventMesh Runtime:
+
+```shell
+bash bin/start.sh
+```
+
+If the script only prints the following three lines without any other error messages, it means the script has executed successfully:
+
+```shell
+EventMesh using Java version: 8, path: /usr/local/openjdk-8/bin/java
+EVENTMESH_HOME : /data/app/eventmesh
+EVENTMESH_LOG_HOME : /data/app/eventmesh/logs
+```
+
+Next, view the logs output by EventMesh to check its runtime status:
+
+```shell
+tail -n 50 -f logs/eventmesh.out
+```
+
+When the log output shows `server state:RUNNING`, it means EventMesh Runtime has started successfully.
+
+Stop EventMesh Runtime:
+
+```shell
+bash bin/stop.sh
+```
+
+When the script prints `shutdown server ok!`, it means EventMesh Runtime has stopped.
+
+## 2. Build Binary Distribution
+
+### 2.1 Environment
+
+- Recommended to use 64-bit Linux/Unix systems
+- 64-bit JDK 8 or JDK 11
+- [Gradle](https://docs.gradle.org/current/userguide/installation.html) 7.0+ (optional), the build commands provided in this document use the Gradle Wrapper, and you don't need to configure the Gradle environment yourself. You can also check the recommended Gradle version for your EventMesh version in the `gradle/wrapper/gradle-wrapper.properties` file and use your local Gradle version for compilation.
+
+### 2.2 Download
+
+Download the Source Code from [EventMesh Download](https://eventmesh.apache.org/download) and extract it:
+
+```shell
+wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-source.tar.gz
+tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
+cd apache-eventmesh-1.10.0-src/
+```
+
+You can also choose to clone the code from GitHub:
+
+```shell
+git clone https://github.com/apache/eventmesh.git
+cd eventmesh/
+```
+
+### 2.3 Build
+
+EventMesh is developed based on JDK8, and the binary distribution is also built based on JDK8. It is recommended to run EventMesh Runtime in a JDK8 environment.
+
+#### Run in a JDK8 Environment
+
+Some source code needs to be generated under JDK11:
+
+```shell
+./gradlew clean generateGrammarSource --parallel --daemon
+```
+
+The `generateGrammarSource` task will generate the source code required for `ANTLR` under the `org.apache.eventmesh.connector.jdbc.antlr4.autogeneration` package.
+
+Next, build EventMesh Runtime under JDK8:
+
+```shell
+./gradlew clean dist -x spotlessJava -x generateGrammarSource --parallel --daemon
+```
+
+After the build is complete, proceed to [2.4 Package Plugins](#2.4-Package-Plugins).
+
+> You can switch between JDK versions using `update-alternatives` or `JAVA_HOME` and check the current JDK version with `java -version`.
+
+#### Run in a JDK11 Environment
+
+If you want to use JDK11 as the runtime environment for EventMesh, execute:
+
+```shell
+./gradlew clean dist --parallel --daemon
+```
+
+After the build is complete, proceed to [2.4 Package Plugins](#2.4-Package-Plugins).
+
+### 2.4 Package Plugins
+
+The `installPlugin` task will copy the built plugins to the `dist` directory:
+
+```shell
+./gradlew installPlugin
+```
+
+EventMesh will load the plugins from the `plugin` directory based on the configuration in `eventmesh.properties`.
+
+After a successful build, the `dist` directory in the project root contains the binary files for EventMesh. For configuration and startup, refer to [Deploy Binary Distribution](#1-deploy-binary-distribution).
+
+## 3 Start from Source Code
+
+### 3.1 Dependencies
+
+- Recommended to use 64-bit Linux/Unix systems
+- 64-bit JDK 8 or JDK 11
+- [Gradle](https://docs.gradle.org/current/userguide/installation.html) 7.0+ (optional), the build commands provided in this document use the Gradle Wrapper, and you don't need to configure the Gradle environment yourself. You can also check the recommended Gradle version for your EventMesh version in the `gradle/wrapper/gradle-wrapper.properties` file and use your local Gradle version for compilation.
+- It is recommended to use an IDE (Integrated Development Environment) to import EventMesh. `Intellij IDEA` is recommended as the IDE.
+
+### 3.2 Download
+
+Clone the code from GitHub:
+
+```shell
+git clone https://github.com/apache/eventmesh.git
+cd eventmesh/
+```
+
+You can also download the Source Code release from [EventMesh Download](https://eventmesh.apache.org/download) and extract it:
+
+```shell
+wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-source.tar.gz
+tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
+cd apache-eventmesh-1.10.0-src/
+```
+
+### 3.3 Project Structure Explanation
+
+| Module Name                | Description                          |
+| -------------------------- | ------------------------------------ |
+| eventmesh-common           | EventMesh common classes and methods module |
+| eventmesh-connector-api    | EventMesh Connector plugin interface definition module |
+| eventmesh-connector-plugin | EventMesh Connector plugin module    |
+| eventmesh-runtime          | EventMesh Runtime runtime module      |
+| eventmesh-sdk-java         | EventMesh Java client SDK             |
+| eventmesh-starter          | EventMesh local startup project entry point |
+| eventmesh-spi              | EventMesh SPI loading module          |
+
+> Plugin modules follow the SPI specification defined by EventMesh, and custom SPI interfaces need to be annotated with `@EventMeshSPI`.
+>
+> Plugin instances need to be configured in the corresponding module under the `/main/resources/META-INF/eventmesh` directory with a mapping file for interface and implementation classes. The file name is the fully qualified class name of the SPI interface.
+>
+> The content of the file is the mapping from the plugin instance name to the plugin instance. For details, refer to the `eventmesh-connector-rocketmq` plugin module.
+
+### 3.4 Plugin Explanation
+
+#### 3.4.1 Install Plugins
+
+EventMesh has an SPI mechanism that allows EventMesh to discover and load plugins. There are two ways to install plugins:
+
+- Classpath loading: During local development, you can add dependencies in the `build.gradle` of the `eventmesh-starter` module. For example, to add the Kafka Connector plugin:
+
+```groovy
+dependencies {
+   implementation project(":eventmesh-runtime")
+    // Example: Load the Kafka Connector plugin
+   implementation project(":eventmesh-connectors:eventmesh-connector-kafka")
+}
+```
+
+- File loading: By installing the plugin to the plugin directory, EventMesh will automatically load the plugins in the plugin directory based on certain conditions during runtime. Please refer to [2.3 Build](#2.3-Build) and [2.4 Package Plugins](#2.4-Package-Plugins).
+
+>When you make changes to the source code, it is recommended to add the `build` task to the command provided in [2.3 Build](#2.3-Build) to recompile and run unit tests. For example:
+>
+>```shell
+>./gradlew clean build dist -x spotlessJava -x generateGrammarSource --parallel --daemon
+>```
+
+#### 3.4.2 Use Plugins
+
+EventMesh will load the plugins by default from the `dist/plugin` directory. You can change the plugin directory using `-DeventMeshPluginDir=your_plugin_directory`. The plugin instances needed at runtime can be configured in the `confPath` directory in the `eventmesh.properties` file. For example, by setting the following, you declare the use of the RocketMQ Connector plugin:
+
+```properties
+# connector plugin
 eventMesh.connector.plugin.type=rocketmq
 ```
 
-**1.1.3.3 Configuring the VM startup parameters**
+### 3.5 Configure VM Options
 
 ```properties
 -Dlog4j.configurationFile=eventmesh-runtime/conf/log4j2.xml
@@ -75,141 +254,17 @@ eventMesh.connector.plugin.type=rocketmq
 -DconfPath=eventmesh-runtime/conf
 ```
 
-> Note: If your operating system is Windows, you may need to replace the file separator with '\'.
+If the operating system is Windows, replace the forward slash with a backslash `\`.
 
-**1.1.3.4 Getting up and running**
+### 3.6 Start
+
+Run the `main()` method of the `org.apache.eventmesh.starter.StartUp` class in the `eventmesh-starter` module to start EventMesh Runtime.
+
+### 3.7 Stop
+
+When the following logs are printed to the console, EventMesh Runtime has stopped.
 
 ```
-Run org.apache.eventmesh.starter.
+DEBUG StatusConsoleListener Shutdown hook enabled. Registering a new one.
+WARN StatusConsoleListener Unable to register Log4j shutdown hook because JVM is shutting down. Using SimpleLogger
 ```
-
-### 1.2 Run form local binary
-
-#### 1.1.1 Dependencies
-
-- 64-bit OS, we recommend Linux/Unix.
-
-- 64-bit JDK 1.8 or JDK 11
-
-- Gradle 7.0+, The current recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
-
-Gradle is the build automation tool used by Apache EventMesh. Please refer to the [offical guide](https://docs.gradle.org/current/userguide/installation.html) to install the latest release of Gradle.
-
-### 1.1.2 Download Source Code
-
-Download and extract the source code of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.10.0-source.tar.gz`.
-
-```console
-tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
-cd apache-eventmesh-1.10.0-src/
-```
-
-Build the source code with Gradle.
-
-```console
-gradle clean dist
-```
-
-![runtime_2](/images/install/runtime_2.png)
-
-Edit the `eventmesh.properties` to change the configuration (e.g. TCP port, client blacklist) of EventMesh Runtime.
-
-```console
-cd dist
-vim conf/eventmesh.properties
-```
-
-### 1.1.3 Build and Load Plugins
-
-Apache EventMesh  introduces the SPI (Service Provider Interface) mechanism, which enables EventMesh to discover and load the plugins at runtime. The plugins could be installed with these methods:
-
-- Gradle Dependencies: Declare the plugins as the build dependencies in `eventmesh-starter/build.gradle`.
-
-```gradle
-dependencies {
-   implementation project(":eventmesh-runtime")
-
-   // Example: Load the RocketMQ plugin
-   implementation project(":eventmesh-connectors:eventmesh-connector-rocketmq")
-}
-```
-
-- Plugin directory: EventMesh loads the plugins in the `dist/plugin` directory based on `eventmesh.properties`. The `installPlugin` task of Gradle builds and moves the plugins into the `dist/plugin` directory.
-
-```console
-gradle installPlugin
-```
-
-### 1.1.4 启动 Runtime
-
-Execute the `start.sh` script to start the EventMesh Runtime server.
-
-```console
-bash bin/start.sh
-```
-
-![runtime_4](/images/install/runtime_4.png)
-
-View the output log:
-
-```console
-tail -f logs/eventmesh.out
-```
-
-![runtime_3](/images/install/runtime_3.png)
-
-## 2 Remote deployment
-
-### 2.1 Dependencies
-
-- 64-bit OS, we recommend Linux/Unix.
-
-- 64-bit JDK 1.8 or JDK 11
-
-- Gradle 7.0+, The current recommended version can be found in the `gradle/wrapper/gradle-wrapper.properties` file.
-
-### 2.2 Download
-
-Download and extract the executable binaries of the latest release from [EventMesh download](https://eventmesh.apache.org/download). For example, with the current latest version, you will get `apache-eventmesh-1.10.0.tar.gz`.
-
-```console
-tar -xvzf apache-eventmesh-1.10.0-bin.tar.gz
-cd apache-eventmesh-1.10.0
-```
-
-### 2.3 Deploy
-
-Edit the `eventmesh.properties` to change the configuration (e.g. TCP port, client blacklist) of EventMesh Runtime. The executable binaries contain all plugins in the bundle, thus there's no need to build them from source code.
-
-```console
-vim conf/eventmesh.properties
-```
-
-Execute the `start.sh` script to start the EventMesh Runtime server.
-
-```console
-bash bin/start.sh
-```
-
-If you see "EventMeshTCPServer[port=10000] started...." , then the setup was successful.
-
-![runtime_6](/images/install/runtime_6.png)
-
-View the output log:
-
-```console
-cd /root/apache-eventmesh-1.10.0/logs
-tail -f eventmesh.out
-```
-
-![runtime_7](/images/install/runtime_7.png)
-
-You can stop the run with the following command:
-
-```console
-bash bin/stop.sh
-```
-
-![runtime_8](/images/install/runtime_8.png)
-
-![runtime_9](/images/install/runtime_9.png)
