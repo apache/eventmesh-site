@@ -1,11 +1,9 @@
-# 部署 EventMesh 的事件存储
+# Event Store 事件存储
 
-## 1 依赖
+## 1 前提
 
 - 建议使用 64 位操作系统，建议使用 Linux / Unix。
-
 - 64 位 JDK 8 或 JDK 11
-
 - 4GB+ 可用磁盘，用于 Event Store 服务器。
 
 EventMesh 在非 standalone 模式下，依赖 RocketMQ 作为存储层；若采用 standalone 模式，则可跳过该步，直接进行 EventMesh Runtime 的部署。

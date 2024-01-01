@@ -142,7 +142,7 @@ Next, build EventMesh Runtime under JDK8:
 ./gradlew clean dist -x spotlessJava -x generateGrammarSource --parallel --daemon
 ```
 
-After the build is complete, proceed to [2.4 Package Plugins](#2.4-Package-Plugins).
+After the build is complete, proceed to [2.4 Package Plugins](#24-package-plugins).
 
 > You can switch between JDK versions using `update-alternatives` or `JAVA_HOME` and check the current JDK version with `java -version`.
 
@@ -154,7 +154,7 @@ If you want to use JDK11 as the runtime environment for EventMesh, execute:
 ./gradlew clean dist --parallel --daemon
 ```
 
-After the build is complete, proceed to [2.4 Package Plugins](#2.4-Package-Plugins).
+After the build is complete, proceed to [2.4 Package Plugins](#24-package-plugins).
 
 ### 2.4 Package Plugins
 
@@ -166,9 +166,9 @@ The `installPlugin` task will copy the built plugins to the `dist` directory:
 
 EventMesh will load the plugins from the `plugin` directory based on the configuration in `eventmesh.properties`.
 
-After a successful build, the `dist` directory in the project root contains the binary files for EventMesh. For configuration and startup, refer to [Deploy Binary Distribution](#1-deploy-binary-distribution).
+After a successful build, the `dist` directory in the project root contains the binary files for EventMesh. For configuration and startup, refer to [Binary Distribution Deployment](#1-binary-distribution-deployment).
 
-## 3 Start from Source Code
+## 3. Start from Source Code
 
 ### 3.1 Dependencies
 
@@ -223,14 +223,14 @@ EventMesh has an SPI mechanism that allows EventMesh to discover and load plugin
 ```groovy
 dependencies {
    implementation project(":eventmesh-runtime")
-    // Example: Load the Kafka Connector plugin
+    // Example: Add the Kafka Connector plugin
    implementation project(":eventmesh-connectors:eventmesh-connector-kafka")
 }
 ```
 
-- File loading: By installing the plugin to the plugin directory, EventMesh will automatically load the plugins in the plugin directory based on certain conditions during runtime. Please refer to [2.3 Build](#2.3-Build) and [2.4 Package Plugins](#2.4-Package-Plugins).
+- File loading: By installing the plugin to the plugin directory, EventMesh will automatically load the plugins in the plugin directory based on certain conditions during runtime. Please refer to [2.3 Build](#23-build) and [2.4 Package Plugins](#24-package-plugins).
 
->When you make changes to the source code, it is recommended to add the `build` task to the command provided in [2.3 Build](#2.3-Build) to recompile and run unit tests. For example:
+>When you make changes to the source code, it is recommended to add the `build` task to the command provided in [2.3 Build](#23-build) to recompile and run unit tests. For example:
 >
 >```shell
 >./gradlew clean build dist -x spotlessJava -x generateGrammarSource --parallel --daemon

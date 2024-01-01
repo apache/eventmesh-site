@@ -1,6 +1,6 @@
-# 部署 EventMesh 的事件存储（使用 Docker）
+# Event Store Docker 部署
 
-## 1. 依赖
+## 1. 前提
 
 - 建议使用 64 位的 Linux / Unix 系统
 - 4GB+ 可用磁盘，用于 Event Store 服务器。
