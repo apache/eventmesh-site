@@ -15,8 +15,8 @@
     "fetch": "ts-node scripts/fetch.ts"
   },
   "dependencies": {
-    "@docusaurus/core": "2.4.1",
-    "@docusaurus/preset-classic": "2.4.1",
+    "@docusaurus/core": "2.4.3",
+    "@docusaurus/preset-classic": "2.4.3",
     "@fontsource/inter": "^4.5.11",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^6.5.0",
@@ -43,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.3.0",
+    "@docusaurus/module-type-aliases": "^2.4.3",
     "@tsconfig/docusaurus": "^1.0.2",
     "@types/react": "^17.0.13",
     "@types/react-helmet": "^6.1.1",
