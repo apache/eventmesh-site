@@ -2,7 +2,7 @@
 
 EventMesh Runtime is a stateful Mesh node in the EventMesh cluster, responsible for event transmission between Source Connectors and Sink Connectors. It uses Event Store as a storage queue for events.
 
-![EventMesh Runtime](../../../static/images/design-document/runtime.png)
+![EventMesh Runtime](../../static/images/design-document/runtime.png)
 
 ## 1. Binary Distribution Deployment
 
@@ -23,7 +23,7 @@ cd apache-eventmesh-1.10.0
 
 ### 1.3 Configuration
 
-If you choose a non-standalone mode, ensure that [RocketMQ is successfully started](https://rocketmq.apache.org/docs/quick-start/) and accessible via IP address. If you stick to the default standalone mode, RocketMQ doesn't need to be started.
+This document provides an example of deploying it with RocketMQ as Event Store, but you can also choose another [Event Store supported by EventMesh](../roadmap.md#event-store-implementation-status). If you choose a non-standalone mode, ensure that [RocketMQ is successfully started](https://rocketmq.apache.org/docs/quick-start/) and accessible via IP address. If you stick to the default standalone mode, RocketMQ doesn't need to be started.
 
 #### 1.3.1 EventMesh Runtime Configuration
 

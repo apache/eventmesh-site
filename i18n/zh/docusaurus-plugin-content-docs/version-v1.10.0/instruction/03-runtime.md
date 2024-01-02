@@ -23,7 +23,7 @@ cd apache-eventmesh-1.10.0
 
 ### 1.3 配置
 
-若您选择非 standalone 模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 IP 地址访问到；若您保持默认的 standalone 模式，则无需启动 RocketMQ。
+本文将以 RocketMQ 事件存储为例，您也可以选择其它 [EventMesh 支持的事件存储](../roadmap.md#事件存储实现状态)。若您选择非 standalone 模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 IP 地址访问到；若您保持默认的 standalone 模式，则无需启动 RocketMQ。
 
 #### 1.3.1 EventMesh Runtime 配置
 
