@@ -128,13 +128,13 @@ gradle：
 ```shell
 cd apache-eventmesh-1.9.0-src/eventmesh-examples
 gradle clean dist
-
-cd ./dist/bin
+cd dist/bin
 ```
 
 ![demo_1](/images/install/demo_1.png)
 
 ### 4.1 TCP
+
 #### TCP Sub
 
 ```shell
@@ -142,7 +142,8 @@ bash tcp_eventmeshmessage_sub.sh
 ```
 
 Open the corresponding log file to view the log:
-```
+
+```shell
 cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
 tail -f demo_tcp_pub.out
 ```
@@ -171,7 +172,8 @@ sh tcp_sub_eventmeshmessage_broadcast.sh
 ```
 
 Open the corresponding log file to view the log:
-```
+
+```shell
 cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
 tail -f demo_tcp_sub_broadcast.out
 ```
@@ -185,7 +187,8 @@ sh tcp_pub_eventmeshmessage_broadcast.sh
 ```
 
 Open the corresponding log file to view the log:
-```
+
+```shell
 cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
 tail -f demo_tcp_pub_broadcast.out
 ```
@@ -201,7 +204,8 @@ sh http_sub.sh
 ```
 
 Open the corresponding log file to view the log:
-```
+
+```shell
 cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
 tail -f demo_http_sub.out
 ```
@@ -215,7 +219,8 @@ sh http_pub_eventmeshmessage.sh
 ```
 
 Open the corresponding log file to view the log:
-```
+
+```shell
 cd /root/apache-eventmesh-1.9.0-src/eventmesh-examples/dist/logs
 tail -f demo_http_pub.out
 ```

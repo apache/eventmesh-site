@@ -14,7 +14,7 @@
 
 从 [RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.* 版本），这里以 4.9.4 为例：
 
-```
+```shell
 unzip rocketmq-all-4.9.4-bin-release.zip
 cd rocketmq-all-4.9.4-bin-release/
 ```
@@ -25,7 +25,7 @@ cd rocketmq-all-4.9.4-bin-release/
 
 启动 Name Server：
 
-```
+```shell
 nohup sh bin/mqnamesrv & tail -f ~/logs/rocketmqlogs/namesrv.log
 ```
 
@@ -35,7 +35,7 @@ nohup sh bin/mqnamesrv & tail -f ~/logs/rocketmqlogs/namesrv.log
 
 启动 Broker：
 
-```
+```shell
 nohup sh bin/mqbroker -n localhost:9876 &
 tail -f ~/logs/rocketmqlogs/broker.log
 ```

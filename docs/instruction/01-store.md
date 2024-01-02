@@ -16,7 +16,7 @@ In a production environment, you should use an Event Store other than standalone
 
 Download the Binary code (recommended: 4.9.*) from [RocketMQ Official](https://rocketmq.apache.org/download/). Here we take 4.9.4 as an example.
 
-```
+```shell
 unzip rocketmq-all-4.9.4-bin-release.zip
 cd rocketmq-4.9.4/
 ```
@@ -27,7 +27,7 @@ cd rocketmq-4.9.4/
 
 Start Name Server:
 
-```console
+```shell
 nohup sh bin/mqnamesrv &
 tail -f ~/logs/rocketmqlogs/namesrv.log
 ```
@@ -36,7 +36,7 @@ tail -f ~/logs/rocketmqlogs/namesrv.log
 
 Start Broker:
 
-```console
+```shell
 nohup sh bin/mqbroker -n localhost:9876 &
 tail -f ~/logs/rocketmqlogs/broker.log
 ```

@@ -12,9 +12,9 @@ EventMesh Java SDK 是在一个 Java 应用中集成 EventMesh 所需的 Java �
 
 ​    使用 Gradle 安装 EventMesh Java SDK，您需要在模块的 `build.gradle` 文件的依赖块中将 `org.apache.eventmesh:eventmesh-sdk-java` 声明为 `implementation`。
 
-```groovy
+```gradle
 dependencies {
-  implementation 'org.apache.eventmesh:eventmesh-sdk-java:1.9.0'
+  implementation 'org.apache.eventmesh:eventmesh-sdk-java:1.10.0'
 }
 ```
 

@@ -11,22 +11,24 @@ kubernetes 和 docker 之间有一定的兼容性，请检查它们之间的版�
 
 ### 2. 启动
 
-进入 eventmesh-operator 目录。  
-```
+进入 eventmesh-operator 目录。
+
+```shell
 cd eventmesh-operator
 ```
 
 将 CRD 安装到 k8s 集群。
-```
+
+```shell
 make install
 
 # Uninstall CRDs from the K8s cluster
 make uninstall
 ```
 
-如果出现错误 eventmesh-operator/bin/controller-gen: No such file or directory   
-运行以下命令：
-```
+如果出现错误`eventmesh-operator/bin/controller-gen: No such file or directory`，运行以下命令：
+
+```shell
 # 如有必要，在本地下载 controller-gen.
 make controller-gen
 # 如有必要，在本地下载 kustomize.
@@ -34,7 +36,8 @@ make kustomize
 ```
 
 查看 crds 信息：
-``` 
+
+``` shell
 # 运行以下命令查看 crds 信息：
 kubectl get crds
 NAME                                      CREATED AT
@@ -42,10 +45,13 @@ connectors.eventmesh-operator.eventmesh   2023-11-28T01:35:21Z
 runtimes.eventmesh-operator.eventmesh     2023-11-28T01:35:21Z
 ```
 
-创建和删除 CRs:   
-自定义资源对象位于：/config/samples   
+创建和删除 CRs: 
+
+自定义资源对象位于：/config/samples
+
 删除 CR，只需将`create`替换为`delete`即可。
-```
+
+```shell
 # 为 eventmesh-runtime、eventmesh-connector-rocketmq 创建 CR, 创建 clusterIP 可让 eventmesh-runtime 与其他组件通信。
 make create
 
@@ -65,9 +71,9 @@ runtime-cluster-service   ClusterIP   10.109.209.72   <none>        10000/TCP   
 make delete
 ```
 
-运行 eventmesh-operator 创建 pods  
-```
+运行 eventmesh-operator 创建 pods。
 
+```shell
 # run controller
 make run
 # log

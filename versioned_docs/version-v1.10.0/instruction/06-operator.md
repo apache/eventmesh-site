@@ -1,4 +1,4 @@
-# Integrate EventMesh with K8S  
+# Integrate EventMesh with K8S
 
 ### 1. Dependencies
 
@@ -6,35 +6,38 @@
 docker
 golang (version 1.19)
 kubernetes (kubectl)
-There is some compatibility between kubernetes an docker, please check the version compatibility between them and download the corresponding version to ensure that they work properly together.  
+There is some compatibility between kubernetes an docker, please check the version compatibility between them and download the corresponding version to ensure that they work properly together.
 ```
 
-### 2. Start  
+### 2. Start
 
 Go to the eventmesh-operator directory.
-```
+
+```shell
 cd eventmesh-operator
 ```
 
 Install CRD into the specified k8s cluster.
-```
+
+```shell
 make install
 
 # Uninstall CRDs from the K8s cluster
 make uninstall
 ```
 
-If you get error eventmesh-operator/bin/controller-gen: No such file or directory  
-Run the following command:
-```
+If you get error `eventmesh-operator/bin/controller-gen: No such file or directory`, Run the following command:
+
+```shell
 # download controller-gen locally if necessary.
 make controller-gen
 # download kustomize locally if necessary.
 make kustomize
 ```
 
-View crds information:  
-``` 
+View crds information:
+
+```shell
 # run the following command to view crds information:
 kubectl get crds
 NAME                                      CREATED AT
@@ -42,10 +45,13 @@ connectors.eventmesh-operator.eventmesh   2023-11-28T01:35:21Z
 runtimes.eventmesh-operator.eventmesh     2023-11-28T01:35:21Z
 ```
 
-Create and delete CRs:     
-Custom resource objects are located at: /config/samples    
+Create and delete CRs:
+
+Custom resource objects are located at: /config/samples
+
 When deleting CR, simply replace create with delete.
-```
+
+```shell
 # Create CR for eventmesh-runtime、eventmesh-connector-rocketmq,Creating a clusterIP lets eventmesh-runtime communicate with other components.
 make create
 
@@ -65,9 +71,9 @@ runtime-cluster-service   ClusterIP   10.109.209.72   <none>        10000/TCP   
 make delete
 ```
 
-Run eventmesh-operator create pods
+Run eventmesh-operator create pods.
 
-```
+```shell
 # run controller
 make run
 # log

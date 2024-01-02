@@ -220,7 +220,7 @@ EventMesh 具有 SPI 机制，使 EventMesh 能够发现并加载插件。有两
 
 - Classpath 加载：本地开发时可以通过在 `eventmesh-starter` 模块的 `build.gradle` 中添加依赖，例如添加 Kafka Connector 插件：
 
-```groovy
+```gradle
 dependencies {
    implementation project(":eventmesh-runtime")
     // 示例：加载 Kafka Connector 插件
@@ -265,7 +265,7 @@ eventMesh.connector.plugin.type=rocketmq
 
 控制台打印以下日志时，EventMesh Runtime 已停止。
 
-```
+```log
 DEBUG StatusConsoleListener Shutdown hook enabled. Registering a new one.
 WARN StatusConsoleListener Unable to register Log4j shutdown hook because JVM is shutting down. Using SimpleLogger
 ```

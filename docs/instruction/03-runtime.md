@@ -220,7 +220,7 @@ EventMesh has an SPI mechanism that allows EventMesh to discover and load plugin
 
 - Classpath loading: During local development, you can add dependencies in the `build.gradle` of the `eventmesh-starter` module. For example, to add the Kafka Connector plugin:
 
-```groovy
+```gradle
 dependencies {
    implementation project(":eventmesh-runtime")
     // Example: Add the Kafka Connector plugin
@@ -264,7 +264,7 @@ Run the `main()` method of the `org.apache.eventmesh.starter.StartUp` class in t
 
 When the following logs are printed to the console, EventMesh Runtime has stopped.
 
-```
+```log
 DEBUG StatusConsoleListener Shutdown hook enabled. Registering a new one.
 WARN StatusConsoleListener Unable to register Log4j shutdown hook because JVM is shutting down. Using SimpleLogger
 ```

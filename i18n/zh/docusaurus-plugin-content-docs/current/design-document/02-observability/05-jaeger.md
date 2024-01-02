@@ -10,7 +10,7 @@ Jaeger 的安装可以参考 [官方文档](https://www.jaegertracing.io/docs/la
 
 为了启用 EventMesh Runtime 的 trace exporter，请将 `conf/eventmesh.properties` 文件中的 `eventMesh.server.trace.enabled` 字段设置为 true。
 
-```conf
+```properties
 # Trace plugin
 eventMesh.server.trace.enabled=true
 eventMesh.trace.plugin=jaeger
@@ -18,7 +18,7 @@ eventMesh.trace.plugin=jaeger
 
 为了定义 trace exporter 的行为，如超时时间或导出间隔，请编辑 `exporter.properties` 文件。
 
-```conf
+```properties
 # Set the maximum batch size to use
 eventmesh.trace.max.export.size=512
 # Set the queue size. This must be >= the export batch size
@@ -31,7 +31,7 @@ eventmesh.trace.export.interval=5
 
 为了将导出的 trace 数据发送到 Jaeger，请编辑 `conf/jaeger.properties` 文件中的 `eventmesh.trace.jaeger.ip` 和 `eventmesh.trace.jaeger.port` 字段，来匹配 Jaeger 服务器的配置。
 
-```conf
+```properties
 # Jaeger's IP and Port
 eventmesh.trace.jaeger.ip=localhost
 eventmesh.trace.jaeger.port=14250
