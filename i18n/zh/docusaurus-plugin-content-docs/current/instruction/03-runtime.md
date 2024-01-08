@@ -196,21 +196,22 @@ cd apache-eventmesh-1.10.0-src/
 
 ### 3.3 项目结构说明
 
-| 模块名称                   | 描述                                 |
-| -------------------------- | ------------------------------------ |
-| eventmesh-common           | EventMesh 公共类与方法模块           |
-| eventmesh-connector-api    | EventMesh Connector 插件接口定义模块 |
-| eventmesh-connector-plugin | EventMesh Connector 插件模块         |
-| eventmesh-runtime          | EventMesh Runtime 运行时模块         |
-| eventmesh-sdk-java         | EventMesh Java 客户端 SDK            |
-| eventmesh-starter          | EventMesh 本地启动运行项目入口       |
-| eventmesh-spi              | EventMesh SPI 加载模块               |
+| 主要模块                 | 描述                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| eventmesh-starter        | 本地运行 EventMesh 项目的入口                                |
+| eventmesh-runtime        | EventMesh Runtime 运行时模块                                 |
+| eventmesh-connectors     | 用于连接事件源与事件汇的 [Connector](../design-document/03-connect/00-connectors.md)，支持[多种服务和平台](../roadmap.md#连接器实现状态) |
+| eventmesh-storage-plugin | EventMesh Runtime 的[事件存储](../roadmap.md#事件存储实现状态)插件 |
+| eventmesh-sdks           | EventMesh 的多语言客户端 SDK，包括 Java、Go、C、Rust 等      |
+| eventmesh-examples       | SDK 使用示例                                                 |
+| eventmesh-spi            | EventMesh SPI 加载模块                                       |
+| eventmesh-common         | 公共类与方法模块                                             |
 
 > 插件模块遵循 EventMesh 定义的 SPI 规范，自定义的 SPI 接口需要使用注解 `@EventMeshSPI` 标识。
 >
 > 插件实例需要在对应模块中的 `/main/resources/META-INF/eventmesh` 下配置相关接口与实现类的映射文件，文件名为 SPI 接口的全限定类名。
 >
-> 文件内容为插件实例名到插件实例的映射，具体可以参考 `eventmesh-connector-rocketmq` 插件模块。
+> 文件内容为插件实例名到插件实例的映射，具体可以参考 `eventmesh-storage-rocketmq` 插件模块。
 
 ### 3.4 插件说明
 
@@ -218,13 +219,13 @@ cd apache-eventmesh-1.10.0-src/
 
 EventMesh 具有 SPI 机制，使 EventMesh 能够发现并加载插件。有两种方式安装插件：
 
-- Classpath 加载：本地开发时可以通过在 `eventmesh-starter` 模块的 `build.gradle` 中添加依赖，例如添加 Kafka Connector 插件：
+- Classpath 加载：本地开发时可以通过在 `eventmesh-starter` 模块的 `build.gradle` 中添加依赖，例如添加 Kafka Storage Plugin：
 
 ```gradle
 dependencies {
    implementation project(":eventmesh-runtime")
-    // 示例：加载 Kafka Connector 插件
-   implementation project(":eventmesh-connectors:eventmesh-connector-kafka")
+   // 示例：加载 Kafka Storage Plugin
+   implementation project(":eventmesh-storage-plugin:eventmesh-storage-kafka")
 }
 ```
 
@@ -239,11 +240,11 @@ dependencies {
 #### 3.4.2 使用插件
 
 EventMesh 会默认加载 `dist/plugin` 目录下的插件，可以通过`-DeventMeshPluginDir=your_plugin_directory`来改变插件目录。运行时需要使用的插件实例可以在
-`confPath`目录下面的`eventmesh.properties`中进行配置。例如通过以下设置声明使用 RocketMQ Connector 插件。
+`confPath`目录下面的`eventmesh.properties`中进行配置。例如通过以下设置声明使用 RocketMQ 作为 Event Store：
 
 ```properties
-# connector plugin
-eventMesh.connector.plugin.type=rocketmq
+# storage plugin
+eventMesh.storage.plugin.type=rocketmq
 ```
 
 ### 3.5 配置 VM 参数

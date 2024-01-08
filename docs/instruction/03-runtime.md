@@ -196,21 +196,22 @@ cd apache-eventmesh-1.10.0-src/
 
 ### 3.3 Project Structure Explanation
 
-| Module Name                | Description                          |
-| -------------------------- | ------------------------------------ |
-| eventmesh-common           | EventMesh common classes and methods module |
-| eventmesh-connector-api    | EventMesh Connector plugin interface definition module |
-| eventmesh-connector-plugin | EventMesh Connector plugin module    |
-| eventmesh-runtime          | EventMesh Runtime runtime module      |
-| eventmesh-sdk-java         | EventMesh Java client SDK             |
-| eventmesh-starter          | EventMesh local startup project entry point |
-| eventmesh-spi              | EventMesh SPI loading module          |
+| Main Module              | Description                                                  |
+| ------------------------ | ------------------------------------------------------------ |
+| eventmesh-starter        | Entry point for running EventMesh locally                    |
+| eventmesh-runtime        | EventMesh Runtime, the runtime module                        |
+| eventmesh-connectors     | [Connectors](../design-document/03-connect/00-connectors.md) for connecting event sources and sinks, supporting [various services and platforms](../roadmap.md#connector-implementation-status) |
+| eventmesh-storage-plugin | [Event Store](../roadmap.md#event-store-implementation-status) plugin for EventMesh Runtime |
+| eventmesh-sdks           | Multi-language client SDKs for EventMesh, including Java, Go, C and Rust |
+| eventmesh-examples       | Examples of SDK usage                                        |
+| eventmesh-spi            | Module for loading EventMesh SPI                             |
+| eventmesh-common         | Module for common classes and methods                        |
 
 > Plugin modules follow the SPI specification defined by EventMesh, and custom SPI interfaces need to be annotated with `@EventMeshSPI`.
 >
 > Plugin instances need to be configured in the corresponding module under the `/main/resources/META-INF/eventmesh` directory with a mapping file for interface and implementation classes. The file name is the fully qualified class name of the SPI interface.
 >
-> The content of the file is the mapping from the plugin instance name to the plugin instance. For details, refer to the `eventmesh-connector-rocketmq` plugin module.
+> The content of the file is the mapping from the plugin instance name to the plugin instance. For details, refer to the `eventmesh-storage-rocketmq` plugin module.
 
 ### 3.4 Plugin Explanation
 
@@ -218,13 +219,13 @@ cd apache-eventmesh-1.10.0-src/
 
 EventMesh has an SPI mechanism that allows EventMesh to discover and load plugins. There are two ways to install plugins:
 
-- Classpath loading: During local development, you can add dependencies in the `build.gradle` of the `eventmesh-starter` module. For example, to add the Kafka Connector plugin:
+- Classpath loading: During local development, you can add dependencies in the `build.gradle` of the `eventmesh-starter` module. For example, to add the Kafka Storage Plugin:
 
 ```gradle
 dependencies {
    implementation project(":eventmesh-runtime")
-    // Example: Add the Kafka Connector plugin
-   implementation project(":eventmesh-connectors:eventmesh-connector-kafka")
+   // Example: Add the Kafka Storage Plugin
+   implementation project(":eventmesh-storage-plugin:eventmesh-storage-kafka")
 }
 ```
 
@@ -238,11 +239,11 @@ dependencies {
 
 #### 3.4.2 Use Plugins
 
-EventMesh will load the plugins by default from the `dist/plugin` directory. You can change the plugin directory using `-DeventMeshPluginDir=your_plugin_directory`. The plugin instances needed at runtime can be configured in the `confPath` directory in the `eventmesh.properties` file. For example, by setting the following, you declare the use of the RocketMQ Connector plugin:
+EventMesh will load the plugins by default from the `dist/plugin` directory. You can change the plugin directory using `-DeventMeshPluginDir=your_plugin_directory`. The plugin instances needed at runtime can be configured in the `confPath` directory in the `eventmesh.properties` file. For example, by setting the following, you declare the use of the RocketMQ as Event Store:
 
 ```properties
-# connector plugin
-eventMesh.connector.plugin.type=rocketmq
+# storage plugin
+eventMesh.storage.plugin.type=rocketmq
 ```
 
 ### 3.5 Configure VM Options
