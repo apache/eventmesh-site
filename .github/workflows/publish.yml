@@ -2,7 +2,7 @@ name: Build and Publish
 
 on:
   pull_request:
-    branches: [master]
+    branches: [ '*' ]
   push:
     branches: [master]
 
