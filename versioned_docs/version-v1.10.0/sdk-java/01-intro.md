@@ -12,9 +12,9 @@ EventMesh SDK for Java is a collection of Java libraries to integrate EventMesh 
 
 ​    To install EventMesh SDK for Java with Gradle, declare `org.apache.eventmesh:eventmesh-sdk-java` as `implementation` in the dependencies block of the module's `build.gradle` file.
 
-```groovy
+```gradle
 dependencies {
-  implementation 'org.apache.eventmesh:eventmesh-sdk-java:1.4.0'
+  implementation 'org.apache.eventmesh:eventmesh-sdk-java:1.10.0'
 }
 ```
 
@@ -30,12 +30,10 @@ To install EventMesh SDK for Java with Maven, declare `org.apache.eventmesh:even
   <dependency>
     <groupId>org.apache.eventmesh</groupId>
     <artifactId>eventmesh-sdk-java</artifactId>
-    <version>1.4.0</version>
+    <version>1.10.0</version>
   </dependency>
 </dependencies>
 ```
-
-
 
 </TabItem>
 </Tabs>

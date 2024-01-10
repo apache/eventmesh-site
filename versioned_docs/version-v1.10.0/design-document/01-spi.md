@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In order to improve scalability，EventMesh introduce the SPI（Service Provider Interface）mechanism, which can help to automatically find the concrete implementation
+In order to improve scalability, EventMesh introduce the SPI (Service Provider Interface) mechanism, which can help to automatically find the concrete implementation
 class of the extended interface at runtime and load it dynamically. In EventMesh, all extension modules are implemented by using plugin.
 User can develop custom plugins by simply implementing extended interfaces, and select the plugin to be run at runtime by simply declare at configuration.
 

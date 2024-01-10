@@ -8,37 +8,37 @@
 
 ![Workflow Use Case](/images/design-document/workflow-use-case.jpg)
 
-当每个微服务都在自己的事件通道上运行时，EventMesh在执行事件编排方面发挥着至关重要的作用。
+当每个微服务都在自己的事件通道上运行时，EventMesh 在执行事件编排方面发挥着至关重要的作用。
 
-我们使用 [CNCF Serverless工作流](https://serverlessworkflow.io/) 来描述此事件工作流编排。
+我们使用 [CNCF Serverless 工作流](https://serverlessworkflow.io/) 来描述此事件工作流编排。
 
-## CNCF Serverless工作流
+## CNCF Serverless 工作流
 
-CNCF Serverless工作流定义了一个厂商中立、开源和完全社区驱动的生态系统，用于定义和运行针对Serverless技术领域的基于DSL的工作流。
+CNCF Serverless 工作流定义了一个厂商中立、开源和完全社区驱动的生态系统，用于定义和运行针对 Serverless 技术领域的基于 DSL 的工作流。
 
-Serverless工作流定义了一种领域特定语言（DSL）来描述有状态和无状态的基于工作流的serverless函数和微服务编排。
+Serverless 工作流定义了一种领域特定语言（DSL）来描述有状态和无状态的基于工作流的 serverless 函数和微服务编排。
 
-详见[官方github](https://github.com/serverlessworkflow/specification)
+详见 [官方 github](https://github.com/serverlessworkflow/specification)
 
-## EventMesh工作流
+## EventMesh 工作流
 
-我们利用Serverless工作流DSL来描述EventMesh工作流。根据其规范，工作流由一系列用于描述控制流逻辑的工作流状态组成。目前，我们仅支持与事件相关的工作流状态。请参见[工作流DSL设计](#workflow-dsl-design-wip)中支持的状态。
+我们利用 Serverless 工作流 DSL 来描述 EventMesh 工作流。根据其规范，工作流由一系列用于描述控制流逻辑的工作流状态组成。目前，我们仅支持与事件相关的工作流状态。请参见 [工作流 DSL 设计](#workflow-dsl-design-wip) 中支持的状态。
 
 `工作流状态`可以包含通用的`操作`，或在工作流执行期间应调用的服务/函数。这些`操作`可以引用可复用的`函数`定义（应如何调用这些函数/服务），还可以引用触发基于事件的服务调用的事件，以及要等待的事件，这些事件表示这种基于事件的服务调用完成。
 
-在EDA解决方案中，我们通常使用AsyncAPI定义事件驱动的微服务。Serverless工作流“函数”定义支持使用AsyncAPI定义调用语义。有关详细信息，请参见[Using Funtions for AsyncAPI Service](https://github.com/serverlessworkflow/specification/blob/main/specification.md#using-functions-for-async-api-service-invocations)。
+在 EDA 解决方案中，我们通常使用 AsyncAPI 定义事件驱动的微服务。Serverless 工作流“函数”定义支持使用 AsyncAPI 定义调用语义。有关详细信息，请参见 [Using Funtions for AsyncAPI Service](https://github.com/serverlessworkflow/specification/blob/main/specification.md#using-functions-for-async-api-service-invocations)。
 
 ### AsyncAPI
 
-AsyncAPI是一项开源计划，旨在改善事件驱动体系结构（EDA）的当前状态。我们的长期目标是让使用EDA和使用REST API一样容易。包括从文档到代码生成、发现到事件管理。现在应用于REST API的大多数流程也适用于事件驱动/异步API。
+AsyncAPI 是一项开源计划，旨在改善事件驱动体系结构（EDA）的当前状态。我们的长期目标是让使用 EDA 和使用 REST API 一样容易。包括从文档到代码生成、发现到事件管理。现在应用于 REST API 的大多数流程也适用于事件驱动/异步 API。
 
-详见[AsyncAPI官网](https://www.asyncapi.com/docs/guides)
+详见 [AsyncAPI 官网](https://www.asyncapi.com/docs/guides)
 
 ### 工作流示例
 
 在本示例中，我们构建了上面订单管理系统的事件驱动工作流。
 
-首先，我们需要为我们的微服务应用定义AsyncAPI。
+首先，我们需要为我们的微服务应用定义 AsyncAPI。
 
 - 在线商店应用程序
 
@@ -180,45 +180,45 @@ events:
 
 ![Workflow Diagram](/images/design-document/workflow-diagram.png)
 
-## EventMesh工作流引擎
+## EventMesh 工作流引擎
 
-在下面的体系结构图中, EventMesh目录, EventMesh工作流引擎 和 EventMesh Runtime在三个不同的处理器中运行。
+在下面的体系结构图中，EventMesh 目录，EventMesh 工作流引擎 和 EventMesh Runtime 在三个不同的处理器中运行。
 
 ![Workflow Architecture](/images/design-document/workflow-architecture.jpg)
 
 运行工作流的步骤如下：
 
 1. 在环境中部署发布者和订阅者应用程序。
-   使用AsyncAPI描述应用程序API，生成asyncAPI yaml。
-   使用AsyncAPI在EventMesh目录中注册发布者和订阅者应用程序。
+   使用 AsyncAPI 描述应用程序 API，生成 asyncAPI yaml。
+   使用 AsyncAPI 在 EventMesh 目录中注册发布者和订阅者应用程序。
 
-2. 在EventMesh工作流引擎中注册Serverless工作流DSL。
+2. 在 EventMesh 工作流引擎中注册 Serverless 工作流 DSL。
 
-3. 工作流引擎从EventMesh目录查询发布服务器和订阅服务器的需要的工作流DSL`函数`。
+3. 工作流引擎从 EventMesh 目录查询发布服务器和订阅服务器的需要的工作流 DSL`函数`。
 
-4. 事件驱动App将事件发布到EventMesh Runtime触发工作流。EventMesh工作流引擎发布和订阅事件、编排事件。
+4. 事件驱动 App 将事件发布到 EventMesh Runtime 触发工作流。EventMesh 工作流引擎发布和订阅事件、编排事件。
 
 ### EventMesh Catalog 设计
 
-EventMesh目录存储发布者、订阅者和通道元数据。由以下模块组成：
+EventMesh 目录存储发布者、订阅者和通道元数据。由以下模块组成：
 
-- AsyncAPI解析器
+- AsyncAPI 解析器
 
-  使用AsyncAPI社区提供的SDK ([tool list](https://www.asyncapi.com/docs/community/tooling)),
-  解析并验证AsyncAPI yaml输入，并生成AsyncAPI定义。
+  使用 AsyncAPI 社区提供的 SDK ([tool list](https://www.asyncapi.com/docs/community/tooling)),
+  解析并验证 AsyncAPI yaml 输入，并生成 AsyncAPI 定义。
 
-- 发布者, 通道, 订阅者模块
+- 发布者，通道，订阅者模块
 
-  从AsyncAPI定义存储发布者、订阅者和通道信息。
+  从 AsyncAPI 定义存储发布者、订阅者和通道信息。
 
-### EventMesh工作流引擎设计
+### EventMesh 工作流引擎设计
 
 工作流引擎由以下模块组成：
 
 - 工作流解析器
 
-  使用Serverless Workflow社区提供的SDK([SDKs](https://github.com/serverlessworkflow/specification#sdks)),
-  解析和验证工作流DSL输入，并生成工作流定义。
+  使用 Serverless Workflow 社区提供的 SDK([SDKs](https://github.com/serverlessworkflow/specification#sdks)),
+  解析和验证工作流 DSL 输入，并生成工作流定义。
 
 - 工作流模块
 
@@ -230,11 +230,11 @@ EventMesh目录存储发布者、订阅者和通道元数据。由以下模块�
 
   | 工作流状态 | 描述 |
   | --- | --- |
-  | Operation | 执行Actions中定义的AsyncAPI函数 |
-  | Event | 检查定义的事件是否匹配，如果匹配，执行定义的AsyncAPI函数 |
-  | Switch | 检查事件是否与事件条件匹配，并执行定义的AsyncAPI函数 |
-  | Parallel | 并行执行定义的AsyncAPI函数 |
-  | ForEach | 迭代输入集合并执行定义的AsyncAPI函数 |
+  | Operation | 执行 Actions 中定义的 AsyncAPI 函数 |
+  | Event | 检查定义的事件是否匹配，如果匹配，执行定义的 AsyncAPI 函数 |
+  | Switch | 检查事件是否与事件条件匹配，并执行定义的 AsyncAPI 函数 |
+  | Parallel | 并行执行定义的 AsyncAPI 函数 |
+  | ForEach | 迭代输入集合并执行定义的 AsyncAPI 函数 |
 
 - 行为模块
 
@@ -242,7 +242,7 @@ EventMesh目录存储发布者、订阅者和通道元数据。由以下模块�
 
 - 函数模块
 
-  通过在EventMesh Runtime中创建发布者和/或订阅者来管理AsyncAPI函数，并管理发布者/订阅者生命周期。
+  通过在 EventMesh Runtime 中创建发布者和/或订阅者来管理 AsyncAPI 函数，并管理发布者/订阅者生命周期。
 
   | AsyncAPI 操作 | EventMesh Runtime |
   | --- | --- |
@@ -251,9 +251,9 @@ EventMesh目录存储发布者、订阅者和通道元数据。由以下模块�
 
 - 事件模块
 
-  使用工作流DSL中定义的规则管理CloudEvent数据模型，包括事件过滤器、关联和转换。
+  使用工作流 DSL 中定义的规则管理 CloudEvent 数据模型，包括事件过滤器、关联和转换。
 
 - 重试模块
 
-  管理事件发布到EventMesh Runtime的重试逻辑。
+  管理事件发布到 EventMesh Runtime 的重试逻辑。
   

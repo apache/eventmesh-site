@@ -26,5 +26,9 @@
   "sidebar.tutorialSidebar.category.Observability": {
     "message": "可观测性",
     "description": "The label for category Observability in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Connect": {
+    "message": "连接器",
+    "description": "The label for category Connect in sidebar tutorialSidebar"
   }
 }

@@ -10,7 +10,7 @@ Distributed tracing is a method used to profile and monitor applications built w
 
 To enable the trace exporter of EventMesh Runtime, set the `eventMesh.server.trace.enabled` field in the `conf/eventmesh.properties` file to `true`.
 
-```conf
+```properties
 # Trace plugin
 eventMesh.server.trace.enabled=true
 eventMesh.trace.plugin=zipkin
@@ -18,7 +18,7 @@ eventMesh.trace.plugin=zipkin
 
 To customize the behavior of the trace exporter such as timeout or export interval, edit the `exporter.properties` file.
 
-```conf
+```properties
 # Set the maximum batch size to use
 eventmesh.trace.max.export.size=512
 # Set the queue size. This must be >= the export batch size
@@ -31,7 +31,7 @@ eventmesh.trace.export.interval=5
 
 To send the exported trace data to Zipkin, edit the `eventmesh.trace.zipkin.ip` and `eventmesh.trace.zipkin.port` fields in the `conf/zipkin.properties` file to match the configuration of the Zipkin server.
 
-```conf
+```properties
 # Zipkin's IP and Port
 eventmesh.trace.zipkin.ip=localhost
 eventmesh.trace.zipkin.port=9411

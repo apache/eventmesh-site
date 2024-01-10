@@ -180,7 +180,19 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['java'],
+      additionalLanguages: [
+        'bash',
+        'java',
+        'gradle',
+        'groovy',
+        'properties',
+        'json',
+        'protobuf',
+        'sql',
+        'antlr4',
+        'log',
+        'rust'
+      ],
     },
   },
   i18n: {

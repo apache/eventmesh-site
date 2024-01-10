@@ -105,8 +105,6 @@ Build the source code with Gradle.
 gradle clean dist
 ```
 
-![runtime_2](/images/install/runtime_2.png)
-
 Edit the `eventmesh.properties` to change the configuration (e.g. TCP port, client blacklist) of EventMesh Runtime.
 
 ```console
@@ -142,14 +140,11 @@ Execute the `start.sh` script to start the EventMesh Runtime server.
 bash bin/start.sh
 ```
 
-![runtime_4](/images/install/runtime_4.png)
-
 View the output log:
 
 ```console
 tail -f logs/eventmesh.out
 ```
-![runtime_3](/images/install/runtime_3.png)
 
 ## 2 Remote deployment
 
@@ -188,22 +183,15 @@ bash bin/start.sh
 
 If you see "EventMeshTCPServer[port=10000] started...." , then the setup was successful.
 
-![runtime_6](/images/install/runtime_6.png)
-
-
 View the output log:
 
 ```console
 cd /root/apache-eventmesh-1.9.0/logs
 tail -f eventmesh.out
 ```
-![runtime_7](/images/install/runtime_7.png)
 
 You can stop the run with the following command：
 
 ```console
 bash bin/stop.sh
 ```
-
-![runtime_8](/images/install/runtime_8.png)
-![runtime_9](/images/install/runtime_9.png)

@@ -270,7 +270,7 @@ public class EventMeshMessage {
 
 以下消息数据模型用于 `publish()`, `requestReply()` 和 `broadcast()` APIs.
 
-```
+```protobuf
 message RequestHeader {
     string env = 1;
     string region = 2;
@@ -326,7 +326,7 @@ message Response {
 
 以下订阅数据模型用于 `subscribe()` 和 `unsubscribe()` APIs.
 
-```
+```protobuf
 message Subscription {
    RequestHeader header = 1;
    string consumerGroup = 2;
@@ -356,7 +356,7 @@ message Subscription {
 
 以下心跳数据模型用于 `heartbeat()` API.
 
-```
+```protobuf
 message Heartbeat {
   enum ClientType {
      PUB = 0;
@@ -381,7 +381,7 @@ message Heartbeat {
 
 + 事件生产端服务 APIs
 
-```
+```protobuf
 service PublisherService {
    # 异步事件生产
    rpc publish(SimpleMessage) returns (Response);
@@ -396,7 +396,7 @@ service PublisherService {
 
 + 事件消费端服务 APIs
 
-```
+```protobuf
 service ConsumerService {
    # 所消费事件通过 HTTP Webhook 推送事件
    rpc subscribe(Subscription) returns (Response);
@@ -410,7 +410,7 @@ service ConsumerService {
 
 + 客户端心跳服务 API
 
-```
+```protobuf
 service HeartbeatService {
    rpc heartbeat(Heartbeat) returns (Response);
 }

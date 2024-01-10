@@ -1,6 +1,6 @@
 # TCP Protocol
 
-EventMesh SDK for Java implements the TCP producer and consumer of synchronous, asynchronous, and broadcast messages. Both the producer and consumer require an instance of `EventMeshTCPClientConfig` class that specifies the configuration of EventMesh TCP client. The `host` and `port` fields should match the `eventmesh.properties` file of EventMesh runtime.
+EventMesh SDK for Java implements the TCP producer and consumer of synchronous, asynchronous, and broadcast messages. Both the producer and consumer require an instance of `EventMeshTCPClientConfig` class that specifies the configuration of EventMesh TCP client. The `host` and `port` fields should match the `eventmesh.properties` file of EventMesh Runtime.
 
 ```java
 import org.apache.eventmesh.client.tcp.conf.EventMeshTCPClientConfig;

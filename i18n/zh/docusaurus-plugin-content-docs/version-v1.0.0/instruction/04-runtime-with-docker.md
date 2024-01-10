@@ -1,13 +1,13 @@
-# 使用 Docker 快速入门 EventMesh（暂时只支持到1.4.0版本）
+# 使用 Docker 快速入门 EventMesh（暂时只支持到 1.4.0 版本）
 
 本篇快速入门将详细介绍使用 docker 部署 EventMesh，以 RocketMQ 作为对接的中间件。
 
 ## 1. 前提
 
-1. 建议使用64位的 linux 系统；
-2. 请预先安装 Docker Engine。 Docker 的安装过程可以参考 [docker 官方文档](https://docs.docker.com/engine/install/)；
+1. 建议使用 64 位的 linux 系统；
+2. 请预先安装 Docker Engine。Docker 的安装过程可以参考 [docker 官方文档](https://docs.docker.com/engine/install/)；
 3. 建议掌握基础的 docker 概念和命令行，例如注册中心、挂载等等。不过这不是必须的，因为本次操作所需的命令都已为您列出；
-4. 若您选择非standalone模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 ip 地址访问到；若您选择standalone模式，则无需启动 RocketMQ 。
+4. 若您选择非 standalone 模式，请确保 [RocketMQ 已成功启动](https://rocketmq.apache.org/docs/quick-start/) 并且可以使用 ip 地址访问到；若您选择 standalone 模式，则无需启动 RocketMQ。
 
 ## 2. 获取 EventMesh 镜像
 
@@ -31,8 +31,6 @@ REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
 eventmesh/eventmesh   v1.4.0    6e2964599c78   16 months ago   937MB
 ```
 
-![runtime_docker_1](/images/install/runtime_docker_1.png)
-
 ## 3. 创建配置文件
 
 在根据 EventMesh 镜像运行对应容器之前，你需要创建两个配置文件，分别是：```eventMesh.properties``` 和 ```rocketmq-client.properties```。
@@ -45,7 +43,6 @@ cd /data/eventmesh/rocketmq/conf
 sudo touch eventmesh.properties
 sudo touch rocketmq-client.properties
 ```
-![runtime_docker_2](/images/install/runtime_docker_2.png)
 
 ### 4. 配置 eventMesh.properties
 
@@ -77,9 +74,9 @@ sudo vim eventmesh.properties
 sudo vim rocketmq-client.properties
 ```
 
-你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties> 。请注意，如果您正在运行的 namesetver 地址不是配置文件中的默认值，请将其修改为实际正在运行的nameserver地址。
+你可以直接将 GitHub 仓库中的对应配置文件中的内容复制过来，链接为：<https://github.com/apache/eventmesh/blob/1.3.0/eventmesh-runtime/conf/rocketmq-client.properties> 。请注意，如果您正在运行的 namesetver 地址不是配置文件中的默认值，请将其修改为实际正在运行的 nameserver 地址。
 
-请检查配置文件里的默认namesrvAddr是否已被占用，如果被占用请修改成未被占用的地址：
+请检查配置文件里的默认 namesrvAddr 是否已被占用，如果被占用请修改成未被占用的地址：
 
 | 属性                                    | 默认值                           | 备注                               |
 |---------------------------------------|-------------------------------|----------------------------------|
@@ -119,8 +116,6 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 5bb6b6092672   eventmesh/eventmesh:v1.4.0   "/bin/sh -c 'sh star…"   5 seconds ago   Up 3 seconds   0.0.0.0:10000->10000/tcp, :::10000->10000/tcp, 0.0.0.0:10105->10105/tcp, :::10105->10105/tcp   eager_driscoll
 ```
 
-![runtime_docker_3](/images/install/runtime_docker_3.png)
-
 从这个信息中可以看出，```container id``` 是 ```5bb6b6092672```，```name``` 是 ```eager_driscoll```，它们都可以用来唯一标识这个容器。**注意**：在你的电脑中，它们的值可能跟这里的不同。
 
 ## 7. 管理 EventMesh 容器
@@ -140,15 +135,11 @@ cd ../logs
 tail -f eventmesh.out
 ```
 
-![runtime_docker_4](/images/install/runtime_docker_4.png)
-
 **删除容器** 命令示例:
 
 ```shell
 sudo docker rm -f [your container id or name]
 ```
-
-![runtime_docker_5](/images/install/runtime_docker_5.png)
 
 ## 8. 探索更多
 
