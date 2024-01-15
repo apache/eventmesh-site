@@ -15,10 +15,10 @@ As long as you subscribe to this mailing list, you can get the latest developmen
 
 |Name|Description|Subscribe|Unsubscribe|Archive|
 |:-----|:--------|:------|:-------|:-----|
-| [users@eventmesh.apache.org](mailto:users@eventmesh.apache.org) | User discussion | [subscribe](mailto:users-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:users-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-users) |
-| [dev@eventmesh.apache.org](mailto:dev@eventmesh.apache.org) | Development discussion (Design Documents, Issues, etc.) | [subscribe](mailto:dev-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:dev-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-dev) |
-| [commits@eventmesh.apache.org](mailto:commits@eventmesh.apache.org) | Commits to related repositories | [subscribe](mailto:commits-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:commits-unsubscribe@eventmesh.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/eventmesh-commits) |
-
+| [users@eventmesh.apache.org](mailto:users@eventmesh.apache.org) | User discussion | [subscribe](mailto:users-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:users-unsubscribe@eventmesh.apache.org) | [archive](https://lists.apache.org/list.html?users@eventmesh.apache.org) |
+| [dev@eventmesh.apache.org](mailto:dev@eventmesh.apache.org) | Development discussion (Design Documents, Issues, etc.) | [subscribe](mailto:dev-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:dev-unsubscribe@eventmesh.apache.org) | [archive](https://lists.apache.org/list.html?dev@eventmesh.apache.org) |
+| [commits@eventmesh.apache.org](mailto:commits@eventmesh.apache.org) | Commits to related repositories | [subscribe](mailto:commits-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:commits-unsubscribe@eventmesh.apache.org) | [archive](https://lists.apache.org/list.html?commits@eventmesh.apache.org) |
+| [issues@eventmesh.apache.org](mailto:issues@eventmesh.apache.org) | Issues or PRs comments and reviews | [subscribe](mailto:issues-subscribe@eventmesh.apache.org) | [unsubscribe](mailto:issues-unsubscribe@eventmesh.apache.org) | [archive](https://lists.apache.org/list.html?issues@eventmesh.apache.org) |
 
 
 ## 1. Subscribe to the mailing list

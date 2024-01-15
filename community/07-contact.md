@@ -17,8 +17,8 @@ If you are interested in our EventMesh project, please feel free to contact us!
 
 |Name|Description|Subscribe|Unsubscribe|Archive|
 |-|-|-|-|-|
-|Users|User discussion|[Subscribe](mailto:users-subscribe@eventmesh.incubator.apache.org)|[Unsubscribe](mailto:users-unsubscribe@eventmesh.incubator.apache.org)|[Mail Archives](https://lists.apache.org/list.html?users@eventmesh.apache.org)|
-|Development|Development discussion (Design Documents, Issues, etc.)|[Subscribe](mailto:dev-subscribe@eventmesh.incubator.apache.org)|[Unsubscribe](mailto:dev-unsubscribe@eventmesh.incubator.apache.org)|[Mail Archives](https://lists.apache.org/list.html?dev@eventmesh.apache.org)|
-|Commits|Commits to related repositories| [Subscribe](mailto:commits-subscribe@eventmesh.incubator.apache.org) |[Unsubscribe](mailto:commits-unsubscribe@eventmesh.incubator.apache.org) |[Mail Archives](https://lists.apache.org/list.html?commits@eventmesh.apache.org)|
-
+|Users|User discussion|[Subscribe](mailto:users-subscribe@eventmesh.apache.org)|[Unsubscribe](mailto:users-unsubscribe@eventmesh.apache.org)|[Mail Archives](https://lists.apache.org/list.html?users@eventmesh.apache.org)|
+|Development|Development discussion (Design Documents, Issues, etc.)|[Subscribe](mailto:dev-subscribe@eventmesh.apache.org)|[Unsubscribe](mailto:dev-unsubscribe@eventmesh.apache.org)|[Mail Archives](https://lists.apache.org/list.html?dev@eventmesh.apache.org)|
+|Commits|Commits to related repositories| [Subscribe](mailto:commits-subscribe@eventmesh.apache.org) |[Unsubscribe](mailto:commits-unsubscribe@eventmesh.apache.org) |[Mail Archives](https://lists.apache.org/list.html?commits@eventmesh.apache.org)|
+|Issues|Issues or PRs comments and reviews| [Subscribe](mailto:issues-subscribe@eventmesh.apache.org) |[Unsubscribe](mailto:issues-unsubscribe@eventmesh.apache.org) |[Mail Archives](https://lists.apache.org/list.html?issues@eventmesh.apache.org)|
 
