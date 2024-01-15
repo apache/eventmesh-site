@@ -15,10 +15,10 @@ Apache 为每个项目配置了一系列邮件列表。邮件列表是 Apache �
 
 |名称|描述|订阅邮件|退订邮件|邮件归档|
 |:-----|:--------|:------|:-------|:-----|
-|[users@eventmesh.apache.org](mailto:users@eventmesh.apache.org)|用户讨论|[订阅](mailto:users-subscribe@eventmesh.apache.org)|[退订](mailto:users-unsubscribe@eventmesh.apache.org)|[归档](http://mail-archives.apache.org/mod_mbox/eventmesh-dev)|
-| [dev@eventmesh.apache.org](mailto:dev@eventmesh.apache.org) | 社区活动信息 | [订阅](mailto:dev-subscribe@eventmesh.apache.org) | [退订](mailto:dev-unsubscribe@eventmesh.apache.org) | [归档](http://mail-archives.apache.org/mod_mbox/eventmesh-dev) |
-| [commits@eventmesh.apache.org](mailto:commits@eventmesh.apache.org) | 代码库更新信息 | [订阅](mailto:commits-subscribe@eventmesh.apache.org) | [退订](mailto:commits-unsubscribe@eventmesh.apache.org) | [归档](http://mail-archives.apache.org/mod_mbox/eventmesh-commits) |
-| [issues@eventmesh.apache.org](issues@eventmesh.apache.org) | 问题或PR的评论和审查 | [订阅](mailto:issues-subscribe@eventmesh.apache.org) | [退订](mailto:issues-unsubscribe@eventmesh.apache.org) | [归档](https://lists.apache.org/list.html?issues@eventmesh.apache.org) |
+| [users@eventmesh.apache.org](mailto:users@eventmesh.apache.org)|用户讨论| [订阅](mailto:users-subscribe@eventmesh.apache.org)| [退订](mailto:users-unsubscribe@eventmesh.apache.org)| [归档](https://mail-archives.apache.org/mod_mbox/eventmesh-dev)|
+| [dev@eventmesh.apache.org](mailto:dev@eventmesh.apache.org) | 社区活动信息 | [订阅](mailto:dev-subscribe@eventmesh.apache.org) | [退订](mailto:dev-unsubscribe@eventmesh.apache.org) | [归档](https://mail-archives.apache.org/mod_mbox/eventmesh-dev) |
+| [commits@eventmesh.apache.org](mailto:commits@eventmesh.apache.org) | 代码库更新信息 | [订阅](mailto:commits-subscribe@eventmesh.apache.org) | [退订](mailto:commits-unsubscribe@eventmesh.apache.org) | [归档](https://mail-archives.apache.org/mod_mbox/eventmesh-commits) |
+| [issues@eventmesh.apache.org](mailto:issues@eventmesh.apache.org) | 问题或PR的评论和审查 | [订阅](mailto:issues-subscribe@eventmesh.apache.org) | [退订](mailto:issues-unsubscribe@eventmesh.apache.org) | [归档](https://lists.apache.org/list.html?issues@eventmesh.apache.org) |
 
 ## 1. 订阅邮件列表
 
