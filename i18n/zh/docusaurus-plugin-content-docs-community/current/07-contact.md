@@ -17,8 +17,8 @@ sidebar_position: 6
 
 |名称|描述|订阅邮件|退订邮件|邮件归档|
 |-|-|-|-|-|
-|用户|用户讨论|[订阅](mailto:users-subscribe@eventmesh.apache.org)|[退订](mailto:users-unsubscribe@eventmesh.apache.org)|[归档](http://mail-archives.apache.org/mod_mbox/eventmesh-dev)|
+|用户|用户讨论|[订阅](mailto:users-subscribe@eventmesh.apache.org)|[退订](mailto:users-unsubscribe@eventmesh.apache.org)|[归档](https://lists.apache.org/list.html?users@eventmesh.apache.org)|
 |开发|开发讨论 (设计文档, 问题等.)|[订阅](mailto:dev-subscribe@eventmesh.apache.org)|[退订](mailto:dev-unsubscribe@eventmesh.apache.org)|[归档](https://lists.apache.org/list.html?dev@eventmesh.apache.org)|
 |提交记录|提交到关联的仓库记录| [订阅](mailto:commits-subscribe@eventmesh.apache.org) |[退订](mailto:commits-unsubscribe@eventmesh.apache.org) |[归档](https://lists.apache.org/list.html?commits@eventmesh.apache.org)|
-|问题|问题或PR的评论和审查| [订阅](mailto:commits-subscribe@eventmesh.apache.org) |[退订](mailto:commits-unsubscribe@eventmesh.apache.org) |[归档](https://lists.apache.org/list.html?commits@eventmesh.apache.org)|
+|问题|问题或PR的评论和审查| [订阅](mailto:commits-subscribe@eventmesh.apache.org) |[退订](mailto:commits-unsubscribe@eventmesh.apache.org) |[归档](https://lists.apache.org/list.html?issues@eventmesh.apache.org)|
 
