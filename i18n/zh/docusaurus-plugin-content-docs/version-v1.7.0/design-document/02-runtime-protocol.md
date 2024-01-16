@@ -2,7 +2,7 @@
 
 #### 1. 协议格式
 
-![dataFlow](../../../static/images/design-document/tcp-protocol.png)
+![dataFlow](../../../../../static/images/design-document/tcp-protocol.png)
 
 **消息组成详解：**
 
@@ -142,15 +142,15 @@ public enum Command {
 
 + 发送RR消息
 
-![rr-msg](../../../static/images/design-document/sync-message.png)
+![rr-msg](../../../../../static/images/design-document/sync-message.png)
 
 + 发送异步单播消息
 
-![async-msg](../../../static/images/design-document/async-message.png)
+![async-msg](../../../../../static/images/design-document/async-message.png)
 
 + 发送广播消息
 
-![broadcast-msg](../../../static/images/design-document/broadcast-message.png)
+![broadcast-msg](../../../../../static/images/design-document/broadcast-message.png)
 
 ## HTTP协议文档
 

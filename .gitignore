@@ -132,3 +132,6 @@ dist
 .env.test.local
 .env.production.local
 tmp
+
+# WebStorm
+.idea

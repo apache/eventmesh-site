@@ -8,7 +8,7 @@
 
 选择自己电脑对应的版本下载并解压缩
 
-![Prometheus-download](../../../static/images/Prometheus-download.png)
+![Prometheus-download](../../../../../static/images/removed/Prometheus-download.png)
 
 ### 2、在prometheus.yml中添加配置
 
@@ -16,7 +16,7 @@
 
 例如：这是win-64的下载后的样子：
 
-![prometheus-yml](../../../static/images/prometheus-yml.png)
+![prometheus-yml](../../../../../static/images/removed/prometheus-yml.png)
 
 替换红框中的文件
 
@@ -33,9 +33,9 @@ eventMesh.metrics.prometheus.port=19090
 
 双击Prometheus.exe运行
 
-运行eventmesh-starter(参考[eventmesh-runtime-quickstart](eventmesh-runtime-quickstart.md))
+运行eventmesh-starter(参考[eventmesh-runtime-quickstart](../instruction/02-runtime.md))
 
-运行eventmesh-example(参考[eventmesh-sdk-java-quickstart](eventmesh-sdk-java-quickstart.md))
+运行eventmesh-example(参考[eventmesh-sdk-java-quickstart](../instruction/03-demo.md))
 
 打开浏览器访问：http://localhost:9090/
 
@@ -43,4 +43,4 @@ eventMesh.metrics.prometheus.port=19090
 
 输入’**eventmesh_**‘ 就会出现相关的指标的提示
 
-![promethus-search](../../../static/images/promethus-search.png)
+![promethus-search](../../../../../static/images/removed/promethus-search.png)
