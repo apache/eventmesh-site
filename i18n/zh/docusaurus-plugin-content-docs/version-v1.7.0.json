@@ -14,17 +14,5 @@
   "sidebar.tutorialSidebar.category.Design Document": {
     "message": "设计文档",
     "description": "The label for category Design Document in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Upgrade Guide": {
-    "message": "升级指南",
-    "description": "The label for category Upgrade Guide in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Event Handling and Integration": {
-    "message": "事件处理和集成",
-    "description": "The label for category Event Handling and Integration in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Observability": {
-    "message": "可观测性",
-    "description": "The label for category Observability in sidebar tutorialSidebar"
   }
 }

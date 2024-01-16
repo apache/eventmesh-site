@@ -24,7 +24,7 @@ public class CloudEventsAsyncSubscribe implements ReceiveMsgHook<CloudEvent> {
 
 ### 流消费者
 
-EventMesh runtime 会将来自生产者的信息作为一系列事件流向流消费者发送。消费者应实现 `ReceiveHook` 类，其被定义在 [ReceiveMsgHook.java](https://github.com/apache/eventmesh/blob/master/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/grpc/consumer/ReceiveMsgHook.java)。
+EventMesh runtime 会将来自生产者的信息作为一系列事件流向流消费者发送。消费者应实现 `ReceiveHook` 类，其被定义在 [ReceiveMsgHook.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-sdk-java/src/main/java/org/apache/eventmesh/client/grpc/consumer/ReceiveMsgHook.java)。
 
 ```java
 public interface ReceiveMsgHook<T> {
@@ -77,7 +77,7 @@ public class CloudEventsAsyncSubscribe implements ReceiveMsgHook<CloudEvent> {
 
 ### Webhook 消费者
 
-类 `EventMeshGrpcConsumer` 的 `subscribe` 方法接收一个 `SubscriptionItem` 对象的列表，其中定义了要订阅的主题和一个可选的 timeout 值。如果提供了回调 URL，EventMesh runtime 将向回调 URL 地址发送一个包含 [CloudEvents 格式](https://github.com/cloudevents/spec) 消息的 POST 请求。[SubController.java](https://github.com/apache/eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/grpc/sub/app/controller/SubController.java) 实现了一个接收并解析回调信息的 Spring Boot controller。
+类 `EventMeshGrpcConsumer` 的 `subscribe` 方法接收一个 `SubscriptionItem` 对象的列表，其中定义了要订阅的主题和一个可选的 timeout 值。如果提供了回调 URL，EventMesh runtime 将向回调 URL 地址发送一个包含 [CloudEvents 格式](https://github.com/cloudevents/spec) 消息的 POST 请求。[SubController.java](https://github.com/apache/incubator-eventmesh/blob/master/eventmesh-examples/src/main/java/org/apache/eventmesh/grpc/sub/app/controller/SubController.java) 实现了一个接收并解析回调信息的 Spring Boot controller。
 
 ```java
 import org.apache.eventmesh.client.grpc.consumer.EventMeshGrpcConsumer;
