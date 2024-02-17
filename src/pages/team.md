@@ -56,4 +56,4 @@ Please refer to the following links, if you also want to make your contribution 
 
 Here is the [List of Contributors](https://github.com/apache/eventmesh/tributors), thank you all!
 
-[![Contributor](https://contrib.rocks/image?repo=apache/eventmesh)](https://github.com/apache/eventmesh/tributors)
+[![Contributor](https://contrib.rocks/image?repo=apache/eventmesh&max=2000)](https://github.com/apache/eventmesh/tributors)
