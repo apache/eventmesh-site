@@ -97,6 +97,8 @@ bash bin/stop.sh
 
 When the script prints `shutdown server ok!`, it means EventMesh Runtime has stopped.
 
+> In this version, you may need to use `dos2unix` to convert the CRLF line endings of the script to LF line endings.
+
 ## 2. Build Binary Distribution
 
 ### 2.1 Environment
