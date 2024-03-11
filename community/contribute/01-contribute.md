@@ -74,13 +74,17 @@ You can also use `./gradlew check` in the terminal to check the code style of al
 
 This configuration is not mandatory. You may enable GitHub Actions workflows in the Fork repository to promptly observe if new commits introduce compilation errors and reduce the waiting time for CI results after submitting a PR.
 
-To do this, simply set `Workflow Permissions` to `Read and write permissions` at the following location: 
+First, set the `Workflow Permissions` to `Read and write permissions` at the following location: 
 
 ```
 Your Forked Repository -> Settings -> Actions -> General -> Workflow Permissions
 ```
 
 ![](../../static/images/contribute/grant-workflow-permissions.png)
+
+Next, enable workflows on the `Actions` page of your forked repository:
+
+![](../../static/images/contribute/enable-forked-workflows.jpg)
 
 ### Workflow
 

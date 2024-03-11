@@ -75,13 +75,17 @@ Settings -> Tools -> Checkstyle -> Configuration File
 
 此配置不是必须的。您可以在 Fork 仓库中开启 GitHub Actions 工作流，来及时观察新的 commit 是否会引入编译错误，并减少在提交 PR 后等待 CI 运行结果的时间。
 
-在以下位置将`Workflow Permissions`设置为`Read and write permissions`即可：
+首先，在以下位置将`Workflow Permissions`设置为`Read and write permissions`：
 
 ```
 Your Forked Repository -> Settings -> Actions -> General -> Workflow Permissions
 ```
 
 ![](../../../../../static/images/contribute/grant-workflow-permissions.png)
+
+然后，在 Fork 仓库的`Actions`页面启用 Workflow 即可：
+
+![](../../../../../static/images/contribute/enable-forked-workflows.jpg)
 
 ### 工作流程
 
