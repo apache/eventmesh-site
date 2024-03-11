@@ -80,7 +80,7 @@ To do this, simply set `Workflow Permissions` to `Read and write permissions` at
 Your Forked Repository -> Settings -> Actions -> General -> Workflow Permissions
 ```
 
-![](../../static/images/contribute/enable-ci.png)
+![](../../static/images/contribute/grant-workflow-permissions.png)
 
 ### Workflow
 

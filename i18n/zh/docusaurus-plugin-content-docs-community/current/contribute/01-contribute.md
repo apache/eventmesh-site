@@ -81,7 +81,7 @@ Settings -> Tools -> Checkstyle -> Configuration File
 Your Forked Repository -> Settings -> Actions -> General -> Workflow Permissions
 ```
 
-![](../../../../../static/images/contribute/enable-ci.png)
+![](../../../../../static/images/contribute/grant-workflow-permissions.png)
 
 ### 工作流程
 
