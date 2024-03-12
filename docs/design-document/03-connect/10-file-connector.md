@@ -8,7 +8,7 @@
 4. Using the Topic specified in `pubSubConfig.subject`, send a message to EventMesh, which you will persist in the file.
 
 ```yaml
-# public config
+# Common configuration
 pubSubConfig:
     meshAddress: 127.0.0.1:10000
     subject: TopicTest
@@ -29,10 +29,10 @@ connectorConfig:
 1. Start your EventMesh Runtime.
 2. Enable sinkConnector and check `source-config.yml`.
 3. Started FileConnectServer，It sends the data read from `connectorConfig.filePath` to `pubSubConfig.subject` in the EventMesh Runtime.
-4. The append to the file content is recognized, and you receive the message in EventMesh
+4. The append to the file content is recognized, and you receive the message in EventMesh.
 
 ```yaml
-# public config
+# Common configuration
 pubSubConfig:
     meshAddress: 127.0.0.1:10000
     subject: TopicTest
@@ -48,4 +48,4 @@ connectorConfig:
     filePath: userFilePath
 ```
 
-> Special note: System.in and System.out are used if the source file or import file cannot be retrieved
+> Special note: System.in and System.out are used if the source file or import file cannot be retrieved.
