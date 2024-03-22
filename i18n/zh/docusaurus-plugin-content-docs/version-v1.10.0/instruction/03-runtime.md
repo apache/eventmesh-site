@@ -97,6 +97,8 @@ bash bin/stop.sh
 
 脚本打印`shutdown server ok!`时，代表 EventMesh Runtime 已停止。
 
+> 在此版本，你可能需要使用`dos2unix`将脚本的 CRLF 换行转换到 LF 换行。
+
 ## 2. 构建二进制分发包
 
 ### 2.1 环境
