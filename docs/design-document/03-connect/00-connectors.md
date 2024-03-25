@@ -2,6 +2,8 @@
 
 ## Connector
 
+EventMesh Connector allows you to skip the complex integration with external services by offering out-of-the-box connectors. Each connector enabling you to have faster integrations with no codes. All data produced or processed by our connectors conforms to the CloudEvents specification.
+
 A connector is an image or instance that interacts with a specific external service or underlying data source (e.g., Databases) on behalf of user applications. A connector is either a Source or a Sink.
 
 Connector runs as a standalone service by `main()`.
