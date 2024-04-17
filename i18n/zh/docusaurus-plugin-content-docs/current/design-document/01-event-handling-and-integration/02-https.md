@@ -7,7 +7,7 @@
 EventMesh Runtime 目前支持加载`jks`格式的 SSL 证书文件。您可以在本地生成`jks`证书。
 
 ```shell
-keytool -genkey -alias eventmesh-admin-server -keyalg RSA -keystore eventmesh-admin-server.jks
+keytool -genkey -alias eventmesh-admin-server -keyalg RSA -keystore admin-server.jks
 ```
 
 `-alias`参数的值即为您 EventMesh Runtime 节点的主机名或域名。您可以在路由/网关/DNS 服务器上设置主机名/域名与 IP 地址的映射关系。
@@ -37,7 +37,7 @@ keytool -genkey -alias eventmesh-admin-server -keyalg RSA -keystore eventmesh-ad
 ```properties
 eventMesh.server.admin.useTls.enabled=true # 默认值 false
 eventMesh.server.admin.ssl.protocol=TLSv1.3 # 默认值 TLSv1.3，最低支持 TLSv1.1
-eventMesh.server.admin.ssl.cer=eventmesh-admin-server.jks # 将文件置于启动脚本 start.sh 中指定的 confPath 目录，默认与 eventmesh.properties 同目录
+eventMesh.server.admin.ssl.cer=admin-server.jks # 将文件置于启动脚本 start.sh 中指定的 confPath 目录，默认与 eventmesh.properties 同目录
 eventMesh.server.admin.ssl.pass=eventmesh-admin-server
 ```
 

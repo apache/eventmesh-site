@@ -7,7 +7,7 @@
 EventMesh Runtime currently supports loading SSL certificate files in `jks` format. You can generate a `jks` certificate locally.
 
 ```shell
-keytool -genkey -alias eventmesh-admin-server -keyalg RSA -keystore eventmesh-admin-server.jks
+keytool -genkey -alias eventmesh-admin-server -keyalg RSA -keystore admin-server.jks
 ```
 
 The value of the `-alias` parameter is the hostname or domain name of your EventMesh Runtime node. You can set up a mapping relationship between the hostname/domain name and the IP address on the router/gateway/DNS server.
@@ -37,7 +37,7 @@ Configure the following items in `eventmesh.properties`:
 ```properties
 eventMesh.server.admin.useTls.enabled=true # default value false
 eventMesh.server.admin.ssl.protocol=TLSv1.3 # default value TLSv1.3, minimum support TLSv1.1
-eventMesh.server.admin.ssl.cer=eventmesh-admin-server.jks # place the file in the confPath directory specified in the start.sh startup script, by default in the same directory as eventmesh.properties
+eventMesh.server.admin.ssl.cer=admin-server.jks # place the file in the confPath directory specified in the start.sh startup script, by default in the same directory as eventmesh.properties
 eventMesh.server.admin.ssl.pass=eventmesh-admin-server
 ```
 
