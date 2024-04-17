@@ -35,9 +35,9 @@ keytool -genkey -alias eventmesh-admin-server -keyalg RSA -keystore eventmesh-ad
 配置 `eventmesh.properties` 中的以下条目：
 
 ```properties
-eventMesh.server.admin.useTls.enabled=true // 默认值 false
-eventMesh.server.admin.ssl.protocol=TLSv1.3 // 默认值 TLSv1.3，最低支持 TLSv1.1
-eventMesh.server.admin.ssl.cer=eventmesh-admin-server.jks // 将文件置于启动脚本 start.sh 中指定的 confPath 目录，默认与 eventmesh.properties 同目录
+eventMesh.server.admin.useTls.enabled=true # 默认值 false
+eventMesh.server.admin.ssl.protocol=TLSv1.3 # 默认值 TLSv1.3，最低支持 TLSv1.1
+eventMesh.server.admin.ssl.cer=eventmesh-admin-server.jks # 将文件置于启动脚本 start.sh 中指定的 confPath 目录，默认与 eventmesh.properties 同目录
 eventMesh.server.admin.ssl.pass=eventmesh-admin-server
 ```
 
@@ -48,9 +48,9 @@ eventMesh.server.admin.ssl.pass=eventmesh-admin-server
 配置 `eventmesh.properties` 中的以下条目：
 
 ```properties
-eventMesh.server.useTls.enabled=true // 默认值 false
-eventMesh.server.ssl.protocol=TLSv1.1 // 默认值 TLSv1.1，最高支持 TLSv1.3
-eventMesh.server.ssl.cer=sChat2.jks // 将文件置于启动脚本 start.sh 中指定的 confPath 目录，默认与 eventmesh.properties 同目录
+eventMesh.server.useTls.enabled=true # 默认值 false
+eventMesh.server.ssl.protocol=TLSv1.1 # 默认值 TLSv1.1，最高支持 TLSv1.3
+eventMesh.server.ssl.cer=sChat2.jks # 将文件置于启动脚本 start.sh 中指定的 confPath 目录，默认与 eventmesh.properties 同目录
 eventMesh.server.ssl.pass=sNetty
 ```
 
