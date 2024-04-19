@@ -9,15 +9,15 @@ Before using ChatGPT source connector, you need to configure the server.
 - Please configure the source connector in `/resource/source-config.yml`:
   - `connectorConfig`
     - `connectorName`, name of the connector.
-    - (required) `path`, path of the API.
-    - (required) `port`, port of the API.
-    - `idleTimeout`, idle TCP connection timeout in seconds. A connection will timeout and be closed if no data is received nor sent within the `idleTimeout` seconds. The default is 0, which means don't timeout.
+    - `path`, path of the API.
+    - `port`, port of the API.
+    - `idleTimeout`, idle TCP connection timeout in seconds. The default is 0, which means don't timeout.
     - `proxyEnable`, Proxy switch for openai request, default false.
     - `parsePromptFileName`, parse prompt template required by the user to use the parse request, default to the "prompt" file in the resource folder.
   - `openaiConfig`
     - (required) `token`, token of the openai
-    - (required) `model`, model of the openai
-    - `timeout`, openai connection timeout in seconds.
+    - `model`, model of the openai
+    - `timeout`, openai connection timeout in seconds. The default is 0, which means don't timeout.
     - `temperature`, https://platform.openai.com/docs/api-reference/chat/create `temperature`.
     - `maxTokens`, https://platform.openai.com/docs/api-reference/chat/create `max_tokens`.
     - `frequencyPenalty`, https://platform.openai.com/docs/api-reference/chat/create `presence_penalty`.
@@ -44,13 +44,13 @@ connectorConfig:
   connectorName: chatgptSource
   path: /chatgpt
   port: 3756
-  idleTimeout: 30
+  idleTimeout: 0
   proxyEnable: false
   parsePromptFileName: prompt
 openaiConfig:
   token:
   model: gpt-3.5-turbo
-  timeout: 30
+  timeout: 0
   temperature: 1
   maxTokens:
   frequencyPenalty: 0
@@ -68,11 +68,19 @@ The above example configures a URL `http://localhost:3756/chatgpt` in `source-co
 
 You can send messages in `CHAT` or `PARSE` request type, default `CHAT`,
 
-### CHAT
+#### CHAT
 
-the request type of "CHAT" is a conversation with ChatGPT
+The request type of "CHAT" is a conversation with ChatGPT
 
-example:
+- Construct a request body
+  - `requestType`, default is `CHAT`.
+  - `type`, default is `cloudevents`.
+  - `source`, default is `/`.
+  - `subject`, default is `chatGPT`.
+  - `datacontenttype`, default is `text/plain`.
+  - (required) `text`, you want to talk to ChatGPT about.
+
+For example:
 ```shell
 curl --location --request POST 'http://localhost:3756/chatgpt' \
 --data-raw '{
@@ -81,16 +89,23 @@ curl --location --request POST 'http://localhost:3756/chatgpt' \
     "source": "/mycontext",
     "subject":"test_topic",
     "datacontenttype":"text/plain",
-    "text": "you want to talk to ChatGPT about "
+    "text": "can you tell me a story."
 }'
 ```
 
-### PARSE
+#### PARSE
 
-the request type of "PARSE" is a output parse.
-ChatGPT will parse the output into a result set of type "datacontenttype" and put it into the data of cloudevent
+The request type of "PARSE" is a output parse and parse result that connector will get from ChatGPT.
+- Construct a request body
+  - (required)`requestType`, the value must be `PARSE`.
+  - `type`, default is `cloudevents`.
+  - `source`, default is `/`.
+  - `subject`, default is `chatGPT`.
+  - `datacontenttype`, default is `application/json`.
+  - (required) `text`, unstructured data. e.g.,an article or a description.
+  - (required) `fields`, field info, chatGPT according to field info Extract information from text.
 
-example:
+For example:
 ```shell
 curl --location --request POST 'http://localhost:3756/chatgpt' \
 --data-raw '{
@@ -103,7 +118,7 @@ curl --location --request POST 'http://localhost:3756/chatgpt' \
     "fields": "gift:Was the item purchased as a gift for someone else? Answer True if yes, False if not or unknown;delivery_days:How many days did it take for the product to arrive? If this information is not found, output -1;price_value:Extract any sentences about the value or price, and output them as a comma separated Python list"
 }'
 ```
-if `datacontenttype` is `application/json`, `cloudevent.data` is:
+If `datacontenttype` is `application/json`, ChatGPT result:
 
 ```json
 {
@@ -112,7 +127,7 @@ if `datacontenttype` is `application/json`, `cloudevent.data` is:
   "price_value": ["It's slightly more expensive than the other leaf blowers out there, but I think it's worth it for the extra features."]
 }
 ```
-if `datacontenttype` is `application/xml`, The root node of xml is fixed as `<root></root>`,`cloudevent.data` is:
+If `datacontenttype` is `application/xml`, The root node of xml is fixed as `<root></root>`, ChatGPT result:
 
 ```xml
 <data>
