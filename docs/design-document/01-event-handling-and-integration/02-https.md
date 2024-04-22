@@ -41,6 +41,18 @@ eventMesh.server.admin.ssl.cer=admin-server.jks # place the file in the confPath
 eventMesh.server.admin.ssl.pass=eventmesh-admin-server
 ```
 
+### JDK/JRE 8 Compatibility
+
+Most mainstream distributions of JDK/JRE 8 support TLSv1.3, such as the following versions:
+
+- [Oracle 8u261](https://www.oracle.com/java/technologies/javase/8u261-relnotes.html#JDK-8145252) or higher (released in July 2020)
+- [Azul Zulu 8u262](https://www.azul.com/newsroom/azul-systems-brings-updated-transport-layer-security-to-java-se-8/) or higher (released in July 2019)
+- [Amazon Corretto 8u272](https://aws.amazon.com/cn/about-aws/whats-new/2020/10/amazon-corretto-quarterly-updates-now-available/) or higher (released in October 2020)
+
+EventMesh has TLSv1.3 enabled by default through `SSLContext` configuration, so you don't need to add the `jdk.tls.client.protocols` JVM option.
+
+If your JDK/JRE 8 version does not support TLSv1.3, you can lower the TLS version of the `eventMesh.server.admin.ssl.protocol` property.
+
 ## Enable TLS in SDK
 
 ### Configuration on the eventmesh-runtime side

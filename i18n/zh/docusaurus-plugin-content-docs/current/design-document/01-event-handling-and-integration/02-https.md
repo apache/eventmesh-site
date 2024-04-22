@@ -41,6 +41,18 @@ eventMesh.server.admin.ssl.cer=admin-server.jks # 将文件置于启动脚本 st
 eventMesh.server.admin.ssl.pass=eventmesh-admin-server
 ```
 
+### JDK/JRE 8 兼容性
+
+大部分主流 JDK/JRE 8 发行版支持 TLSv1.3，例如以下版本：
+
+- [Oracle 8u261](https://www.oracle.com/java/technologies/javase/8u261-relnotes.html#JDK-8145252) 或更高（发布于 2020 年 7 月）
+- [Azul Zulu 8u262](https://www.azul.com/newsroom/azul-systems-brings-updated-transport-layer-security-to-java-se-8/) 或更高（发布于 2019 年 7 月）
+- [Amazon Corretto 8u272](https://aws.amazon.com/cn/about-aws/whats-new/2020/10/amazon-corretto-quarterly-updates-now-available/) 或更高（发布于 2020 年 10 月）
+
+EventMesh 已通过`SSLContext `配置默认启用 TLSv1.3，无需您添加`jdk.tls.client.protocols`JVM 选项。
+
+如果您的 JDK/JRE 8 版本不支持 TLSv1.3，可以降低`eventMesh.server.admin.ssl.protocol`属性的 TLS 版本。
+
 ## 在 SDK 中启用 TLS
 
 ### eventmesh-runtime 侧配置
