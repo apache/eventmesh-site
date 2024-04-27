@@ -311,14 +311,17 @@ $ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-$
 
 #### 4.3 打包二进制
 
-> 编译上一步打包的源码
+> 在`${release_version}-prepare`分支上打包二进制发行版
 
-检查编译后的文件命名，将二进制文件命名为`apache-eventmesh-${release_version}`
-
-> 注：需将源码根目录下的`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`, `NOTICE`文件拷贝到二进制的包中
+> 注：`dist`任务所依赖的`generateDistLicense`和`generateDistNotice`任务将会自动生成`tools/dist-licenses`目录下的`LICENSE`, `NOTICE`文件和`licenses`目录。`dist`任务本身将会复制`tools/dist-licenses`目录下的内容到`/dist`目录下。
 
 ```shell
-$ gradle clean jar dist && gradle installPlugin && gradle tar -x test
+$ ./gradlew clean dist && ./gradlew installPlugin
+```
+
+检查编译后的文件命名，将`/dist`目录命名为`apache-eventmesh-${release_version}`
+
+```shell
 $ tar -czvf apache-eventmesh-${release_version}-bin.tar.gz apache-eventmesh-${release_version}
 ```
 
@@ -333,15 +336,13 @@ $ for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done #�
 $ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done #计算签名
 ```
 
-### 6.提交到Apache svn
+### 6.提交到Apache SVN
 
 ```shell
 $ cd ~/apache/eventmesh # eventmesh svn根目录
 $ svn status
 $ svn commit -m 'prepare for ${release_version}-${rc_version}'
 ```
-
-
 
 ## 验证Release Candidates
 
@@ -436,7 +437,7 @@ $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventme
   - 依赖许可证的完整版全部在`license`目录
   - 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
 
-你可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
+你可以参考此文章：[ASF第三方许可证政策](https://apache.org/legal/resolved.html)
 
 ## 发起投票
 
