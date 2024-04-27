@@ -418,26 +418,22 @@ $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventme
 
 - 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
 - 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
 - `NOTICE`文件中的年份正确
 - 只存在文本文件，不存在二进制文件
-- 所有文件的开头都有ASF许可证
-- 能够正确编译，单元测试可以通过 (./gradle build) (目前支持JAVA 8/gradle 7.0/idea 2021.1.1及以上)
+- 所有文件的开头都有ASF许可证 (可以使用skywalking-eyes工具的`license-eye header check`命令检查)
+- 能够正确编译，单元测试可以通过 (`./gradlew build`) (目前支持JAVA 8/gradle 7.0/idea 2021.1.1及以上)
 - 检查是否有多余文件或文件夹，例如空文件夹等
 
 ### 3.检查二进制包的文件内容
 
 - 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
 - `NOTICE`文件中的年份正确
-- 所有文本文件开头都有ASF许可证
-- 检查第三方依赖许可证：
-  - 第三方依赖的许可证兼容
+- 所有文本文件开头都有ASF许可证 (可以使用skywalking-eyes工具的`license-eye header check`命令检查)
+- 根据[ASF第三方许可证政策](https://apache.org/legal/resolved.html)，检查第三方依赖的许可证：
+  - 第三方依赖的许可证与Apache-2.0兼容 (运行`checkDeniedLicense `任务，关注`tools/dist-licenses`目录下新增的license文件的兼容性)
   - 所有第三方依赖的许可证都在`LICENSE`文件中声名
-  - 依赖许可证的完整版全部在`license`目录
+  - 依赖许可证的完整版全部在`license`目录 (关注`generateDistLicense`任务的日志警告，补充过时工件的license内容)
   - 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
-
-你可以参考此文章：[ASF第三方许可证政策](https://apache.org/legal/resolved.html)
 
 ## 发起投票
 
