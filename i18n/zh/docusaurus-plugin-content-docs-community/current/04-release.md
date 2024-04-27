@@ -313,7 +313,7 @@ $ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-$
 
 > 在`${release_version}-prepare`分支上打包二进制发行版
 
-> 注：`dist`任务所依赖的`generateDistLicense`和`generateDistNotice`任务将会自动生成`tools/dist-licenses`目录下的`LICENSE`, `NOTICE`文件和`licenses`目录。`dist`任务本身将会复制`tools/dist-licenses`目录下的内容到`/dist`目录下。
+> 注：`dist`任务所依赖的`generateDistLicense`和`generateDistNotice`任务将会自动生成`tools/dist-license`目录下的`LICENSE`, `NOTICE`文件和`licenses`目录。`dist`任务本身将会复制`tools/dist-license`目录下的内容到`/dist`目录下。
 
 ```shell
 $ ./gradlew clean dist && ./gradlew installPlugin
@@ -430,9 +430,9 @@ $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventme
 - `NOTICE`文件中的年份正确
 - 所有文本文件开头都有ASF许可证 (可以使用skywalking-eyes工具的`license-eye header check`命令检查)
 - 根据[ASF第三方许可证政策](https://apache.org/legal/resolved.html)，检查第三方依赖的许可证：
-  - 第三方依赖的许可证与Apache-2.0兼容 (运行`checkDeniedLicense `任务，关注`tools/dist-licenses`目录下新增的license文件的兼容性)
+  - 第三方依赖的许可证与Apache-2.0兼容 (运行`checkDeniedLicense `任务，关注`tools/dist-license`目录下新增的license文件的兼容性)
   - 所有第三方依赖的许可证都在`LICENSE`文件中声名
-  - 依赖许可证的完整版全部在`license`目录 (关注`generateDistLicense`任务的日志警告，补充过时工件的license内容)
+  - 依赖许可证的完整版全部在`licenses`目录 (关注`generateDistLicense`任务的日志警告，补充过时工件的license内容)
   - 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
 
 ## 发起投票

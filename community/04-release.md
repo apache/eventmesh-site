@@ -312,7 +312,7 @@ $ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-$
 
 > Package the binary release on the `${release_version}-prepare` branch.
 
-> Note: The `dist` task depends on `generateDistLicense` and `generateDistNotice` tasks, which will automatically generate `LICENSE` and `NOTICE` files under the `tools/dist-licenses` directory. The `dist` task itself will copy the contents from the `tools/dist-licenses` directory to the `/dist` directory.
+> Note: The `dist` task depends on `generateDistLicense` and `generateDistNotice` tasks, which will automatically generate `LICENSE` and `NOTICE` files under the `tools/dist-license` directory. The `dist` task itself will copy the contents from the `tools/dist-license` directory to the `/dist` directory.
 
 ```shell
 $ ./gradlew clean dist && ./gradlew installPlugin
@@ -431,10 +431,10 @@ Extract `apache-eventmesh-${release_version}-source.tar.gz` and perform the foll
 - Verify that the year in the `NOTICE` file is correct.
 - Ensure that all text files begin with the ASF license (use `license-eye header check` command of the `skywalking-eyes` tool for verification).
 - According to the [ASF 3RD PARTY LICENSE POLICY](https://apache.org/legal/resolved.html), check the licenses of third-party dependencies:
-  - Ensure third-party dependencies' licenses are compatible with Apache-2.0 (run the `checkDeniedLicense` task, focusing on the compatibility of newly added license files under the `tools/dist-licenses` directory).
+  - Ensure third-party dependencies' licenses are compatible with Apache-2.0 (run the `checkDeniedLicense` task, focusing on the compatibility of newly added license files under the `tools/dist-license` directory).
   - Ensure all third-party dependencies' licenses are declared in the `LICENSE` file.
-  - Ensure the complete versions of dependency licenses are in the `license` directory (pay attention to the warning logs of the `generateDistLicense` task and supplement the license content of outdated artifacts).
-  - If the dependency is under the Apache license and there is a `NOTICE` file, include these `NOTICE` files in the version's `NOTICE` file.
+  - Ensure the complete versions of dependency licenses are in the `licenses` directory (pay attention to the warning logs of the `generateDistLicense` task and supplement the license content of outdated artifacts).
+  - If the dependency is under the Apache license and there is a `NOTICE` file, include these `NOTICE` files' content in EventMesh's `NOTICE` file.
 
 ## Initiates a vote
 
