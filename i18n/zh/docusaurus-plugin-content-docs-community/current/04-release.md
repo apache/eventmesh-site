@@ -93,7 +93,7 @@ $ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # 验证是否
 default-key 28681CB1
 ```
 
-**如果有多个 public key, 也可以删除无用的 key：**
+**如果有多个 public key，也可以删除无用的 key：**
 
 ```shell
 $ gpg --delete-secret-keys 29BBC3CB # 先删除私钥，指明key id
@@ -119,7 +119,7 @@ pub  rsa4096/EE8DAE7D29BBC3CB 2021-04-27 mikexue <mikexue@apache.org>
 Delete this key from the keyring? (y/N) y
 ```
 
-由于公钥服务器没有检查机制，任何人都可以用你的名义上传公钥，所以没有办法保证服务器上的公钥的可靠性。 通常，你可以在网站上公布一个公钥指纹，让其他人核对下载到的公钥是否为真。
+由于公钥服务器没有检查机制，任何人都可以用你的名义上传公钥，所以没有办法保证服务器上的公钥的可靠性。通常，你可以在网站上公布一个公钥指纹，让其他人核对下载到的公钥是否为真。
 
 ```shell
 # fingerprint参数生成公钥指纹：
@@ -130,7 +130,7 @@ uid           [ultimate] mikexue <mikexue@apache.org>
 sub   rsa4096 2021-04-26 [E]
 ```
 
-登录 [https://id.apache.org](https://id.apache.org/), 将上面的 fingerprint （即 F84A 0041 D70B 37AF 9C7B  F0B3 39F4 29D7 579C 25F5） 粘贴到自己的用户信息中 OpenPGP Public Key Primary Fingerprint
+登录 [https://id.apache.org](https://id.apache.org/)，将上面的 fingerprint （即 F84A 0041 D70B 37AF 9C7B  F0B3 39F4 29D7 579C 25F5） 粘贴到自己的用户信息中 OpenPGP Public Key Primary Fingerprint
 
 
 
@@ -163,7 +163,7 @@ version=1.2.0-release
 signing.keyId=579C25F5
 #生成密钥时填的passphrase
 signing.password=
-#导出的私钥文件secring.gpg路径,绝对路径, 比如/home/root/secring.gpg
+#导出的私钥文件secring.gpg的绝对路径,比如/home/root/secring.gpg
 signing.secretKeyRingFile=/home/root/secring.gpg
 #apache 账号
 apacheUserName=
@@ -251,7 +251,7 @@ signing {
 $ gradle signMavenJavaPublication publish
 ```
 
-上述命令执行成功后，待发布版本会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
+上述命令执行成功后，待发布版本会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories，使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的。如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
 
 
 
@@ -313,7 +313,7 @@ $ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-$
 
 > 在`${release_version}-prepare`分支上打包二进制发行版
 
-> 注：`dist`任务所依赖的`generateDistLicense`和`generateDistNotice`任务将会自动生成`tools/dist-license`目录下的`LICENSE`, `NOTICE`文件和`licenses`目录。`dist`任务本身将会复制`tools/dist-license`目录下的内容到`/dist`目录下。
+> 注：`dist`任务所依赖的`generateDistLicense`和`generateDistNotice`任务将会自动生成`tools/dist-license`目录下的`LICENSE`、`NOTICE`文件和`licenses`目录。`dist`任务本身将会复制`tools/dist-license`目录下的内容到`/dist`目录下。
 
 ```shell
 $ ./gradlew clean dist && ./gradlew installPlugin
@@ -445,7 +445,7 @@ $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventme
 
 ### 1.EventMesh社区投票阶段
 
-1. EventMesh社区投票，发起投票邮件到`dev@eventmesh.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
+1. EventMesh社区投票，发起投票邮件到`dev@eventmesh.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
 2. 宣布投票结果,发起投票结果邮件到`dev@eventmesh.apache.org`。
 
 ### 2.EventMesh社区投票模板
@@ -583,7 +583,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/eventmesh/${last_release
 
 ### 4.在Apache Staging仓库发布版本
 
-- 登录http://repository.apache.org , 使用Apache账号登录
+- 登录http://repository.apache.org，使用Apache账号登录
 - 点击左侧的Staging repositories，
 - 搜索EventMesh关键字，选择你最近上传的仓库，投票邮件中指定的仓库
 - 点击上方的`Release`按钮，这个过程会进行一系列检查
