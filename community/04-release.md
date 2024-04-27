@@ -291,7 +291,7 @@ $ mkdir ${release_version}-${rc_version}
 
 #### 4.1 Create tags
 
-Create a tag on `${release_version}-release` branch, with rc version, which is a pre-release version
+Create a tag on `${release_version}-prepare` branch, with rc version, which is a pre-release version
 
 ```shell
 $ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Release Candidate (Candidates start at zero)"
@@ -561,15 +561,15 @@ ${Your EventMesh Release Manager}
 
 ### 1. Merging code branch
 
-Merge the changes of the `${release_version}-release` branch to the `master` branch, delete the `release` branch after the merge is complete
+Merge the changes of the `${release_version}-prepare` branch to the `master` branch, delete the `release` branch after the merge is complete
 
 ```shell
 $ git checkout master
-$ git merge origin/${release_version}-release
+$ git merge origin/${release_version}-prepare
 $ git pull
 $ git push origin master
-$ git push --delete origin ${release_version}-release
-$ git branch -d ${release_version}-release
+$ git push --delete origin ${release_version}-prepare
+$ git branch -d ${release_version}-prepare
 ```
 
 ### 2. Migrating source and binary packages

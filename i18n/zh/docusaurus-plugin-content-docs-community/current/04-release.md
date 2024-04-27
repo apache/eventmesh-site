@@ -292,7 +292,7 @@ $ mkdir ${release_version}-${rc_version}
 
 #### 4.1 创建tag
 
-在`${release_version}-release`分支上创建tag，需带有rc版本，为预发布版本
+在`${release_version}-prepare`分支上创建tag，需带有rc版本，为预发布版本
 
 ```shell
 $ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Release Candidate (Candidates start at zero)"
@@ -554,15 +554,15 @@ Your EventMesh Release Manager
 
 ### 1.合并分支
 
-合并`${release_version}-release`分支的改动到`master`分支，合并完成后删除`release`分支
+合并`${release_version}-prepare`分支的改动到`master`分支，合并完成后删除`release`分支
 
 ```shell
 $ git checkout master
-$ git merge origin/${release_version}-release
+$ git merge origin/${release_version}-prepare
 $ git pull
 $ git push origin master
-$ git push --delete origin ${release_version}-release
-$ git branch -d ${release_version}-release
+$ git push --delete origin ${release_version}-prepare
+$ git branch -d ${release_version}-prepare
 ```
 
 ### 2.迁移源码与二进制包

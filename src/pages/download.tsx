@@ -280,7 +280,7 @@ const Download = (): JSX.Element => (
             with the OpenPGP signature.
             The signature should be matched against the
             {' '}
-            <a href="https://downloads.apache.org/incubator/eventmesh/KEYS">KEYS</a>
+            <a href="https://downloads.apache.org/eventmesh/KEYS">KEYS</a>
             {' '}
             file which contains
             the OpenPGP keys of EventMesh&apos;s Release Managers.
