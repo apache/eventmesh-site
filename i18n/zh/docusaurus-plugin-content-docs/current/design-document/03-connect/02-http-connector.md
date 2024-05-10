@@ -25,10 +25,10 @@
 
 ```yaml
 connectorConfig:
-    connectorName: httpSource
-    path: /test
-    port: 3755
-    idleTimeout: 5
+  connectorName: httpSource
+  path: /test
+  port: 3755
+  idleTimeout: 5
 ```
 
 上述的例子在`source-config.yml`中配置了一个 URL `http://localhost:3755/test`.
@@ -66,8 +66,6 @@ curl --location --request POST 'http://localhost:3755/test' \
 }'
 ```
 
-
-
 ## HTTP Sink Connector
 
 HTTP sink connector 拥有两种模式：common 和 webhook。
@@ -81,8 +79,6 @@ HTTP sink connector 拥有两种模式：common 和 webhook。
 - 响应结果的处理
 
   common模式只关心响应的状态码，而webhook模式还会存储回调数据，并对外提供回调数据暴露服务。
-
-
 
 ### 配置
 
@@ -113,42 +109,35 @@ HTTP sink connector 拥有两种模式：common 和 webhook。
       port: 8988
   ```
 
-
-
 HTTP sink connector 的所有配置如下：
 
-| 属性                            | 类型    | 是否必填     | 说明                                  | 备注                                                         |
-| ------------------------------- | ------- | ------------ | ------------------------------------- | ------------------------------------------------------------ |
-| connectorName                   | String  | 是           | connector名称                         |                                                              |
-| urls                            | List    | 是           | 接收消息的URL列表                     | HTTP协议默认端口为80,HTTPS协议则为443<br />合法URL格式为：<br />http://127.0.0.1:8987/test<br />http://127.0.0.1/test<br />https://example.com:4943/test<br/>https://example.com/test<br/> |
-| keepAlive                       | Boolean | 否           | 是否使用HTTP持久连接                  | 默认：true                                                   |
-| keepAliveTimeout                | Integer | 否           | HTTP持久连接超时时长                  | 单位：ms，默认：60000                                        |
-| connectionTimeout               | Integer | 否           | TCP连接超时时长                       | 单位：ms，默认：5000                                         |
-| idleTimeout                     | Integer | 否           | TCP空闲超时时长                       | 单位：ms，默认：5000（common），15000（webhook）             |
-| maxConnectionPoolSize           | Integer | 否           | 客户端的最大HTTP连接数                | 默认：5                                                      |
-| retryConfig                     | Object  |              | 重试机制的相关配置                    |                                                              |
-| retryConfig.maxRetries          | Integer | 否           | 最大重试次数                          | 不包含首次尝试，默认：2                                      |
-| retryConfig.interval            | Integer | 否           | 重试间隔                              | 单位：ms，默认：2000                                         |
-| retryConfig.retryOnNonSuccess   | Boolean | 否           | 是否重试收到非2xx响应的请求           | 默认：false，仅重试网络层面的错误请求                        |
-| webhookConfig                   | Object  |              | Webhook模式的相关配置                 |                                                              |
-| webhookConfig.activate          | Boolean | 否           | 是否启用Webhook模式                   | 默认：false                                                  |
-| webhookConfig.exportPath        | String  | 否           | 回调数据暴露路径                      | 默认：/export<br/>请求方式固定为GET<br/>请求参数有<br />type：peek(默认值，获取数据)/poll(获取并删除数据)<br />pageNum：当type为peek时，必须大于0,当type为poll时，该参数无效<br/>pageSize：必须大于0 |
-| webhookConfig.port              | Integer | 是（启用时） | 回调数据暴露端口                      |                                                              |
-| webhookConfig.serverIdleTimeout | Integer | 否           | 暴露回调数据的服务器的TCP空闲超时时长 | 单位：ms，默认：5000                                         |
-| webhookConfig.maxStorageSize    | Integer | 否           | 存储回调数据队列的最大值              | 默认：5000                                                   |
-
-
+| 属性                              | 类型      | 是否必填   | 说明                   | 备注                                                                                                                                                                        |
+|---------------------------------|---------|--------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| connectorName                   | String  | 是      | connector名称          |                                                                                                                                                                           |
+| urls                            | List    | 是      | 接收消息的URL列表           | HTTP协议默认端口为80,HTTPS协议则为443<br />合法URL格式为：<br />http://127.0.0.1:8987/test<br />http://127.0.0.1/test<br />https://example.com:4943/test<br/>https://example.com/test<br/> |
+| keepAlive                       | Boolean | 否      | 是否使用HTTP持久连接         | 默认：true                                                                                                                                                                   |
+| keepAliveTimeout                | Integer | 否      | HTTP持久连接超时时长         | 单位：ms，默认：60000                                                                                                                                                            |
+| connectionTimeout               | Integer | 否      | TCP连接超时时长            | 单位：ms，默认：5000                                                                                                                                                             |
+| idleTimeout                     | Integer | 否      | TCP空闲超时时长            | 单位：ms，默认：5000（common），15000（webhook）                                                                                                                                      |
+| maxConnectionPoolSize           | Integer | 否      | 客户端的最大HTTP连接数        | 默认：5                                                                                                                                                                      |
+| retryConfig                     | Object  |        | 重试机制的相关配置            |                                                                                                                                                                           |
+| retryConfig.maxRetries          | Integer | 否      | 最大重试次数               | 不包含首次尝试，默认：2                                                                                                                                                              |
+| retryConfig.interval            | Integer | 否      | 重试间隔                 | 单位：ms，默认：2000                                                                                                                                                             |
+| retryConfig.retryOnNonSuccess   | Boolean | 否      | 是否重试收到非2xx响应的请求      | 默认：false，仅重试网络层面的错误请求                                                                                                                                                     |
+| webhookConfig                   | Object  |        | Webhook模式的相关配置       |                                                                                                                                                                           |
+| webhookConfig.activate          | Boolean | 否      | 是否启用Webhook模式        | 默认：false                                                                                                                                                                  |
+| webhookConfig.exportPath        | String  | 否      | 回调数据暴露路径             | 默认：/export<br/>请求方式固定为GET<br/>请求参数有<br />type：peek(默认值，获取数据)/poll(获取并删除数据)<br />pageNum：当type为peek时，必须大于0,当type为poll时，该参数无效<br/>pageSize：必须大于0                            |
+| webhookConfig.port              | Integer | 是（启用时） | 回调数据暴露端口             |                                                                                                                                                                           |
+| webhookConfig.serverIdleTimeout | Integer | 否      | 暴露回调数据的服务器的TCP空闲超时时长 | 单位：ms，默认：5000                                                                                                                                                             |
+| webhookConfig.maxStorageSize    | Integer | 否      | 存储回调数据队列的最大值         | 默认：5000                                                                                                                                                                   |
 
 ### 启动
 
 1. 启动 EventMesh Runtime
 2. 启动 eventmesh-connector-http
 
-完成之后，向 EventMesh 发送消息，然后你的消息就会通过HTTP请求发生给目标HTTP服务器了。如果启用webhook模式，则还会同时开启一个 HTTP 服务器对外提供回调数据暴露服务。
-
-
-
-
+完成之后，向 EventMesh 发送消息，然后你的消息就会通过HTTP请求发生给目标HTTP服务器了。如果启用webhook模式，则还会同时开启一个
+HTTP 服务器对外提供回调数据暴露服务。
 
 ### 数据格式
 
@@ -162,15 +151,13 @@ HTTP sink connector 发送消息的数据格式如下：
 
 ```json
 {
-    "type": "httpSink.http.webhook",
-    "time": "2024-05-09T22:27:02.028",
-    "uuid": "951d88ee-2503-4df3-a1dd-6e4a6a1c3d3b",
-    "eventId": "httpSink.http.webhook-0",
-    "data": ${ConnectRecord}
+  "type": "httpSink.http.webhook",
+  "time": "2024-05-09T22:27:02.028",
+  "uuid": "951d88ee-2503-4df3-a1dd-6e4a6a1c3d3b",
+  "eventId": "httpSink.http.webhook-0",
+  "data": ${ConnectRecord}
 }
 ```
-
-
 
 启用webhook模式时，则还会同时开启一个 HTTP 服务器对外提供回调数据暴露服务。获取的回调数据格式如下：
 
@@ -178,34 +165,34 @@ HTTP sink connector 发送消息的数据格式如下：
 - pageSize：每页的大小
 - pageItems：获取的回调数据数组
 - pageItem的字段含义如下：
-  - data：从回调服务器返回的回调数据
-  - metadata：元数据，字段含义如下：
-    - url: 获取回调数据的URL
-    - code：请求回调数据得到的响应状态码，如果发生的网络层面的错误（无法收到响应），则为-1
-    - message：请求回调数据得到的响应信息，如果发生的网络层面的错误（无法收到响应），则为相关异常信息
-    - uuid：请求回调数据的唯一请求标识，和上面发送消息时所携带的uuid一一对应
-    - receivedTime：请求回调数据得到的响应时间
-    - retryNum：重试次数
-    - retriedBy：如果发送重试，则记录被重试的请求的uuid，否则为null
+    - data：从回调服务器返回的回调数据
+    - metadata：元数据，字段含义如下：
+        - url: 获取回调数据的URL
+        - code：请求回调数据得到的响应状态码，如果发生的网络层面的错误（无法收到响应），则为-1
+        - message：请求回调数据得到的响应信息，如果发生的网络层面的错误（无法收到响应），则为相关异常信息
+        - uuid：请求回调数据的唯一请求标识，和上面发送消息时所携带的uuid一一对应
+        - receivedTime：请求回调数据得到的响应时间
+        - retryNum：重试次数
+        - retriedBy：如果发送重试，则记录被重试的请求的uuid，否则为null
 
 ```json
 {
-    "pageNum": 1,
-    "pageSize": 10,
-    "pageItems": [
-        {
-            "data": "callbackData",
-            "metadata": {
-                "url": "http://127.0.0.1:8987/test",
-                "code": 200,
-                "message": "OK",
-                "receivedTime": "2024-05-09 22:53:21.556",
-                "uuid": "fba29061-1a1f-4482-9c83-43ba4e0bcf3f",
-                "retriedBy": null,
-                "retryNum": 0
-            }
-        }
-    ]
+  "pageNum": 1,
+  "pageSize": 10,
+  "pageItems": [
+    {
+      "data": "callbackData",
+      "metadata": {
+        "url": "http://127.0.0.1:8987/test",
+        "code": 200,
+        "message": "OK",
+        "receivedTime": "2024-05-09 22:53:21.556",
+        "uuid": "fba29061-1a1f-4482-9c83-43ba4e0bcf3f",
+        "retriedBy": null,
+        "retryNum": 0
+      }
+    }
+  ]
 }
 ```
 
