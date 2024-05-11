@@ -12,8 +12,7 @@ Before using HTTP source connector, you need to configure the server.
     - `connectorName`, name of the connector.
     - (required) `path`, path of the API.
     - (required) `port`, port of the API.
-    - `idleTimeout`, idle TCP connection timeout in seconds. A connection will timeout and be closed if no data is
-      received nor sent within the `idleTimeout` seconds. The default is 0, which means don't timeout.
+    - `idleTimeout`, idle TCP connection timeout in seconds. A connection will timeout and be closed if no data is received nor sent within the `idleTimeout` seconds. The default is 0, which means don't timeout.
 
 ### Startup
 
