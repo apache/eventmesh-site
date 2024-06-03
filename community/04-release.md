@@ -291,7 +291,7 @@ $ mkdir ${release_version}-${rc_version}
 
 #### 4.1 Create tags
 
-Create a tag on `${release_version}-release` branch, with rc version, which is a pre-release version
+Create a tag on `${release_version}-prepare` branch, with rc version, which is a pre-release version
 
 ```shell
 $ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Release Candidate (Candidates start at zero)"
@@ -310,18 +310,21 @@ $ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-$
 
 #### 4.3 Build binary package
 
-> Compile the source code packaged in the previous step
+> Package the binary release on the `${release_version}-prepare` branch.
 
-Check the compiled file naming format, name the binary as `apache-eventmesh-${release_version}`
-
-> Note: You need to copy the `NOTICE` file in the root directory of the source code, the `DISCLAIMER-WIP` file and the `LICENSE` file in the `tools/third-party-licenses` directory to the binary package
+> Note: The `dist` task depends on `generateDistLicense` and `generateDistNotice` tasks, which will automatically generate `LICENSE` and `NOTICE` files under the `tools/dist-license` directory. The `dist` task itself will copy the contents from the `tools/dist-license` directory to the `/dist` directory.
 
 ```shell
-$ gradle clean jar dist && gradle installPlugin && gradle tar -x test
+$ ./gradlew clean dist && ./gradlew installPlugin
+```
+
+Check the compiled file naming, renaming the `/dist` directory to `apache-eventmesh-${release_version}`.
+
+```shell
 $ tar -czvf apache-eventmesh-${release_version}-bin.tar.gz apache-eventmesh-${release_version}
 ```
 
-Compress the source package and bin package, and copy the relevant compressed packages to the svn local warehouse directory `/apache/eventmesh/${release_version}-${rc_version}`
+Compress the source package and the binary package, and copy the relevant compressed packages to the local SVN repository under `/apache/eventmesh/${release_version}-${rc_version}`.
 
 ### 5. Generate signature/sha512 file
 
@@ -332,7 +335,7 @@ $ for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done #co
 $ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done #compute signature
 ```
 
-### 6. Commit to Apache svn
+### 6. Commit to Apache SVN
 
 ```shell
 $ cd ~/apache/eventmesh # eventmesh svn root directory
@@ -412,39 +415,26 @@ $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventme
 
 ### 2. Check the file content of the source package
 
-Unzip `apache-eventmesh-${release_version}-source.tar.gz` and check as follows:
+Extract `apache-eventmesh-${release_version}-source.tar.gz` and perform the following checks:
 
-- Check whether the source package contains unnecessary files, causing the tar package to be too large
-
-- Presence of `LICENSE` and `NOTICE` files
-- Existence of `DISCLAIMER` file
-- correct year in `NOTICE` file
-- Only text files exist, no binary files exist
-- All files start with ASF license
-- It can be compiled correctly and the unit test can pass (./gradle build) (currently supports JAVA 8/gradle 7.0/idea 2021.1.1 and above)
-- Check for redundant files or folders, such as empty folders, etc.
+- Check if the source package contains unnecessary files that make the tar package too large.
+- Ensure the existence of `LICENSE` and `NOTICE` files.
+- Verify that the year in the `NOTICE` file is correct.
+- Verify that only text files exist and there are no binary files.
+- Ensure that all files begin with the ASF license (use `license-eye header check` command of the `skywalking-eyes` tool for verification).
+- Ensure successful compilation, passing unit tests (`./gradlew build`) (currently supporting JAVA 8/gradle 7.0/idea 2021.1.1 and above).
+- Check for any redundant files or folders, such as empty folders.
 
 ### 3. Check the file content of the binary package
 
-- Presence of `LICENSE` and `NOTICE` files
-
-- Existence of `DISCLAIMER` file
-
-- correct year in `NOTICE` file
-
-- All text files start with ASF license
-
-- Check third-party dependent licenses:
-
-  - Compatibility with 3rd party dependent licenses
-
-  - All 3rd party dependent licenses are declared in the `LICENSE` file
-
-  - The full versions of the dependent licenses are all in the `license` directory
-
-  - If you are relying on the Apache license and there are `NOTICE` files, then these `NOTICE` files also need to be added to the version `NOTICE` file
-
-You can refer to this article: [ASF third-party license policy](https://apache.org/legal/resolved.html)
+- Ensure the existence of `LICENSE` and `NOTICE` files.
+- Verify that the year in the `NOTICE` file is correct.
+- Ensure that all text files begin with the ASF license (use `license-eye header check` command of the `skywalking-eyes` tool for verification).
+- According to the [ASF 3RD PARTY LICENSE POLICY](https://apache.org/legal/resolved.html), check the licenses of third-party dependencies:
+  - Ensure third-party dependencies' licenses are compatible with Apache-2.0 (run the `checkDeniedLicense` task, focusing on the compatibility of newly added license files under the `tools/dist-license` directory).
+  - Ensure all third-party dependencies' licenses are declared in the `LICENSE` file.
+  - Ensure the complete versions of dependency licenses are in the `licenses` directory (pay attention to the warning logs of the `generateDistLicense` task and supplement the license content of outdated artifacts).
+  - If the dependency is under the Apache license and there is a `NOTICE` file, include these `NOTICE` files' content in EventMesh's `NOTICE` file.
 
 ## Initiates a vote
 
@@ -561,15 +551,15 @@ ${Your EventMesh Release Manager}
 
 ### 1. Merging code branch
 
-Merge the changes of the `${release_version}-release` branch to the `master` branch, delete the `release` branch after the merge is complete
+Merge the changes of the `${release_version}-prepare` branch to the `master` branch, delete the `release` branch after the merge is complete
 
 ```shell
 $ git checkout master
-$ git merge origin/${release_version}-release
+$ git merge origin/${release_version}-prepare
 $ git pull
 $ git push origin master
-$ git push --delete origin ${release_version}-release
-$ git branch -d ${release_version}-release
+$ git push --delete origin ${release_version}-prepare
+$ git branch -d ${release_version}-prepare
 ```
 
 ### 2. Migrating source and binary packages

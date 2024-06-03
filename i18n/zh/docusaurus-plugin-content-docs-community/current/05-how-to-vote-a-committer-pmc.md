@@ -1,11 +1,11 @@
 ---
-title: 如何提名新的Committer 和 PMC
+title: 如何提名新的 Committer 和 PMC
 sidebar_position: 4
 ---
-> 介绍Committer 和 PMC成员 的推选要求以及流程。官方指引可参见：https://community.apache.org/newcommitter.html
+> 介绍 Committer 和 PMC 成员 的推选要求以及流程。官方指引可参见：https://community.apache.org/newcommitter.html
 
-## 1.候选人要求
-在投票时，所有 PMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@eventmesh.apache.org)/[ISSUES/PR](https://github.com/apache/eventmesh/issues)/[官网文档贡献](https://github.com/apache/eventmesh-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
+## 1. 候选人要求
+在投票时，所有 PMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索 [邮件列表](https://lists.apache.org/list?dev@eventmesh.apache.org)/[ISSUES/PR](https://github.com/apache/eventmesh/issues)/[官网文档贡献](https://github.com/apache/eventmesh-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
 
 以下是在评估候选人的承诺资格时需要考虑的一些要点。
 1. 与社区开发合作的能力？
@@ -29,7 +29,7 @@ sidebar_position: 4
    - 积极回复 ASF 董事会提出的问题，并采取必要的行动
    - 熟悉 ASF 的版本发布流程
 
-在大多数情况下，新的 PMC 成员是从 Committer 团队中提名的。但也可以直接成为 PMC 成员，只要 PMC成员 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PMC 成员这一事实来证明。
+在大多数情况下，新的 PMC 成员是从 Committer 团队中提名的。但也可以直接成为 PMC 成员，只要 PMC 成员 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PMC 成员这一事实来证明。
 
 ## 2. 推举详细流程
 
@@ -41,8 +41,7 @@ ${Committer/PMC}：代表推选的类型 Committer/PMC
 
 ### 2.1 发起社区邮件讨论
 
->任何eventmesh的 PMC 成员都可以发起投票讨论，在 PMC 发现社区贡献者任何有价值的贡献并取得候选人本人同意后，可以在eventmesh的private邮件列表发起讨论。讨论邮件里提议者要把候选人的贡献说清楚，并且给出复核对应贡献的地址，便于大家讨论分析。讨论邮件主送private@eventmesh.apache.org邮箱，讨论将持续至少72个小时，项目组成员，包括mentor们会针对提议邮件充分发表自己的看法。
-
+>任何 eventmesh 的 PMC 成员都可以发起投票讨论，在 PMC 发现社区贡献者任何有价值的贡献并取得候选人本人同意后，可以在 eventmesh 的 private 邮件列表发起讨论。讨论邮件里提议者要把候选人的贡献说清楚，并且给出复核对应贡献的地址，便于大家讨论分析。讨论邮件主送 private@eventmesh.apache.org 邮箱，讨论将持续至少 72 个小时，项目组成员，包括 mentor 们会针对提议邮件充分发表自己的看法。
 
 如下是讨论邮件样例：
 
@@ -67,8 +66,7 @@ Thanks!
 
 ### 2.2 发起社区邮件投票
 
->如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在eventmesh的private邮件列表发起Committer或 PMC成员 的选举投票。投票邮件主送private@eventmesh.apache.org，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
-
+>如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在 eventmesh 的 private 邮件列表发起 Committer 或 PMC 成员 的选举投票。投票邮件主送 private@eventmesh.apache.org，至少要 3 票 +1 通过；如果存在 -1 投票则整个投票失败；投票人需要把 -1 的原因说清楚，便于大家理解和知晓。
 
 如下是投票邮件样例：
 ```html
@@ -95,7 +93,7 @@ Hi all:
 Thanks!
 ```
 ### 2.3 宣布投票结果
->投票邮件结束后，投票发起者需要在第二封[VOTE]邮件里提醒投票结束；同时，投票发起者需要发起邮票宣布投票结果，发送至private@eventmesh.apache.org。
+>投票邮件结束后，投票发起者需要在第二封 [VOTE] 邮件里提醒投票结束；同时，投票发起者需要发起邮票宣布投票结果，发送至 private@eventmesh.apache.org。
 
 如下投票结果样例：
 ```html
@@ -125,16 +123,17 @@ Thanks!
 
 ### 2.4 新增 PMC 的通知邮件
 
-> 该步骤只针对新的 PMC成员 推举流程，如果选举的是Committer，该步跳过不执行。
-> 投票发起者需要发送至 board@apache.apache.org 邮件组发送知会邮件，并等待至少72小时。
-> 邮件发送 board@apache.org，抄送private@eventmesh.apache.org；PMC成员们会分析合规性，直到没有异议。
+> 该步骤只针对新的 PMC 成员 推举流程，如果选举的是 Committer，该步跳过不执行。
+> 投票发起者需要发送至 board@apache.apache.org 邮件组发送知会邮件，并等待至少 72 小时。
+> 邮件发送 board@apache.org，抄送 private@eventmesh.apache.org；PMC 成员们会分析合规性，直到没有异议。
 
-如下是新增推选 PMC成员 的通知邮件样例：
+如下是新增推选 PMC 成员 的通知邮件样例：
+
 ```html
 To: board@apache.org
 Cc: private@eventmesh.apache.org
 
-Subject：[NOTICE] ${Candidate Name} for EventMesh PMC
+Subject: [NOTICE] ${Candidate Name} for EventMesh PMC
 Content:
 Hi everyone,
 
@@ -148,11 +147,10 @@ Thanks!
 
 72 小时后，如果董事会不反对提名（大多数情况下不会反对），则可以向候选人发送邀请。
 
-
 ### 2.5 向候选人发起邮件邀请
->宣布投票结果邮件发出后，投票发起人要给候选人发送邀请邮件。邀请邮件发送被邀请人，抄送private@eventmesh.apache.org；被邀请的候选人必须通过指定的邮箱地址回复接受或者拒绝该邀请。
+>宣布投票结果邮件发出后，投票发起人要给候选人发送邀请邮件。邀请邮件发送被邀请人，抄送 private@eventmesh.apache.org；被邀请的候选人必须通过指定的邮箱地址回复接受或者拒绝该邀请。
 
-如下是邀请候选人邮件样例：以被邀请人Joe Bloggs为例
+如下是邀请候选人邮件样例：以被邀请人 Joe Bloggs 为例
 
 ```html
 To: JoeBloggs@foo.net
@@ -215,7 +213,7 @@ The Apache EventMesh PMC
 >需要候选人进行处理
 
 新的 Committer 应回复 `private@eventmesh.apache.org`（选择`reply all`），并表达他/她接受邀请。
-然后，该邀请将被项目的 PMC成员 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
+然后，该邀请将被项目的 PMC 成员 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
 
 接受邀请，回复邮件示例
 ```
@@ -234,9 +232,9 @@ XXXX
 一旦邀请被接受，新的提交者需要完成以下事项：
 - 订阅`dev@eventmesh.apache.org`。通常这已经完成了。
 - 选择一个未被使用过 [apache committers list page](http://people.apache.org/committer-index.html) 的 Apache ID。
-- 下载 ICLA 并签署 指引见[ICLA 签署流程](how-to-sign-apache-icla)。
+- 下载 ICLA 并签署 指引见 [ICLA 签署流程](how-to-sign-apache-icla)。
 
-- PMC成员 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PMC成员 将收到以下电子邮件：
+- PMC 成员 将等待 Apache 秘书确认 ICLA（或 CCLA）备案。新的提交者和 PMC 成员 将收到以下电子邮件：
 
 ```html
 Dear ${Candidate Name},
@@ -250,27 +248,26 @@ Please refer to https://www.apache.org/foundation/how-it-works.html#developers
 for more information about roles at Apache.
 ```
 
-万一该帐户未被处理，PMC 成员应联系项目[Apache Incubator的VP](https://www.apache.org/foundation/), 可以通过 [Apache Account Submission Helper Form](https://whimsy.apache.org/officers/acreq) 请求。
+万一该帐户未被处理，PMC 成员应联系项目 [Apache Incubator 的 VP](https://www.apache.org/foundation/), 可以通过 [Apache Account Submission Helper Form](https://whimsy.apache.org/officers/acreq) 请求。
 
-几天后，新的提交者将收到一封来自root@apache.org帐户通知账号创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
+几天后，新的提交者将收到一封来自 root@apache.org 帐户通知账号创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
 
-收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知EventMesh PMC成员，你的Apache Id账号已经创建，请求将你的Apache Id添加到EventMesh的官方提交者列表中。
-(告知负责提名你的PMC成员通过 [Roster](https://whimsy.apache.org/roster/committee/eventmesh) 页面，将新的提交者添加到官方提交者列表中）
+收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知 EventMesh PMC 成员，你的 Apache Id 账号已经创建，请求将你的 Apache Id 添加到 EventMesh 的官方提交者列表中。
+（告知负责提名你的 PMC 成员通过 [Roster](https://whimsy.apache.org/roster/committee/eventmesh) 页面，将新的提交者添加到官方提交者列表中）
 
 ### 2.7 设置 Apache ID 和开发环境
 
-- 进入[Apache Account Utility Platform](https://id.apache.org/)，创建密码，设置个人邮箱（`转发邮箱地址`）和GitHub账号（`Your GitHub Username`）。
-- 如果您想使用`xxx@apache.org`邮件服务，请参考[这里](https://infra.apache.org/committer-email.html)。推荐使用 Gmail，因为这种转发模式在大多数邮箱服务设置中都不容易找到。
-- 关注【授权GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) 开启双因素授权（2FA ) 在 [Github](http://github.com/) 上。当您将 2FA 设置为“关闭”时，它将被相应的 Apache committer 写入权限组除名，直到您再次设置它。 （**注意：像对待密码一样注意恢复代码！**）
-- 使用【GitBox Account Linking Utility】（https://gitbox.apache.org/setup/）获取EventMesh项目的写权限。
-- [eventmesh-website](https://eventmesh.apache.org/team)相关页面更新
+- 进入 [Apache Account Utility Platform](https://id.apache.org/)，创建密码，设置个人邮箱（`转发邮箱地址`）和 GitHub 账号（`Your GitHub Username`）。
+- 如果您想使用`xxx@apache.org`邮件服务，请参考 [这里](https://infra.apache.org/committer-email.html)。推荐使用 Gmail，因为这种转发模式在大多数邮箱服务设置中都不容易找到。
+- 关注【授权 GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) 开启双因素授权（2FA ) 在 [Github](http://github.com/) 上。当您将 2FA 设置为“关闭”时，它将被相应的 Apache committer 写入权限组除名，直到您再次设置它。 （**注意：像对待密码一样注意恢复代码！**）
+- 使用【GitBox Account Linking Utility】（https://gitbox.apache.org/setup/）获取 EventMesh 项目的写权限。
+- [eventmesh-website](https://eventmesh.apache.org/team) 相关页面更新
 
 如果您想在 Apache GitHub 组织中公开露面，您需要前往 [Apache GitHub 人员页面](https://github.com/orgs/apache/people)，
 搜索自己，然后选择`Organization visibility`为`Public`。
 
-
 ## 3 发布公告邮件
->如上步骤都完成后，投票发起人向dev@eventmesh.apache.org邮件组发通知邮件。
+>如上步骤都完成后，投票发起人向 dev@eventmesh.apache.org 邮件组发通知邮件。
 
 如下是通知邮件样例：
 ```html
@@ -290,13 +287,13 @@ Thanks!
 The Apache EventMesh PMC
 ```
 
-到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PMC成员。
+到此，整个流程才算走完，候选人才正式的成为项目的 Committer 或者 PMC 成员。
 
 ## 4 操作流程总结
-1. 发送携带ICLA附件的邮件
-2. 1-2天后收到回复邮件，将在5个工作日内处理
-3. 2-5天内收到apache账户创建成功邮件
+1. 发送携带 ICLA 附件的邮件
+2. 1-2 天后收到回复邮件，将在 5 个工作日内处理
+3. 2-5 天内收到 apache 账户创建成功邮件
 4. 使用邮件提示内容找回密码或重置密码
-5. 登录id.apache.org或whimsy.apache.org关联github账号
-6. 开启Github的2FA认证（双因子认证）
-7. 使用gitbox.apache.org获得仓库写入权限  
+5. 登录 id.apache.org 或 whimsy.apache.org 关联 github 账号
+6. 开启 Github 的 2FA 认证（双因子认证）
+7. 使用 gitbox.apache.org 获得仓库写入权限  
