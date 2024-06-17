@@ -269,3 +269,21 @@ When the following logs are printed to the console, EventMesh Runtime has stoppe
 DEBUG StatusConsoleListener Shutdown hook enabled. Registering a new one.
 WARN StatusConsoleListener Unable to register Log4j shutdown hook because JVM is shutting down. Using SimpleLogger
 ```
+
+### 3.8 Support for cluster load balancing and failover
+
+As we all know there is in-sync replica in Kafka. It utilizes K-raft protocol to synchronize information in the leading main broker among multiple following Kafka brokers. If the leading main broker is down, there will be a leader election policy in order to avoid message lost. 
+
+But event-mesh **haven't** implement the j-raft protocol. Even recently we merged a j-raft protocol PR in our main branch, but that PR is **not functional**, it is **just functional in a fixed cluster list**. We should define the cluster nodes in the `eventmesh.properties` file. Once we start the event-mesh node, the properties is **immutable**.  Which means once the cluster starts, the number of cluster nodes is **immutable**. We can't elastic scaling up and down the number of event-mesh cluster nodes. 
+
+But j-raft protocol has potential to elastic scaling up and down, once we implement the j-raft interface. So that the cluster can discover new clusters. We just need to add the IP and port in the `eventmesh.properties` file. If it is a leading node it will be registered successfully. Then the leading node will synchronize the information among all the following nodes. 
+
+If the leading node is down, all the following node will make a leader election and select a new leading node. When the previous leading node recovered and join the cluster, it is **no longer** a leading node. 
+
+So once we implemented the j-raft interface we don't need a NACOS as the registry center.  
+
+We can continue to use the existing SDK pattern. The existing SDK pattern of the runtime is to insert in the IP address in the `eventmesh.properties` file. If this node goes down, then it will be a service failure. 
+
+There are two solutions, and i.e. to **add a gateway proxy** layer in front of the cluster. This is the subsequent version of functional solution for the new architecture. 
+
+Another solution is the **j-raft protocol**. It can flexibly scale up and down by adding IP addresses. This allows the nodes to connect the entire cluster.
