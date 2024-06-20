@@ -31,7 +31,7 @@ connectorConfig:
 
 1. 启动你的 EventMesh Runtime。
 2. 启用 sourceConnector 并检查 `source-config.yml`。 
-3. 启动你的 KafkaConnectServer，它将订阅 Kafka的 `connectorConfig.topic `，并将读取的数据发送到 EventMesh Runtime 中的 `pubSubConfig.subject`。 
+3. 启动你的 KafkaConnectServer，它将订阅 Kafka 的 `connectorConfig.topic `，并将读取的数据发送到 EventMesh Runtime 中的 `pubSubConfig.subject`。 
 4. 向 Kafka 发送一个消息，然后你将在 EventMesh 中接收到该消息。
 
 ```yaml

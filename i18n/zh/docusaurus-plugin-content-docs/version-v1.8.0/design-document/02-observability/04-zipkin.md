@@ -1,16 +1,16 @@
 # 通过 Zipkin 观察 Trace
 
-### 1、下载和运行Zipkin
+### 1、下载和运行 Zipkin
 
-请参考https://zipkin.io/pages/quickstart.html
+请参考 https://zipkin.io/pages/quickstart.html
 
 
 
-### 2、运行eventmesh
+### 2、运行 eventmesh
 
-运行eventmesh-starter(参考[eventmesh-runtime-quickstart](../../instruction/03-runtime.md))
+运行 eventmesh-starter(参考[eventmesh-runtime-quickstart](../../instruction/03-runtime.md))
 
-运行eventmesh-example(参考[eventmesh-sdk-java-quickstart](../../instruction/05-demo.md))
+运行 eventmesh-example(参考[eventmesh-sdk-java-quickstart](../../instruction/05-demo.md))
 
 
 
@@ -18,13 +18,13 @@
 
 eventmesh-runtime/conf/eventmesh.properties中：
 
-默认的exporter是log，需要手动改成Zipkin
+默认的 exporter 是 log，需要手动改成 Zipkin
 
 ```properties
 #trace exporter
 eventmesh.trace.exporter.type=Zipkin
 ```
-下面是关于Zipkin的各种配置
+下面是关于 Zipkin 的各种配置
 ```properties
 #set the maximum batch size to use
 eventmesh.trace.exporter.max.export.size=512
@@ -40,7 +40,7 @@ eventmesh.trace.export.zipkin.ip=localhost
 eventmesh.trace.export.zipkin.port=9411
 ```
 
-以上都是相关的配置，如果你十分熟悉Zipkin的话可以自行修改。
+以上都是相关的配置，如果你十分熟悉 Zipkin 的话可以自行修改。
 
 
 

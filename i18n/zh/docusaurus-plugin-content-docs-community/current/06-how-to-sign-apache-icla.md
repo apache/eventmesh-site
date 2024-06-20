@@ -4,43 +4,43 @@ sidebar_position: 5
 ---
 
 ## Apache ICLA 签署流程指南
->注：本文参考 shenyu-website项目的Apache ICLA 签署流程指南文档 https://shenyu.apache.org/zh/community/icla/
+>注：本文参考 shenyu-website 项目的 Apache ICLA 签署流程指南文档 https://shenyu.apache.org/zh/community/icla/
 
-Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是定义向ASF贡献的文档，保护知识产权，避免后续法律纠纷。ICLA在官方存档后生效，贡献者方可参与Apache项目。
+Apache CLA 全称 Apache Contributor License Agreement，签署 ICLA 的目的是定义向 ASF 贡献的文档，保护知识产权，避免后续法律纠纷。ICLA 在官方存档后生效，贡献者方可参与 Apache 项目。
 
-当我们需要签署ICLA时步骤如下:
+当我们需要签署 ICLA 时步骤如下：
 
-**1. 打开链接 [官网Licenses](https://www.apache.org/licenses/#clas) 在Contributor License Agreements 下找到 [CLAs](https://www.apache.org/licenses/contributor-agreements.html#clas) 并进入页面。**
+**1. 打开链接 [官网 Licenses](https://www.apache.org/licenses/#clas) 在 Contributor License Agreements 下找到 [CLAs](https://www.apache.org/licenses/contributor-agreements.html#clas) 并进入页面。**
 
 ![page_link](https://user-images.githubusercontent.com/29391030/153529738-96f3f75a-41e5-4947-b290-c4ea29b101f1.png)
 
-**2. 在页面上方我们可以看到两个下载链接，选择 [ICLA(个人CLA)](https://www.apache.org/licenses/icla.pdf) 并下载文件。**
+**2. 在页面上方我们可以看到两个下载链接，选择 [ICLA(个人 CLA)](https://www.apache.org/licenses/icla.pdf) 并下载文件。**
 
 ![download](https://user-images.githubusercontent.com/29391030/153529788-a874aab9-786b-4131-a388-c0b5e31bdb8a.png)
 
-**3. 打开PDF，ICLA需要填写的是两个部分，均需要全英文填写。**
+**3. 打开 PDF，ICLA 需要填写的是两个部分，均需要全英文填写。**
 
-> 注意事项:
+> 注意事项：
 > - 姓名需要填写拼音，姓与名之间空一格，首字母均为大写，名在前姓氏在后。
-> - Committer相关的签署，则preferred Apache id(s)是必填项。
+> - Committer 相关的签署，则 preferred Apache id(s)是必填项。
 
 填写说明：
-- **Full name**：全名：名字在前，姓氏在后，例如：如果你叫 “张大强”，就写 “Daqiang Zhang”
+- **Full name**：全名：名字在前，姓氏在后，例如：如果你叫“张大强”，就写“Daqiang Zhang”
 - **Public name**：可以不填，默认和 `Full name` 相同
-- **Postal Address**：英文地址，需要填写邮政编码，并详细到门牌号（xx单元xxx）
+- **Postal Address**：英文地址，需要填写邮政编码，并详细到门牌号（xx 单元 xxx）
 - **E-mail**：邮箱地址
 - **(optional) preferred Apache id(s)**：选择一个 [Apache committer](http://people.apache.org/committer-index.html) 页面不存在的 **SVN ID**
 - **(optional) notify project**：Apache EventMesh
 
 ![information](https://user-images.githubusercontent.com/7869972/172194397-deca4649-32c1-4584-8525-2a387ca80ac6.png)
 
-**4.文件最下方的署名。** 官网支持手写或者[PDF签名软件](https://smallpdf.com/cn/sign-pdf)
+**4.文件最下方的署名。** 官网支持手写或者[PDF 签名软件](https://smallpdf.com/cn/sign-pdf)
 
 ![sign](https://user-images.githubusercontent.com/29391030/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
 
-**5.签署完之后将icla.pdf命令为 `姓名拼音-icla.pdf` 发送到导师提供的邮箱（邮箱地址为`secretary@apache.org`），下面是邮件模板：**
+**5.签署完之后将 icla.pdf 命令为 `姓名拼音-icla.pdf` 发送到导师提供的邮箱（邮箱地址为`secretary@apache.org`），下面是邮件模板：**
 
-> 注意事项:  
+> 注意事项： 
 > 这里不要抄送 `private@eventmesh.apache.org`，否则会得到反馈：`Please do not cc anyone when you submit your ICLA because it contains PII.`  
 > 上面 ICLA 中 notify project 已经写明了要通知的项目，会默认转发到 `private@eventmesh.apache.org`
 
@@ -56,23 +56,23 @@ is my ICLA information.
 Thanks!
 ```
 
-**6.邮箱发送成功之后Apache EventMesh 官方社区告知下**
+**6.邮箱发送成功之后 Apache EventMesh 官方社区告知下**
 
-## 手动签名和PDF软件签名DEMO
+## 手动签名和 PDF 软件签名 DEMO
 
-> PDF在线签名
-> - 下载PDF源文件
+> PDF 在线签名
+> - 下载 PDF 源文件
 > - 填写项目与个人信息
-> - 打开PDF在线签署网址 如 https://smallpdf.com/cn/sign-pdf
+> - 打开 PDF 在线签署网址 如 https://smallpdf.com/cn/sign-pdf
 > - 进入签名
-> - 保存下载已签名pdf
+> - 保存下载已签名 pdf
 > - 发送到指定邮箱
 
 
 > 手写签名
-> - 下载PDF源文件
-> - 填写项目与个人信息n
+> - 下载 PDF 源文件
+> - 填写项目与个人信息 n
 > - 打印文件
 > - 手写签名
-> - 拍照转成**单个pdf** 文件
+> - 拍照转成**单个 pdf** 文件
 > - 发送到指定邮箱

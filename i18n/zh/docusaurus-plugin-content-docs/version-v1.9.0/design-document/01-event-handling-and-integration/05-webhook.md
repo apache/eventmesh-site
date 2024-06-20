@@ -309,11 +309,11 @@ contentType： application/json
 
 #### 第一步：进入对应的项目
 
-#### 第二步：点击setting
+#### 第二步：点击 setting
 
 ![](/images/design-document/webhook/webhook-github-setting.png)
 
-#### 第三步：点击Webhooks
+#### 第三步：点击 Webhooks
 
 ![](/images/design-document/webhook/webhook-github-webhooks.png)
 
@@ -321,7 +321,7 @@ contentType： application/json
 
 ![](/images/design-document/webhook/webhook-github-add.png)
 
-#### 第五步: 填写webhook信息
+#### 第五步：填写 webhook 信息
 
 ![](/images/design-document/webhook/webhook-github-info.png)
 

@@ -9,7 +9,7 @@ sidebar_position: 1
 
 > 当成为 Committer 后，你就会拥有一个 Apache 邮箱，本教程基于 `Gmail` 使用 Apache 邮箱。
 
-#### 1. 登录Gmail
+#### 1. 登录 Gmail
 
 * [Gmail's official website](https://gmail.google.com) 在这里
 
@@ -37,12 +37,12 @@ Your ApacheID is: xxxx
 
 #### 5. 添加 Apache 邮箱
 
-* 登录到 [id.apache.org](https://id.apache.org/), 配置你的apache邮箱转发地址
+* 登录到 [id.apache.org](https://id.apache.org/), 配置你的 apache 邮箱转发地址
 
 ![forwarding-email](/images/email/forwarding-email.png)
 
-* 添加apache邮箱至Gmail配置
+* 添加 apache 邮箱至 Gmail 配置
 
 ![add-apache-email](/images/email/add-apache-email.png)
 
-> 未配置前，默认使用Gmail邮箱发送，可以添加apache邮箱作为默认发送邮箱。这个过程需要相关的配置和邮箱来确认和验证。
+> 未配置前，默认使用 Gmail 邮箱发送，可以添加 apache 邮箱作为默认发送邮箱。这个过程需要相关的配置和邮箱来确认和验证。

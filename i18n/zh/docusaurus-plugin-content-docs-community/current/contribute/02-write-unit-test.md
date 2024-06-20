@@ -18,7 +18,7 @@ sidebar_position: 1
   - 单元测试类：`src/test/java/org/apache/eventmesh/common/protocol/http/body/BaseResponseBodyTest.java`
   - 单元测试配置文件：`src/test/resources/configuration.properties`
 - 单元测试类的包名应该和被测试的类的包名相同
--  单元测试的类的名字应该是`{被测试的类名+}Test`。 比如：
+-  单元测试的类的名字应该是`{被测试的类名+}Test`。比如：
    - 将被测试的类是：`EventMeshUtil`
    - 单元测试类的类名就是： `EventMeshUtilTest`
 - 每个单元测试的名字必须是 `test{+方法名}`，比如：

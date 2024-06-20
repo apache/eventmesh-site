@@ -89,7 +89,7 @@ Your Forked Repository -> Settings -> Actions -> General -> Workflow Permissions
 
 1. fork 项目到自己的远程仓库
 
-2. clone fork到本地仓库
+2. clone fork 到本地仓库
 
 ```git
 git clone git@github.com:yourgithub/eventmesh.git
@@ -109,9 +109,9 @@ git rebase upstream_master
 
 5. 提交您的更改（确保您的提交信息简洁）
 
-6. 将你的提交推送到你fork的远程仓库
+6. 将你的提交推送到你 fork 的远程仓库
 
-7. 创建Pull Request
+7. 创建 Pull Request
 
 ## 解释
 
@@ -135,7 +135,7 @@ Fork 仓库：从原仓库 fork 到您的账号中的个人仓库是一个 Fork 
 
 ### 功能实现，重构
 
-- 如果你打算实现一个新特性（或重构），一定要通过 issue 或其他方式与 EventMesh 核心开发团队进行沟通，并在沟通过程中详细描述新特性（或重构）、机制和场景.
+- 如果你打算实现一个新特性（或重构），一定要通过 issue 或其他方式与 EventMesh 核心开发团队进行沟通，并在沟通过程中详细描述新特性（或重构）、机制和场景。
 
 ### 文档改进
 

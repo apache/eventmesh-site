@@ -1,6 +1,6 @@
 # HTTPS
 
-1.在eventmesh-runtime 中配置
+1.在 eventmesh-runtime 中配置
 
 ```
 eventMesh.properties (添加如下配置)
@@ -13,7 +13,7 @@ config env varible
 -Dssl.server.pass=sNetty
 ```
 
-2.在eventmesh-sdk-java 中配置
+2.在 eventmesh-sdk-java 中配置
 
 ```
 // 创建producer
