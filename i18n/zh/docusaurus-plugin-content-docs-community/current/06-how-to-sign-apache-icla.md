@@ -65,7 +65,7 @@ Thanks!
 > - 填写项目与个人信息
 > - 打开 PDF 在线签署网址 如 https://smallpdf.com/cn/sign-pdf
 > - 进入签名
-> - 保存下载已签名 pdf
+> - 保存下载已签名 PDF
 > - 发送到指定邮箱
 
 
