@@ -31,7 +31,7 @@ $ gpg --version #Check the version, it should be 2.x
 
 According to the prompt, generate the key
 
-> Note：please use Apache mail box generate GPG Key
+> Note: please use Apache mail box generate GPG Key
 
 ```shell
 $ gpg --full-gen-key
@@ -94,7 +94,7 @@ $ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # Verify wheth
 default-key 28681CB1
 ```
 
-**If there are multiple public keys, useless keys can also be deleted：**
+**If there are multiple public keys, useless keys can also be deleted:**
 
 ```shell
 $ gpg --delete-secret-keys 29BBC3CB # first delete the private key and specify the key id
@@ -250,7 +250,7 @@ Execute the following command, you need to sign and encrypt files such as jar, s
 $ gradle signMavenJavaPublication publish
 ```
 
-After the above command is executed successfully, the version to be released will be automatically uploaded to Apache's staging repository. All Artifacts that are deployed to the remote [maven repository](http://repository.apache.org/) will be in the staging state，visit https://repository.apache.org/#stagingRepositories ,log in with Apache's LDAP account, You will see the uploaded version, and the content of the `Repository` column is ${STAGING.REPOSITORY}. Click `Close` to tell Nexus that the build is complete and only then will the build be usable. If there is a problem with the electronic signature, `Close` will fail, and you can view the failure information through `Activity`.
+After the above command is executed successfully, the version to be released will be automatically uploaded to Apache's staging repository. All Artifacts that are deployed to the remote [maven repository](http://repository.apache.org/) will be in the staging state, visit https://repository.apache.org/#stagingRepositories ,log in with Apache's LDAP account, You will see the uploaded version, and the content of the `Repository` column is ${STAGING.REPOSITORY}. Click `Close` to tell Nexus that the build is complete and only then will the build be usable. If there is a problem with the electronic signature, `Close` will fail, and you can view the failure information through `Activity`.
 
 
 
@@ -604,7 +604,7 @@ https://eventmesh.apache.org/download/
 
 https://eventmesh.apache.org/zh/download/
 
-Download links for GPG signature files and hash verification files should use this prefix：`https://downloads.apache.org/eventmesh/`
+Download links for GPG signature files and hash verification files should use this prefix:`https://downloads.apache.org/eventmesh/`
 
 > Note: The project download link should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 
