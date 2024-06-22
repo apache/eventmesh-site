@@ -604,7 +604,7 @@ https://eventmesh.apache.org/download/
 
 https://eventmesh.apache.org/zh/download/
 
-Download links for GPG signature files and hash verification files should use this prefix:`https://downloads.apache.org/eventmesh/`
+Download links for GPG signature files and hash verification files should use this prefix: `https://downloads.apache.org/eventmesh/`
 
 > Note: The project download link should use https://www.apache.org/dyn/closer.lua instead of closer.cgi or mirrors.cgi
 
