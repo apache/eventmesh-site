@@ -1,6 +1,6 @@
 # 部署 EventMesh 的事件存储（使用 Docker）
 
-eventmesh在非standalone模式下，依赖RocketMQ作为存储层；若采用standalone模式，则可跳过该步，直接进行runtime的部署。
+eventmesh 在非 standalone 模式下，依赖 RocketMQ 作为存储层；若采用 standalone 模式，则可跳过该步，直接进行 runtime 的部署。
 
 ## 1. 依赖
 
@@ -11,7 +11,7 @@ Gradle至少为7.0, 推荐7.0.*；
 4g+可用磁盘用于eventmesh-store服务器；
 ```
 
-## 2. Docker部署
+## 2. Docker 部署
 
 ### 2.1 拉取镜像
 在命令行输入如下命令直接从 docker hub 上获取 RocketMQ 镜像：
@@ -38,7 +38,7 @@ apache/rocketmq   4.9.4     a2a50ca263c3   13 months ago   548MB
 
 ### 2.2 运行容器
 
-运行namerv容器和broker容器：
+运行 namerv 容器和 broker 容器：
 
 ```shell
 sudo docker run -d -p 9876:9876 \
@@ -49,7 +49,7 @@ sudo docker run -d -p 9876:9876 \
   sh mqnamesrv
 ```
 
-运行broker容器：
+运行 broker 容器：
 
 ```shell
 sudo docker run -d -p 10911:10911 -p 10909:10909 \
@@ -65,7 +65,7 @@ sudo docker run -d -p 10911:10911 -p 10909:10909 \
 
 ![rocketmq_docker_2](/images/install/rocketmq_docker_2.png)
 
-请注意 **rocketmq-broker ip** 是 **pod ip**, 如果你想修改这个ip, 可以通过挂载容器中 **broker.conf** 文件的方式并修改文件中的 **brokerIP1** 配置项为自定义值。
+请注意 **rocketmq-broker ip** 是 **pod ip**, 如果你想修改这个 ip, 可以通过挂载容器中 **broker.conf** 文件的方式并修改文件中的 **brokerIP1** 配置项为自定义值。
 
 
-至此eventmesh-store的部署已完成，请转至下一步完成 [eventmesh-runtime](04-runtime-with-docker.md) 的部署。
+至此 eventmesh-store 的部署已完成，请转至下一步完成 [eventmesh-runtime](04-runtime-with-docker.md) 的部署。

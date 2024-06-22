@@ -1,7 +1,7 @@
 
 
-## webhook使用流程
-#### 第一步：在eventmesh配置webhook相关信息并且启动
+## webhook 使用流程
+#### 第一步：在 eventmesh 配置 webhook 相关信息并且启动
 
 ##### 配置说明
 ```
@@ -21,7 +21,7 @@ eventMesh.webHook.nacosMode.serverAddr=127.0.0.1:8848
 eventMesh.webHook.producer.connector=standalone
 ```
 
-#### 第二步：添加webhook配置信息
+#### 第二步：添加 webhook 配置信息
 配置信息说明
 ```java
    /**
@@ -103,23 +103,23 @@ eventMesh.webHook.producer.connector=standalone
 
 ##### 添加接口
 路径： /webhook/insertWebHookConfig
-方法： POST
+方法：POST
 contentType： application/json
 
 输入参数：
-| 字段 | 说明 | 类型 |　必须 | 默认值　|
+| 字段 | 说明 | 类型 | 必须 | 默认值 |
 | -- | -- | -- | -- | -- |
-| callbackPath | 调用地址，唯一地址 | string | 是　| null　|
-| manufacturerName | 厂商名 | string | 是　| null　|
-| manufacturerEventName | 厂商事件名 | string | 是　| null　|
-| contentType | http connettype | string | 否　| application/json　|
-| description | 配置说明 | string | 否　| null　|
-| secret | 验签密钥 | string | 否　| null　|
-| userName | 用户名 | string | 否　| null　|
-| password | 用户密码 | string | 否　| null　|
-| cloudEventName | 事件名（） | string | 是　| null　|
-| cloudEventSource | 事件来源可以填写 | string | 是　| null　|
-| cloudEventIdGenerateMode | cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)  | string | 否　| manufacturerEventId　|
+| callbackPath | 调用地址，唯一地址 | string | 是 | null |
+| manufacturerName | 厂商名 | string | 是 | null |
+| manufacturerEventName | 厂商事件名 | string | 是 | null |
+| contentType | http connettype | string | 否 | application/json |
+| description | 配置说明 | string | 否 | null |
+| secret | 验签密钥 | string | 否 | null |
+| userName | 用户名 | string | 否 | null |
+| password | 用户密码 | string | 否 | null |
+| cloudEventName | 事件名（） | string | 是 | null |
+| cloudEventSource | 事件来源可以填写 | string | 是 | null |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)  | string | 否 | manufacturerEventId |
 
 列子：
 ```json
@@ -134,17 +134,17 @@ contentType： application/json
 }
 
 ```
-输出参数：１　成功，０失败
+输出参数：1 成功，0失败
 
 ##### 删除接口
 路径： /webhook/deleteWebHookConfig
-方法： POST
+方法：POST
 contentType： application/json
 
 输入参数：
-| 字段 | 说明 | 类型 |　必须 | 默认值　|
+| 字段 | 说明 | 类型 | 必须 | 默认值 |
 | -- | -- | -- | -- | -- |
-| callbackPath | 调用地址，唯一地址 | string | 是　| null　|
+| callbackPath | 调用地址，唯一地址 | string | 是 | null |
 
 
 列子：
@@ -158,17 +158,17 @@ contentType： application/json
 ```
 
 
-输出参数：１　成功，０失败
+输出参数：1 成功，0失败
 
-##### 通过callbackPath查询WebHookConfig
+##### 通过 callbackPath 查询 WebHookConfig
 路径： /webhook/queryWebHookConfigById
-方法： POST
+方法：POST
 contentType： application/json
 
 输入参数：
-| 字段 | 说明 | 类型 |　必须 | 默认值　|
+| 字段 | 说明 | 类型 | 必须 | 默认值 |
 | -- | -- | -- | -- | -- |
-| callbackPath | 调用地址，唯一地址 | string | 是　| null　|
+| callbackPath | 调用地址，唯一地址 | string | 是 | null |
 
 
 列子：
@@ -183,30 +183,30 @@ contentType： application/json
 
 
 输出参数：
-| 字段 | 说明 | 类型 |　必须 | 默认值　|
+| 字段 | 说明 | 类型 | 必须 | 默认值 |
 | -- | -- | -- | -- | -- |
-| callbackPath | 调用地址，唯一地址 | string | 是　| null　|
-| manufacturerName | 厂商名 | string | 是　| null　|
-| manufacturerEventName | 厂商事件名 | string | 是　| null　|
-| contentType | http connettype | string | 否　| application/json　|
-| description | 配置说明 | string | 否　| null　|
-| secret | 验签密钥 | string | 否　| null　|
-| userName | 用户名 | string | 否　| null　|
-| password | 用户密码 | string | 否　| null　|
-| cloudEventName | 事件名（） | string | 是　| null　|
-| cloudEventSource | 事件来源可以填写 | string | 是　| null　|
-| cloudEventIdGenerateMode | cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)  | string | 否　| manufacturerEventId　|
+| callbackPath | 调用地址，唯一地址 | string | 是 | null |
+| manufacturerName | 厂商名 | string | 是 | null |
+| manufacturerEventName | 厂商事件名 | string | 是 | null |
+| contentType | http connettype | string | 否 | application/json |
+| description | 配置说明 | string | 否 | null |
+| secret | 验签密钥 | string | 否 | null |
+| userName | 用户名 | string | 否 | null |
+| password | 用户密码 | string | 否 | null |
+| cloudEventName | 事件名（） | string | 是 | null |
+| cloudEventSource | 事件来源可以填写 | string | 是 | null |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)  | string | 否 | manufacturerEventId |
 
 
-##### 通过manufacturer查询WebHookConfig列表
+##### 通过 manufacturer 查询 WebHookConfig 列表
 路径： /webhook/queryWebHookConfigByManufacturer
-方法： POST
+方法：POST
 contentType： application/json
 
 输入参数：
-| 字段 | 说明 | 类型 |　必须 | 默认值　|
+| 字段 | 说明 | 类型 | 必须 | 默认值 |
 | -- | -- | -- | -- | -- |
-| manufacturerName | 厂商名 | string | 是　| null　|
+| manufacturerName | 厂商名 | string | 是 | null |
 
 
 列子：
@@ -221,45 +221,45 @@ contentType： application/json
 
 
 输出参数：
-| 字段 | 说明 | 类型 |　必须 | 默认值　|
+| 字段 | 说明 | 类型 | 必须 | 默认值 |
 | -- | -- | -- | -- | -- |
-| callbackPath | 调用地址，唯一地址 | string | 是　| null　|
-| manufacturerName | 厂商名 | string | 是　| null　|
-| manufacturerEventName | 厂商事件名 | string | 是　| null　|
-| contentType | http connettype | string | 否　| application/json　|
-| description | 配置说明 | string | 否　| null　|
-| secret | 验签密钥 | string | 否　| null　|
-| userName | 用户名 | string | 否　| null　|
-| password | 用户密码 | string | 否　| null　|
-| cloudEventName | 事件名（） | string | 是　| null　|
-| cloudEventSource | 事件来源可以填写 | string | 是　| null　|
-| cloudEventIdGenerateMode | cloudEvent事件对象唯一标识符识别方式，uuid或者manufacturerEventId(厂商id)  | string | 否　| manufacturerEventId　|
+| callbackPath | 调用地址，唯一地址 | string | 是 | null |
+| manufacturerName | 厂商名 | string | 是 | null |
+| manufacturerEventName | 厂商事件名 | string | 是 | null |
+| contentType | http connettype | string | 否 | application/json |
+| description | 配置说明 | string | 否 | null |
+| secret | 验签密钥 | string | 否 | null |
+| userName | 用户名 | string | 否 | null |
+| password | 用户密码 | string | 否 | null |
+| cloudEventName | 事件名（） | string | 是 | null |
+| cloudEventSource | 事件来源可以填写 | string | 是 | null |
+| cloudEventIdGenerateMode | cloudEvent 事件对象唯一标识符识别方式，uuid 或者 manufacturerEventId(厂商 id)  | string | 否 | manufacturerEventId |
 
 
 #### 第三步：查看配置是否成功
-1. file存储模式。请到eventMesh.webHook.fileMode.filePath 目录下查看。文件名为callbackPath转移后的
-2. nacos存储模式。请到eventMesh.webHook.nacosMode.serverAddr 配置的nacos服务去看
+1. file 存储模式。请到 eventMesh.webHook.fileMode.filePath 目录下查看。文件名为 callbackPath 转移后的
+2. nacos 存储模式。请到 eventMesh.webHook.nacosMode.serverAddr 配置的 nacos 服务去看
 
-#### 第四步：配置cloudevent的消费者
-
-
-#### 第五步：在厂商配置webhook相关信息
-> 厂商操作请看【厂商webhook操作说明】
+#### 第四步：配置 cloudevent 的消费者
 
 
-## 厂商webhook操作说明
+#### 第五步：在厂商配置 webhook 相关信息
+> 厂商操作请看【厂商 webhook 操作说明】
+
+
+## 厂商 webhook 操作说明
 ### github 注册
 #### 第一步：进入对应的项目
-#### 第二步：点击setting
+#### 第二步：点击 setting
 ![](../../../../../static/images/design-document/webhook/webhook-github-setting.png)
-#### 第三步：点击Webhooks
+#### 第三步：点击 Webhooks
 ![](../../../../../static/images/design-document/webhook/webhook-github-webhooks.png)
 #### 第四步：点击 Add webhook
 ![](../../../../../static/images/design-document/webhook/webhook-github-add.png)
-#### 第五步: 填写webhook信息
+#### 第五步：填写 webhook 信息
 ![](../../../../../static/images/design-document/webhook/webhook-github-info.png)
 
-Payload URL: 服务地址以及pahts。[http or https ]://[域名 or IP 【厂商可以被调用】]:[端口]/webhook/[callbackPath]
+Payload URL: 服务地址以及 pahts。[http or https ]://[域名 or IP【厂商可以被调用】]:[端口]/webhook/[callbackPath]
 Content type：http header content type
 secret: 验签字符串
 

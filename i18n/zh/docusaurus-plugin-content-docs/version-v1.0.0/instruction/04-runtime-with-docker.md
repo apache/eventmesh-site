@@ -135,7 +135,7 @@ cd ../logs
 tail -f eventmesh.out
 ```
 
-**删除容器** 命令示例:
+**删除容器** 命令示例：
 
 ```shell
 sudo docker rm -f [your container id or name]

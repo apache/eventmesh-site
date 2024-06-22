@@ -43,11 +43,11 @@ public class Header {
 
 + 详解
 
-消息头(header)：类型为Header，Header中有Command字段，用于区分不同的消息类型
+消息头(header)：类型为 Header，Header 中有 Command 字段，用于区分不同的消息类型
 
-消息体(body)：对于不同的消息类型，body的类型不同
+消息体(body)：对于不同的消息类型，body 的类型不同
 
-| 消息命令字                                                   | body类型     |
+| 消息命令字                                                   | body 类型     |
 | ------------------------------------------------------------ | ------------ |
 | HEARTBEAT_REQUEST, HEARTBEAT_RESPONSE, HELLO_RESPONSE, CLIENT_GOODBYE_REQUEST, CLIENT_GOODBYE_RESPONSE, SERVER_GOODBYE_REQUEST, SERVER_GOODBYE_RESPONSE, LISTEN_REQUEST, LISTEN_RESPONSE, UNSUBSCRIBE_REQUEST, SUBSCRIBE_RESPONSE, UNSUBSCRIBE_RESPONSE, ASYNC_MESSAGE_TO_SERVER_ACK, BROADCAST_MESSAGE_TO_SERVER_ACK | 无           |
 | HELLO_REQUEST                                                | UserAgent    |
@@ -109,27 +109,27 @@ public enum Command {
 }
 ```
 
-#### 4. Client发起交互
+#### 4. Client 发起交互
 
-| 场景           | Client向Server发送消息命令字 | Server回复Client消息的命令字    | 说明 |
+| 场景           | Client 向 Server 发送消息命令字 | Server 回复 Client 消息的命令字    | 说明 |
 | -------------- | ---------------------------- | ------------------------------- | ---- |
 | 握手           | HELLO_REQUEST                | HELLO_RESPONSE                  |      |
 | 心跳           | HEARTBEAT_REQUEST            | HEARTBEAT_RESPONSE              |      |
 | 订阅           | SUBSCRIBE_REQUEST            | SUBSCRIBE_RESPONSE              |      |
 | 取消订阅       | UNSUBSCRIBE_REQUEST          | UNSUBSCRIBE_RESPONSE            |      |
 | 开始监听消息   | LISTEN_REQUEST               | LISTEN_RESPONSE                 |      |
-| 发送RR请求     | REQUEST_TO_SERVER            | RESPONSE_TO_CLIENT              |      |
-| 发送RR回包     | RESPONSE_TO_SERVER           | 无                              |      |
+| 发送 RR 请求     | REQUEST_TO_SERVER            | RESPONSE_TO_CLIENT              |      |
+| 发送 RR 回包     | RESPONSE_TO_SERVER           | 无                              |      |
 | 发送异步事件   | ASYNC_MESSAGE_TO_SERVER      | ASYNC_MESSAGE_TO_SERVER_ACK     |      |
 | 发送广播事件   | BROADCAST_MESSAGE_TO_SERVER  | BROADCAST_MESSAGE_TO_SERVER_ACK |      |
 | 客户端主动断连 | CLIENT_GOODBYE_REQUEST       | CLIENT_GOODBYE_RESPONSE         |      |
 
-#### 5. Server发起交互
+#### 5. Server 发起交互
 
-| 场景               | Server向Client发送消息命令字 | Client回复Server消息命令字      | 说明 |
+| 场景               | Server 向 Client 发送消息命令字 | Client 回复 Server 消息命令字      | 说明 |
 | ------------------ | ---------------------------- | ------------------------------- | ---- |
-| 客户端接收RR请求   | REQUEST_TO_CLIENT            | REQUEST_TO_CLIENT_ACK           |      |
-| 客户端接收RR回包   | RESPONSE_TO_CLIENT           | RESPONSE_TO_CLIENT_ACK          |      |
+| 客户端接收 RR 请求   | REQUEST_TO_CLIENT            | REQUEST_TO_CLIENT_ACK           |      |
+| 客户端接收 RR 回包   | RESPONSE_TO_CLIENT           | RESPONSE_TO_CLIENT_ACK          |      |
 | 客户端接收异步事件 | ASYNC_MESSAGE_TO_CLIENT      | ASYNC_MESSAGE_TO_CLIENT_ACK     |      |
 | 客户端接收广播事件 | BROADCAST_MESSAGE_TO_CLIENT  | BROADCAST_MESSAGE_TO_CLIENT_ACK |      |
 | 服务端主动断连     | SERVER_GOODBYE_REQUEST       | 无                              |      |
@@ -138,7 +138,7 @@ public enum Command {
 
 #### 6. 消息类型
 
-+ 发送RR消息
++ 发送 RR 消息
 
 ![rr-msg](/images/design-document/sync-message.png)
 
@@ -150,9 +150,9 @@ public enum Command {
 
 ![broadcast-msg](/images/design-document/broadcast-message.png)
 
-## HTTP协议文档
+## HTTP 协议文档
 
-Java类`LiteMessage`的`content`字段表示一个特殊的协议，因此，如果您要使用eventmesh-sdk-java的http-client，则只需设计协议的`content`即可。`LiteMessage`组成如下：
+Java 类`LiteMessage`的`content`字段表示一个特殊的协议，因此，如果您要使用 eventmesh-sdk-java 的 http-client，则只需设计协议的`content`即可。`LiteMessage`组成如下：
 
 ```java
 public class LiteMessage {
@@ -173,7 +173,7 @@ public class LiteMessage {
 
 #### 1. 消息发送方式与组成
 
-**消息发送方式**：POST方式
+**消息发送方式**：POST 方式
 
 **消息组成**：请求头(RequestHeader) + 请求体(RequestBody)
 
@@ -183,12 +183,12 @@ public class LiteMessage {
 
 | Key      | 说明             |
 | -------- | ---------------- |
-| Env      | client所属环境   |
-| Region   | client所属区域   |
-| Idc      | client所属IDC    |
-| Dcn      | client所在DCN    |
-| Sys      | client所属子系统 |
-| Pid      | client进程号     |
+| Env      | client 所属环境   |
+| Region   | client 所属区域   |
+| Idc      | client 所属 IDC    |
+| Dcn      | client 所在 DCN    |
+| Sys      | client 所属子系统 |
+| Pid      | client 进程号     |
 | Ip       | client Ip        |
 | Username | client 用户名    |
 | Passwd   | client 密码      |
@@ -201,7 +201,7 @@ public class LiteMessage {
 | Key               | 说明                           |
 | ----------------- | ------------------------------ |
 | clientType        | 客户端类型                     |
-| heartbeatEntities | 心跳实体，包含topic、url等信息 |
+| heartbeatEntities | 心跳实体，包含 topic、url 等信息 |
 
 + 订阅消息：
 
@@ -213,8 +213,8 @@ public class LiteMessage {
 
 | Key   | 说明              |
 | ----- | ----------------- |
-| topic | 客户端订阅的topic |
-| url   | topic对应的url    |
+| topic | 客户端订阅的 topic |
+| url   | topic 对应的 url    |
 
 + 取消订阅消息：
 
@@ -236,34 +236,34 @@ public class LiteMessage {
 
 | Key      | 说明                    |
 | -------- | ----------------------- |
-| topic    | 客户端请求的topic       |
-| content  | 客户端发送的topic的内容 |
+| topic    | 客户端请求的 topic       |
+| content  | 客户端发送的 topic 的内容 |
 | ttl      | 客户端请求超时时间      |
 | bizSeqNo | 客户端请求业务流水号    |
 | uniqueId | 客户端请求消息唯一标识  |
 
-#### 2. Client发起交互
+#### 2. Client 发起交互
 
-| 场景         | Client向Server发送消息请求码 | Server回复Client消息的响应码            | 说明 |
+| 场景         | Client 向 Server 发送消息请求码 | Server 回复 Client 消息的响应码            | 说明 |
 | ------------ | ---------------------------- | --------------------------------------- | ---- |
 | 心跳         | HEARTBEAT(203)               | SUCCESS(0)/EVENTMESH_HEARTBEAT_ERROR(19)    |      |
 | 订阅         | SUBSCRIBE(206)               | SUCCESS(0)/EVENTMESH_SUBSCRIBE_ERROR(17)    |      |
 | 取消订阅     | UNSUBSCRIBE(207)             | SUCCESS(0)/EVENTMESH_UNSUBSCRIBE_ERROR(18)  |      |
 | 发送异步事件 | MSG_SEND_ASYNC(104)          | SUCCESS(0)/EVENTMESH_SEND_ASYNC_MSG_ERR(14) |      |
 
-#### 3. Server发起交互
+#### 3. Server 发起交互
 
-| 场景               | Server向Client发送消息请求码 | Client回复Server消息响应码 | 说明                   |
+| 场景               | Server 向 Client 发送消息请求码 | Client 回复 Server 消息响应码 | 说明                   |
 | ------------------ | ---------------------------- | -------------------------- | ---------------------- |
-| 客户端接收异步事件 | HTTP_PUSH_CLIENT_ASYNC(105)  | retCode                    | retCode值为0时代表成功 |
+| 客户端接收异步事件 | HTTP_PUSH_CLIENT_ASYNC(105)  | retCode                    | retCode 值为 0 时代表成功 |
 
 ## gRPC 协议文档
 
 #### 1. protobuf
 
-在 `eventmesh-protocol-gprc` 模块有 Eventmesh gRPC 客户端的 protobuf 文件. the protobuf 文件路径是 `/src/main/proto/eventmesh-client.proto`.
+在 `eventmesh-protocol-gprc` 模块有 Eventmesh gRPC 客户端的 protobuf 文件。the protobuf 文件路径是 `/src/main/proto/eventmesh-client.proto`.
 
-用gradle build 生成 gRPC 代码在 `/build/generated/source/proto/main`. 生成代码用于 `eventmesh-sdk-java` 模块.
+用 gradle build 生成 gRPC 代码在 `/build/generated/source/proto/main`. 生成代码用于 `eventmesh-sdk-java` 模块。
 
 #### 2. gRPC 数据模型
 

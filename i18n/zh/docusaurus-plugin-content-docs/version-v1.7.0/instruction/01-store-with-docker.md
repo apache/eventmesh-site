@@ -20,7 +20,7 @@ sudo docker pull rocketmqinc/rocketmq-namesrv:4.5.0-alpine
 sudo docker pull rocketmqinc/rocketmq-broker:4.5.0-alpine
 ```
 
-在命令行输入以下命令运行namerv容器和broker容器
+在命令行输入以下命令运行 namerv 容器和 broker 容器
 
 ```shell
 #运行 namerv 容器
@@ -30,11 +30,11 @@ sudo docker run -d -p 9876:9876 -v `pwd`/data/namesrv/logs:/root/logs -v `pwd`/d
 sudo docker run -d -p 10911:10911 -p 10909:10909 -v `pwd`/data/broker/logs:/root/logs -v `pwd`/data/broker/store:/root/store --name rmqbroker --link rmqnamesrv:namesrv -e "NAMESRV_ADDR=namesrv:9876" rocketmqinc/rocketmq-broker:4.5.0-alpine sh mqbroker -c ../conf/broker.conf
 ```
 
-请注意 **rocketmq-broker ip** 是 **pod ip**, 如果你想修改这个ip, 可以通过挂载容器中 **broker.conf** 文件的方式并修改文件中的 **brokerIP1** 配置项为自定义值
+请注意 **rocketmq-broker ip** 是 **pod ip**, 如果你想修改这个 ip, 可以通过挂载容器中 **broker.conf** 文件的方式并修改文件中的 **brokerIP1** 配置项为自定义值
 
 
-至此eventmesh-store的部署已完成，请转至下一步完成 [eventmesh-runtime](https://github.com/apache/incubator-eventmesh/blob/master/docs/zh/instruction/02-runtime-with-docker.md) 的部署
+至此 eventmesh-store 的部署已完成，请转至下一步完成 [eventmesh-runtime](https://github.com/apache/incubator-eventmesh/blob/master/docs/zh/instruction/02-runtime-with-docker.md) 的部署
 
 
 ## 参考
-关于RocketMQ的其他更多资料，请参考 <https://rocketmq.apache.org/docs/quick-start/>
+关于 RocketMQ 的其他更多资料，请参考 <https://rocketmq.apache.org/docs/quick-start/>
