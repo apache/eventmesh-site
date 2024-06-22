@@ -243,7 +243,7 @@ After receiving the notification email that the account was created successfully
 
 - Enter [Apache Account Utility Platform] (https://id.apache.org/), create a password, set up a personal email address (`forwarding email address`) and a GitHub account (`Your GitHub Username`).
 - If you want to use `xxx@apache.org` mail service, please refer to [here](https://infra.apache.org/committer-email.html). Gmail is recommended as this forwarding mode is not easily found in most email service setups.
-- Follow【Authorize GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) to enable two-factor authorization (2FA) in [Github ](http://github.com/). When you set 2FA to "off", it will be delisted from the corresponding Apache committer write permission group until you set it again. (**Note: pay attention to recovery codes like passwords!**)
+- Follow [Authorize GitHub 2FA wiki](https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) to enable two-factor authorization (2FA) in [Github ](http://github.com/). When you set 2FA to "off", it will be delisted from the corresponding Apache committer write permission group until you set it again. (**Note: pay attention to recovery codes like passwords!**)
 - Use the [GitBox Account Linking Utility] (https://gitbox.apache.org/setup/) to obtain the write permission of the EventMesh project.
 - [eventmesh-website](https://eventmesh.apache.org/team) related page update
 

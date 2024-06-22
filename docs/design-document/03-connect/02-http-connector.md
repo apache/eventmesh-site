@@ -159,7 +159,7 @@ The data format of the message sent by the HTTP sink connector is as follows:
 - time: the time the request was sent
 - uuid: request unique identifier, one-to-one with the uuid of the callback data structure in webhook mode
 - eventId: event ID, composed of type and offset
-- data：actual data to be sent
+- data: actual data to be sent
 
 ```json
 {

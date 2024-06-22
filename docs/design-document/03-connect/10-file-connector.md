@@ -1,10 +1,10 @@
 # File
 
-## FileSinkConnector：Writes File file from EventMesh
+## FileSinkConnector: Writes File file from EventMesh
 
 1. Start your EventMesh Runtime.
 2. Enable sinkConnector and check `sink-config.yml`.
-3. Started FileConnectServer，It will subscribe to the topic defined in `pubSubConfig.subject` in the EventMesh Runtime，And write the data to the path located : `connectorConfig.topic`/Year/Month/Day ; the file named:【 `connectorConfig.topic` + Current time Hour (24 hours) + timestamp 】.
+3. Started FileConnectServer, It will subscribe to the topic defined in `pubSubConfig.subject` in the EventMesh Runtime, And write the data to the path located : `connectorConfig.topic`/Year/Month/Day ; the file named:【 `connectorConfig.topic` + Current time Hour (24 hours) + timestamp 】.
 4. Using the Topic specified in `pubSubConfig.subject`, send a message to EventMesh, which you will persist in the file.
 
 ```yaml
@@ -24,11 +24,11 @@ connectorConfig:
     topic: TopicTest
 ```
 
-## FileSourceConnector：Read from File to EventMesh
+## FileSourceConnector: Read from File to EventMesh
 
 1. Start your EventMesh Runtime.
 2. Enable sinkConnector and check `source-config.yml`.
-3. Started FileConnectServer，It sends the data read from `connectorConfig.filePath` to `pubSubConfig.subject` in the EventMesh Runtime.
+3. Started FileConnectServer, It sends the data read from `connectorConfig.filePath` to `pubSubConfig.subject` in the EventMesh Runtime.
 4. The append to the file content is recognized, and you receive the message in EventMesh.
 
 ```yaml
