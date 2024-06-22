@@ -12,7 +12,7 @@ eventmesh在非standalone模式下，依赖RocketMQ作为存储层；若采用st
 
 ### 2 下载
 
-从[RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.*版本），这里以 4.9.4 为例：
+从[RocketMQ 官方网站](https://rocketmq.apache.org/download/) 下载 Binary 代码（推荐使用 4.9.* 版本），这里以 4.9.4 为例：
 
 ```
 unzip rocketmq-all-4.9.4-bin-release.zip
