@@ -271,3 +271,5 @@ When the following logs are printed to the console, EventMesh Runtime has stoppe
 DEBUG StatusConsoleListener Shutdown hook enabled. Registering a new one.
 WARN StatusConsoleListener Unable to register Log4j shutdown hook because JVM is shutting down. Using SimpleLogger
 ```
+
+**Note on Connectors:** EventMesh Connectors, such as the eventmesh-connector-rocketmq, can be deployed on any machine and are used to integrate with different data sources and sinks. They are separate from the EventMesh Runtime but can be configured to work alongside it.
