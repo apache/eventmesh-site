@@ -1,6 +1,6 @@
 # EventMesh Runtime Quick Start
 
-EventMesh Runtime is a stateful Mesh node in the EventMesh cluster, responsible for event transmission between Source Connectors and Sink Connectors. It uses Event Store as a storage queue for events.
+EventMesh Runtime is a stateful Mesh node in the EventMesh cluster, responsible for event transmission between Source Connectors and Sink Connectors. It uses EventMesh Storage as a storage queue for events.
 
 ![EventMesh Runtime](../../static/images/design-document/runtime.png)
 
@@ -23,7 +23,7 @@ cd apache-eventmesh-1.10.0
 
 ### 1.3 Configuration
 
-This document provides an example of deploying it with RocketMQ as Event Store, but you can also choose another [Event Store supported by EventMesh](../roadmap.md#event-store-implementation-status). If you choose a non-standalone mode, ensure that [RocketMQ is successfully started](https://rocketmq.apache.org/docs/quick-start/) and accessible via IP address. If you stick to the default standalone mode, RocketMQ doesn't need to be started.
+This document provides an example of deploying it with RocketMQ as EventMesh Storage, but you can also choose another [EventMesh Storage supported by EventMesh](../roadmap.md#event-store-implementation-status). If you choose a non-standalone mode, ensure that [RocketMQ is successfully started](https://rocketmq.apache.org/docs/quick-start/) and accessible via IP address. If you stick to the default standalone mode, RocketMQ doesn't need to be started.
 
 #### 1.3.1 EventMesh Runtime Configuration
 
@@ -33,7 +33,7 @@ This configuration file includes settings for the EventMesh Runtime environment 
 vim conf/eventmesh.properties
 ```
 
-Specify RocketMQ as Event Store:
+Specify RocketMQ as EventMesh Storage:
 
 ```properties
 # storage plugin
@@ -49,7 +49,7 @@ Check if the default ports in the configuration file are occupied. If occupied, 
 | eventMesh.server.grpc.port          | 10205   | gRPC listening port |
 | eventMesh.server.admin.http.port    | 10106   | HTTP management port |
 
-#### 1.3.2 Event Store Configuration
+#### 1.3.2 EventMesh Storage Configuration
 
 In the case of RocketMQ, the configuration file includes parameters required to connect to the RocketMQ namesrv.
 
@@ -203,7 +203,7 @@ cd apache-eventmesh-1.10.0-src/
 | eventmesh-starter        | Entry point for running EventMesh locally                    |
 | eventmesh-runtime        | EventMesh Runtime, the runtime module                        |
 | eventmesh-connectors     | [Connectors](../design-document/03-connect/00-connectors.md) for connecting event sources and sinks, supporting [various services and platforms](../roadmap.md#connector-implementation-status) |
-| eventmesh-storage-plugin | [Event Store](../roadmap.md#event-store-implementation-status) plugin for EventMesh Runtime |
+| eventmesh-storage-plugin | [EventMesh Storage](../roadmap.md#event-store-implementation-status) plugin for EventMesh Runtime |
 | eventmesh-sdks           | Multi-language client SDKs for EventMesh, including Java, Go, C and Rust |
 | eventmesh-examples       | Examples of SDK usage                                        |
 | eventmesh-spi            | Module for loading EventMesh SPI                             |
@@ -241,7 +241,7 @@ dependencies {
 
 #### 3.4.2 Use Plugins
 
-EventMesh will load the plugins by default from the `dist/plugin` directory. You can change the plugin directory using `-DeventMeshPluginDir=your_plugin_directory`. The plugin instances needed at runtime can be configured in the `confPath` directory in the `eventmesh.properties` file. For example, by setting the following, you declare the use of the RocketMQ as Event Store:
+EventMesh will load the plugins by default from the `dist/plugin` directory. You can change the plugin directory using `-DeventMeshPluginDir=your_plugin_directory`. The plugin instances needed at runtime can be configured in the `confPath` directory in the `eventmesh.properties` file. For example, by setting the following, you declare the use of the RocketMQ as EventMesh Storage:
 
 ```properties
 # storage plugin
