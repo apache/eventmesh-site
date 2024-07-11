@@ -32,7 +32,7 @@ The steps are as follows:
  5. If you receive an email from (4), you have successfully subscribed to the email. To initiate a discussion, you can send an email directly to `dev@eventmesh.apache.org`, which will be sent to everyone who subscribed to the mailing list.
 
 ## 2. Unsubscribe from the mailing list
-The steps for unsubscribing to a mailing list are similar to those for subscribing to a mailing list::
+The steps for unsubscribing to a mailing list are similar to those for subscribing to a mailing list:
 1. Send an email without any content or subject to: `dev-unsubscribe@eventmesh.apache.org`
 2. Wait until you receive an email with the subject line `confirm unsubscribe from dev@eventmesh.apache.org` 
 3. Reply directly to the email without changing the subject line or adding the email content
