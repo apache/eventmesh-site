@@ -1,6 +1,6 @@
 # Kafka
 
-## KafkaSinkConnector：From EventMesh to Kafka
+## KafkaSinkConnector: From EventMesh to Kafka
 
 1. Start your EventMesh Runtime.
 2. Enable sinkConnector and check `sink-config.yml`.
@@ -27,7 +27,7 @@ connectorConfig:
   valueConverter: org.apache.kafka.common.serialization.StringSerializer
 ```
 
-## KafkaSourceConnector：From Kafka to EventMesh
+## KafkaSourceConnector: From Kafka to EventMesh
 
 1. Start your EventMesh Runtime.
 2. Enable sourceConnector and check `source-config.yml`.
