@@ -25,19 +25,19 @@ As long as you subscribe to this mailing list, you can get the latest developmen
 **For example,Take subscribing to the dev@eventmesh.apache.org mailing list**
 
 The steps are as follows:
- 1. Send an email without any content or subject:  `dev-subscribe@eventmesh.apache.org`
- 2. Wait until you receive an email with the subject line `confirm subscribe to dev@eventmesh.apache.org` (if you have not received it for a long time, please confirm whether the email is blocked by your email, if you have not been blocked and will receive a reply for a long time, return to step 1)
+ 1. Send an email without any content or subject:  `dev-subscribe@eventmesh.apache.org`.
+ 2. Wait until you receive an email with the subject line `confirm subscribe to dev@eventmesh.apache.org` (if you have not received it for a long time, please confirm whether the email is blocked by your email, if you have not been blocked and will receive a reply for a long time, return to step 1).
  3. Reply directly to the email without changing the subject line or adding the email content.
- 4. Wait until you receive an email with the subject line `WELCOME to dev@eventmesh.apache.org` .
+ 4. Wait until you receive an email with the subject line `WELCOME to dev@eventmesh.apache.org`.
  5. If you receive an email from (4), you have successfully subscribed to the email. To initiate a discussion, you can send an email directly to `dev@eventmesh.apache.org`, which will be sent to everyone who subscribed to the mailing list.
 
 ## 2. Unsubscribe from the mailing list
 The steps for unsubscribing to a mailing list are similar to those for subscribing to a mailing list:
-1. Send an email without any content or subject to: `dev-unsubscribe@eventmesh.apache.org`
-2. Wait until you receive an email with the subject line `confirm unsubscribe from dev@eventmesh.apache.org` 
-3. Reply directly to the email without changing the subject line or adding the email content
-4. Wait until you receive an email with the subject line `GOODBYE from dev@eventmesh.apache.org`
-5. Unsubscribe success
+1. Send an email without any content or subject to: `dev-unsubscribe@eventmesh.apache.org`.
+2. Wait until you receive an email with the subject line `confirm unsubscribe from dev@eventmesh.apache.org`.
+3. Reply directly to the email without changing the subject line or adding the email content.
+4. Wait until you receive an email with the subject line `GOODBYE from dev@eventmesh.apache.org`.
+5. Unsubscribe success.
 
 
 ## 3. Issues related
@@ -51,4 +51,4 @@ For existing issues, if you are interested, you can reply and discuss as much as
 
 ## 4. Mail usage 
 
-Please refer to [How to use the mailing list](03-how-to-use-email.md) for email specifications and tips
+Please refer to [How to use the mailing list](03-how-to-use-email.md) for email specifications and tips.
