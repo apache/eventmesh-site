@@ -34,7 +34,7 @@ npm run serve
 Before you commit your changes, you can check the style of the contents by running the following command:
 
 ```sh
-$ yarn autocorrect --lint
+$ npm run autocorrect --lint
 ```
 
 And then follow the instructions to fix the style issues.
