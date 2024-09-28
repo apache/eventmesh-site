@@ -30,5 +30,9 @@
   "sidebar.tutorialSidebar.category.Connect": {
     "message": "连接器",
     "description": "The label for category Connect in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Distributed Cluster Deployment": {
+    "message": "分布式集群部署",
+    "description": "The label for category Distributed Cluster Deployment in sidebar tutorialSidebar"
   }
 }
