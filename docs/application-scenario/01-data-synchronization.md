@@ -16,7 +16,7 @@
 &emsp;&emsp;In the data synchronization scenario, Geely Auto implemented an event integration platform based on EventMesh. For example, in Geely's user center system, most internal business systems cache user data locally after integrating with the user center. As these business systems frequently modify user data asynchronously, there is a strong demand for data synchronization.
 
 <div align="center">
-<img src="../../static/images/application-scenario/s1_img1.png" width="100%" >
+<img src="/images/application-scenario/s1_img1.png" width="80%" />
 </div>
 
 &emsp;&emsp;Geely Automobile's event integration platform, built on EventMesh, enables the user center to publish new and changed user data as "events" within an event-driven architecture. Business systems subscribe to event sources to retrieve necessary user data updates. For instance, the finance system may only be interested in payment information updates, while the customer service system cares about contact information changes.
@@ -27,6 +27,6 @@
 
 *   **Reference**
 
-&emsp;&emsp;[《Apache EventMesh the event grid helps build an event platform》in CommunityOverCode Asia 2024](https://asia.communityovercode.org/)
+&emsp;&emsp;["Apache EventMesh the event grid helps build an event platform" in CommunityOverCode Asia 2024](https://asia.communityovercode.org/)
 
-&emsp;&emsp;[How Geely Automobile implements event integration platform based on EventMesh to promote efficient business integration](https://mp.weixin.qq.com/s/BLHbIq5KyjnhoVlmw9_DBw)
+&emsp;&emsp;["How Geely Automobile implements event integration platform based on EventMesh to promote efficient business integration"](https://mp.weixin.qq.com/s/BLHbIq5KyjnhoVlmw9_DBw)

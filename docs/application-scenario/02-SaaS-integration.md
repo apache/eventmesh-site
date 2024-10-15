@@ -12,23 +12,26 @@
 &emsp;&emsp;The diagram below illustrates a single PBC, a combination of PBCs, and multiple composite PBCs:
 
 <div align="center">
-<img src="../../static/images/application-scenario/s2_img1.png" width="100%" >
+<img src="/images/application-scenario/s2_img1.png" width="80%" />
 </div>
+
+<!-- ![PBC-structure](../../static/images/application-scenario/s2_img1.png) -->
+
 
 &emsp;&emsp;From the above architecture, it is clear that each SaaS application module (PBC) has a low degree of coupling. Modifying or adjusting a specific module does not affect the operation of other existing modules.This facilitates agile development and efficient iterative updates. However, one challenge of SaaS composite applications is the lack of standardized integration between different applications, as the absence of a unified communication protocol can hinder the implementation of this architecture.
 
 &emsp;&emsp;This issue can be solved by EventMesh. EventMesh integrates TCP and HTTP protocols, and supports bi-directional asynchronous communication between Client and Server through gRPC (Google’s open-source high-performance RPC framework based on HTTP/2) with SDKs available for multiple languages such as Java, Python, C, and Go. Users do not need to worry about which communication protocol is used in different scenarios when using the SDK; the event-driven asynchronous communication can be achieved through the SDK APIs integrated by EventMesh, enabling the seamless event flow between different SaaS application modules.
 
 <div align="center">
-<img src="../../static/images/application-scenario/s2_img2.png" width="80%" >
+<img src="/images/application-scenario/s2_img2.png" width="60%" />
 </div>
-  
+
 *   Application scenario implementation proposal
 
 &emsp;&emsp;Regarding the specific implementation of the scenario, EventMesh officially introduced the `gRPC` framework starting from version v1.4.0. gRPC defines API interface data models using Protobuf. In the gRPC Protobuf event model, each event is represented by the `SimpleMessage` data model, with the event content stored in the `content` field.
 
 <div align="center">
-<img src="../../static/images/application-scenario/s2_img3.png" width="80%" >
+<img src="/images/application-scenario/s2_img3.png" width="60%" />
 </div>
 
 &emsp;&emsp;The gRPC event scenarios supported by EventMesh include: event sending and batch event sending, event broadcasting, event request and response, event subscription, and event pushing (for more details, see: [eventmesh-client.proto](https://github.com/apache/eventmesh/blob/master/eventmesh-protocol-plugin/eventmesh-protocol-grpc/src/main/proto/eventmesh-client.proto)).

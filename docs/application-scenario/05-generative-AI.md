@@ -16,14 +16,12 @@
 
 &emsp;&emsp;In addition, `EventMesh's` Event Source and Event Sink can support various types of event sources and event targets, adapting to different kinds of data sources. Whether it's internal enterprise data or external public data, they can be synchronized to the LLM's vector database through the event-driven system, enabling data diversification for the LLM.
 
-<div align="center">
-<img src="../../static/images/application-scenario/s5_img1.png" width="100%">
-</div>
+![chatbot-workflow](../../static/images/application-scenario/s5_img1.png)
 
 &emsp;&emsp;The event-driven architecture also enhances the resilience and scalability of generative AI applications. The Retrieval Augmented Generation (RAG) + Prompt Engineering method requires to establish a data pipeline consisting of multiple microservices to process domain-specific data. The main components of the data pipeline include Tokenization, Data Chunking, Data Vectorization, Word Embedding, and Prompt Builder. The interaction between these microservices can be done asynchronously through an event-driven approach. As the data volume increases, each microservice can independently scale without affecting the overall data pipeline architecture. If AI scientists want to add new microservices, such as a User Feedback App to process user feedback data, it can interact with other microservices in the data pipeline by consuming and publishing specific topics without needing to modify the interfaces of other microservices. `EventMesh's` Serverless Workflow event stream features can be used to build such data pipelines.
 
 <div align="center">
-<img src="../../static/images/application-scenario/s5_img2.png" width="80%">
+<img src="/images/application-scenario/s5_img2.png" width="80%"/>
 </div>
 
 &emsp;&emsp;The `EventMesh` community, along with other Apache open-source communities, will continue to explore new application scenarios in the field of generative AI. The Workflow and Event Source/Sink features of the EventMesh architecture can help build generative AI applications, improving the real-time capability and accuracy of AI applications while enhancing their scalability. This enables the creation of real-time, cloud-native generative AI applications.

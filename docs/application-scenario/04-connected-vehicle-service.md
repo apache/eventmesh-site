@@ -16,7 +16,7 @@
 &emsp;&emsp;The Serverless solution for connected vehicle services, powered by `EventMesh`, offers dynamic scaling and high flexibility in an event-driven architecture. It meets the demand for high concurrency and rapid elasticity.It can scale dynamically during traffic surges to handle highly concurrent data. `EventMesh` also provides flexible routing capabilities, allowing events to be routed to different systems and services based on customizable configuration rules.
 
 <div align="center">
-<img src="../../static/images/application-scenario/s4_img1_en.png" width="100%">
+<img src="/images/application-scenario/s4_img1_en.png" width="80%"/>
 </div>
 
 &emsp;&emsp;The diagram above illustrates the Serverless solution for connected vehicle services. First, data can be cleaned, filtered using the filter and transformer capabilities of `EventMesh`,then data is processed via function computation.After processing, the data is stored in distributed object storage, and events are generated. `EventMesh` routes these events to the appropriate services based on predefined configuration rules. These services include peak-shaving and valley-filling consumption services, AI-based intelligent recommendation services, and multiple departmental business services. This architecture allows each service to respond only to relevant events without coupling to the data source directly.
