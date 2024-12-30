@@ -16,9 +16,9 @@ EventMesh Runtime 是 EventMesh 集群中有状态的 Mesh 节点，负责 Sourc
 从 [EventMesh Download](https://eventmesh.apache.org/download) 页面下载最新版本的 Binary Distribution 发行版并解压：
 
 ```shell
-wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-bin.tar.gz
-tar -xvzf apache-eventmesh-1.10.0-bin.tar.gz
-cd apache-eventmesh-1.10.0
+wget https://dlcdn.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-bin.tar.gz
+tar -xvzf apache-eventmesh-1.11.0-bin.tar.gz
+cd apache-eventmesh-1.11.0
 ```
 
 ### 1.3 配置
@@ -110,9 +110,9 @@ bash bin/stop.sh
 从 [EventMesh Download](https://eventmesh.apache.org/download) 下载 Source Code 源代码并解压：
 
 ```shell
-wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-source.tar.gz
-tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
-cd apache-eventmesh-1.10.0-src/
+wget https://dlcdn.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-source.tar.gz
+tar -xvzf apache-eventmesh-1.11.0-source.tar.gz
+cd apache-eventmesh-1.11.0-src/
 ```
 
 您也可以选择从 GitHub 拉取代码：
@@ -189,9 +189,9 @@ cd eventmesh/
 您也可以从 [EventMesh Download](https://eventmesh.apache.org/download) 下载 Source Code 源代码发行版并解压：
 
 ```shell
-wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-source.tar.gz
-tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
-cd apache-eventmesh-1.10.0-src/
+wget https://dlcdn.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-source.tar.gz
+tar -xvzf apache-eventmesh-1.11.0-source.tar.gz
+cd apache-eventmesh-1.11.0-src/
 ```
 
 ### 3.3 项目结构说明

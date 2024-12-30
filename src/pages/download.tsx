@@ -28,6 +28,21 @@ interface Release {
 
 const releaseList: Release[] = [
   {
+    version: 'v1.11.0',
+    date: new Date(2024, 11, 30),
+    notes: 'https://eventmesh.apache.org/events/release-notes/v1.11.0',
+    source: {
+      tar: 'https://www.apache.org/dyn/closer.lua/eventmesh/1.11.0/apache-eventmesh-1.11.0-source.tar.gz',
+      asc: 'https://downloads.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-source.tar.gz.asc',
+      sha512: 'https://downloads.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-source.tar.gz.sha512',
+    },
+    binary: {
+      tar: 'https://www.apache.org/dyn/closer.lua/eventmesh/1.11.0/apache-eventmesh-1.11.0-bin.tar.gz',
+      asc: 'https://downloads.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-bin.tar.gz.asc',
+      sha512: 'https://downloads.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-bin.tar.gz.sha512',
+    },
+  },
+  {
     version: 'v1.10.0',
     date: new Date(2023, 11, 25),
     notes: 'https://eventmesh.apache.org/events/release-notes/v1.10.0',
