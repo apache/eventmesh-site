@@ -45,6 +45,7 @@ Apache EventMesh 由我们的 PMC、Committer 和其他贡献者开发。无论�
 | Harshitha Sudhakar   | [@harshithasudhakar](https://github.com/harshithasudhakar) | harshitha@apache.org         | Committer                                                    | +6        |
 | Tian Xia             | [@Pil0tXia](https://github.com/Pil0tXia)                   | xiatian@apache.org           | Committer                                                    | +8        |
 | Karson To            | [@Karson](https://github.com/karsonto)                     | karson@apache.org            | Committer                                                    | +8        |
+| Zikang Chen          | [@cnzakii](https://github.com/cnzakii)                     | cnzakii@apache.org           | Committer                                                    | +8        |
 
 ## 所有贡献者
 
