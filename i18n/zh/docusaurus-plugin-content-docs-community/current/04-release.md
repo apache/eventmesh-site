@@ -9,7 +9,7 @@ sidebar_position: 3
 
 Source Release 是 Apache 关注的重点，也是发布的必须内容；而 Binary Release 是可选项，
 
-请参考以下链接，找到更多关于 ASF 的发布指南:
+请参考以下链接，找到更多关于 ASF 的发布指南：
 
 - [Apache Release Guide](http://www.apache.org/dev/release-publishing)
 - [Apache Release Policy](http://www.apache.org/dev/release.html)
@@ -19,19 +19,19 @@ Source Release 是 Apache 关注的重点，也是发布的必须内容；而 Bi
 
 主要包括签名工具、Maven 仓库认证相关准备
 
-### 1.安装GPG
+### 1.安装 GPG
 
-在[GnuPG官网](https://www.gnupg.org/download/index.html)下载安装包。GnuPG的1.x版本和2.x版本的命令有细微差别，下列说明以**GnuPG-2.x**版本为例
+在[GnuPG 官网](https://www.gnupg.org/download/index.html)下载安装包。GnuPG 的 1.x 版本和 2.x 版本的命令有细微差别，下列说明以**GnuPG-2.x**版本为例
 
 ```sh
 $ gpg --version #检查版本，应该为2.x
 ```
 
-### 2.用gpg生成key
+### 2.用 gpg 生成 key
 
 根据提示，生成 key
 
-> 注意：请使用Apache邮箱生成GPG的Key
+> 注意：请使用 Apache 邮箱生成 GPG 的 Key
 
 ```shell
 $ gpg --full-gen-key
@@ -93,7 +93,7 @@ $ gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 579C25F5 # 验证是否
 default-key 28681CB1
 ```
 
-**如果有多个 public key, 也可以删除无用的 key：**
+**如果有多个 public key，也可以删除无用的 key：**
 
 ```shell
 $ gpg --delete-secret-keys 29BBC3CB # 先删除私钥，指明key id
@@ -119,7 +119,7 @@ pub  rsa4096/EE8DAE7D29BBC3CB 2021-04-27 mikexue <mikexue@apache.org>
 Delete this key from the keyring? (y/N) y
 ```
 
-由于公钥服务器没有检查机制，任何人都可以用你的名义上传公钥，所以没有办法保证服务器上的公钥的可靠性。 通常，你可以在网站上公布一个公钥指纹，让其他人核对下载到的公钥是否为真。
+由于公钥服务器没有检查机制，任何人都可以用你的名义上传公钥，所以没有办法保证服务器上的公钥的可靠性。通常，你可以在网站上公布一个公钥指纹，让其他人核对下载到的公钥是否为真。
 
 ```shell
 # fingerprint参数生成公钥指纹：
@@ -130,13 +130,13 @@ uid           [ultimate] mikexue <mikexue@apache.org>
 sub   rsa4096 2021-04-26 [E]
 ```
 
-登录 [https://id.apache.org](https://id.apache.org/), 将上面的 fingerprint （即 F84A 0041 D70B 37AF 9C7B  F0B3 39F4 29D7 579C 25F5） 粘贴到自己的用户信息中 OpenPGP Public Key Primary Fingerprint
+登录 [https://id.apache.org](https://id.apache.org/)，将上面的 fingerprint（即 F84A 0041 D70B 37AF 9C7B  F0B3 39F4 29D7 579C 25F5）粘贴到自己的用户信息中 OpenPGP Public Key Primary Fingerprint
 
 
 
-## 发布Apache Maven仓库
+## 发布 Apache Maven 仓库
 
-> 注：EventMesh使用Gradle构建，需修改gradle相关配置
+> 注：EventMesh 使用 Gradle 构建，需修改 gradle 相关配置
 
 ### 1.导出私钥文件
 
@@ -146,15 +146,15 @@ $ gpg --export-secret-keys -o secring.gpg #私钥文件妥善保管，后面配�
 
 ### 2.准备分支
 
-从主干分支拉取新分支作为发布分支，如现在要发布$`{release_version}`版本，则从master分支拉出新分支`${release_version}-prepare`，此后`${release_version}` Release Candidates涉及的修改及打标签等都在`${release_version}-prepare`分支进行，最终发布完成后合入主干分支。
+从主干分支拉取新分支作为发布分支，如现在要发布$`{release_version}`版本，则从 master 分支拉出新分支`${release_version}-prepare`，此后`${release_version}` Release Candidates 涉及的修改及打标签等都在`${release_version}-prepare`分支进行，最终发布完成后合入主干分支。
 
 ### 3.更新版本说明
 
-更新官网项目的如下文件，并提交至master分支：
+更新官网项目的如下文件，并提交至 master 分支：
 
 https://github.com/apache/eventmesh-site/tree/master/events/release-notes
 
-### 4.配置根项目下gradle.properties文件
+### 4.配置根项目下 gradle.properties 文件
 
 ```shell
 group=org.apache.eventmesh
@@ -163,7 +163,7 @@ version=1.2.0-release
 signing.keyId=579C25F5
 #生成密钥时填的passphrase
 signing.password=
-#导出的私钥文件secring.gpg路径,绝对路径, 比如/home/root/secring.gpg
+#导出的私钥文件secring.gpg的绝对路径,比如/home/root/secring.gpg
 signing.secretKeyRingFile=/home/root/secring.gpg
 #apache 账号
 apacheUserName=
@@ -173,16 +173,16 @@ apachePassWord=
 signEnabled=true
 ```
 
-### 5.检查子模块下gradle.properties文件
+### 5.检查子模块下 gradle.properties 文件
 
 ```shell
 group=org.apache.eventmesh
 version=${release_version}
 ```
 
-### 6.检查并配置根项目下build.gradle文件
+### 6.检查并配置根项目下 build.gradle 文件
 
-该文件check下，大部分情况下不需要变更
+该文件 check 下，大部分情况下不需要变更
 
 ```shell
 publishing {
@@ -245,30 +245,30 @@ signing {
 
 ### 7.上传发布包
 
-执行如下命令，需要对jar、源码包、doc和pom等文件签名加密
+执行如下命令，需要对 jar、源码包、doc 和 pom 等文件签名加密
 
 ```shell
 $ gradle signMavenJavaPublication publish
 ```
 
-上述命令执行成功后，待发布版本会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
+上述命令执行成功后，待发布版本会自动上传到 Apache 的临时筹备仓库(staging repository)。所有被 deploy 到远程[maven 仓库](http://repository.apache.org/)的 Artifacts 都会处于 staging 状态，访问 https://repository.apache.org/#stagingRepositories，使用 Apache 的 LDAP 账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。点击`Close`来告诉 Nexus 这个构建已经完成，只有这样该版本才是可用的。如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
 
 
 
-## 发布Apache SVN仓库
+## 发布 Apache SVN 仓库
 
-### 1.准备svn本机环境（Apache使用svn托管项目的发布内容）
+### 1.准备 svn 本机环境（Apache 使用 svn 托管项目的发布内容）
 
-### 2.checkout到本地目录
+### 2.checkout 到本地目录
 
 ```shell
 $ svn checkout https://dist.apache.org/repos/dist/dev/eventmesh/
 # 假定本地目录为 ~/apache/eventmesh
 ```
 
-### 3.添加gpg公钥
+### 3.添加 gpg 公钥
 
-添加public key到[KEYS](https://dist.apache.org/repos/dist/dev/eventmesh/KEYS)文件并提交到SVN仓库（第一次做发布的人需要做这个操作，具体操作参考KEYS文件里的说明）。KEYS主要是让参与投票的人在本地导入，用来校验sign的正确性
+添加 public key 到[KEYS](https://dist.apache.org/repos/dist/dev/eventmesh/KEYS)文件并提交到 SVN 仓库（第一次做发布的人需要做这个操作，具体操作参考 KEYS 文件里的说明）。KEYS 主要是让参与投票的人在本地导入，用来校验 sign 的正确性
 
 Windows
 
@@ -283,16 +283,16 @@ $ gpg --armor --export <your name> | out-file -append KEYS -encoding utf8
 $ (gpg --list-sigs <your name> && gpg --armor --export <your name>) >> KEYS
 ```
 
-### 4.添加待发布内容到SVN目录
+### 4.添加待发布内容到 SVN 目录
 
 ```shell
 $ cd ~/apache/eventmesh # eventmesh svn根目录
 $ mkdir ${release_version}-${rc_version}
 ```
 
-#### 4.1 创建tag
+#### 4.1 创建 tag
 
-在`${release_version}-release`分支上创建tag，需带有rc版本，为预发布版本
+在`${release_version}-prepare`分支上创建 tag，需带有 rc 版本，为预发布版本
 
 ```shell
 $ git tag -a v{$release_version}-{$rc_version} -m "Tagging the ${release_version} first Release Candidate (Candidates start at zero)"
@@ -301,9 +301,9 @@ $ git push origin --tags
 
 #### 4.2 打包源码
 
-检查项目源码命名，将源码命名为`apache-eventmesh-${release_version}-src`，将源码打包为tar.gz格式
+检查项目源码命名，将源码命名为`apache-eventmesh-${release_version}-src`，将源码打包为 tar.gz 格式
 
-> 注：需要将源码中的可执行文件，空目录，无用文件，无用目录删除，包括.git目录，.github目录，.gradle目录，.gitignore文件，gradle目录，build目录，gradlew文件，gradlew.bat文件等
+> 注：需要将源码中的可执行文件，空目录，无用文件，无用目录删除，包括.git 目录，.github 目录，.gradle 目录，.gitignore 文件，gradle 目录，build 目录，gradlew 文件，gradlew.bat 文件等
 
 ```shell
 $ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-${release_version}-src
@@ -311,29 +311,32 @@ $ tar -czvf apache-eventmesh-${release_version}-source.tar.gz apache-eventmesh-$
 
 #### 4.3 打包二进制
 
-> 编译上一步打包的源码
+> 在`${release_version}-prepare`分支上打包二进制发行版
 
-检查编译后的文件命名，将二进制文件命名为`apache-eventmesh-${release_version}`
-
-> 注：需将源码根目录下的`DISCLAIMER-WIP`文件以及`tools/third-party-licenses`目录下的`LICENSE`, `NOTICE`文件拷贝到二进制的包中
+> 注：`dist`任务所依赖的`generateDistLicense`和`generateDistNotice`任务将会自动生成`tools/dist-license`目录下的`LICENSE`、`NOTICE`文件和`licenses`目录。`dist`任务本身将会复制`tools/dist-license`目录下的内容到`/dist`目录下。
 
 ```shell
-$ gradle clean jar dist && gradle installPlugin && gradle tar -x test
+$ ./gradlew clean dist && ./gradlew installPlugin
+```
+
+检查编译后的文件命名，将`/dist`目录命名为`apache-eventmesh-${release_version}`
+
+```shell
 $ tar -czvf apache-eventmesh-${release_version}-bin.tar.gz apache-eventmesh-${release_version}
 ```
 
-压缩source包、bin包，并将相关的压缩包拷贝到svn本地仓库下`/apache/eventmesh/${release_version}-${rc_version}`
+压缩 source 包、bin 包，并将相关的压缩包拷贝到 svn 本地仓库下`/apache/eventmesh/${release_version}-${rc_version}`
 
-### 5.生成签名/sha512文件
+### 5.生成签名/sha512 文件
 
-> 针对源码包与二进制包生成签名/sha512文件
+> 针对源码包与二进制包生成签名/sha512 文件
 
 ```shell
 $ for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done #计算sha512
 $ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done #计算签名
 ```
 
-### 6.提交到Apache svn
+### 6.提交到 Apache SVN
 
 ```shell
 $ cd ~/apache/eventmesh # eventmesh svn根目录
@@ -341,13 +344,11 @@ $ svn status
 $ svn commit -m 'prepare for ${release_version}-${rc_version}'
 ```
 
-
-
-## 验证Release Candidates
+## 验证 Release Candidates
 
 详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-从以下地址下载要发布的Release Candidates到本地环境：
+从以下地址下载要发布的 Release Candidates 到本地环境：
 
 ```shell
 https://dist.apache.org/repos/dist/dev/eventmesh/${release_version}-${rc_version}/
@@ -355,11 +356,11 @@ https://dist.apache.org/repos/dist/dev/eventmesh/${release_version}-${rc_version
 
 然后开始验证环节，验证包含但不限于以下内容和形式
 
-### 1.检查签名和hash等信息
+### 1.检查签名和 hash 等信息
 
 > 由于操作系统不同，检查的命令或有差异，具体可参考[官方检查步骤](https://www.apache.org/info/verification.html)
 
-#### 1.1检查sha512哈希
+#### 1.1 检查 sha512 哈希
 
 > Mac OS/Linux
 
@@ -379,9 +380,9 @@ $ certUtil -hashfile apache-eventmesh-${release_version}-bin.tar.gz SHA512
 #并将输出内容与 apache-eventmesh-${release_version}-${rc_version}-bin.tar.gz.sha512文件内容作对比
 ```
 
-#### 1.2检查gpg签名
+#### 1.2 检查 gpg 签名
 
-首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
+首先导入发布人公钥。从 svn 仓库导入 KEYS 到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
 
 ```shell
 $ curl https://dist.apache.org/repos/dist/dev/eventmesh/KEYS >> KEYS
@@ -413,45 +414,41 @@ $ gpg --verify apache-eventmesh-${release_version}-bin.tar.gz.asc apache-eventme
 
 ### 2.检查源码包的文件内容
 
-解压缩`apache-eventmesh-${release_version}-source.tar.gz`，进行如下检查:
+解压缩`apache-eventmesh-${release_version}-source.tar.gz`，进行如下检查：
 
-- 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
+- 检查源码包是否包含由于包含不必要文件，致使 tar 包过于庞大
 - 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
 - `NOTICE`文件中的年份正确
 - 只存在文本文件，不存在二进制文件
-- 所有文件的开头都有ASF许可证
-- 能够正确编译，单元测试可以通过 (./gradle build) (目前支持JAVA 8/gradle 7.0/idea 2021.1.1及以上)
+- 所有文件的开头都有 ASF 许可证 (可以使用 skywalking-eyes 工具的`license-eye header check`命令检查)
+- 能够正确编译，单元测试可以通过 (`./gradlew build`) (目前支持 JAVA 8/gradle 7.0/idea 2021.1.1 及以上)
 - 检查是否有多余文件或文件夹，例如空文件夹等
 
 ### 3.检查二进制包的文件内容
 
 - 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
 - `NOTICE`文件中的年份正确
-- 所有文本文件开头都有ASF许可证
-- 检查第三方依赖许可证：
-  - 第三方依赖的许可证兼容
+- 所有文本文件开头都有 ASF 许可证 (可以使用 skywalking-eyes 工具的`license-eye header check`命令检查)
+- 根据[ASF 第三方许可证政策](https://apache.org/legal/resolved.html)，检查第三方依赖的许可证：
+  - 第三方依赖的许可证与 Apache-2.0 兼容 (运行`checkDeniedLicense `任务，关注`tools/dist-license`目录下新增的 license 文件的兼容性)
   - 所有第三方依赖的许可证都在`LICENSE`文件中声名
-  - 依赖许可证的完整版全部在`license`目录
-  - 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
-
-你可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
+  - 依赖许可证的完整版全部在`licenses`目录 (关注`generateDistLicense`任务的日志警告，补充过时工件的 license 内容)
+  - 如果依赖的是 Apache 许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
 
 ## 发起投票
 
 > EventMesh 已经孵化毕业，只需要进行社区投票
 
-- EventMesh社区投票，发送邮件至：`dev@eventmesh.apache.org`
+- EventMesh 社区投票，发送邮件至：`dev@eventmesh.apache.org`
 - 在社区投票的邮件正文中的${Your EventMesh Release Manager}，填写负责本次发布的人员，一般是邮件发送人
 
 
-### 1.EventMesh社区投票阶段
+### 1.EventMesh 社区投票阶段
 
-1. EventMesh社区投票，发起投票邮件到`dev@eventmesh.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
-2. 宣布投票结果,发起投票结果邮件到`dev@eventmesh.apache.org`。
+1. EventMesh 社区投票，发起投票邮件到`dev@eventmesh.apache.org`。PMC 需要先按照文档检查版本的正确性，然后再进行投票。经过至少 72 小时并统计到 3 个`+1 PMC member`票后，即可进入下一阶段的投票。
+2. 宣布投票结果，发起投票结果邮件到`dev@eventmesh.apache.org`。
 
-### 2.EventMesh社区投票模板
+### 2.EventMesh 社区投票模板
 
 标题：
 
@@ -554,20 +551,20 @@ Your EventMesh Release Manager
 
 ### 1.合并分支
 
-合并`${release_version}-release`分支的改动到`master`分支，合并完成后删除`release`分支
+合并`${release_version}-prepare`分支的改动到`master`分支，合并完成后删除`release`分支
 
 ```shell
 $ git checkout master
-$ git merge origin/${release_version}-release
+$ git merge origin/${release_version}-prepare
 $ git pull
 $ git push origin master
-$ git push --delete origin ${release_version}-release
-$ git branch -d ${release_version}-release
+$ git push --delete origin ${release_version}-prepare
+$ git branch -d ${release_version}-prepare
 ```
 
 ### 2.迁移源码与二进制包
 
-将源码和二进制包从svn的`dev`目录移动到`release`目录
+将源码和二进制包从 svn 的`dev`目录移动到`release`目录
 
 ```shell
 $ svn mv https://dist.apache.org/repos/dist/dev/eventmesh/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/eventmesh/ -m "transfer packages for ${release_version}-${rc_version}" #移动源码包与二进制包
@@ -575,7 +572,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/eventmesh/KEYS -m "delet
 $ svn cp https://dist.apache.org/repos/dist/dev/eventmesh/KEYS https://dist.apache.org/repos/dist/release/eventmesh/ -m "transfer KEYS for ${release_version}-${rc_version}" #拷贝dev目录KEYS到release目录
 ```
 
-### 3.确认dev和release下的包是否正确
+### 3.确认 dev 和 release 下的包是否正确
 
 - 确认[dev](https://dist.apache.org/repos/dist/dev/eventmesh/)下的`${release_version}-${rc_version}`已被删除
 - 删除[release](https://dist.apache.org/repos/dist/release/eventmesh/)目录下上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/eventmesh/)
@@ -584,16 +581,16 @@ $ svn cp https://dist.apache.org/repos/dist/dev/eventmesh/KEYS https://dist.apac
 $ svn delete https://dist.apache.org/repos/dist/release/eventmesh/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
-### 4.在Apache Staging仓库发布版本
+### 4.在 Apache Staging 仓库发布版本
 
-- 登录http://repository.apache.org , 使用Apache账号登录
-- 点击左侧的Staging repositories，
-- 搜索EventMesh关键字，选择你最近上传的仓库，投票邮件中指定的仓库
+- 登录 http://repository.apache.org，使用 Apache 账号登录
+- 点击左侧的 Staging repositories，
+- 搜索 EventMesh 关键字，选择你最近上传的仓库，投票邮件中指定的仓库
 - 点击上方的`Release`按钮，这个过程会进行一系列检查
 
-> 等仓库同步到其他数据源，一般需要24小时
+> 等仓库同步到其他数据源，一般需要 24 小时
 
-### 5.GitHub版本发布
+### 5.GitHub 版本发布
 
 1.Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. 例如：after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1.2` only.
 
@@ -609,13 +606,13 @@ https://eventmesh.apache.org/download/
 
 https://eventmesh.apache.org/zh/download/
 
-GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/eventmesh/`
+GPG 签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/eventmesh/`
 
 > 注意：项目下载链接应该使用 https://www.apache.org/dyn/closer.lua 而不是 closer.cgi 或者 mirrors.cgi
 
 ### 7.邮件通知版本发布完成
 
-> 请确保Apache Staging仓库已发布成功，一般是在该步骤的24小时后发布邮件
+> 请确保 Apache Staging 仓库已发布成功，一般是在该步骤的 24 小时后发布邮件
 
 发邮件到 `dev@eventmesh.apache.org` 、 `announce@apache.org`
 

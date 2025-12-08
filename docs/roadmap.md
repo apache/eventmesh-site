@@ -57,7 +57,7 @@ The development roadmap of Apache EventMesh is an overview of the planned featur
 |        [Kafka](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-kafka)        |    ✅    |    ✅    |
 |       [Pulsar](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-pulsar)       |    ✅    |    ✅    |
 |     [RabbitMQ](./design-document/connect/rabbitmq-connector)     |    ✅    |    ✅    |
-|         [HTTP](./design-document/connect/http-connector)         |    ✅    |    ⬜    |
+|         [HTTP](./design-document/connect/http-connector)         |    ✅    |    ✅    |
 |         [JDBC](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-jdbc)         |    ⬜    |    ✅    |
 |       [Spring](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-spring)       |    ✅    |    ✅    |
 | [OpenFunction](https://github.com/apache/eventmesh/tree/master/eventmesh-connectors/eventmesh-connector-openfunction) |    ✅    |    ✅    |

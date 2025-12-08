@@ -16,9 +16,9 @@ EventMesh Runtime is a stateful Mesh node in the EventMesh cluster, responsible 
 Download the latest version of the Binary Distribution from the [EventMesh Download](https://eventmesh.apache.org/download) page and extract it:
 
 ```shell
-wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-bin.tar.gz
-tar -xvzf apache-eventmesh-1.10.0-bin.tar.gz
-cd apache-eventmesh-1.10.0
+wget https://dlcdn.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-bin.tar.gz
+tar -xvzf apache-eventmesh-1.11.0-bin.tar.gz
+cd apache-eventmesh-1.11.0
 ```
 
 ### 1.3 Configuration
@@ -97,6 +97,8 @@ bash bin/stop.sh
 
 When the script prints `shutdown server ok!`, it means EventMesh Runtime has stopped.
 
+> In this version, you may need to use `dos2unix` to convert the CRLF line endings of the script to LF line endings.
+
 ## 2. Build Binary Distribution
 
 ### 2.1 Environment
@@ -110,9 +112,9 @@ When the script prints `shutdown server ok!`, it means EventMesh Runtime has sto
 Download the Source Code from [EventMesh Download](https://eventmesh.apache.org/download) and extract it:
 
 ```shell
-wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-source.tar.gz
-tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
-cd apache-eventmesh-1.10.0-src/
+wget https://dlcdn.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-source.tar.gz
+tar -xvzf apache-eventmesh-1.11.0-source.tar.gz
+cd apache-eventmesh-1.11.0-src/
 ```
 
 You can also choose to clone the code from GitHub:
@@ -189,9 +191,9 @@ cd eventmesh/
 You can also download the Source Code release from [EventMesh Download](https://eventmesh.apache.org/download) and extract it:
 
 ```shell
-wget https://dlcdn.apache.org/eventmesh/1.10.0/apache-eventmesh-1.10.0-source.tar.gz
-tar -xvzf apache-eventmesh-1.10.0-source.tar.gz
-cd apache-eventmesh-1.10.0-src/
+wget https://dlcdn.apache.org/eventmesh/1.11.0/apache-eventmesh-1.11.0-source.tar.gz
+tar -xvzf apache-eventmesh-1.11.0-source.tar.gz
+cd apache-eventmesh-1.11.0-src/
 ```
 
 ### 3.3 Project Structure Explanation

@@ -62,7 +62,7 @@ module.exports = {
         {
           type: 'doc',
           docsPluginId: 'events',
-          docId: 'release-notes/v1.10.0',
+          docId: 'release-notes/v1.11.0',
           position: 'left',
           label: 'Events',
         },

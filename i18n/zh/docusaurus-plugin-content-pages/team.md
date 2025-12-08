@@ -7,7 +7,7 @@ Apache EventMesh 由我们的 PMC、Committer 和其他贡献者开发。无论�
 以下是一份具有提交权限并在各种方式上为 EventMesh 做出了巨大贡献的贡献者列表。
 
 | Name                 | Github Id                                                  | Email                        | [Roles](https://www.apache.org/foundation/how-it-works.html#roles) | Time Zone |
-| :------------------- | :--------------------------------------------------------- | :--------------------------- | :----------------------------------------------------------- | :-------- |
+|:---------------------|:-----------------------------------------------------------|:-----------------------------| :----------------------------------------------------------- | :-------- |
 | Francois Papon       | [@fpapon](https://github.com/fpapon)                       | francois.papon@openobject.fr | Mentor                                                       | +1        |
 | Jean-Baptiste Onofré | [@jbonofre](https://github.com/jbonofre)                   | jbonofre@apache.org          | Mentor                                                       | +1        |
 | Junping Du           | [@JunpingDu](https://github.com/JunpingDu)                 | junping_du@apache.org        | Mentor                                                       | +8        |
@@ -44,6 +44,8 @@ Apache EventMesh 由我们的 PMC、Committer 和其他贡献者开发。无论�
 | Mark Li              | [@Markliniubility](https://github.com/Markliniubility)     | markli@apache.org            | Committer                                                    | +8        |
 | Harshitha Sudhakar   | [@harshithasudhakar](https://github.com/harshithasudhakar) | harshitha@apache.org         | Committer                                                    | +6        |
 | Tian Xia             | [@Pil0tXia](https://github.com/Pil0tXia)                   | xiatian@apache.org           | Committer                                                    | +8        |
+| Karson To            | [@Karson](https://github.com/karsonto)                     | karson@apache.org            | Committer                                                    | +8        |
+| Zikang Chen          | [@cnzakii](https://github.com/cnzakii)                     | cnzakii@apache.org           | Committer                                                    | +8        |
 
 ## 所有贡献者
 

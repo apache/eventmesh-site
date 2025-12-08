@@ -44,6 +44,8 @@ The following is a list of contributors with commit privileges that have made gr
 | Mark Li              | [@Markliniubility](https://github.com/Markliniubility)     | markli@apache.org            | Committer                                                    | +8        |
 | Harshitha Sudhakar   | [@harshithasudhakar](https://github.com/harshithasudhakar) | harshitha@apache.org         | Committer                                                    | +6        |
 | Tian Xia             | [@Pil0tXia](https://github.com/Pil0tXia)                   | xiatian@apache.org           | Committer                                                    | +8        |
+| Karson To            | [@Karson](https://github.com/karsonto)                     | karson@apache.org            | Committer                                                    | +8        |
+| Zikang Chen          | [@cnzakii](https://github.com/cnzakii)                     | cnzakii@apache.org           | Committer                                                    | +8        |
 
 ## All Contributors
 
@@ -56,4 +58,4 @@ Please refer to the following links, if you also want to make your contribution 
 
 Here is the [List of Contributors](https://github.com/apache/eventmesh/tributors), thank you all!
 
-[![Contributor](https://contrib.rocks/image?repo=apache/eventmesh)](https://github.com/apache/eventmesh/tributors)
+[![Contributor](https://contrib.rocks/image?repo=apache/eventmesh&max=2000)](https://github.com/apache/eventmesh/tributors)

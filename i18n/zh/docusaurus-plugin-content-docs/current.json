@@ -30,5 +30,9 @@
   "sidebar.tutorialSidebar.category.Connect": {
     "message": "连接器",
     "description": "The label for category Connect in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Application Scenario": {
+    "message": "应用场景",
+    "description": "The label for category Application Scenario in sidebar tutorialSidebar"
   }
 }
