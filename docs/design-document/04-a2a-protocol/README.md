@@ -48,6 +48,22 @@ graph LR
     style Fanout_Layer fill:#ccf,stroke:#333
 ```
 
+### 2.1 Hybrid Protocol Support (JSON-RPC & CloudEvents)
+
+A2A Protocol introduces a unique **Hybrid Architecture** that bridges the gap between the AI ecosystem (which prefers simple JSON) and the Cloud Native ecosystem (which prefers structured CloudEvents).
+
+| Feature | JSON-RPC 2.0 Mode | Native CloudEvents Mode |
+| :--- | :--- | :--- |
+| **Primary Audience** | LLMs, Scripts (Python/JS), LangChain | EventMesh Apps, Knative, Java SDK |
+| **Philosophy** | **"Battery Included"** | **"Power User"** |
+| **Usage** | Send raw JSON (`{"method":...}`) | Send `CloudEvent` object |
+| **Complexity** | Low (No SDK required) | Medium (Requires CE SDK) |
+| **Mechanism** | Adaptor automatically wraps JSON in CE | Adaptor passes through the event |
+
+**Benefits:**
+*   **Zero-Barrier Entry**: Developers can interact with the mesh using just `curl` or simple JSON libraries.
+*   **Full Flexibility**: Advanced users retain full control over CloudEvent attributes (Source, Type, Extensions) for complex routing or tracing scenarios.
+
 ## 3. Architecture Design
 
 ### 3.1 System Context
