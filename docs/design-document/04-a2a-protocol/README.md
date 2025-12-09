@@ -18,7 +18,35 @@ The architecture adheres to the principles outlined in the broader agent communi
 1.  **JSON-RPC 2.0 as Lingua Franca**: Uses standard JSON-RPC for payload semantics, ensuring compatibility with modern LLM ecosystems (LangChain, AutoGen).
 2.  **Transport Agnostic**: Encapsulates all messages within **CloudEvents**, allowing transport over any EventMesh-supported protocol (HTTP, TCP, gRPC, Kafka).
 3.  **Async by Default**: Maps synchronous Request/Response patterns to asynchronous Event streams using correlation IDs.
-4.  **Hybrid Compatibility**: Supports both modern MCP messages and legacy A2A (FIPA-style) messages simultaneously.
+4.  **Native Pub/Sub Semantics**: Supports O(1) broadcast complexity, temporal decoupling (Late Join), and backpressure isolation, solving the scalability limits of traditional P2P webhook callbacks.
+
+### 2.1 Native Pub/Sub Semantics
+
+Traditional A2A implementations often rely on HTTP Webhooks (`POST /inbox`) for asynchronous callbacks. While functional, this **Point-to-Point (P2P)** model suffers from significant scaling issues:
+
+*   **Insufficient Fan-Out**: A publisher must send $N$ requests to reach $N$ subscribers, leading to $O(N)$ complexity.
+*   **Temporal Coupling**: Consumers must be online at the exact moment of publication.
+*   **Backpressure Propagation**: A slow subscriber can block the publisher.
+
+**EventMesh A2A** solves this by introducing **Native Pub/Sub** capabilities:
+
+```mermaid
+graph LR
+    Publisher[Publisher Agent] -->|1. Publish (Once)| Bus[EventMesh Bus]
+    
+    subgraph Fanout_Layer [EventMesh Fanout Layer]
+        Queue[Topic Queue]
+    end
+    
+    Bus --> Queue
+    
+    Queue -->|Push| Sub1[Subscriber 1]
+    Queue -->|Push| Sub2[Subscriber 2]
+    Queue -->|Push| Sub3[Subscriber 3]
+    
+    style Bus fill:#f9f,stroke:#333
+    style Fanout_Layer fill:#ccf,stroke:#333
+```
 
 ## 3. Architecture Design
 
@@ -44,10 +72,10 @@ graph TD
 The core logic resides in the `eventmesh-protocol-plugin` module.
 
 *   **`EnhancedA2AProtocolAdaptor`**: The central brain of the protocol.
-    *   **Intelligent Parsing**: Automatically detects message format (MCP vs. Legacy vs. Raw CloudEvent).
-    *   **Protocol Delegation**: Delegates to `CloudEvents` or `HTTP` adaptors when necessary to reuse existing infrastructure.
+    *   **Intelligent Parsing**: Automatically detects message format (MCP vs. Raw CloudEvent).
+    *   **Protocol Delegation**: Delegates to `CloudEvents` or `HTTP` adaptors when necessary.
     *   **Semantic Mapping**: Transforms JSON-RPC methods and IDs into CloudEvent attributes.
-*   **`McpMethods`**: Defines standard MCP operations (e.g., `tools/call`, `resources/read`).
+*   **`A2AProtocolConstants`**: Defines standard operations like `task/get`, `message/sendStream`.
 *   **`JsonRpc*` Models**: Strictly typed POJOs for JSON-RPC 2.0 compliance.
 
 ### 3.3 Asynchronous RPC Mapping ( The "Async Bridge" )
@@ -59,38 +87,36 @@ To support MCP on an Event Bus, synchronous RPC concepts are mapped to asynchron
 | **Action** | `method` (e.g., `tools/call`) | **Type**: `org.apache.eventmesh.a2a.tools.call.req`<br>**Extension**: `a2amethod` |
 | **Correlation** | `id` (e.g., `req-123`) | **Extension**: `collaborationid` (on Response)<br>**ID**: Preserved on Request |
 | **Direction** | Implicit (Request vs Result) | **Extension**: `mcptype` (`request` or `response`) |
-| **Routing** | `params._agentId` (Convention) | **Extension**: `targetagent` |
+| **P2P Routing** | `params._agentId` | **Extension**: `targetagent` |
+| **Pub/Sub Topic** | `params._topic` | **Subject**: The topic value (e.g. `market.btc`) |
+| **Streaming Seq** | `params._seq` | **Extension**: `seq` |
 
 ## 4. Functional Specification
 
 ### 4.1 Message Processing Flow
 
 1.  **Ingestion**: The adaptor receives a `ProtocolTransportObject` (byte array/string).
-2.  **Detection**:
-    *   Checks for `jsonrpc: "2.0"` → **MCP Mode**.
-    *   Checks for `protocol: "A2A"` → **Legacy Mode**.
-    *   Otherwise → **Fallback/Delegation**.
+2.  **Detection**: Checks for `jsonrpc: "2.0"`.
 3.  **Transformation (MCP Mode)**:
-    *   **Request**: Parses `method` and `params`. Extracts routing hints (`_agentId`). Constructs a CloudEvent with type suffix `.req`.
-    *   **Response**: Parses `result` or `error`. Extracts `id`. Constructs a CloudEvent with type suffix `.resp` and sets `collaborationid` = `id`.
-4.  **Batch Processing**:
-    *   If the input is a JSON Array, the adaptor splits it into a `List<CloudEvent>`, allowing parallel downstream processing.
+    *   **Request**: Parses `method`.
+        *   If `message/sendStream`, sets type suffix to `.stream` and extracts `_seq`.
+        *   If `_topic` present, sets `subject` (Pub/Sub).
+        *   If `_agentId` present, sets `targetagent` (P2P).
+    *   **Response**: Parses `result`/`error`. Sets `collaborationid` = `id`.
+4.  **Batch Processing**: Splits JSON Array into a `List<CloudEvent>`.
 
 ### 4.2 Key Features
 
 #### A. Intelligent Routing Support
-The protocol extracts routing information from the payload without requiring the runtime to unmarshal the full body.
-*   **Mechanism**: Promotes `_agentId` from JSON body to CloudEvent Extension `targetagent`.
+*   **Mechanism**: Promotes `_agentId` or `_topic` from JSON body to CloudEvent attributes.
 *   **Benefit**: Enables EventMesh Router to perform content-based routing (CBR) efficiently.
 
 #### B. Batching
-*   **Input**: `[ {req1}, {req2}, ... ]`
-*   **Output**: `[ Event1, Event2, ... ]`
-*   **Benefit**: Significantly increases throughput for high-frequency agent interactions (e.g., polling multiple sensors).
+*   **Benefit**: Significantly increases throughput for high-frequency interactions.
 
-#### C. Error Handling
-*   **Standardization**: Maps JSON-RPC Error objects (code, message) into the generic `common.response` event type.
-*   **Tracing**: Preserves correlation IDs even in error scenarios, ensuring the requester is notified of failures.
+#### C. Streaming Support
+*   **Operation**: `message/sendStream`
+*   **Mechanism**: Maps to `.stream` event type and preserves sequence order via `seq` extension attribute.
 
 ## 5. Usage Examples
 
@@ -109,29 +135,26 @@ The protocol extracts routing information from the payload without requiring the
 }
 ```
 
-**Generated CloudEvent:**
-*   `type`: `org.apache.eventmesh.a2a.tools.call.req`
-*   `a2amethod`: `tools/call`
-*   `mcptype`: `request`
-*   `id`: `msg-101`
-
-### 5.2 Returning a Result (Response)
+### 5.2 Pub/Sub Broadcast
 
 **Raw Payload:**
 ```json
 {
   "jsonrpc": "2.0",
-  "result": { "temperature": 22 },
-  "id": "msg-101"
+  "method": "market/update",
+  "params": {
+    "symbol": "BTC",
+    "price": 50000,
+    "_topic": "market.crypto.btc"
+  }
 }
 ```
 
 **Generated CloudEvent:**
-*   `type`: `org.apache.eventmesh.a2a.common.response`
-*   `mcptype`: `response`
-*   `collaborationid`: `msg-101` (Links back to Request)
+*   `subject`: `market.crypto.btc`
+*   `targetagent`: (Empty)
 
 ## 6. Future Roadmap
 
 *   **Schema Registry**: Implement dynamic discovery of Agent capabilities via `methods/list`.
-*   **Sidecar Injection**: Fully integrate the adaptor into the EventMesh Sidecar for transparent HTTP-to-Event conversion for non-Java agents.
+*   **Sidecar Injection**: Fully integrate the adaptor into the EventMesh Sidecar.
