@@ -1,0 +1,1359 @@
+/* ============================================================
+   EventMesh Site — Docusaurus Internal Pages Override
+   Unified dark/light theme + homepage-style nav
+   ============================================================ */
+
+/* ---- Theme variables (DARK default) ---- */
+html,
+html[data-theme="dark"] {
+  --em-bg: #0a0e1a;
+  --em-bg-deep: #060912;
+  --em-surface: #111827;
+  --em-surface-2: #0d111d;
+  --em-surface-3: #1a2332;
+  --em-border: rgba(255, 255, 255, 0.08);
+  --em-border-glow: rgba(0, 217, 126, 0.15);
+  --em-text: #f5f7fa;
+  --em-text-secondary: #c8d2e0;
+  --em-text-tertiary: #a5b4c6;
+  --em-text-muted: #6b7280;
+  --em-green: #00d97e;
+  --em-green-dim: #00b86a;
+  --em-green-glow: rgba(0, 217, 126, 0.3);
+  --em-purple: #7c5cfc;
+  --em-purple-dim: #6344e0;
+  --em-code-bg: #111827;
+  --em-blockquote-bg: rgba(124, 92, 252, 0.08);
+  --em-img-bg: #111827;
+  --em-shadow: rgba(0, 0, 0, 0.3);
+  --em-overlay: rgba(0, 0, 0, 0.6);
+
+  --ifm-color-primary: #00d97e;
+  --ifm-color-primary-dark: #00c06e;
+  --ifm-color-primary-darker: #00a85f;
+  --ifm-color-primary-darkest: #007a46;
+  --ifm-color-primary-light: #33e198;
+  --ifm-color-primary-lighter: #66e9b2;
+  --ifm-color-primary-lightest: #99f0cc;
+  --ifm-background-color: #0a0e1a;
+  --ifm-background-surface-color: #111827;
+  --ifm-font-color-base: #f5f7fa;
+  --ifm-heading-color: #f5f7fa;
+  --ifm-link-color: #00d97e;
+  --ifm-link-hover-color: #33e198;
+  --ifm-color-secondary: #7c5cfc;
+  --ifm-navbar-background-color: rgba(10, 14, 26, 0.85);
+  --ifm-navbar-link-color: #e8ecf2;
+  --ifm-navbar-link-hover-color: #00d97e;
+  --ifm-navbar-link-active-color: #00d97e;
+  --ifm-navbar-height: 64px;
+  --ifm-navbar-padding-vertical: 0;
+  --ifm-navbar-shadow: 0 1px 0 rgba(0, 217, 126, 0.1);
+  --ifm-footer-background-color: #080b14;
+  --ifm-footer-color: #a5b4c6;
+  --ifm-footer-link-color: #a5b4c6;
+  --ifm-footer-link-hover-color: #00d97e;
+  --ifm-menu-color: #c8d2e0;
+  --ifm-menu-color-active: #00d97e;
+  --ifm-menu-color-background-active: rgba(0, 217, 126, 0.1);
+  --ifm-toc-link-color: #a5b4c6;
+  --ifm-toc-link-active-color: #00d97e;
+  --ifm-color-emphasis-0: #0a0e1a;
+  --ifm-color-emphasis-100: #111827;
+  --ifm-color-emphasis-200: #1a2332;
+  --ifm-color-emphasis-300: #2a3441;
+  --ifm-color-emphasis-400: #475569;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #94a3b8;
+  --ifm-color-emphasis-700: #cbd5e1;
+  --ifm-color-emphasis-800: #e2e8f0;
+  --ifm-color-emphasis-900: #f5f7fa;
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.1);
+  --ifm-hr-background-color: rgba(255, 255, 255, 0.1);
+  --docsearch-text-color: #f5f7fa;
+  --docsearch-muted-color: #94a3b8;
+  --docsearch-searchbox-background: rgba(255, 255, 255, 0.06);
+  --docsearch-searchbox-focus-background: rgba(255, 255, 255, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 217, 126, 0.12);
+}
+
+/* ---- Light theme ---- */
+html[data-theme="light"] {
+  --em-bg: #f8fafc;
+  --em-bg-deep: #f1f5f9;
+  --em-surface: #ffffff;
+  --em-surface-2: #f8fafc;
+  --em-surface-3: #f1f5f9;
+  --em-border: rgba(15, 23, 42, 0.08);
+  --em-border-glow: rgba(0, 217, 126, 0.25);
+  --em-text: #0f172a;
+  --em-text-secondary: #334155;
+  --em-text-tertiary: #64748b;
+  --em-text-muted: #94a3b8;
+  --em-green: #00b86a;
+  --em-green-dim: #009b5a;
+  --em-green-glow: rgba(0, 184, 106, 0.2);
+  --em-purple: #7c5cfc;
+  --em-purple-dim: #6344e0;
+  --em-code-bg: #f1f5f9;
+  --em-blockquote-bg: rgba(124, 92, 252, 0.06);
+  --em-img-bg: #ffffff;
+  --em-shadow: rgba(0, 0, 0, 0.08);
+  --em-overlay: rgba(15, 23, 42, 0.4);
+
+  --ifm-color-primary: #00b86a;
+  --ifm-color-primary-dark: #009b5a;
+  --ifm-color-primary-darker: #00814b;
+  --ifm-color-primary-darkest: #005c34;
+  --ifm-color-primary-light: #33c98a;
+  --ifm-color-primary-lighter: #66daa9;
+  --ifm-color-primary-lightest: #99ebc8;
+  --ifm-background-color: #f8fafc;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-font-color-base: #0f172a;
+  --ifm-heading-color: #0f172a;
+  --ifm-link-color: #00b86a;
+  --ifm-link-hover-color: #009b5a;
+  --ifm-color-secondary: #7c5cfc;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.92);
+  --ifm-navbar-link-color: #334155;
+  --ifm-navbar-link-hover-color: #00b86a;
+  --ifm-navbar-link-active-color: #00b86a;
+  --ifm-navbar-height: 64px;
+  --ifm-navbar-shadow: 0 1px 0 rgba(0, 184, 106, 0.1);
+  --ifm-footer-background-color: #f1f5f9;
+  --ifm-footer-color: #64748b;
+  --ifm-footer-link-color: #64748b;
+  --ifm-footer-link-hover-color: #00b86a;
+  --ifm-menu-color: #334155;
+  --ifm-menu-color-active: #00b86a;
+  --ifm-menu-color-background-active: rgba(0, 184, 106, 0.08);
+  --ifm-toc-link-color: #64748b;
+  --ifm-toc-link-active-color: #00b86a;
+  --ifm-color-emphasis-0: #ffffff;
+  --ifm-color-emphasis-100: #f8fafc;
+  --ifm-color-emphasis-200: #f1f5f9;
+  --ifm-color-emphasis-300: #e2e8f0;
+  --ifm-color-emphasis-400: #cbd5e1;
+  --ifm-color-emphasis-500: #94a3b8;
+  --ifm-color-emphasis-600: #64748b;
+  --ifm-color-emphasis-700: #475569;
+  --ifm-color-emphasis-800: #334155;
+  --ifm-color-emphasis-900: #0f172a;
+  --ifm-hr-border-color: rgba(15, 23, 42, 0.1);
+  --ifm-hr-background-color: rgba(15, 23, 42, 0.1);
+  --docsearch-text-color: #0f172a;
+  --docsearch-muted-color: #64748b;
+  --docsearch-searchbox-background: rgba(15, 23, 42, 0.04);
+  --docsearch-searchbox-focus-background: rgba(15, 23, 42, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 184, 106, 0.08);
+}
+
+body {
+  background: var(--em-bg) !important;
+  color: var(--em-text) !important;
+}
+
+#___docusaurus,
+#__docusaurus {
+  background: var(--em-bg) !important;
+  min-height: 100vh !important;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+  background: var(--ifm-navbar-background-color) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--em-border-glow) !important;
+  box-shadow: none !important;
+  height: 64px !important;
+}
+
+/* Prevent FOUC: hide entire navbar items container until our JS is ready.
+   Using opacity preserves layout space — no width/height jump on reveal. */
+.navbar:not(.em-nav-ready) .navbar__items {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.navbar.em-nav-ready .navbar__items {
+  opacity: 1 !important;
+  transition: opacity 0.15s ease !important;
+}
+
+/* Safety net: hide ALL Docusaurus-original navbar children, only show injected items.
+   JS also does this via display:none, but CSS backup ensures nothing leaks through. */
+.navbar.em-nav-ready .navbar__items > .navbar__item,
+.navbar.em-nav-ready .navbar__items > .navbar__link {
+  display: none !important;
+}
+.navbar__items > .em-injected-link,
+.navbar__items > .em-theme-toggle,
+.navbar__items > .em-github-stars,
+.navbar__items > .em-lang-toggle,
+.navbar__items > .em-injected-dropdown {
+  display: flex !important;
+}
+
+/* Injected logo container matching homepage */
+.em-brand-logo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0 !important;
+}
+
+.em-brand-logo img {
+  width: 36px !important;
+  height: 36px !important;
+  filter: drop-shadow(0 0 8px var(--em-green-glow)) !important;
+}
+
+/* ---- Nav dropdown (Community → Subscribe / Team) ---- */
+.nav-dropdown,
+.em-injected-dropdown {
+  position: relative;
+}
+.nav-dropdown-toggle {
+  cursor: pointer;
+  user-select: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ifm-navbar-link-color);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.nav-dropdown-toggle:hover {
+  color: var(--em-green);
+  background: var(--ifm-menu-color-background-active);
+}
+.nav-dropdown-toggle::after {
+  content: ' ▾';
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  padding: 6px 0;
+  background: var(--em-surface);
+  border: 1px solid var(--em-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px var(--em-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  z-index: 1000;
+}
+/* Bridge hover gap between toggle and menu */
+.nav-dropdown::after,
+.em-injected-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  z-index: 999;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.em-injected-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu,
+.em-injected-dropdown.open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-item {
+  display: block;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--em-text-secondary);
+  white-space: nowrap;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.nav-dropdown-item:hover {
+  color: var(--em-green);
+  background: var(--em-surface-3);
+}
+
+.navbar__inner {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+.navbar__brand {
+  color: var(--em-text) !important;
+  font-weight: 700 !important;
+  gap: 12px !important;
+  margin-right: 8px !important;
+  padding: 0 !important;
+}
+
+.navbar__brand:hover {
+  color: var(--em-green) !important;
+}
+
+.navbar__title {
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  white-space: nowrap !important;
+  max-width: none !important;
+}
+
+/* Hide Docusaurus original logo — ALL selectors covered.
+   display:none + visibility:hidden + zero-size: triple lock against React re-render.
+   html prefix raises specificity above Docusaurus's own styles. */
+html .navbar__brand .navbar__logo,
+html .navbar__brand > .navbar__logo,
+html .navbar__logo {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  pointer-events: none !important;
+}
+
+/* Hide any stray img inside navbar__logo (Docusaurus light/dark theme images).
+   Also target directly inside navbar__brand for extra coverage. */
+html .navbar__logo img,
+html .navbar__logo .themedImage_ToTc,
+html .navbar__logo [class*="themedImage_"],
+html .navbar__brand > img:not([class*="em-brand"]) {
+  display: none !important;
+}
+
+.navbar__link,
+.navbar__item,
+.em-injected-link {
+  color: var(--ifm-navbar-link-color) !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.navbar__link:hover,
+.navbar__item:hover,
+.em-injected-link:hover,
+.navbar__link--active,
+.navbar__item--active,
+.navbar__link[aria-current="page"],
+.navbar__item[aria-current="page"] {
+  color: var(--em-green) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+  font-weight: 600 !important;
+  box-shadow: inset 0 0 0 1px var(--em-border-glow) !important;
+}
+
+.navbar__link--active:hover,
+.navbar__item--active:hover,
+.navbar__link[aria-current="page"]:hover,
+.navbar__item[aria-current="page"]:hover {
+  background: rgba(0, 217, 126, 0.12) !important;
+}
+
+.navbar__link--active::after,
+.navbar__item--active::after {
+  display: none !important;
+}
+
+/* Dropdowns */
+.dropdown__menu {
+  background: var(--em-surface) !important;
+  border: 1px solid var(--em-border-glow) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px var(--em-shadow), 0 0 0 1px var(--em-border) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.dropdown__link {
+  color: var(--em-text-secondary) !important;
+  border-radius: 8px !important;
+  margin: 4px 8px !important;
+  padding: 8px 12px !important;
+}
+
+.dropdown__link:hover,
+.dropdown__link--active {
+  color: var(--em-green) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+/* Navbar right items */
+.navbar__items--right .navbar__item,
+.navbar__items--right .clean-btn,
+.navbar__items--right .navbar__link,
+.navbar__items--right .dropdown,
+.navbar__items--right .dropdown__link,
+.navbar__items--right .DocSearch-Button {
+  color: var(--ifm-navbar-link-color) !important;
+  background: rgba(128, 128, 128, 0.08) !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--em-border) !important;
+}
+
+.navbar__items--right .navbar__item:hover,
+.navbar__items--right .clean-btn:hover,
+.navbar__items--right .navbar__link:hover,
+.navbar__items--right .dropdown:hover .navbar__link,
+.navbar__items--right .DocSearch-Button:hover,
+.navbar__items--right .DocSearch-Button:focus,
+.navbar__items--right .DocSearch-Button:active {
+  background: var(--ifm-menu-color-background-active) !important;
+  border-color: var(--em-border-glow) !important;
+  color: var(--em-green) !important;
+}
+
+/* DocSearch button */
+.DocSearch-Button {
+  color: var(--em-text-secondary) !important;
+  background: rgba(128, 128, 128, 0.08) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 8px !important;
+  padding: 0 10px !important;
+  height: 32px !important;
+  margin: 0 4px !important;
+}
+
+.DocSearch-Button:hover,
+.DocSearch-Button:focus {
+  background: var(--ifm-menu-color-background-active) !important;
+  border-color: var(--em-border-glow) !important;
+  box-shadow: none !important;
+  color: var(--em-green) !important;
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+  color: var(--em-text-tertiary) !important;
+}
+
+.DocSearch-Button:hover .DocSearch-Search-Icon {
+  color: var(--em-green) !important;
+}
+
+.DocSearch-Button-Placeholder {
+  color: var(--em-text-tertiary) !important;
+  font-size: 0.8rem !important;
+}
+
+.DocSearch-Button-Keys {
+  display: none !important;
+}
+
+/* Custom theme toggle */
+.em-theme-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  margin: 0 4px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--em-border) !important;
+  background: rgba(128, 128, 128, 0.08) !important;
+  color: var(--em-text-secondary) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.em-theme-toggle:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+  border-color: var(--em-border-glow) !important;
+  color: var(--em-green) !important;
+}
+
+.em-theme-toggle:focus {
+  outline: 2px solid var(--em-green) !important;
+  outline-offset: 2px !important;
+}
+
+/* Language toggle — matching homepage .nav-lang style */
+.em-lang-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 32px !important;
+  padding: 0 10px !important;
+  margin: 0 4px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--em-border) !important;
+  background: rgba(128, 128, 128, 0.08) !important;
+  color: var(--em-text-secondary) !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.em-lang-toggle:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+  border-color: var(--em-border-glow) !important;
+  color: var(--em-green) !important;
+  text-decoration: none !important;
+}
+
+/* Custom GitHub stars button */
+.em-github-stars {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  height: 32px !important;
+  padding: 0 10px !important;
+  margin: 0 4px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--em-border) !important;
+  background: rgba(128, 128, 128, 0.08) !important;
+  color: var(--em-text-secondary) !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.em-github-stars svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.em-github-stars:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+  border-color: var(--em-border-glow) !important;
+  color: var(--em-green) !important;
+}
+
+/* Skip link */
+.skipToContent_fXgn {
+  background: var(--em-green) !important;
+  color: var(--em-bg) !important;
+}
+
+/* ---- Sidebar ---- */
+.docSidebarContainer,
+.docSidebarContainer_b0HS,
+.sidebar_njZk,
+.theme-doc-sidebar-menu,
+.theme-doc-sidebar-container {
+  background: var(--em-surface-2) !important;
+  border-right: 1px solid var(--em-border) !important;
+}
+
+.menu__list {
+  padding-left: 0 !important;
+}
+
+.menu__list-item {
+  margin: 2px 0 !important;
+}
+
+.menu__link {
+  color: var(--ifm-menu-color) !important;
+  border-radius: 8px !important;
+  margin: 2px 12px !important;
+  padding: 8px 12px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.menu__link:hover {
+  color: var(--em-green) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+.menu__link--active,
+.menu__link--active:hover,
+.menu__link[aria-current="page"] {
+  color: var(--em-green) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+  font-weight: 600 !important;
+}
+
+.menu__link--sublist {
+  color: var(--em-text) !important;
+  font-weight: 600 !important;
+}
+
+.menu__link--sublist:hover {
+  color: var(--em-green) !important;
+}
+
+.menu__link--sublist-caret::after,
+.menu__caret::before {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem !important;
+  filter: brightness(0.8) !important;
+}
+
+.menu__list-item-collapsible {
+  background: transparent !important;
+}
+
+.menu__list-item-collapsible:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+/* Sidebar collapse button */
+.collapseSidebarButton_PEFL,
+[class*="collapseSidebarButton_"] {
+  background: var(--em-surface) !important;
+  border: 1px solid var(--em-border) !important;
+  color: var(--em-text-secondary) !important;
+}
+
+.collapseSidebarButton_PEFL:hover,
+[class*="collapseSidebarButton_"]:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+}
+
+/* ---- Main content ---- */
+.main-wrapper,
+.main-wrapper main,
+.docMainContainer_gTbr,
+.docMainContainer_,
+.docMainContainer_gTbr,
+.theme-doc-main,
+.theme-doc-version-current,
+.theme-doc-version-stable {
+  background: var(--em-bg) !important;
+}
+
+.theme-doc-markdown,
+.markdown,
+.markdown > h1,
+.markdown > h2,
+.markdown > h3,
+.markdown > h4,
+.markdown > h5,
+.markdown > h6 {
+  color: var(--em-text) !important;
+}
+
+.theme-doc-markdown h1,
+.markdown h1,
+.theme-doc-markdown h2,
+.markdown h2,
+.theme-doc-markdown h3,
+.markdown h3 {
+  color: var(--em-text) !important;
+  border-bottom: 1px solid var(--em-border) !important;
+  padding-bottom: 12px !important;
+}
+
+.theme-doc-markdown h1,
+.markdown h1 {
+  font-size: 2.4rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.theme-doc-markdown h2,
+.markdown h2 {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  margin-top: 48px !important;
+}
+
+.theme-doc-markdown h3,
+.markdown h3 {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+}
+
+.theme-doc-markdown p,
+.markdown p {
+  color: var(--em-text-secondary) !important;
+  line-height: 1.8 !important;
+  font-size: 1rem !important;
+}
+
+.theme-doc-markdown a,
+.markdown a,
+.breadcrumbs__link,
+.pagination-nav__link {
+  color: var(--em-green) !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.theme-doc-markdown a:hover,
+.markdown a:hover,
+.breadcrumbs__link:hover,
+.pagination-nav__link:hover {
+  color: var(--em-green-dim) !important;
+  text-decoration: underline !important;
+}
+
+.theme-doc-markdown strong,
+.markdown strong {
+  color: var(--em-text) !important;
+}
+
+.theme-doc-markdown em,
+.markdown em {
+  color: var(--em-text-tertiary) !important;
+}
+
+.theme-doc-markdown ul li,
+.theme-doc-markdown ol li,
+.markdown ul li,
+.markdown ol li {
+  color: var(--em-text-secondary) !important;
+}
+
+/* ---- Code ---- */
+.theme-doc-markdown code,
+.markdown code,
+.theme-code-block,
+[class*="codeBlockContainer_"],
+pre {
+  background: var(--em-code-bg) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 10px !important;
+  color: var(--em-text) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace !important;
+}
+
+.theme-doc-markdown :not(pre) > code,
+.markdown :not(pre) > code {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+  font-size: 0.9em !important;
+  border: none !important;
+}
+
+.theme-code-block pre,
+[class*="codeBlockLines_"],
+.prism-code,
+pre code {
+  background: var(--em-code-bg) !important;
+  color: var(--em-text) !important;
+}
+
+/* Syntax highlighting */
+.prism-code .token.comment,
+.prism-code .token.prolog,
+.prism-code .token.doctype,
+.prism-code .token.cdata {
+  color: var(--em-text-muted) !important;
+}
+
+.prism-code .token.punctuation,
+.prism-code .token.operator {
+  color: var(--em-text-tertiary) !important;
+}
+
+.prism-code .token.property,
+.prism-code .token.tag,
+.prism-code .token.boolean,
+.prism-code .token.number,
+.prism-code .token.constant,
+.prism-code .token.symbol,
+.prism-code .token.deleted {
+  color: var(--em-purple) !important;
+}
+
+.prism-code .token.selector,
+.prism-code .token.attr-name,
+.prism-code .token.string,
+.prism-code .token.char,
+.prism-code .token.builtin,
+.prism-code .token.inserted {
+  color: var(--em-green) !important;
+}
+
+.prism-code .token.atrule,
+.prism-code .token.attr-value,
+.prism-code .token.keyword {
+  color: #f472b6 !important;
+}
+
+.prism-code .token.function,
+.prism-code .token.class-name {
+  color: #60a5fa !important;
+}
+
+.prism-code .token.regex,
+.prism-code .token.important,
+.prism-code .token.variable {
+  color: #fbbf24 !important;
+}
+
+[class*="codeBlockTitle_"] {
+  background: var(--em-surface-3) !important;
+  color: var(--em-text) !important;
+  border-bottom: 1px solid var(--em-border) !important;
+}
+
+[class*="codeBlockButton_"] {
+  background: rgba(128, 128, 128, 0.08) !important;
+  color: var(--em-text-secondary) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 6px !important;
+}
+
+[class*="codeBlockButton_"]:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+}
+
+/* ---- Tables ---- */
+.markdown table,
+.theme-doc-markdown table,
+[class*="table_"] table {
+  background: var(--em-surface) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.markdown table thead,
+.theme-doc-markdown table thead,
+[class*="table_"] thead {
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+.markdown table th,
+.theme-doc-markdown table th,
+[class*="table_"] th {
+  color: var(--em-text) !important;
+  border-bottom: 1px solid var(--em-border-glow) !important;
+  font-weight: 600 !important;
+}
+
+.markdown table td,
+.theme-doc-markdown table td,
+[class*="table_"] td {
+  color: var(--em-text-secondary) !important;
+  border-bottom: 1px solid var(--em-border) !important;
+}
+
+.markdown table tr:nth-child(2n),
+.theme-doc-markdown table tr:nth-child(2n) {
+  background: rgba(128, 128, 128, 0.02) !important;
+}
+
+/* ---- Blockquotes ---- */
+.markdown blockquote,
+.theme-doc-markdown blockquote {
+  background: var(--em-blockquote-bg) !important;
+  border-left: 4px solid var(--em-purple) !important;
+  color: var(--em-text-secondary) !important;
+  border-radius: 0 12px 12px 0 !important;
+}
+
+/* ---- Admonitions ---- */
+.theme-admonition,
+[class*="admonition"],
+.admonition {
+  background: var(--em-surface) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 12px !important;
+  color: var(--em-text-secondary) !important;
+}
+
+[class*="admonitionHeading_"] h5,
+[class*="admonitionHeading_"] {
+  color: var(--em-text) !important;
+}
+
+.theme-admonition-note,
+.admonition-note {
+  border-left: 4px solid #60a5fa !important;
+}
+
+.theme-admonition-tip,
+.admonition-tip {
+  border-left: 4px solid var(--em-green) !important;
+}
+
+.theme-admonition-info,
+.admonition-info {
+  border-left: 4px solid var(--em-purple) !important;
+}
+
+.theme-admonition-warning,
+.admonition-warning {
+  border-left: 4px solid #fbbf24 !important;
+}
+
+.theme-admonition-danger,
+.admonition-danger {
+  border-left: 4px solid #f87171 !important;
+}
+
+/* ---- Breadcrumbs ---- */
+.breadcrumbs__item,
+.breadcrumbs__item--active,
+.breadcrumbs__link {
+  color: var(--em-text-tertiary) !important;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--em-green) !important;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--em-text) !important;
+  font-weight: 600 !important;
+}
+
+/* ---- Table of Contents ---- */
+.table-of-contents,
+.table-of-contents__left-border {
+  border-left: 1px solid var(--em-border) !important;
+}
+
+.table-of-contents__link,
+.table-of-contents__link--active,
+.theme-doc-toc-item {
+  color: var(--em-text-tertiary) !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--em-green) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+/* ---- Pagination ---- */
+.pagination-nav__link,
+.pagination-nav__label,
+.theme-doc-footer {
+  background: var(--em-surface) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 12px !important;
+  color: var(--em-text-secondary) !important;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--em-border-glow) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+.pagination-nav__sublabel {
+  color: var(--em-text-tertiary) !important;
+}
+
+/* ---- Footer ---- */
+.footer,
+.footer--dark,
+.footer__links,
+.footer__bottom {
+  background: var(--em-bg-deep) !important;
+  color: var(--em-text-tertiary) !important;
+  border-top: 1px solid var(--em-border) !important;
+}
+
+.footer__link-item,
+.footer__title,
+.footer__copyright,
+.footer a {
+  color: var(--em-text-tertiary) !important;
+}
+
+.footer__link-item:hover,
+.footer a:hover {
+  color: var(--em-green) !important;
+}
+
+.footer__title {
+  color: var(--em-text) !important;
+  font-weight: 600 !important;
+}
+
+/* ---- Badges ---- */
+.theme-doc-version-badge,
+.badge,
+.badge--secondary {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+  border: 1px solid var(--em-border-glow) !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  font-weight: 500 !important;
+}
+
+/* ---- Tags ---- */
+.tag,
+[class*="tagRegular_"] {
+  background: rgba(124, 92, 252, 0.12) !important;
+  color: var(--em-purple) !important;
+  border: 1px solid rgba(124, 92, 252, 0.25) !important;
+  border-radius: 20px !important;
+}
+
+.tag:hover,
+[class*="tagRegular_"]:hover {
+  background: rgba(124, 92, 252, 0.2) !important;
+  color: var(--em-purple-dim) !important;
+}
+
+/* ---- Horizontal rules ---- */
+.markdown hr,
+.theme-doc-markdown hr,
+hr {
+  border-color: var(--ifm-hr-border-color) !important;
+  background: var(--ifm-hr-background-color) !important;
+}
+
+/* ---- Images ---- */
+.markdown img,
+.theme-doc-markdown img,
+.img_ev3q {
+  border-radius: 12px !important;
+  background: var(--em-img-bg) !important;
+  padding: 12px !important;
+  border: 1px solid var(--em-border) !important;
+}
+
+/* ---- Buttons ---- */
+.button,
+.button--secondary,
+.button--primary,
+.clean-btn {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.button--primary {
+  background: linear-gradient(90deg, var(--em-green), var(--em-green-dim)) !important;
+  color: var(--em-bg) !important;
+  border: none !important;
+  box-shadow: 0 4px 20px var(--em-green-glow) !important;
+}
+
+.button--primary:hover {
+  background: linear-gradient(90deg, var(--em-green-dim), var(--em-green)) !important;
+  box-shadow: 0 6px 24px var(--em-green-glow) !important;
+}
+
+.button--secondary {
+  background: transparent !important;
+  color: var(--em-green) !important;
+  border: 1px solid var(--em-border-glow) !important;
+}
+
+.button--secondary:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+  border-color: rgba(0, 217, 126, 0.5) !important;
+}
+
+.clean-btn {
+  color: var(--em-text-secondary) !important;
+  background: rgba(128, 128, 128, 0.08) !important;
+  border: 1px solid var(--em-border) !important;
+}
+
+.clean-btn:hover {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+}
+
+/* ---- Blog ---- */
+.blog-wrapper,
+.blog-list-page,
+.blog-post-page,
+.blog-tags-list-page,
+.blog-tags-posts-page {
+  background: var(--em-bg) !important;
+}
+
+.blog-wrapper h1,
+.blog-wrapper h2,
+.blog-wrapper h3,
+.blog-wrapper .blog-post-date,
+.blog-wrapper .blog-post-author,
+.blog-wrapper .blog-post-description,
+.blog-wrapper p,
+.blog-wrapper article {
+  color: var(--em-text) !important;
+}
+
+.blog-wrapper a,
+.blog-wrapper .blog-post-title a,
+.blog-wrapper .blog-post-read-more {
+  color: var(--em-green) !important;
+}
+
+.blog-wrapper a:hover,
+.blog-wrapper .blog-post-title a:hover {
+  color: var(--em-green-dim) !important;
+}
+
+.blog-wrapper article {
+  background: var(--em-surface) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+.blog-wrapper img,
+.blog-wrapper .blog-post-image {
+  border-radius: 12px !important;
+  border: 1px solid var(--em-border) !important;
+}
+
+/* Blog post titles */
+.blog-wrapper .blog-post-title,
+.blog-wrapper .blog-post-title a,
+.blog-wrapper h2.blog-post-title,
+.blog-wrapper h1.blog-post-title,
+.blog-wrapper article h2 a,
+.blog-wrapper article h1 a,
+.blog-list-page article h2 a,
+.blog-post-page article h1 a,
+.blog-wrapper [class*="title_"],
+.blog-wrapper [class*="title_"] a {
+  color: var(--em-text) !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+.blog-wrapper [class*="title_"] a:hover,
+.blog-wrapper article h2 a:hover,
+.blog-wrapper article h1 a:hover {
+  color: var(--em-green) !important;
+  text-decoration: underline !important;
+}
+
+.blog-wrapper .blog-post-description,
+.blog-wrapper [class*="blogPostData_"],
+.blog-wrapper .blog-post-date {
+  color: var(--em-text-tertiary) !important;
+}
+
+.blog-wrapper .blog-post-date {
+  color: var(--em-purple) !important;
+}
+
+.blog-wrapper .blog-tags-list-page h2,
+.blog-wrapper .blog-tags-posts-page h2,
+.blog-wrapper .blog-list-page h2,
+.blog-wrapper .blog-post-page h1 {
+  color: var(--em-text) !important;
+  border-bottom: 1px solid var(--em-border) !important;
+}
+
+/* Blog sidebar */
+.blog-sidebar {
+  background: var(--em-surface-2) !important;
+  border-left: 1px solid var(--em-border) !important;
+}
+
+.blog-sidebar h3,
+.blog-sidebar a,
+.blog-sidebar [class*="sidebarItemTitle_"],
+.blog-sidebar [class*="sidebarItemLink_"] {
+  color: var(--em-text-secondary) !important;
+}
+
+.blog-sidebar a:hover,
+.blog-sidebar [class*="sidebarItemLink_"]:hover {
+  color: var(--em-green) !important;
+}
+
+/* Announcement bar */
+[class*="announcementBar_"] {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+  border-bottom: 1px solid var(--em-border-glow) !important;
+}
+
+[class*="announcementBar_"] a,
+[class*="announcementBar_"] button {
+  color: var(--em-green) !important;
+}
+
+/* Hide default disabled Docusaurus toggle */
+[class*="toggle_"],
+[class*="toggle_"] button,
+[class*="toggleButton_"] {
+  display: none !important;
+}
+
+/* Back to top button */
+[class*="backToTopButton_"] {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+  border: 1px solid var(--em-border-glow) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 20px var(--em-shadow) !important;
+}
+
+[class*="backToTopButton_"]:hover {
+  background: rgba(0, 217, 126, 0.2) !important;
+  color: var(--em-green-dim) !important;
+}
+
+/* ---- DocSearch modal ---- */
+.DocSearch-Modal {
+  background: var(--em-surface) !important;
+  border: 1px solid var(--em-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 25px 50px var(--em-shadow) !important;
+}
+
+.DocSearch-SearchBar {
+  border-bottom: 1px solid var(--em-border) !important;
+}
+
+.DocSearch-Form {
+  background: rgba(128, 128, 128, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+.DocSearch-Input {
+  color: var(--em-text) !important;
+}
+
+.DocSearch-Hit {
+  background: var(--em-surface) !important;
+  border-radius: 10px !important;
+}
+
+.DocSearch-Hit a {
+  background: var(--em-surface-3) !important;
+  border-radius: 10px !important;
+}
+
+.DocSearch-Hit-source,
+.DocSearch-Hit-title,
+.DocSearch-Hit-path {
+  color: var(--em-text-secondary) !important;
+}
+
+.DocSearch-Hit-action,
+.DocSearch-Hit-select-icon,
+.DocSearch-Logo-Label,
+.DocSearch-Label {
+  color: var(--em-text-tertiary) !important;
+}
+
+.DocSearch-Hit[aria-selected="true"] a,
+.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title,
+.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-path {
+  background: var(--ifm-menu-color-background-active) !important;
+  color: var(--em-green) !important;
+}
+
+/* ---- Mobile sidebar ---- */
+.navbar-sidebar__overlay {
+  background: var(--em-overlay) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.navbar-sidebar {
+  background: var(--em-surface-2) !important;
+  border-right: 1px solid var(--em-border) !important;
+}
+
+.navbar-sidebar__brand {
+  background: var(--em-surface) !important;
+  border-bottom: 1px solid var(--em-border) !important;
+}
+
+.navbar-sidebar__item {
+  color: var(--em-text-secondary) !important;
+}
+
+.navbar-sidebar__item:hover,
+.navbar-sidebar__item--active {
+  color: var(--em-green) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+.navbar-sidebar__back {
+  color: var(--em-green) !important;
+  background: var(--ifm-menu-color-background-active) !important;
+}
+
+/* ---- Version / sidebar active ---- */
+.theme-doc-sidebar-item-category > .menu__link,
+.theme-doc-sidebar-item-link > .menu__link {
+  color: var(--em-text-secondary) !important;
+}
+
+.theme-doc-sidebar-item-category > .menu__link--active,
+.theme-doc-sidebar-item-link > .menu__link--active {
+  color: var(--em-green) !important;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--em-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--em-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--em-green-glow);
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: var(--em-green-glow) !important;
+  color: var(--em-text) !important;
+}
+
+/* ---- Mobile nav adjustments ---- */
+@media (max-width: 996px) {
+  .navbar__items {
+    flex: 1 1 auto !important;
+  }
+
+  .navbar__items--right .navbar__item:not(.em-theme-toggle):not(.em-github-stars):not(.DocSearch-Button) {
+    display: none !important;
+  }
+
+  .em-theme-toggle,
+  .em-github-stars,
+  .DocSearch-Button {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar__inner {
+    padding: 0 16px !important;
+  }
+
+  .navbar__title {
+    display: none !important;
+  }
+
+  .em-github-stars .em-star-count {
+    display: none !important;
+  }
+}

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580">
+  <style>
+    text { font-family: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .layer-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .node-label { font-size: 12px; font-weight: 500; }
+    .node-sub { font-size: 9px; }
+    .flow-text { font-size: 10px; letter-spacing: 0.12em; }
+    .title { font-size: 14px; font-weight: 700; }
+  </style>
+  <defs>
+    <linearGradient id="card-glow-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D97E" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00D97E" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="card-glow-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C5CFC" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#7C5CFC" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="card-glow-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="card-glow-amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#FBBF24" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="grad-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D97E"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <marker id="arrow-down" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#00D97E" opacity="0.6"/>
+    </marker>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="960" height="580" fill="none" rx="12"/>
+  <text x="480" y="24" text-anchor="middle" class="title" fill="url(#grad-text)">EventMesh Architecture</text>
+  <rect x="30" y="45" width="900" height="95" rx="10" fill="url(#card-glow-blue)" stroke="rgba(124,92,252,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="50" y="67" class="layer-label" fill="#7C5CFC">Applications</text>
+  <rect x="200" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="260" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">Microservices</text>
+  <rect x="350" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="410" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">Serverless</text>
+  <rect x="500" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="560" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">AI Agents</text>
+  <rect x="650" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="710" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">IoT Devices</text>
+  <rect x="790" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="850" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">Edge</text>
+  <path d="M480,142 L480,164" stroke="#00D97E" stroke-width="1.5" stroke-opacity="0.5" fill="none" marker-end="url(#arrow-down)"/>
+  <text x="496" y="156" class="flow-text" fill="rgba(0,217,126,0.5)">PROTOCOLS</text>
+  <rect x="30" y="168" width="900" height="85" rx="10" fill="url(#card-glow-cyan)" stroke="rgba(34,211,238,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="50" y="190" class="layer-label" fill="#22D3EE">Protocols</text>
+  <rect x="120" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="170" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">HTTP</text>
+  <rect x="250" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="300" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">gRPC</text>
+  <rect x="380" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="430" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">TCP</text>
+  <rect x="510" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="560" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">WebSocket</text>
+  <rect x="660" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="710" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">CloudEvents</text>
+  <rect x="810" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="860" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">A2A</text>
+  <path d="M480,255 L480,277" stroke="#00D97E" stroke-width="1.5" stroke-opacity="0.5" fill="none" marker-end="url(#arrow-down)"/>
+  <text x="496" y="269" class="flow-text" fill="rgba(0,217,126,0.5)">EVENT FLOW</text>
+  <rect x="30" y="281" width="900" height="95" rx="10" fill="url(#card-glow-green)" stroke="rgba(0,217,126,0.25)" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="50" y="303" class="layer-label" fill="#00D97E">EventMesh Runtime</text>
+  <rect x="100" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
+  <text x="175" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Event Gateway</text>
+  <text x="175" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
+  <rect x="290" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
+  <text x="365" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Event Router</text>
+  <text x="365" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
+  <rect x="480" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
+  <text x="555" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Workflow Engine</text>
+  <text x="555" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
+  <rect x="670" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
+  <text x="745" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Schema Registry</text>
+  <text x="745" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
+  <path d="M480,378 L480,400" stroke="#00D97E" stroke-width="1.5" stroke-opacity="0.5" fill="none" marker-end="url(#arrow-down)"/>
+  <text x="496" y="392" class="flow-text" fill="rgba(0,217,126,0.5)">EVENT STORE</text>
+  <rect x="30" y="404" width="900" height="85" rx="10" fill="url(#card-glow-amber)" stroke="rgba(251,191,36,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="50" y="426" class="layer-label" fill="#FBBF24">Event Store</text>
+  <rect x="100" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="150" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">RocketMQ</text>
+  <rect x="250" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="300" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">Kafka</text>
+  <rect x="400" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="450" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">AutoMQ</text>
+  <rect x="550" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="600" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">Redis</text>
+  <rect x="700" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="750" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">Pulsar</text>
+  <rect x="830" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="880" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">RabbitMQ</text>
+</svg>

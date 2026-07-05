@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <style>
+    text { font-family: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .col-title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .item-label { font-size: 11px; font-weight: 500; }
+    .item-sub { font-size: 9px; }
+    .hub-name { font-size: 15px; font-weight: 700; }
+    .hub-tag { font-size: 10px; }
+    .title { font-size: 14px; font-weight: 700; }
+    .flow-label { font-size: 10px; letter-spacing: 0.1em; }
+  </style>
+  <defs>
+    <linearGradient id="grad-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D97E"/><stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="hub-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00D97E" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#00D97E" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="src-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7C5CFC" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#7C5CFC" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="sink-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.02"/>
+    </linearGradient>
+    <marker id="arrow-r" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#00D97E" opacity="0.6"/>
+    </marker>
+    <filter id="hub-blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="960" height="540" fill="none" rx="12"/>
+  <text x="480" y="24" text-anchor="middle" class="title" fill="url(#grad-text)">EventMesh Ecosystem</text>
+  <rect x="40" y="40" width="200" height="480" rx="10" fill="url(#src-glow)" stroke="rgba(124,92,252,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="140" y="64" text-anchor="middle" class="col-title" fill="#7C5CFC">Source Connectors</text>
+  <rect x="50" y="80" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="98" class="item-label" fill="#F5F7FA">Canal</text>
+  <text x="58" y="111" class="item-sub" fill="rgba(160,170,184,0.6)">CDC / MySQL</text>
+  <rect x="50" y="127" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="145" class="item-label" fill="#F5F7FA">HTTP</text>
+  <text x="58" y="158" class="item-sub" fill="rgba(160,170,184,0.6)">Webhook / REST</text>
+  <rect x="50" y="174" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="192" class="item-label" fill="#F5F7FA">JDBC</text>
+  <text x="58" y="205" class="item-sub" fill="rgba(160,170,184,0.6)">Database polling</text>
+  <rect x="50" y="221" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="239" class="item-label" fill="#F5F7FA">File</text>
+  <text x="58" y="252" class="item-sub" fill="rgba(160,170,184,0.6)">File system watch</text>
+  <rect x="50" y="268" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="286" class="item-label" fill="#F5F7FA">MCP</text>
+  <text x="58" y="299" class="item-sub" fill="rgba(160,170,184,0.6)">Model Context Proto</text>
+  <rect x="50" y="315" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="333" class="item-label" fill="#F5F7FA">Knative</text>
+  <text x="58" y="346" class="item-sub" fill="rgba(160,170,184,0.6)">Cloud events</text>
+  <rect x="50" y="362" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="380" class="item-label" fill="#F5F7FA">Prometheus</text>
+  <text x="58" y="393" class="item-sub" fill="rgba(160,170,184,0.6)">Metrics scrape</text>
+  <rect x="50" y="409" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="427" class="item-label" fill="#F5F7FA">Pravega</text>
+  <text x="58" y="440" class="item-sub" fill="rgba(160,170,184,0.6)">Stream storage</text>
+  <rect x="50" y="456" width="180" height="38" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="58" y="474" class="item-label" fill="#F5F7FA">S3</text>
+  <text x="58" y="487" class="item-sub" fill="rgba(160,170,184,0.6)">Object storage</text>
+  <path d="M240,280 L326,280" stroke="#00D97E" stroke-width="2" stroke-opacity="0.4" fill="none" marker-end="url(#arrow-r)"/>
+  <text x="283" y="272" text-anchor="middle" class="flow-label" fill="rgba(0,217,126,0.5)">INGEST</text>
+  <rect x="330" y="160" width="300" height="240" rx="12" fill="url(#hub-glow)" stroke="rgba(0,217,126,0.2)" stroke-width="1.5" filter="url(#hub-blur)"/>
+  <text x="480" y="190" text-anchor="middle" class="hub-name" fill="#00D97E">Apache EventMesh</text>
+  <text x="480" y="207" text-anchor="middle" class="hub-tag" fill="#A0AAB8">Event Bus / Runtime</text>
+  <rect x="350" y="225" width="120" height="36" rx="6" fill="rgba(0,217,126,0.04)" stroke="rgba(0,217,126,0.12)"/>
+  <text x="410" y="248" text-anchor="middle" class="item-label" fill="#00D97E">Event Router</text>
+  <rect x="490" y="225" width="120" height="36" rx="6" fill="rgba(0,217,126,0.04)" stroke="rgba(0,217,126,0.12)"/>
+  <text x="550" y="248" text-anchor="middle" class="item-label" fill="#00D97E">Schema Registry</text>
+  <rect x="350" y="273" width="120" height="36" rx="6" fill="rgba(0,217,126,0.04)" stroke="rgba(0,217,126,0.12)"/>
+  <text x="410" y="296" text-anchor="middle" class="item-label" fill="#00D97E">Event Gateway</text>
+  <rect x="490" y="273" width="120" height="36" rx="6" fill="rgba(0,217,126,0.04)" stroke="rgba(0,217,126,0.12)"/>
+  <text x="550" y="296" text-anchor="middle" class="item-label" fill="#00D97E">Workflow Engine</text>
+  <rect x="350" y="321" width="120" height="36" rx="6" fill="rgba(0,217,126,0.04)" stroke="rgba(0,217,126,0.12)"/>
+  <text x="410" y="344" text-anchor="middle" class="item-label" fill="#00D97E">Connector Mgr</text>
+  <rect x="490" y="321" width="120" height="36" rx="6" fill="rgba(0,217,126,0.04)" stroke="rgba(0,217,126,0.12)"/>
+  <text x="550" y="344" text-anchor="middle" class="item-label" fill="#00D97E">Schema Validator</text>
+  <path d="M630,280 L716,280" stroke="#00D97E" stroke-width="2" stroke-opacity="0.4" fill="none" marker-end="url(#arrow-r)"/>
+  <text x="673" y="272" text-anchor="middle" class="flow-label" fill="rgba(0,217,126,0.5)">DELIVER</text>
+  <rect x="720" y="40" width="200" height="480" rx="10" fill="url(#sink-glow)" stroke="rgba(34,211,238,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="820" y="64" text-anchor="middle" class="col-title" fill="#22D3EE">Sink Connectors</text>
+  <rect x="730" y="80" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="97" class="item-label" fill="#F5F7FA">ChatGPT</text>
+  <text x="902" y="97" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">AI / LLM</text>
+  <rect x="730" y="111" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="128" class="item-label" fill="#F5F7FA">DingTalk</text>
+  <text x="902" y="128" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">IM / Notify</text>
+  <rect x="730" y="142" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="159" class="item-label" fill="#F5F7FA">Lark</text>
+  <text x="902" y="159" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">IM / Notify</text>
+  <rect x="730" y="173" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="190" class="item-label" fill="#F5F7FA">Slack</text>
+  <text x="902" y="190" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">IM / Notify</text>
+  <rect x="730" y="204" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="221" class="item-label" fill="#F5F7FA">WeChat</text>
+  <text x="902" y="221" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Social</text>
+  <rect x="730" y="235" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="252" class="item-label" fill="#F5F7FA">WeCom</text>
+  <text x="902" y="252" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Enterprise IM</text>
+  <rect x="730" y="266" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="283" class="item-label" fill="#F5F7FA">OpenFn</text>
+  <text x="902" y="283" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Integration</text>
+  <rect x="730" y="297" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="314" class="item-label" fill="#F5F7FA">Spring</text>
+  <text x="902" y="314" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Framework</text>
+  <rect x="730" y="328" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="345" class="item-label" fill="#F5F7FA">RocketMQ</text>
+  <text x="902" y="345" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Message Queue</text>
+  <rect x="730" y="359" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="376" class="item-label" fill="#F5F7FA">Kafka</text>
+  <text x="902" y="376" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Message Queue</text>
+  <rect x="730" y="390" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="407" class="item-label" fill="#F5F7FA">Pulsar</text>
+  <text x="902" y="407" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Message Queue</text>
+  <rect x="730" y="421" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="438" class="item-label" fill="#F5F7FA">RabbitMQ</text>
+  <text x="902" y="438" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Message Queue</text>
+  <rect x="730" y="452" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="469" class="item-label" fill="#F5F7FA">Redis</text>
+  <text x="902" y="469" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Cache / Store</text>
+  <rect x="730" y="483" width="180" height="25" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="738" y="500" class="item-label" fill="#F5F7FA">MongoDB</text>
+  <text x="902" y="500" text-anchor="end" class="item-sub" fill="rgba(160,170,184,0.6)">Database</text>
+</svg>
