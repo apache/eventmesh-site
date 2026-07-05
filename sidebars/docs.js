@@ -77,6 +77,7 @@ module.exports = {
         'design-document/schema-registry',
         'design-document/spi',
         'design-document/stream',
+        'design-document/a2a-protocol',
       ],
     },
     {
