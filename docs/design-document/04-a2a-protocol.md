@@ -101,9 +101,9 @@ To support the MCP Request/Response model within an event-driven architecture, A
 
 | MCP Concept | CloudEvent Mapping | Description |
 | :--- | :--- | :--- |
-| **Action** (`method`) | **Type**: `org.apache.eventmesh.a2a.<method>.req` <br> **Extension**: `a2amethod` | Request event type. |
-| **Response** (`result`) | **Type**: `org.apache.eventmesh.a2a.common.response` <br> **Extension**: `mcptype=response` | Response event type. |
-| **Correlation** (`id`) | **Extension**: `collaborationid` (on Response) <br> **ID**: Preserved on Request | Links Response to Request. |
+| **Action** (`method`) | **Type**: `org.apache.eventmesh.a2a.<method>.req` <br/> **Extension**: `a2amethod` | Request event type. |
+| **Response** (`result`) | **Type**: `org.apache.eventmesh.a2a.common.response` <br/> **Extension**: `mcptype=response` | Response event type. |
+| **Correlation** (`id`) | **Extension**: `collaborationid` (on Response) <br/> **ID**: Preserved on Request | Links Response to Request. |
 | **P2P Routing** (`params._agentId`) | **Extension**: `targetagent` | Routing target Agent ID. |
 | **Pub/Sub Topic** (`params._topic`) | **Subject**: `<topic_name>` | Broadcast Topic. |
 | **Streaming Seq** (`params._seq`) | **Extension**: `seq` | Sequence order for streaming. |

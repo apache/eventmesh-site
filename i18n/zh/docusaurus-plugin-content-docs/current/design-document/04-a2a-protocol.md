@@ -101,9 +101,9 @@ A2A 网关提供独立的 HTTP 服务器（基于 Netty），负责编排 Agent 
 
 | MCP 概念 | CloudEvent 映射 | 说明 |
 | :--- | :--- | :--- |
-| **动作**（`method`） | **Type**: `org.apache.eventmesh.a2a.<method>.req` <br> **Extension**: `a2amethod` | 请求事件类型 |
-| **响应**（`result`） | **Type**: `org.apache.eventmesh.a2a.common.response` <br> **Extension**: `mcptype=response` | 响应事件类型 |
-| **关联**（`id`） | **Extension**: `collaborationid`（响应上） <br> **ID**: 请求上保留 | 将响应关联到请求 |
+| **动作**（`method`） | **Type**: `org.apache.eventmesh.a2a.<method>.req` <br/> **Extension**: `a2amethod` | 请求事件类型 |
+| **响应**（`result`） | **Type**: `org.apache.eventmesh.a2a.common.response` <br/> **Extension**: `mcptype=response` | 响应事件类型 |
+| **关联**（`id`） | **Extension**: `collaborationid`（响应上） <br/> **ID**: 请求上保留 | 将响应关联到请求 |
 | **P2P 路由**（`params._agentId`） | **Extension**: `targetagent` | 路由目标 Agent ID |
 | **Pub/Sub Topic**（`params._topic`） | **Subject**: `<topic_name>` | 广播 Topic |
 | **流式序列**（`params._seq`） | **Extension**: `seq` | 流式消息顺序 |
