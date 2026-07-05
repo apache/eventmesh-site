@@ -305,7 +305,7 @@ export default function Home() {
               </ul>
 
               <div style={{marginTop: '32px'}}>
-                <a href="/zh/docs/introduction" className="btn btn-primary">
+                <a href="/zh/docs/design-document/a2a-protocol" className="btn btn-primary">
                   探索 A2A 文档
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
