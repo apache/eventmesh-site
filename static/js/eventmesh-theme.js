@@ -11,6 +11,7 @@
     if (theme !== 'light' && theme !== 'dark') theme = 'dark';
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEY, theme);
+    localStorage.setItem('theme', theme); // Sync with Docusaurus color mode
     updateIcons(theme);
   }
 
@@ -38,10 +39,29 @@
     });
   }
 
+  /* ---- Docusaurus CSR compatibility: wait for React to render ---- */
+  function waitForContent() {
+    if (document.querySelector('.nav-theme-toggle')) {
+      init();
+      return;
+    }
+    var observer = new MutationObserver(function (mutations, obs) {
+      if (document.querySelector('.nav-theme-toggle')) {
+        obs.disconnect();
+        init();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    setTimeout(function () {
+      observer.disconnect();
+      init();
+    }, 5000);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', waitForContent);
   } else {
-    init();
+    waitForContent();
   }
 
   window.eventmeshToggleTheme = toggleTheme;

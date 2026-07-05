@@ -41,6 +41,7 @@
     if (theme !== 'light' && theme !== 'dark') theme = 'dark';
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(STORAGE_KEY, theme);
+    localStorage.setItem('theme', theme); // Sync with Docusaurus color mode
     updateThemeIcons(theme);
   }
 
@@ -322,8 +323,8 @@
       normalizeLogo();
       normalizeNavLinks();
       hideOriginalRightItems();
-      normalizeLanguageToggle();
       normalizeThemeToggle();
+      normalizeLanguageToggle();
       normalizeGitHubButton();
 
       if (navbar) navbar.classList.add('em-nav-ready');
@@ -450,9 +451,32 @@
     initDropdownCloser();
   }
 
+  /* ---- Docusaurus CSR compatibility: wait for React to render navbar ---- */
+  function waitForNavbar() {
+    // Check if navbar is already in the DOM
+    if (document.querySelector('.navbar')) {
+      init();
+      return;
+    }
+    // Use MutationObserver to detect when React mounts the navbar
+    var observer = new MutationObserver(function (mutations, obs) {
+      if (document.querySelector('.navbar')) {
+        obs.disconnect();
+        init();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    // Safety timeout: init after 5s regardless
+    setTimeout(function () {
+      observer.disconnect();
+      if (!document.querySelector('.navbar')) return;
+      init();
+    }, 5000);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', waitForNavbar);
   } else {
-    init();
+    waitForNavbar();
   }
 })();

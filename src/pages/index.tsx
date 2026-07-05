@@ -1,76 +1,40 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
+import {useEffect} from 'react';
 
-const javaCode = `<span class="com">// Publish a CloudEvent</span>
-<span class="kw">import</span> org.apache.eventmesh.client.tcp.impl.EventMeshTCPClientFactory;
-<span class="kw">import</span> org.apache.eventmesh.common.protocol.tcp.UserAgent;
+const publishCode = `<span class="com"># Publish a CloudEvent via HTTP</span>
+<span class="fn">curl</span> -X POST \
+  http://127.0.0.1:10105/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{
+    "name": "eventmesh",
+    "pass": "password"
+  }'</span>
 
-<span class="cls">UserAgent</span> agent = <span class="cls">UserAgent</span>.builder()
-    .env(<span class="str">"dev"</span>).host(<span class="str">"127.0.0.1"</span>)
-    .password(<span class="str">"password"</span>)
-    .username(<span class="str">"eventmesh"</span>)
-    .build();
+<span class="com"># Response:</span>
+<span class="com">{</span>
+<span class="com">  "success": true,</span>
+<span class="com">  "retCode": 0</span>
+<span class="com">}  🚀 Event published!</span>`;
 
-<span class="cls">EventMeshTCPClient</span> client = <span class="cls">EventMeshTCPClientFactory</span>
-    .createEventMeshTCPClient(<span class="str">"127.0.0.1:10000"</span>, agent);
+const subscribeCode = `<span class="com"># Subscribe to a topic via HTTP webhook</span>
+<span class="fn">curl</span> -X POST \
+  http://127.0.0.1:10105/eventmesh/subscribe/local \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{
+    "url": "http://127.0.0.1:8088/sub/test",
+    "consumerGroup": "TEST-GROUP",
+    "topic": [{"mode":"CLUSTERING","topic":"TEST-TOPIC-HTTP-ASYNC","type":"ASYNC"}]
+  }'</span>
 
-client.init();
-client.heartbeat();
-
-<span class="cls">CloudEvent</span> event = <span class="cls">CloudEventBuilder</span>.v1()
-    .withId(<span class="str">"event-001"</span>)
-    .withSource(<span class="cls">URI</span>.create(<span class="str">"app:order-service"</span>))
-    .withType(<span class="str">"order.created"</span>)
-    .withData(<span class="str">"{\\"orderId\\":\\"12345\\"}"</span>.getBytes())
-    .build();
-
-client.publish(event);  <span class="com">// 🚀 Event published!</span>`;
-
-const pythonCode = `<span class="com"># Publish a CloudEvent</span>
-<span class="kw">from</span> eventmesh <span class="kw">import</span> EventMeshTCPClient
-
-client = <span class="fn">EventMeshTCPClient</span>(
-    host=<span class="str">"127.0.0.1"</span>,
-    port=<span class="num">10000</span>,
-    username=<span class="str">"eventmesh"</span>,
-    password=<span class="str">"password"</span>
-)
-client.<span class="fn">init</span>()
-client.<span class="fn">heartbeat</span>()
-
-event = {
-    <span class="str">"id"</span>: <span class="str">"event-001"</span>,
-    <span class="str">"source"</span>: <span class="str">"app:order-service"</span>,
-    <span class="str">"type"</span>: <span class="str">"order.created"</span>,
-    <span class="str">"data"</span>: <span class="str">'{"orderId":"12345"}'</span>
-}
-
-client.<span class="fn">publish</span>(event)  <span class="com"># 🚀 Event published!</span>`;
-
-const goCode = `<span class="com">// Publish a CloudEvent</span>
-<span class="kw">package</span> main
-
-<span class="kw">import</span> <span class="str">"github.com/apache/eventmesh-sdk-go"</span>
-
-<span class="kw">func</span> <span class="fn">main</span>() {
-    client := eventmesh.<span class="fn">NewTCPClient</span>(
-        <span class="str">"127.0.0.1:10000"</span>,
-        eventmesh.<span class="cls">WithCredentials</span>(<span class="str">"eventmesh"</span>, <span class="str">"password"</span>),
-    )
-    client.<span class="fn">Init</span>()
-    client.<span class="fn">Heartbeat</span>()
-
-    event := eventmesh.<span class="cls">CloudEvent</span>{
-        ID:     <span class="str">"event-001"</span>,
-        Source: <span class="str">"app:order-service"</span>,
-        Type:   <span class="str">"order.created"</span>,
-        Data:   <span class="str">'{"orderId":"12345"}'</span>,
-    }
-
-    client.<span class="fn">Publish</span>(event)  <span class="com">// 🚀 Event published!</span>
-}`;
+<span class="com"># Events arrive at your webhook in CloudEvents format 📨</span>`;
 
 export default function Home() {
+  useEffect(() => {
+    document.body.classList.add('is-homepage');
+    return () => document.body.classList.remove('is-homepage');
+  }, []);
+
   return (
     <div className="homepage-wrapper">
       <Head>
@@ -292,57 +256,7 @@ export default function Home() {
           </div>
 
           <div className="arch-diagram reveal">
-            <div className="arch-layers">
-              <div className="arch-layer">
-                <div className="arch-layer-label">Applications</div>
-                <div className="arch-layer-content">
-                  <div className="arch-node">Microservices</div>
-                  <div className="arch-node">Serverless Fns</div>
-                  <div className="arch-node">AI Agents</div>
-                  <div className="arch-node">IoT Devices</div>
-                </div>
-              </div>
-
-              <div className="arch-flow">▼ Protocols ▼</div>
-
-              <div className="arch-layer">
-                <div className="arch-layer-label">Protocols</div>
-                <div className="arch-layer-content">
-                  <div className="arch-node">HTTP</div>
-                  <div className="arch-node">gRPC</div>
-                  <div className="arch-node">TCP</div>
-                  <div className="arch-node">WebSocket</div>
-                  <div className="arch-node">CloudEvents</div>
-                  <div className="arch-node">A2A</div>
-                </div>
-              </div>
-
-              <div className="arch-flow">▼ Event Flow ▼</div>
-
-              <div className="arch-layer">
-                <div className="arch-layer-label">EventMesh Runtime</div>
-                <div className="arch-layer-content">
-                  <div className="arch-node core">Event Gateway</div>
-                  <div className="arch-node core">Event Router</div>
-                  <div className="arch-node core">Workflow Engine</div>
-                  <div className="arch-node core">Schema Registry</div>
-                </div>
-              </div>
-
-              <div className="arch-flow">▼ Event Store ▼</div>
-
-              <div className="arch-layer">
-                <div className="arch-layer-label">Event Store</div>
-                <div className="arch-layer-content">
-                  <div className="arch-node">RocketMQ</div>
-                  <div className="arch-node">Kafka</div>
-                  <div className="arch-node">AutoMQ</div>
-                  <div className="arch-node">Redis</div>
-                  <div className="arch-node">Pulsar</div>
-                  <div className="arch-node">RabbitMQ</div>
-                </div>
-              </div>
-            </div>
+            <img src="/images/diagrams/architecture.svg" alt="EventMesh Architecture Diagram" style={{width: '100%', maxWidth: '960px', height: 'auto', borderRadius: '12px'}} />
           </div>
         </div>
       </section>
@@ -393,7 +307,7 @@ export default function Home() {
               </ul>
 
               <div style={{marginTop: '32px'}}>
-                <a href="/docs/a2a-protocol" className="btn btn-primary">
+                <a href="/docs/introduction" className="btn btn-primary">
                   Explore A2A Documentation
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -448,69 +362,13 @@ export default function Home() {
             <div className="section-label">Ecosystem</div>
             <h2 className="section-title">Connects to <span className="gradient-text">everything</span></h2>
             <p className="section-subtitle">
-              23 connectors out of the box. EventMesh integrates with your existing infrastructure —
+              Connectors out of the box. EventMesh integrates with your existing infrastructure —
               no rip-and-replace required.
             </p>
           </div>
 
           <div className="eco-bus reveal">
-            <div className="eco-box eco-source-box">
-              <div className="eco-box-title">Source Connectors</div>
-              <div className="eco-box-grid">
-                <div className="eco-box-item">🔄 Canal</div>
-                <div className="eco-box-item">🌐 HTTP</div>
-                <div className="eco-box-item">🗄️ JDBC</div>
-                <div className="eco-box-item">📁 File</div>
-                <div className="eco-box-item">🔌 MCP</div>
-                <div className="eco-box-item">🔀 Knative</div>
-                <div className="eco-box-item">📡 Prometheus</div>
-                <div className="eco-box-item">🌊 Pravega</div>
-                <div className="eco-box-item">☁️ S3</div>
-              </div>
-            </div>
-
-            <div className="eco-arrow-block">
-              <svg className="eco-arrow-svg" viewBox="0 0 80 120" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  <marker id="em-arrow-r" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
-                    <polygon points="0 0, 10 4, 0 8" fill="var(--em-green)"/>
-                  </marker>
-                </defs>
-                <line x1="10" y1="60" x2="68" y2="60" stroke="var(--em-green)" strokeWidth="2.5" strokeLinecap="round" markerEnd="url(#em-arrow-r)"/>
-              </svg>
-            </div>
-
-            <div className="eco-hub">
-              <img className="eco-hub-logo" src="/images/logo.svg" alt="Apache EventMesh Logo" />
-              <div className="eco-hub-name">Apache EventMesh</div>
-              <div className="eco-hub-tag">Event Bus</div>
-            </div>
-
-            <div className="eco-arrow-block">
-              <svg className="eco-arrow-svg" viewBox="0 0 80 120" preserveAspectRatio="xMidYMid meet">
-                <line x1="12" y1="60" x2="70" y2="60" stroke="var(--em-green)" strokeWidth="2.5" strokeLinecap="round" markerEnd="url(#em-arrow-r)"/>
-              </svg>
-            </div>
-
-            <div className="eco-box eco-sink-box">
-              <div className="eco-box-title">Sink Connectors</div>
-              <div className="eco-box-grid">
-                <div className="eco-box-item">🤖 ChatGPT</div>
-                <div className="eco-box-item">💬 DingTalk</div>
-                <div className="eco-box-item">📨 Lark</div>
-                <div className="eco-box-item">💭 Slack</div>
-                <div className="eco-box-item">💚 WeChat</div>
-                <div className="eco-box-item">🏢 WeCom</div>
-                <div className="eco-box-item">⚡ OpenFn</div>
-                <div className="eco-box-item">🍃 Spring</div>
-                <div className="eco-box-item">🚀 RocketMQ</div>
-                <div className="eco-box-item">📦 Kafka</div>
-                <div className="eco-box-item">🦉 Pulsar</div>
-                <div className="eco-box-item">🐰 RabbitMQ</div>
-                <div className="eco-box-item">🔴 Redis</div>
-                <div className="eco-box-item">🍂 MongoDB</div>
-              </div>
-            </div>
+            <img src="/images/diagrams/ecosystem.svg" alt="EventMesh Ecosystem Diagram" style={{width: '100%', maxWidth: '960px', height: 'auto', borderRadius: '12px'}} />
           </div>
         </div>
       </section>
@@ -534,18 +392,14 @@ export default function Home() {
 
             <div className="code-block reveal">
               <div className="code-tabs">
-                <div className="code-tab active" data-tab="java">Java</div>
-                <div className="code-tab" data-tab="python">Python</div>
-                <div className="code-tab" data-tab="go">Go</div>
+                <div className="code-tab active" data-tab="publish">Publish</div>
+                <div className="code-tab" data-tab="subscribe">Subscribe</div>
               </div>
-              <div className="code-body" data-tab="java" style={{display:'block'}}>
-                <pre dangerouslySetInnerHTML={{__html: javaCode}} />
+              <div className="code-body" data-tab="publish" style={{display:'block'}}>
+                <pre dangerouslySetInnerHTML={{__html: publishCode}} />
               </div>
-              <div className="code-body" data-tab="python" style={{display:'none'}}>
-                <pre dangerouslySetInnerHTML={{__html: pythonCode}} />
-              </div>
-              <div className="code-body" data-tab="go" style={{display:'none'}}>
-                <pre dangerouslySetInnerHTML={{__html: goCode}} />
+              <div className="code-body" data-tab="subscribe" style={{display:'none'}}>
+                <pre dangerouslySetInnerHTML={{__html: subscribeCode}} />
               </div>
             </div>
           </div>

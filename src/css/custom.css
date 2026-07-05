@@ -53,11 +53,10 @@ html[data-theme='dark'] .header-github-link:before {
 }
 
 /* Hide Docusaurus default navbar/footer on the redesigned homepage */
-.homepage-wrapper .navbar,
-.homepage-wrapper .footer,
-.homepage-wrapper .main-wrapper > .footer {
+body.is-homepage .navbar,
+body.is-homepage .footer {
   display: none !important;
 }
-.homepage-wrapper {
+body.is-homepage .main-wrapper {
   padding-top: 0 !important;
 }

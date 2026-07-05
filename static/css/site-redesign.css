@@ -964,7 +964,7 @@ img { max-width: 100%; display: block; }
   overflow-x: auto;
 }
 
-.code-body pre { margin: 0; }
+.code-body pre { margin: 0; white-space: pre-wrap; word-break: break-all; }
 
 .code-body .kw { color: #C792EA; }
 .code-body .str { color: #C3E88D; }

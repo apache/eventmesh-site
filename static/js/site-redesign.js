@@ -369,7 +369,10 @@
   }
 
   /* ---- Init ---- */
+  var inited = false;
   function init() {
+    if (inited) return;
+    inited = true;
     initHeroCanvas();
     initNavScroll();
     initScrollReveal();
@@ -380,9 +383,31 @@
     initCodeTabs();
   }
 
+  /* ---- Docusaurus CSR compatibility: wait for React to render ---- */
+  function waitForContent() {
+    // Check if the homepage content is already in the DOM
+    if (document.querySelector('.homepage-wrapper, .hero-terminal, #hero-canvas')) {
+      init();
+      return;
+    }
+    // Use MutationObserver to detect when React mounts the content
+    var observer = new MutationObserver(function (mutations, obs) {
+      if (document.querySelector('.homepage-wrapper, .hero-terminal, #hero-canvas')) {
+        obs.disconnect();
+        init();
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    // Safety timeout: init after 5s regardless
+    setTimeout(function () {
+      observer.disconnect();
+      init();
+    }, 5000);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', waitForContent);
   } else {
-    init();
+    waitForContent();
   }
 })();
