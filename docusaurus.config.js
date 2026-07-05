@@ -31,6 +31,10 @@ module.exports = {
   organizationName: 'apache',
   projectName: 'eventmesh',
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      respectPrefersColorScheme: false,
+    },
     algolia: {
       appId: 'D5N4C17BGA',
       apiKey: 'b88c3c5f941724113717b2c8456d0422',
@@ -251,5 +255,15 @@ module.exports = {
         sidebarPath: require.resolve('./sidebars/community.js'),
       },
     ],
+  ],
+  stylesheets: [
+    '/css/docusaurus-override.css',
+    '/css/site-redesign.css',
+  ],
+  scripts: [
+    { src: '/js/theme-init.js' },
+    { src: '/js/eventmesh-theme.js', defer: true },
+    { src: '/js/eventmesh-internal.js', defer: true },
+    { src: '/js/site-redesign.js', defer: true },
   ],
 };
