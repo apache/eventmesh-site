@@ -51,3 +51,13 @@ html[data-theme='dark'] .header-github-link:before {
   list-style-type: none;
   padding: 0;
 }
+
+/* Hide Docusaurus default navbar/footer on the redesigned homepage */
+.homepage-wrapper .navbar,
+.homepage-wrapper .footer,
+.homepage-wrapper .main-wrapper > .footer {
+  display: none !important;
+}
+.homepage-wrapper {
+  padding-top: 0 !important;
+}

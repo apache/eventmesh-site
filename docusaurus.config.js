@@ -252,4 +252,13 @@ module.exports = {
       },
     ],
   ],
+  stylesheets: [
+    '/css/docusaurus-override.css',
+    '/css/site-redesign.css',
+  ],
+  scripts: [
+    { src: '/js/eventmesh-theme.js', defer: true },
+    { src: '/js/eventmesh-internal.js', defer: true },
+    { src: '/js/site-redesign.js', defer: true },
+  ],
 };

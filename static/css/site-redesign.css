@@ -1053,10 +1053,10 @@ img { max-width: 100%; display: block; }
   color: var(--text-tertiary);
 }
 
-/* ---- Scroll Reveal ---- */
+/* ---- Scroll Reveal (progressive enhancement) ---- */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
 }
 
