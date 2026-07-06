@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
 import {useEffect} from 'react';
+import {useVersions, useLatestVersion} from '@docusaurus/plugin-content-docs/client';
 
 const publishCode = `<span class="com"># 通过 HTTP 发布 CloudEvent</span>
 <span class="fn">curl</span> -X POST \
@@ -30,6 +31,16 @@ const subscribeCode = `<span class="com"># 通过 HTTP Webhook 订阅主题</spa
 <span class="com"># 事件以 CloudEvents 格式推送到你的 Webhook 📨</span>`;
 
 export default function Home() {
+  // 动态版本列表（发版后自动更新，无需手动维护）
+  const versions = useVersions('default');
+  const latestVersion = useLatestVersion('default');
+
+  // 每个版本解析到其主文档 URL（裸版本路径如 /zh/docs/next 没有落地页）
+  const docHref = (v) => {
+    const main = v.docs.find((d) => d.id === v.mainDocId);
+    return (main && main.path) || v.path;
+  };
+
   useEffect(() => {
     document.body.classList.add('is-homepage');
     return () => document.body.classList.remove('is-homepage');
@@ -58,9 +69,12 @@ export default function Home() {
           <div className="nav-links">
             <a href="#features" className="nav-link">特性</a>
             <a href="#architecture" className="nav-link">架构</a>
-            <a href="#a2a" className="nav-link">Agent Mesh</a>
-            <a href="/zh/docs/introduction" className="nav-link">文档</a>
-            <a href="/zh/download" className="nav-link">下载</a>
+            <div className="nav-dropdown">
+              <a href="#a2a" className="nav-link nav-dropdown-toggle">Agent Mesh</a>
+              <div className="nav-dropdown-menu">
+                <a href="#ecosystem" className="nav-dropdown-item">Event Bus</a>
+              </div>
+            </div>
             <div className="nav-dropdown">
               <span className="nav-link nav-dropdown-toggle">社区</span>
               <div className="nav-dropdown-menu">
@@ -68,7 +82,16 @@ export default function Home() {
                 <a href="/zh/team" className="nav-dropdown-item">团队</a>
               </div>
             </div>
+            <a href="/zh/download" className="nav-link">下载</a>
             <a href="/zh/blog" className="nav-link">博客</a>
+            <div className="nav-dropdown nav-docs-dropdown">
+              <a href={docHref(latestVersion)} className="nav-link nav-dropdown-toggle">文档</a>
+              <div className="nav-dropdown-menu">
+                {versions.map((v) => (
+                  <a key={v.name} href={docHref(v)} className="nav-dropdown-item">{v.label}</a>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="nav-actions">
@@ -107,11 +130,6 @@ export default function Home() {
         <div className="hero-glow-2"></div>
 
         <div className="container hero-content">
-          <div className="hero-badge">
-            <span className="dot"></span>
-            v1.12.0 已发布 — 新增 A2A 协议支持
-          </div>
-
           <h1>
             面向 Agent 时代的<br />
             <span className="gradient-text">事件驱动基础设施</span>

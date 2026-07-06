@@ -271,6 +271,11 @@ body {
   opacity: 1;
   visibility: visible;
 }
+/* Docs/version dropdown holds a long version list — cap height with scroll */
+.em-docs-dropdown .nav-dropdown-menu {
+  max-height: 320px;
+  overflow-y: auto;
+}
 .nav-dropdown-item {
   display: block;
   padding: 8px 16px;
