@@ -198,7 +198,9 @@ img { max-width: 100%; display: block; }
   left: 0;
   min-width: 160px;
   padding: 6px 0;
-  background: var(--bg-card);
+  /* Solid, opaque surface so the menu never shows the hero text bleeding
+     through when it opens over the content (bg-base is opaque in both themes). */
+  background: var(--bg-base);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
@@ -234,6 +236,14 @@ img { max-width: 100%; display: block; }
 .nav-dropdown-item:hover {
   color: var(--text-primary);
   background: var(--bg-card-hover);
+}
+
+/* ---- Docs dropdown (Documentation → version list, dynamic) ---- */
+.nav-docs-dropdown .nav-dropdown-menu,
+.em-docs-dropdown .nav-dropdown-menu {
+  min-width: 140px;
+  max-height: 320px;
+  overflow-y: auto;
 }
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
@@ -352,7 +362,9 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: var(--nav-h);
+  /* Extra breathing room below the fixed navbar so the nav dropdown menus
+     have clean space to open into and never overlap the hero content. */
+  padding-top: calc(var(--nav-h) + 72px);
 }
 
 #hero-canvas {
