@@ -10,18 +10,20 @@
   const HOMEPAGE_NAV_LINKS = [
     { href: '/#features', label: 'Features', en: 'Features', zh: '\u7279\u6027' },
     { href: '/#architecture', label: 'Architecture', en: 'Architecture', zh: '\u67b6\u6784' },
-    { href: '/#a2a', label: 'Agent Mesh', en: 'Agent Mesh', zh: 'Agent Mesh' },
-    { href: '/docs/introduction', label: 'Documentation', en: 'Documentation', zh: '\u6587\u6863' },
-    { href: '/download', label: 'Download', en: 'Download', zh: '\u4e0b\u8f7d' },
+    { type: 'linkDropdown', href: '/#a2a', label: 'Agent Mesh', en: 'Agent Mesh', zh: 'Agent Mesh', children: [
+      { href: '/#ecosystem', label: 'Event Bus', en: 'Event Bus', zh: 'Event Bus' },
+    ]},
     { type: 'dropdown', label: 'Community', en: 'Community', zh: '\u793e\u533a', children: [
       { href: '/community/how-to-subscribe', label: 'Subscribe', en: 'Subscribe', zh: '\u8ba2\u9605' },
       { href: '/team', label: 'Team', en: 'Team', zh: '\u56e2\u961f' },
     ]},
+    { href: '/download', label: 'Download', en: 'Download', zh: '\u4e0b\u8f7d' },
     { href: '/blog', label: 'Blog', en: 'Blog', zh: '\u535a\u5ba2' },
+    { type: 'docsVersions', href: '/docs/introduction', label: 'Documentation', en: 'Documentation', zh: '\u6587\u6863' },
   ];
 
   // Count expected non-dropdown links
-  const EXPECTED_LINK_COUNT = HOMEPAGE_NAV_LINKS.filter(function (i) { return !i.type || i.type !== 'dropdown'; }).length;
+  const EXPECTED_LINK_COUNT = HOMEPAGE_NAV_LINKS.filter(function (i) { return !i.type; }).length;
 
   const ICON_SUN = '<svg class="em-theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>';
   const ICON_MOON = '<svg class="em-theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="display:none"><path fill="currentColor" d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z"/></svg>';
@@ -89,6 +91,17 @@
     // Check if language toggle exists
     var langToggle = document.querySelector('.navbar__items--right > .em-lang-toggle');
     if (!langToggle) return false;
+
+    // Check if the docs/version dropdown was merged into the left "Documentation"
+    // item (only when the site actually exposes a version source).
+    var rightItems = document.querySelector('.navbar__items--right');
+    if (rightItems) {
+      var hasSourceVersion = !!findVersionDropdownSource(rightItems);
+      if (hasSourceVersion) {
+        var docsDropdown = document.querySelector('.navbar__items:not(.navbar__items--right) > .em-docs-dropdown');
+        if (!docsDropdown || !docsDropdown.querySelector('.nav-dropdown-menu .nav-dropdown-item')) return false;
+      }
+    }
 
     // Check if em-brand-logo exists (we now remove .navbar__logo entirely)
     var brand = document.querySelector('.navbar__brand');
@@ -171,7 +184,87 @@
     leftItems.querySelectorAll('.em-injected-link, .em-injected-dropdown').forEach(function (el) { el.remove(); });
 
     HOMEPAGE_NAV_LINKS.forEach(function (item) {
-      if (item.type === 'dropdown') {
+      if (item.type === 'docsVersions') {
+        // Documentation dropdown holding the docs version list (merged from the
+        // native docsVersionDropdown so it stays dynamic — no manual maintenance).
+        var vSource = findVersionDropdownSource(document.querySelector('.navbar__items--right'));
+        var vDropdown = document.createElement('div');
+        vDropdown.className = 'nav-dropdown em-injected-dropdown em-docs-dropdown';
+
+        var vToggle = document.createElement('a');
+        vToggle.className = 'nav-link nav-dropdown-toggle';
+        vToggle.href = isZh ? '/zh' + item.href : item.href;
+        vToggle.textContent = isZh ? item.zh : item.en;
+        vDropdown.appendChild(vToggle);
+
+        var vMenu = document.createElement('div');
+        vMenu.className = 'nav-dropdown-menu';
+        if (vSource) {
+          vSource.querySelectorAll('.dropdown__menu a').forEach(function (srcLink) {
+            var ca = document.createElement('a');
+            ca.className = 'nav-dropdown-item';
+            var href = srcLink.getAttribute('href');
+            if (href) ca.href = href;
+            ca.textContent = srcLink.textContent.trim();
+            vMenu.appendChild(ca);
+          });
+        }
+        vDropdown.appendChild(vMenu);
+        leftItems.appendChild(vDropdown);
+
+        vToggle.addEventListener('click', function (e) {
+          // Let a real click on the toggle navigate to the docs; only toggle the
+          // menu open state when the version list has items to show.
+          if (!vMenu.children.length) return;
+          e.preventDefault();
+          e.stopPropagation();
+          var isOpen = vDropdown.classList.contains('open');
+          document.querySelectorAll('.nav-dropdown.open, .em-injected-dropdown.open').forEach(function (d) {
+            d.classList.remove('open');
+          });
+          if (!isOpen) vDropdown.classList.add('open');
+        });
+      } else if (item.type === 'linkDropdown') {
+        // A dropdown whose toggle is itself a real anchor link (e.g. Agent Mesh
+        // -> /#a2a) while the menu holds extra section links (e.g. Event Bus
+        // -> /#ecosystem). Clicking the toggle navigates; hover reveals the menu.
+        var ldDropdown = document.createElement('div');
+        ldDropdown.className = 'nav-dropdown em-injected-dropdown';
+
+        var ldToggle = document.createElement('a');
+        ldToggle.className = 'nav-link nav-dropdown-toggle';
+        ldToggle.href = (isZh ? '/zh' : '') + item.href;
+        ldToggle.textContent = isZh ? item.zh : item.en;
+        if (item.href.startsWith('/#')) {
+          (function (href) {
+            ldToggle.addEventListener('click', function (e) {
+              e.preventDefault();
+              window.location.href = (isZh ? '/zh' : '') + href;
+            });
+          })(item.href);
+        }
+        ldDropdown.appendChild(ldToggle);
+
+        var ldMenu = document.createElement('div');
+        ldMenu.className = 'nav-dropdown-menu';
+        item.children.forEach(function (child) {
+          var ca = document.createElement('a');
+          ca.className = 'nav-dropdown-item';
+          ca.href = (isZh ? '/zh' : '') + child.href;
+          ca.textContent = isZh ? child.zh : child.en;
+          if (child.href.startsWith('/#')) {
+            (function (href) {
+              ca.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.location.href = (isZh ? '/zh' : '') + href;
+              });
+            })(child.href);
+          }
+          ldMenu.appendChild(ca);
+        });
+        ldDropdown.appendChild(ldMenu);
+        leftItems.appendChild(ldDropdown);
+      } else if (item.type === 'dropdown') {
         var dropdown = document.createElement('div');
         dropdown.className = 'nav-dropdown em-injected-dropdown';
 
@@ -292,6 +385,30 @@
     langLink.setAttribute('aria-label', langLink.title);
 
     rightItems.insertBefore(langLink, rightItems.firstChild);
+  }
+
+  /* ---- Version dropdown: rebuild Docusaurus docsVersionDropdown in site style ---- */
+
+  // Identify the native docs version dropdown among the right-side dropdowns.
+  // Distinguishing rule:
+  //   - version dropdown: menu links point to /docs/... (or /zh/docs/...) and have NO lang attr
+  //   - locale dropdown:  menu links carry a lang="en"/lang="zh" attribute
+  // Its contents are merged into the left "Documentation" dropdown; skip our own injected ones.
+  function findVersionDropdownSource(container) {
+    var dropdowns = container.querySelectorAll('.navbar__item.dropdown, .dropdown');
+    for (var i = 0; i < dropdowns.length; i++) {
+      if (dropdowns[i].classList.contains('em-injected-dropdown')) continue;
+      var links = dropdowns[i].querySelectorAll('.dropdown__menu a');
+      if (!links.length) continue;
+      var isVersion = false;
+      for (var j = 0; j < links.length; j++) {
+        var href = links[j].getAttribute('href') || '';
+        if (links[j].hasAttribute('lang')) { isVersion = false; break; }
+        if (/(^|\/)docs(\/|$)/.test(href)) isVersion = true;
+      }
+      if (isVersion) return dropdowns[i];
+    }
+    return null;
   }
 
   function hideOriginalRightItems() {

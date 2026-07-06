@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
 import {useEffect} from 'react';
+import {useVersions, useLatestVersion} from '@docusaurus/plugin-content-docs/client';
 
 const publishCode = `<span class="com"># Publish a CloudEvent via HTTP</span>
 <span class="fn">curl</span> -X POST \
@@ -35,6 +36,16 @@ export default function Home() {
     return () => document.body.classList.remove('is-homepage');
   }, []);
 
+  // Dynamic docs versions (auto-updates when a new version is released — no manual edit needed)
+  const versions = useVersions('default');
+  const latestVersion = useLatestVersion('default');
+
+  // Resolve each version to its main doc URL (the bare version path like /docs/next has no landing page)
+  const docHref = (v) => {
+    const main = v.docs.find((d) => d.id === v.mainDocId);
+    return (main && main.path) || v.path;
+  };
+
   return (
     <div className="homepage-wrapper">
       <Head>
@@ -58,9 +69,12 @@ export default function Home() {
           <div className="nav-links">
             <a href="#features" className="nav-link">Features</a>
             <a href="#architecture" className="nav-link">Architecture</a>
-            <a href="#a2a" className="nav-link">Agent Mesh</a>
-            <a href="/docs/introduction" className="nav-link">Documentation</a>
-            <a href="/download" className="nav-link">Download</a>
+            <div className="nav-dropdown">
+              <a href="#a2a" className="nav-link nav-dropdown-toggle">Agent Mesh</a>
+              <div className="nav-dropdown-menu">
+                <a href="#ecosystem" className="nav-dropdown-item">Event Bus</a>
+              </div>
+            </div>
             <div className="nav-dropdown">
               <span className="nav-link nav-dropdown-toggle">Community</span>
               <div className="nav-dropdown-menu">
@@ -68,7 +82,16 @@ export default function Home() {
                 <a href="/team" className="nav-dropdown-item">Team</a>
               </div>
             </div>
+            <a href="/download" className="nav-link">Download</a>
             <a href="/blog" className="nav-link">Blog</a>
+            <div className="nav-dropdown nav-docs-dropdown">
+              <a href={docHref(latestVersion)} className="nav-link nav-dropdown-toggle">Documentation</a>
+              <div className="nav-dropdown-menu">
+                {versions.map((v) => (
+                  <a key={v.name} href={docHref(v)} className="nav-dropdown-item">{v.label}</a>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="nav-actions">
@@ -107,11 +130,6 @@ export default function Home() {
         <div className="hero-glow-2"></div>
 
         <div className="container hero-content">
-          <div className="hero-badge">
-            <span className="dot"></span>
-            v1.12.0 Released — Now with A2A Protocol Support
-          </div>
-
           <h1>
             Event-Driven<br />
             Infrastructure for<br />
