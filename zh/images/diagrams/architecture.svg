@@ -1,101 +1,201 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580">
-  <style>
-    text { font-family: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif; }
-    .layer-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-    .node-label { font-size: 12px; font-weight: 500; }
-    .node-sub { font-size: 9px; }
-    .flow-text { font-size: 10px; letter-spacing: 0.12em; }
-    .title { font-size: 14px; font-weight: 700; }
-  </style>
-  <defs>
-    <linearGradient id="card-glow-green" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00D97E" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#00D97E" stop-opacity="0.02"/>
-    </linearGradient>
-    <linearGradient id="card-glow-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7C5CFC" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#7C5CFC" stop-opacity="0.02"/>
-    </linearGradient>
-    <linearGradient id="card-glow-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.02"/>
-    </linearGradient>
-    <linearGradient id="card-glow-amber" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#FBBF24" stop-opacity="0.02"/>
-    </linearGradient>
-    <linearGradient id="grad-text" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00D97E"/>
-      <stop offset="100%" stop-color="#22D3EE"/>
-    </linearGradient>
-    <marker id="arrow-down" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
-      <path d="M0,0 L10,4 L0,8 Z" fill="#00D97E" opacity="0.6"/>
-    </marker>
-    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <rect width="960" height="580" fill="none" rx="12"/>
-  <text x="480" y="24" text-anchor="middle" class="title" fill="url(#grad-text)">EventMesh Architecture</text>
-  <rect x="30" y="45" width="900" height="95" rx="10" fill="url(#card-glow-blue)" stroke="rgba(124,92,252,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="50" y="67" class="layer-label" fill="#7C5CFC">Applications</text>
-  <rect x="80" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="140" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">Microservices</text>
-  <rect x="250" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="310" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">Serverless</text>
-  <rect x="420" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="480" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">AI Agents</text>
-  <rect x="590" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="650" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">IoT Devices</text>
-  <rect x="760" y="75" width="120" height="42" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="820" y="101" text-anchor="middle" class="node-label" fill="#A0AAB8">Edge</text>
-  <path d="M480,142 L480,164" stroke="#00D97E" stroke-width="1.5" stroke-opacity="0.5" fill="none" marker-end="url(#arrow-down)"/>
-  <text x="496" y="156" class="flow-text" fill="rgba(0,217,126,0.5)">PROTOCOLS</text>
-  <rect x="30" y="168" width="900" height="85" rx="10" fill="url(#card-glow-cyan)" stroke="rgba(34,211,238,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="50" y="190" class="layer-label" fill="#22D3EE">Protocols</text>
-  <rect x="50" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="100" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">HTTP</text>
-  <rect x="202" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="252" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">gRPC</text>
-  <rect x="354" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="404" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">TCP</text>
-  <rect x="506" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="556" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">WebSocket</text>
-  <rect x="658" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="708" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">CloudEvents</text>
-  <rect x="810" y="196" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="860" y="219" text-anchor="middle" class="node-label" fill="#A0AAB8">A2A</text>
-  <path d="M480,255 L480,277" stroke="#00D97E" stroke-width="1.5" stroke-opacity="0.5" fill="none" marker-end="url(#arrow-down)"/>
-  <text x="496" y="269" class="flow-text" fill="rgba(0,217,126,0.5)">EVENT FLOW</text>
-  <rect x="30" y="281" width="900" height="95" rx="10" fill="url(#card-glow-green)" stroke="rgba(0,217,126,0.25)" stroke-width="1.5" stroke-dasharray="4,4"/>
-  <text x="50" y="303" class="layer-label" fill="#00D97E">EventMesh Runtime</text>
-  <rect x="120" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
-  <text x="195" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Event Gateway</text>
-  <text x="195" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
-  <rect x="310" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
-  <text x="385" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Event Router</text>
-  <text x="385" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
-  <rect x="500" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
-  <text x="575" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Workflow Engine</text>
-  <text x="575" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
-  <rect x="690" y="311" width="150" height="48" rx="8" fill="rgba(0,217,126,0.06)" stroke="rgba(0,217,126,0.2)" filter="url(#soft-glow)"/>
-  <text x="765" y="333" text-anchor="middle" class="node-label" fill="#00D97E" font-weight="600">Schema Registry</text>
-  <text x="765" y="349" text-anchor="middle" class="node-sub" fill="rgba(160,170,184,0.5)">core service</text>
-  <path d="M480,378 L480,400" stroke="#00D97E" stroke-width="1.5" stroke-opacity="0.5" fill="none" marker-end="url(#arrow-down)"/>
-  <text x="496" y="392" class="flow-text" fill="rgba(0,217,126,0.5)">EVENT STORE</text>
-  <rect x="30" y="404" width="900" height="85" rx="10" fill="url(#card-glow-amber)" stroke="rgba(251,191,36,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="50" y="426" class="layer-label" fill="#FBBF24">Event Store</text>
-  <rect x="50" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="100" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">RocketMQ</text>
-  <rect x="202" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="252" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">Kafka</text>
-  <rect x="354" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="404" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">AutoMQ</text>
-  <rect x="506" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="556" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">Redis</text>
-  <rect x="658" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="708" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">Pulsar</text>
-  <rect x="810" y="432" width="100" height="36" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-  <text x="860" y="455" text-anchor="middle" class="node-label" fill="#A0AAB8">RabbitMQ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 11 1508 873" width="1508" height="873" font-family='"Inter","Segoe UI",Roboto,-apple-system,"Helvetica Neue",Arial,sans-serif'>
+<style>.theme-dark{display:none}@media (prefers-color-scheme: dark){.theme-light{display:none}.theme-dark{display:inline}}</style>
+<g class="theme-light">
+<rect x="16" y="11" width="1508" height="873" fill="#FFFFFF"/>
+<defs>
+<marker id="ah0L" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#026AA2"/></marker>
+<marker id="ah1L" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#027A48"/></marker>
+<marker id="ah2L" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#175CD3"/></marker>
+<marker id="ah3L" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#6941C6"/></marker>
+<marker id="ah4L" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#7A5AF8"/></marker>
+<marker id="ah5L" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#C4320A"/></marker>
+</defs>
+<rect x="310" y="115" width="440" height="150" rx="16" ry="16" fill="#ECFDF3" stroke="#027A48" stroke-width="2"/>
+<rect x="334" y="182" width="188" height="30" rx="5.4" ry="5.4" fill="#FFFFFF" stroke="#027A48" stroke-width="1"/>
+<rect x="528" y="182" width="188" height="30" rx="5.4" ry="5.4" fill="#FFFFFF" stroke="#027A48" stroke-width="1"/>
+<rect x="334" y="220" width="188" height="30" rx="5.4" ry="5.4" fill="#FFFFFF" stroke="#027A48" stroke-width="1"/>
+<rect x="528" y="220" width="188" height="30" rx="5.4" ry="5.4" fill="#FFFFFF" stroke="#027A48" stroke-width="1"/>
+<rect x="790" y="115" width="440" height="150" rx="16" ry="16" fill="#FFF7ED" stroke="#C4320A" stroke-width="2"/>
+<rect x="814" y="189" width="392" height="34" rx="6.12" ry="6.12" fill="#FFFFFF" stroke="#C4320A" stroke-width="1"/>
+<rect x="310" y="320" width="920" height="300" rx="16" ry="16" fill="#F8FAFC" stroke="#1F2937" stroke-width="4"/>
+<rect x="334" y="390" width="872" height="32" rx="5.76" ry="5.76" fill="#FFFFFF" stroke="#1F2937" stroke-width="1"/>
+<rect x="334" y="430" width="428" height="42" rx="7.56" ry="7.56" fill="#ECFDF3" stroke="#027A48" stroke-width="1.5"/>
+<ellipse cx="355.0" cy="451.0" rx="7.0" ry="7.0" fill="#027A48" stroke="#027A48" stroke-width="0"/>
+<rect x="778" y="430" width="428" height="42" rx="7.56" ry="7.56" fill="#EFF8FF" stroke="#175CD3" stroke-width="1.5"/>
+<ellipse cx="799.0" cy="451.0" rx="7.0" ry="7.0" fill="#175CD3" stroke="#175CD3" stroke-width="0"/>
+<rect x="334" y="484" width="428" height="116" rx="16" ry="16" fill="#FFF7ED" stroke="#C4320A" stroke-width="1"/>
+<rect x="778" y="484" width="428" height="116" rx="16" ry="16" fill="#F4F3FF" stroke="#6941C6" stroke-width="1"/>
+<rect x="40" y="360" width="210" height="250" rx="16" ry="16" fill="#EFF8FF" stroke="#175CD3" stroke-width="2"/>
+<rect x="56" y="436" width="178" height="36" rx="6.48" ry="6.48" fill="#FFFFFF" stroke="#175CD3" stroke-width="1"/>
+<rect x="56" y="480" width="178" height="36" rx="6.48" ry="6.48" fill="#FFFFFF" stroke="#175CD3" stroke-width="1"/>
+<rect x="56" y="524" width="178" height="36" rx="6.48" ry="6.48" fill="#FFFFFF" stroke="#175CD3" stroke-width="1"/>
+<rect x="1290" y="360" width="210" height="250" rx="16" ry="16" fill="#F0F9FF" stroke="#026AA2" stroke-width="2"/>
+<rect x="1306" y="434" width="178" height="34" rx="6.12" ry="6.12" fill="#FFFFFF" stroke="#026AA2" stroke-width="1"/>
+<rect x="1306" y="474" width="178" height="34" rx="6.12" ry="6.12" fill="#FFFFFF" stroke="#026AA2" stroke-width="1"/>
+<rect x="1306" y="514" width="178" height="34" rx="6.12" ry="6.12" fill="#FFFFFF" stroke="#026AA2" stroke-width="1"/>
+<rect x="1306" y="554" width="178" height="34" rx="6.12" ry="6.12" fill="#FFFFFF" stroke="#026AA2" stroke-width="1"/>
+<rect x="310" y="680" width="440" height="180" rx="16" ry="16" fill="#F4F3FF" stroke="#6941C6" stroke-width="2"/>
+<rect x="334" y="750" width="188" height="78" rx="14.04" ry="14.04" fill="#FFFFFF" stroke="#6941C6" stroke-width="1"/>
+<rect x="528" y="750" width="188" height="78" rx="14.04" ry="14.04" fill="#FFFFFF" stroke="#6941C6" stroke-width="1"/>
+<rect x="790" y="680" width="440" height="180" rx="16" ry="16" fill="#F5F3FF" stroke="#7A5AF8" stroke-width="3"/>
+<rect x="814" y="756" width="392" height="40" rx="7.2" ry="7.2" fill="#FFFFFF" stroke="#7A5AF8" stroke-width="1"/>
+<path d="M 530,265 L 530,320" fill="none" stroke="#027A48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah1L)" marker-end="url(#ah1L)"/>
+<path d="M 1010,265 L 1010,320" fill="none" stroke="#C4320A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah5L)" marker-end="url(#ah5L)"/>
+<path d="M 250,475 L 310,475" fill="none" stroke="#175CD3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah2L)" marker-end="url(#ah2L)"/>
+<path d="M 1230,475 L 1290,475" fill="none" stroke="#026AA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah0L)" marker-end="url(#ah0L)"/>
+<path d="M 530,680 L 530,620" fill="none" stroke="#6941C6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah3L)" marker-end="url(#ah3L)"/>
+<path d="M 1010,680 L 1010,620" fill="none" stroke="#7A5AF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah4L)" marker-end="url(#ah4L)"/>
+<text x="770.0" y="57.07" font-size="26" font-weight="700" fill="#111827" text-anchor="middle">Apache EventMesh — Unified CloudEvents-over-MQ Architecture</text>
+<text x="770.0" y="85.92" font-size="15" font-weight="500" fill="#475467" text-anchor="middle">Runtime-centric  ·  MQ as pure WAL  ·  subscription &amp; dispatch owned by EventMesh</text>
+<text x="334" y="143.51" font-size="18" font-weight="600" fill="#065F46" text-anchor="start">Control Plane / Meta</text>
+<text x="334" y="167.53" font-size="13" font-weight="500" fill="#475467" text-anchor="start">external registry, shared by all runtime instances</text>
+<text x="428.0" y="199.73" font-size="14" font-weight="500" fill="#065F46" text-anchor="middle">Nacos</text>
+<text x="622.0" y="199.73" font-size="14" font-weight="500" fill="#065F46" text-anchor="middle">Consul</text>
+<text x="428.0" y="237.73" font-size="14" font-weight="500" fill="#065F46" text-anchor="middle">ETCD</text>
+<text x="622.0" y="237.73" font-size="14" font-weight="500" fill="#065F46" text-anchor="middle">ZooKeeper</text>
+<text x="814" y="148.51" font-size="18" font-weight="600" fill="#9A3412" text-anchor="start">Observability</text>
+<text x="814" y="172.53" font-size="13" font-weight="500" fill="#475467" text-anchor="start">Prometheus / OpenTelemetry</text>
+<text x="1010.0" y="208.93" font-size="15" font-weight="500" fill="#9A3412" text-anchor="middle">Metrics   ·   Traces   ·   Logs</text>
+<text x="814" y="240.53" font-size="13" font-weight="500" fill="#475467" text-anchor="start">runtime health &amp; end-to-end event flow</text>
+<text x="770.0" y="352.29" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">EventMesh Runtime</text>
+<text x="770.0" y="377.54" font-size="13" font-weight="500" fill="#475467" text-anchor="middle">stateless HTTP cluster  ·  scale 1…N  ·  hub of every event flow</text>
+<text x="770.0" y="408.73" font-size="14" font-weight="500" fill="#111827" text-anchor="middle">HTTP Server   ·   publish / subscribe / poll / ack</text>
+<text x="570.0" y="453.73" font-size="14" font-weight="500" fill="#065F46" text-anchor="middle">Ingress Pipeline</text>
+<text x="1014.0" y="453.73" font-size="14" font-weight="500" fill="#1849A9" text-anchor="middle">Egress Pipeline</text>
+<text x="548.0" y="526.12" font-size="16" font-weight="600" fill="#9A3412" text-anchor="middle">Subscription Manager</text>
+<text x="548.0" y="554.53" font-size="13" font-weight="500" fill="#475467" text-anchor="middle">registry &amp; offset · dispatch modes · multicast</text>
+<text x="992.0" y="526.12" font-size="16" font-weight="600" fill="#5925DC" text-anchor="middle">Delivery Engine</text>
+<text x="992.0" y="554.53" font-size="13" font-weight="500" fill="#475467" text-anchor="middle">long-poll / SSE · retry · ACK · at-least-once</text>
+<text x="145.0" y="397.12" font-size="16" font-weight="600" fill="#1849A9" text-anchor="middle">Application / SDK</text>
+<text x="145.0" y="421.34" font-size="12" font-weight="500" fill="#475467" text-anchor="middle">HTTP + CloudEvents 1.0</text>
+<text x="145.0" y="456.73" font-size="14" font-weight="500" fill="#1849A9" text-anchor="middle">Publisher</text>
+<text x="145.0" y="500.73" font-size="14" font-weight="500" fill="#1849A9" text-anchor="middle">Subscriber</text>
+<text x="145.0" y="544.73" font-size="14" font-weight="500" fill="#1849A9" text-anchor="middle">Any language</text>
+<text x="145.0" y="579.34" font-size="12" font-weight="500" fill="#475467" text-anchor="middle">publish / subscribe / poll</text>
+<text x="1395.0" y="395.12" font-size="16" font-weight="600" fill="#065986" text-anchor="middle">Message Queue</text>
+<text x="1395.0" y="419.34" font-size="12" font-weight="500" fill="#475467" text-anchor="middle">pure WAL · append-only</text>
+<text x="1395.0" y="453.73" font-size="14" font-weight="500" fill="#065986" text-anchor="middle">RocketMQ</text>
+<text x="1395.0" y="493.73" font-size="14" font-weight="500" fill="#065986" text-anchor="middle">Kafka</text>
+<text x="1395.0" y="533.73" font-size="14" font-weight="500" fill="#065986" text-anchor="middle">Pulsar</text>
+<text x="1395.0" y="573.73" font-size="14" font-weight="500" fill="#065986" text-anchor="middle">RabbitMQ</text>
+<text x="334" y="705.51" font-size="18" font-weight="600" fill="#5925DC" text-anchor="start">Connector</text>
+<text x="334" y="729.53" font-size="13" font-weight="500" fill="#475467" text-anchor="start">standalone process · pluggable CloudEvents bridge</text>
+<text x="428.0" y="769.73" font-size="14" font-weight="500" fill="#5925DC" text-anchor="middle">Source</text>
+<text x="428.0" y="790.34" font-size="12" font-weight="500" fill="#475467" text-anchor="middle">ext system → CloudEvents</text>
+<text x="428.0" y="810.14" font-size="11" font-weight="500" fill="#98A2B3" text-anchor="middle">DB · Kafka · HTTP · File</text>
+<text x="622.0" y="769.73" font-size="14" font-weight="500" fill="#5925DC" text-anchor="middle">Sink</text>
+<text x="622.0" y="790.34" font-size="12" font-weight="500" fill="#475467" text-anchor="middle">CloudEvents → ext system</text>
+<text x="622.0" y="810.14" font-size="11" font-weight="500" fill="#98A2B3" text-anchor="middle">DB · Kafka · HTTP · File</text>
+<text x="334" y="847.34" font-size="12" font-weight="500" fill="#475467" text-anchor="start">bidirectional · at-least-once · offset tracked by Runtime</text>
+<text x="814" y="713.51" font-size="18" font-weight="600" fill="#5B21B6" text-anchor="start">Agent</text>
+<text x="814" y="737.53" font-size="13" font-weight="500" fill="#475467" text-anchor="start">stream bridge · edge compute · LLM orchestration</text>
+<text x="1010.0" y="778.92" font-size="15" font-weight="500" fill="#5B21B6" text-anchor="middle">stream channel  ·  event ⇄ reasoning</text>
+<text x="814" y="817.34" font-size="12" font-weight="500" fill="#5B21B6" text-anchor="start">connects LLM abilities: inference · tool call · RAG</text>
+<text x="814" y="839.34" font-size="12" font-weight="500" fill="#475467" text-anchor="start">reasoning at the edge, results returned via stream</text>
+<text x="520" y="291.34" font-size="12" font-weight="500" fill="#065F46" text-anchor="end">register / discover</text>
+<text x="1018" y="291.34" font-size="12" font-weight="500" fill="#9A3412" text-anchor="start">metrics / traces</text>
+<text x="280.0" y="461.34" font-size="12" font-weight="500" fill="#1849A9" text-anchor="middle">HTTP</text>
+<text x="1260.0" y="461.34" font-size="12" font-weight="500" fill="#065986" text-anchor="middle">WAL I/O</text>
+<text x="520" y="651.34" font-size="12" font-weight="500" fill="#5925DC" text-anchor="end">pub / sub</text>
+<text x="1018" y="651.53" font-size="13" font-weight="500" fill="#5B21B6" text-anchor="start">stream</text>
+</g>
+<g class="theme-dark">
+<rect x="16" y="11" width="1508" height="873" fill="#0d1526"/>
+<defs>
+<marker id="ah0D" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#5b6b8c"/></marker>
+<marker id="ah1D" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#04F38F"/></marker>
+<marker id="ah2D" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#5b6b8c"/></marker>
+<marker id="ah3D" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#5b6b8c"/></marker>
+<marker id="ah4D" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#4B20F6"/></marker>
+<marker id="ah5D" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#5b6b8c"/></marker>
+</defs>
+<rect x="310" y="115" width="440" height="150" rx="16" ry="16" fill="#134427" stroke="#04F38F" stroke-width="2"/>
+<rect x="334" y="182" width="188" height="30" rx="5.4" ry="5.4" fill="#182238" stroke="#04F38F" stroke-width="1"/>
+<rect x="528" y="182" width="188" height="30" rx="5.4" ry="5.4" fill="#182238" stroke="#04F38F" stroke-width="1"/>
+<rect x="334" y="220" width="188" height="30" rx="5.4" ry="5.4" fill="#182238" stroke="#04F38F" stroke-width="1"/>
+<rect x="528" y="220" width="188" height="30" rx="5.4" ry="5.4" fill="#182238" stroke="#04F38F" stroke-width="1"/>
+<rect x="790" y="115" width="440" height="150" rx="16" ry="16" fill="#4A2F0D" stroke="#5b6b8c" stroke-width="2"/>
+<rect x="814" y="189" width="392" height="34" rx="6.12" ry="6.12" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="310" y="320" width="920" height="300" rx="16" ry="16" fill="#1F2B37" stroke="#5b6b8c" stroke-width="4"/>
+<rect x="334" y="390" width="872" height="32" rx="5.76" ry="5.76" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="334" y="430" width="428" height="42" rx="7.56" ry="7.56" fill="#134427" stroke="#04F38F" stroke-width="1.5"/>
+<ellipse cx="355.0" cy="451.0" rx="7.0" ry="7.0" fill="#04F38F" stroke="#04F38F" stroke-width="0"/>
+<rect x="778" y="430" width="428" height="42" rx="7.56" ry="7.56" fill="#0D2F4A" stroke="#5b6b8c" stroke-width="1.5"/>
+<ellipse cx="799.0" cy="451.0" rx="7.0" ry="7.0" fill="#5b6b8c" stroke="#5b6b8c" stroke-width="0"/>
+<rect x="334" y="484" width="428" height="116" rx="16" ry="16" fill="#4A2F0D" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="778" y="484" width="428" height="116" rx="16" ry="16" fill="#120D4A" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="40" y="360" width="210" height="250" rx="16" ry="16" fill="#0D2F4A" stroke="#5b6b8c" stroke-width="2"/>
+<rect x="56" y="436" width="178" height="36" rx="6.48" ry="6.48" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="56" y="480" width="178" height="36" rx="6.48" ry="6.48" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="56" y="524" width="178" height="36" rx="6.48" ry="6.48" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="1290" y="360" width="210" height="250" rx="16" ry="16" fill="#0D314A" stroke="#5b6b8c" stroke-width="2"/>
+<rect x="1306" y="434" width="178" height="34" rx="6.12" ry="6.12" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="1306" y="474" width="178" height="34" rx="6.12" ry="6.12" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="1306" y="514" width="178" height="34" rx="6.12" ry="6.12" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="1306" y="554" width="178" height="34" rx="6.12" ry="6.12" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="310" y="680" width="440" height="180" rx="16" ry="16" fill="#120D4A" stroke="#5b6b8c" stroke-width="2"/>
+<rect x="334" y="750" width="188" height="78" rx="14.04" ry="14.04" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="528" y="750" width="188" height="78" rx="14.04" ry="14.04" fill="#182238" stroke="#5b6b8c" stroke-width="1"/>
+<rect x="790" y="680" width="440" height="180" rx="16" ry="16" fill="#170D4A" stroke="#4B20F6" stroke-width="3"/>
+<rect x="814" y="756" width="392" height="40" rx="7.2" ry="7.2" fill="#182238" stroke="#4B20F6" stroke-width="1"/>
+<path d="M 530,265 L 530,320" fill="none" stroke="#04F38F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah1D)" marker-end="url(#ah1D)"/>
+<path d="M 1010,265 L 1010,320" fill="none" stroke="#5b6b8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah5D)" marker-end="url(#ah5D)"/>
+<path d="M 250,475 L 310,475" fill="none" stroke="#5b6b8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah2D)" marker-end="url(#ah2D)"/>
+<path d="M 1230,475 L 1290,475" fill="none" stroke="#5b6b8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah0D)" marker-end="url(#ah0D)"/>
+<path d="M 530,680 L 530,620" fill="none" stroke="#5b6b8c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah3D)" marker-end="url(#ah3D)"/>
+<path d="M 1010,680 L 1010,620" fill="none" stroke="#4B20F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#ah4D)" marker-end="url(#ah4D)"/>
+<text x="770.0" y="57.07" font-size="26" font-weight="700" fill="#e8edf7" text-anchor="middle">Apache EventMesh — Unified CloudEvents-over-MQ Architecture</text>
+<text x="770.0" y="85.92" font-size="15" font-weight="500" fill="#8D9CB2" text-anchor="middle">Runtime-centric  ·  MQ as pure WAL  ·  subscription &amp; dispatch owned by EventMesh</text>
+<text x="334" y="143.51" font-size="18" font-weight="600" fill="#36F7C1" text-anchor="start">Control Plane / Meta</text>
+<text x="334" y="167.53" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="start">external registry, shared by all runtime instances</text>
+<text x="428.0" y="199.73" font-size="14" font-weight="500" fill="#36F7C1" text-anchor="middle">Nacos</text>
+<text x="622.0" y="199.73" font-size="14" font-weight="500" fill="#36F7C1" text-anchor="middle">Consul</text>
+<text x="428.0" y="237.73" font-size="14" font-weight="500" fill="#36F7C1" text-anchor="middle">ETCD</text>
+<text x="622.0" y="237.73" font-size="14" font-weight="500" fill="#36F7C1" text-anchor="middle">ZooKeeper</text>
+<text x="814" y="148.51" font-size="18" font-weight="600" fill="#ED673B" text-anchor="start">Observability</text>
+<text x="814" y="172.53" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="start">Prometheus / OpenTelemetry</text>
+<text x="1010.0" y="208.93" font-size="15" font-weight="500" fill="#ED673B" text-anchor="middle">Metrics   ·   Traces   ·   Logs</text>
+<text x="814" y="240.53" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="start">runtime health &amp; end-to-end event flow</text>
+<text x="770.0" y="352.29" font-size="22" font-weight="700" fill="#e8edf7" text-anchor="middle">EventMesh Runtime</text>
+<text x="770.0" y="377.54" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="middle">stateless HTTP cluster  ·  scale 1…N  ·  hub of every event flow</text>
+<text x="770.0" y="408.73" font-size="14" font-weight="500" fill="#e8edf7" text-anchor="middle">HTTP Server   ·   publish / subscribe / poll / ack</text>
+<text x="570.0" y="453.73" font-size="14" font-weight="500" fill="#36F7C1" text-anchor="middle">Ingress Pipeline</text>
+<text x="1014.0" y="453.73" font-size="14" font-weight="500" fill="#3C76E8" text-anchor="middle">Egress Pipeline</text>
+<text x="548.0" y="526.12" font-size="16" font-weight="600" fill="#ED673B" text-anchor="middle">Subscription Manager</text>
+<text x="548.0" y="554.53" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="middle">registry &amp; offset · dispatch modes · multicast</text>
+<text x="992.0" y="526.12" font-size="16" font-weight="600" fill="#6331E3" text-anchor="middle">Delivery Engine</text>
+<text x="992.0" y="554.53" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="middle">long-poll / SSE · retry · ACK · at-least-once</text>
+<text x="145.0" y="397.12" font-size="16" font-weight="600" fill="#3C76E8" text-anchor="middle">Application / SDK</text>
+<text x="145.0" y="421.34" font-size="12" font-weight="500" fill="#8D9CB2" text-anchor="middle">HTTP + CloudEvents 1.0</text>
+<text x="145.0" y="456.73" font-size="14" font-weight="500" fill="#3C76E8" text-anchor="middle">Publisher</text>
+<text x="145.0" y="500.73" font-size="14" font-weight="500" fill="#3C76E8" text-anchor="middle">Subscriber</text>
+<text x="145.0" y="544.73" font-size="14" font-weight="500" fill="#3C76E8" text-anchor="middle">Any language</text>
+<text x="145.0" y="579.34" font-size="12" font-weight="500" fill="#8D9CB2" text-anchor="middle">publish / subscribe / poll</text>
+<text x="1395.0" y="395.12" font-size="16" font-weight="600" fill="#33B5FB" text-anchor="middle">Message Queue</text>
+<text x="1395.0" y="419.34" font-size="12" font-weight="500" fill="#8D9CB2" text-anchor="middle">pure WAL · append-only</text>
+<text x="1395.0" y="453.73" font-size="14" font-weight="500" fill="#33B5FB" text-anchor="middle">RocketMQ</text>
+<text x="1395.0" y="493.73" font-size="14" font-weight="500" fill="#33B5FB" text-anchor="middle">Kafka</text>
+<text x="1395.0" y="533.73" font-size="14" font-weight="500" fill="#33B5FB" text-anchor="middle">Pulsar</text>
+<text x="1395.0" y="573.73" font-size="14" font-weight="500" fill="#33B5FB" text-anchor="middle">RabbitMQ</text>
+<text x="334" y="705.51" font-size="18" font-weight="600" fill="#6331E3" text-anchor="start">Connector</text>
+<text x="334" y="729.53" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="start">standalone process · pluggable CloudEvents bridge</text>
+<text x="428.0" y="769.73" font-size="14" font-weight="500" fill="#6331E3" text-anchor="middle">Source</text>
+<text x="428.0" y="790.34" font-size="12" font-weight="500" fill="#8D9CB2" text-anchor="middle">ext system → CloudEvents</text>
+<text x="428.0" y="810.14" font-size="11" font-weight="500" fill="#ACB5C3" text-anchor="middle">DB · Kafka · HTTP · File</text>
+<text x="622.0" y="769.73" font-size="14" font-weight="500" fill="#6331E3" text-anchor="middle">Sink</text>
+<text x="622.0" y="790.34" font-size="12" font-weight="500" fill="#8D9CB2" text-anchor="middle">CloudEvents → ext system</text>
+<text x="622.0" y="810.14" font-size="11" font-weight="500" fill="#ACB5C3" text-anchor="middle">DB · Kafka · HTTP · File</text>
+<text x="334" y="847.34" font-size="12" font-weight="500" fill="#8D9CB2" text-anchor="start">bidirectional · at-least-once · offset tracked by Runtime</text>
+<text x="814" y="713.51" font-size="18" font-weight="600" fill="#e8edf7" text-anchor="start">Agent</text>
+<text x="814" y="737.53" font-size="13" font-weight="500" fill="#8D9CB2" text-anchor="start">stream bridge · edge compute · LLM orchestration</text>
+<text x="1010.0" y="778.92" font-size="15" font-weight="500" fill="#e8edf7" text-anchor="middle">stream channel  ·  event ⇄ reasoning</text>
+<text x="814" y="817.34" font-size="12" font-weight="500" fill="#e8edf7" text-anchor="start">connects LLM abilities: inference · tool call · RAG</text>
+<text x="814" y="839.34" font-size="12" font-weight="500" fill="#8D9CB2" text-anchor="start">reasoning at the edge, results returned via stream</text>
+<text x="520" y="291.34" font-size="12" font-weight="500" fill="#36F7C1" text-anchor="end">register / discover</text>
+<text x="1018" y="291.34" font-size="12" font-weight="500" fill="#ED673B" text-anchor="start">metrics / traces</text>
+<text x="280.0" y="461.34" font-size="12" font-weight="500" fill="#3C76E8" text-anchor="middle">HTTP</text>
+<text x="1260.0" y="461.34" font-size="12" font-weight="500" fill="#33B5FB" text-anchor="middle">WAL I/O</text>
+<text x="520" y="651.34" font-size="12" font-weight="500" fill="#6331E3" text-anchor="end">pub / sub</text>
+<text x="1018" y="651.53" font-size="13" font-weight="500" fill="#e8edf7" text-anchor="start">stream</text>
+</g>
 </svg>
