@@ -55,7 +55,7 @@ Common flags: `eventmesh.runtime.url` (default `http://localhost:8080`),
 connectors per process the numbered form `-Dconnector.1.class=...`,
 `-Dconnector.2.class=...` (any `-Dconnector.N.*` key is passed through to the
 plugin's `init`). The runtime can also schedule connectors dynamically via
-`/admin/connectors` — see the [Admin API](../admin-api.md).
+`/admin/connectors` — see the [Admin API](../../admin-api.md).
 
 ## Plugin catalog
 
