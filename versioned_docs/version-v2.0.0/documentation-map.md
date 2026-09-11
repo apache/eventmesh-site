@@ -54,6 +54,10 @@ too.
   task lifecycle, JSON-RPC/MCP bridge, REST + SDK usage
   *(Experimental)*; [readiness decision](feature/a2a-readiness.md).
 
+- [Connectors](feature/connectors/connectors.md) — bridge EventMesh with external
+  systems (Kafka, RocketMQ, RabbitMQ, databases, chat platforms): the connector
+  model, running a worker, and a per-plugin guide for all 23 shipped plugins.
+
 **Internals & mechanisms**
 
 - [Offset management](feature/offset-management.md) — the two offset layers,
