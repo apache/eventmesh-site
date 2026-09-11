@@ -80,9 +80,9 @@ MetaInfExtensionClassLoader 用于从 classPath 直接加载实现类，JarExten
 
 ## SPI 使用示例
 
-下面以 eventmesh-connector-plugin 为例，介绍 SPI 具体的使用过程。
+下面以 eventmesh-storage-plugin 为例，介绍 SPI 具体的使用过程。
 
-首先定义一个 eventmesh-connector-api 模块，并且定义扩展接口 MeshMQProducer。在 MeshMQProducer 接口上使用@EventMeshSPI 注解进行声明，表明该接口是一个 SPI 扩展接口
+首先定义一个 eventmesh-storage-api 模块，并且定义扩展接口 MeshMQProducer。在 MeshMQProducer 接口上使用@EventMeshSPI 注解进行声明，表明该接口是一个 SPI 扩展接口
 
 ```java
 @EventMeshSPI(isSingleton = false)
@@ -91,7 +91,7 @@ public interface MeshMQProducer extends Producer {
 }
 ```
 
-eventmesh-connector-rocketmq 模块中包含采用 rocketmq 的具体实现方式 RocketMQProducerImpl。
+eventmesh-storage-rocketmq 模块中包含采用 rocketmq 的具体实现方式 RocketMQProducerImpl。
 
 ```java
 public class RocketMQProducerImpl implements MeshMQProducer {
@@ -99,13 +99,13 @@ public class RocketMQProducerImpl implements MeshMQProducer {
 }
 ```
 
-同时，还需要在 eventmesh-connector-rocketmq 模块中 resource/META-INF/eventmesh 目录下创建文件名为 SPI 接口全限定名的文件
+同时，还需要在 eventmesh-storage-rocketmq 模块中 resource/META-INF/eventmesh 目录下创建文件名为 SPI 接口全限定名的文件
 org.apache.eventmesh.api.producer.Producer
 
 文件内容为扩展实例名和对应的实例全类名
 
 ```properties
-rocketmq=org.apache.eventmesh.connector.rocketmq.producer.RocketMQProducerImpl
+rocketmq=org.apache.eventmesh.storage.rocketmq.producer.RocketMQProducerImpl
 ```
 
 至此，一个 SPI 扩展模块就完成了。在使用的时候只需要通过 EventMeshExtensionFactory.getExtension(MeshMQProducer.class, “rocketmq”) 就可以获取 RocketMQProducerImpl 实现类。
