@@ -7,9 +7,9 @@ sidebar_position: 1
 **Audience:** operators and developers wiring EventMesh to external systems —
 message queues, databases, chat platforms, AI services. Covers the connector
 model, the 23 shipped plugins, how to configure and run them. For the API a
-plugin implements see [Connector API split plan](../../connector-api-split.md);
+plugin implements see [Connector API split plan](../connector-api-split.md);
 for runtime configuration of the connector scheduler see
-[Configuration reference](../../../quickstart/configuration.md).
+[Configuration reference](../../quickstart/configuration.md).
 
 ---
 
@@ -55,7 +55,7 @@ Common flags: `eventmesh.runtime.url` (default `http://localhost:8080`),
 connectors per process the numbered form `-Dconnector.1.class=...`,
 `-Dconnector.2.class=...` (any `-Dconnector.N.*` key is passed through to the
 plugin's `init`). The runtime can also schedule connectors dynamically via
-`/admin/connectors` — see the [Admin API](../../admin-api.md).
+`/admin/connectors` — see the [Admin API](../admin-api.md).
 
 ## Plugin catalog
 
