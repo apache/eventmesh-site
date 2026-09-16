@@ -1,7 +1,3 @@
----
-sidebar_position: 8
----
-
 # Load Balancing
 
 **Audience:** operators running multiple EventMesh instances, and anyone

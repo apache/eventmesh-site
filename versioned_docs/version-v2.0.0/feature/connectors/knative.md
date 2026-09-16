@@ -1,7 +1,3 @@
----
-sidebar_position: 13
----
-
 # Knative connector
 
 **Audience:** operators bridging EventMesh with Knative. Knative eventing bridge. Source receives CloudEvents pushed by a Knative broker (the source acts as the Knative subscriber); sink forwards events to a Knative service/endpoint.

@@ -1,7 +1,3 @@
----
-sidebar_position: 5
----
-
 # Pulsar connector
 
 **Audience:** operators bridging EventMesh with Pulsar. Bridge EventMesh topics with an Apache Pulsar cluster. Source subscribes to a topic; sink produces to a persistent topic.

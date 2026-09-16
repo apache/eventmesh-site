@@ -1,7 +1,3 @@
----
-sidebar_position: 12
----
-
 # Connector API split — design plan (P1)
 
 **Status:** Plan only. No code in this PR. Implementation should land in a follow-up PR after

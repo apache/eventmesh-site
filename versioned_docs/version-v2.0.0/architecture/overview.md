@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Apache EventMesh Architecture
 
 > **Audience:** anyone who wants the structural view — the three planes,
@@ -437,7 +433,7 @@ ingress path does not import legacy wire types.
 
 ## Documentation
 
-The [documentation map](../documentation-map.md) organizes everything by audience. Highlights:
+The [documentation map](../index.md) organizes everything by audience. Highlights:
 
 | Page | What it covers |
 | --- | --- |
@@ -454,4 +450,4 @@ The [documentation map](../documentation-map.md) organizes everything by audienc
 | [Protocols & SDKs](../feature/protocols.md) | Wire protocol inventory and per-language SDK status |
 | [Storage SPI](../feature/storage-spi.md) | `MeshStoragePlugin` contract and capability matrix |
 | [Deployment](../feature/deployment.md) | Modes, Docker, multi-instance, runbooks |
-| [Design records](../documentation-map.md#design-records-contributors) | Redesign rationale, evidence, plans |
+| [Design records](../index.md#design-records-contributors) | Redesign rationale, evidence, plans |

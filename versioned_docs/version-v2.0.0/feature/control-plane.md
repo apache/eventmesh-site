@@ -1,7 +1,3 @@
----
-sidebar_position: 10
----
-
 # EventMesh control plane
 
 > **Audience:** operators and contributors. What the runtime boot path

@@ -1,7 +1,3 @@
----
-sidebar_position: 6
----
-
 # Pravega connector
 
 **Audience:** operators bridging EventMesh with Pravega. Move events between EventMesh and a Pravega stream. The source reads through a reader group (offsets managed natively by Pravega); the sink appends events to a stream, creating the scope/stream on first start.

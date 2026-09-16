@@ -1,7 +1,3 @@
----
-sidebar_position: 14
----
-
 # OpenFunction connector
 
 **Audience:** operators bridging EventMesh with OpenFunction. OpenFunction bridge. Source receives function output pushes (the function runtime POSTs its result to the connector endpoint); sink invokes a function's HTTP trigger with CloudEvent headers (`Ce-Id`/`Ce-Type`/`Ce-Source`).

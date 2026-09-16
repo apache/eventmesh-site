@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Connectors
 
 **Audience:** operators and developers wiring EventMesh to external systems —

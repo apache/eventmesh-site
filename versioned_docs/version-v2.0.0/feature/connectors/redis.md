@@ -1,7 +1,3 @@
----
-sidebar_position: 8
----
-
 # Redis connector
 
 **Audience:** operators bridging EventMesh with Redis. Redis pub/sub bridge over Redisson. Source listens on a channel; sink publishes each CloudEvent to a channel.

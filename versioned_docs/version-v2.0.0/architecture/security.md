@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Security
 
 **Audience:** operators and embedders securing an EventMesh deployment —

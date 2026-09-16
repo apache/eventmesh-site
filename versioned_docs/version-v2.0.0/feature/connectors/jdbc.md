@@ -1,7 +1,3 @@
----
-sidebar_position: 10
----
-
 # JDBC connector
 
 **Audience:** operators bridging EventMesh with JDBC. Database bridge over plain JDBC. Source tails a table by a monotonically increasing id column; sink inserts each CloudEvent into a table via a parameterized INSERT.

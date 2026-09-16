@@ -1,7 +1,3 @@
----
-sidebar_position: 22
----
-
 # WeCom (WeChat Work) connector
 
 **Audience:** operators bridging EventMesh with WeCom (WeChat Work). WeCom bridge. Source receives WeCom callback events (plain-token verification mode: answers the GET echostr challenge, accepts POST JSON events); sink posts events to a WeCom group-robot webhook.

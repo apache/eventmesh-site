@@ -1,12 +1,8 @@
----
-sidebar_position: 1
----
-
 # Introduction
 
 **Audience:** anyone evaluating EventMesh — what it is, what problems it
 solves, and how its pieces fit together. Everything here is elaborated in the
-[documentation map](documentation-map.md).
+[documentation map](index.md).
 
 ---
 

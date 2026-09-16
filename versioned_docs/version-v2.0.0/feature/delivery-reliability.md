@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Reliable Delivery
 
 **Audience:** application developers and operators who need to know exactly

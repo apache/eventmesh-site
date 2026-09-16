@@ -1,16 +1,12 @@
----
-sidebar_position: 3
----
-
 # EventMesh Architecture Simplification Redesign
 
 > **Status note:** this is the historical design document for the
 > architecture rewrite (a design record, not a living guide). The current
 > implementation status and maturity of each capability are governed by the
-> [capability status table](https://github.com/apache/eventmesh#capability-status) in the main
+> [capability status table](../../README.md#capability-status) in the main
 > README. For the user-facing views see
 > [Architecture overview](overview.md) and the
-> [feature guides](../feature/pubsub.md).
+> [feature guides](../feature/).
 
 > Branch: `refactor/unified-runtime-pipeline` — based on the direction
 > defined in this document.
@@ -250,7 +246,7 @@ A single launcher (`EventMeshApplication`) starts traffic HTTP + admin (+
 opt-in WebSocket). The deletion list removed the TCP/gRPC server paths,
 `eventmesh-registry`, and dead modules (~59% of the tree). The phased plan
 tracked the migration; the evidence trail lives in
-[architecture review evidence](redesign.md).
+[architecture review evidence](review/evidence.md).
 
 ---
 
@@ -401,7 +397,7 @@ routing was later covered by the sticky-instance model.)*
 
 The end-to-end test-case design (§18) mapped every guarantee above to a
 named test; the current test inventory and per-PR evidence live in
-[review evidence](redesign.md).
+[review evidence](review/evidence.md).
 
 The streaming design (§20–21, integrated from the streaming-session,
 sdk-streaming-call, and lite-streaming-call designs) defines the two
@@ -428,7 +424,7 @@ still-current content from those appendices lives in the feature and
 reference pages of this documentation tree (configuration, protocols,
 offset management, load balancing, frame protocol); the point-in-time
 gap/migration tables are superseded by the
-[architecture review evidence](redesign.md) and are intentionally
+[architecture review evidence](review/evidence.md) and are intentionally
 not reproduced.
 
 *Document version: v2.0 (English rewrite of the Chinese original) ·

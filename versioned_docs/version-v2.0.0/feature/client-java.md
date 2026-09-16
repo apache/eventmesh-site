@@ -1,7 +1,3 @@
----
-sidebar_position: 13
----
-
 # Apache EventMesh Client Guide
 
 > **Audience:** Java application developers using `eventmesh-sdk-java`
@@ -676,7 +672,7 @@ See also:
 
 * [docs/architecture/overview.md](../architecture/overview.md) — system
   architecture, control / data / agent planes
-* [docs/index.md](../documentation-map.md) — feature-by-feature
+* [docs/index.md](../index.md) — feature-by-feature
   guide
 * [docs/quickstart/configuration.md](../quickstart/configuration.md) — every
   runtime key

@@ -1,7 +1,3 @@
----
-sidebar_position: 23
----
-
 # ChatGPT (OpenAI) connector
 
 **Audience:** operators bridging EventMesh with ChatGPT (OpenAI). OpenAI bridge. Source exposes an HTTP prompt endpoint: a client POSTs a prompt, the connector optionally completes it through the OpenAI REST API and emits both as a CloudEvent. Sink forwards events to a webhook (generic).

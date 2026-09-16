@@ -1,7 +1,3 @@
----
-sidebar_position: 14
----
-
 # HTTP API Reference
 
 **Audience:** application developers integrating with the EventMesh traffic

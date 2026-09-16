@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Lite Topic (RocketMQ 5.x)
 
 **Audience:** RocketMQ 5.x users who need lightweight, hierarchical

@@ -1,7 +1,3 @@
----
-sidebar_position: 16
----
-
 # HTTP connector
 
 **Audience:** operators bridging EventMesh with HTTP. Generic HTTP bridge. Source is a webhook receiver: any system can POST events into EventMesh without an SDK. Sink forwards each CloudEvent to an HTTP endpoint.

@@ -1,7 +1,3 @@
----
-sidebar_position: 17
----
-
 # Prometheus connector
 
 **Audience:** operators bridging EventMesh with Prometheus. Metrics bridge. Source scrapes a Prometheus `/metrics` endpoint on each poll and emits the exposition text as a CloudEvent; sink pushes metric samples (text exposition format) to a Pushgateway.

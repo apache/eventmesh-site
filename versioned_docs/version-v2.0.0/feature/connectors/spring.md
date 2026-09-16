@@ -1,7 +1,3 @@
----
-sidebar_position: 15
----
-
 # Spring connector
 
 **Audience:** operators bridging EventMesh with Spring. Spring application bridge. Source buffers events published by Spring code (register a producer that feeds the buffer); sink exposes an injectable `EventForwarder` so the hosting Spring context receives EventMesh deliveries as native events.
