@@ -215,8 +215,8 @@ To support MCP on an Event Bus, synchronous RPC concepts are mapped to asynchron
 
 | Concept | MCP / JSON-RPC | CloudEvent Mapping |
 | :--- | :--- | :--- |
-| **Action** | `method` (e.g., `tools/call`) | **Type**: `org.apache.eventmesh.a2a.tools.call.req`<br>**Extension**: `a2amethod` |
-| **Correlation** | `id` (e.g., `req-123`) | **Extension**: `collaborationid` (on Response)<br>**ID**: Preserved on Request |
+| **Action** | `method` (e.g., `tools/call`) | **Type**: `org.apache.eventmesh.a2a.tools.call.req`<br/>**Extension**: `a2amethod` |
+| **Correlation** | `id` (e.g., `req-123`) | **Extension**: `collaborationid` (on Response)<br/>**ID**: Preserved on Request |
 | **Direction** | Implicit (Request vs Result) | **Extension**: `mcptype` (`request` or `response`) |
 | **P2P Routing** | `params._agentId` | **Extension**: `targetagent` |
 | **Pub/Sub Topic** | `params._topic` | **Subject**: The topic value (e.g. `market.btc`) |
