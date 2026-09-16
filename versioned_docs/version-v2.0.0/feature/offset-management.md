@@ -1,7 +1,3 @@
----
-sidebar_position: 7
----
-
 # Offset Management
 
 **Audience:** operators and contributors who need to know exactly how
@@ -19,7 +15,7 @@ offset / load-balancing / frame design trio; see also
 The MQ (RocketMQ / Kafka) is used only as a durable FIFO log; its Consumer
 Group semantics are never used. The current implementation status of each
 capability is governed by the
-[capability status table](https://github.com/apache/eventmesh#capability-status).
+[capability status table](../../README.md#capability-status).
 
 ## The two offset layers
 

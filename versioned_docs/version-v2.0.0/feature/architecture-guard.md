@@ -1,7 +1,3 @@
----
-sidebar_position: 11
----
-
 # EventMesh Architecture Guard
 
 > Issue: #5305 (P0), #5322 (fail-mode), #5342 (Q7 expansion)

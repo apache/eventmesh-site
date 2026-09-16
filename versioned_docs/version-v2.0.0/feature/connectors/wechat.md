@@ -1,7 +1,3 @@
----
-sidebar_position: 21
----
-
 # WeChat Official Account connector
 
 **Audience:** operators bridging EventMesh with WeChat Official Account. WeChat Official Account bridge. Source handles the platform's server-to-server callback — the GET echostr verification (SHA-1 of token/timestamp/nonce) and POST XML message pushes; sink posts events to a webhook.

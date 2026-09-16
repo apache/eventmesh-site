@@ -1,7 +1,3 @@
----
-sidebar_position: 18
----
-
 # EventMesh protocols and SDKs
 
 > **Audience:** anyone choosing a wire protocol or SDK. The canonical

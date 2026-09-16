@@ -1,7 +1,3 @@
----
-sidebar_position: 12
----
-
 # File connector
 
 **Audience:** operators bridging EventMesh with File. Local file bridge — the simplest way to try connectors. Source reads a text file line by line; sink appends each CloudEvent as a line to a file.

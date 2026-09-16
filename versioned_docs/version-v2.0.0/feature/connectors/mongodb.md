@@ -1,7 +1,3 @@
----
-sidebar_position: 7
----
-
 # MongoDB connector
 
 **Audience:** operators bridging EventMesh with MongoDB. MongoDB bridge. Source tails a collection's insert stream; sink inserts each CloudEvent as a document.

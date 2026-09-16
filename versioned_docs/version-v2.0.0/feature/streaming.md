@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Streaming & Push Transports
 
 **Audience:** application developers choosing how subscribers receive events

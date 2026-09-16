@@ -1,7 +1,3 @@
----
-sidebar_position: 18
----
-
 # DingTalk connector
 
 **Audience:** operators bridging EventMesh with DingTalk. DingTalk bridge. Source receives robot outgoing-callback messages (with HMAC signature verification); sink posts events to a DingTalk group-robot webhook.

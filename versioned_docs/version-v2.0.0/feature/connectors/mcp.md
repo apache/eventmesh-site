@@ -1,7 +1,3 @@
----
-sidebar_position: 24
----
-
 # MCP (Model Context Protocol) connector
 
 **Audience:** operators bridging EventMesh with MCP (Model Context Protocol). MCP server bridge over JSON-RPC 2.0. Source receives server-initiated notifications (e.g. resource updates) on an HTTP endpoint; sink forwards each CloudEvent to an MCP server as a JSON-RPC request.

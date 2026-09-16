@@ -1,7 +1,3 @@
----
-sidebar_position: 9
----
-
 # Frame Protocol Conversion
 
 **Audience:** contributors adding a protocol or understanding the internal

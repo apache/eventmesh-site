@@ -1,8 +1,4 @@
----
-sidebar_position: 0.5
----
-
-# Documentation Map
+# Apache EventMesh Documentation
 
 Welcome to the Apache EventMesh documentation. EventMesh is a **stateless
 application-layer event mesh** for cloud-native, serverless, and AI-agent
@@ -12,7 +8,7 @@ subscription, offset, and delivery semantics itself — the broker is used
 purely as a write-ahead log.
 
 > Maturity tags (**GA / Beta / Experimental / Legacy**) for every capability
-> live in the [capability status table](https://github.com/apache/eventmesh#capability-status) in the
+> live in the [capability status table](../README.md#capability-status) in the
 > project README — that table is the single source of truth.
 
 ## Where to start
@@ -52,9 +48,9 @@ too.
   inside a parent topic; publish/poll semantics and checkpoints.
 - [A2A — Agent-to-Agent](feature/a2a.md) — the agent collaboration protocol:
   task lifecycle, JSON-RPC/MCP bridge, REST + SDK usage
-  *(Experimental)*; [readiness decision](feature/a2a-readiness.md).
+  *(Experimental)*.
 
-- [Connectors](feature/connectors/connectors.md) — bridge EventMesh with external
+- [Connectors](feature/connectors/README.md) — bridge EventMesh with external
   systems (Kafka, RocketMQ, RabbitMQ, databases, chat platforms): the connector
   model, running a worker, and a per-plugin guide for all 23 shipped plugins.
 
@@ -103,9 +99,9 @@ too.
 - [Unified architecture redesign](architecture/redesign.md) — the original
   rewrite design record (English rewrite): iron rules, target architecture,
   decision log, semantics boundaries.
-- [Architecture review evidence](architecture/redesign.md) —
+- [Architecture review evidence](architecture/review/evidence.md) —
   PR/test evidence behind every closed review issue.
-- [Production HA acceptance plan](architecture/redesign.md)
+- [Production HA acceptance plan](architecture/review/production-ha-plan.md)
 
 ## Conventions
 

@@ -1,7 +1,3 @@
----
-sidebar_position: 9
----
-
 # Canal (MySQL CDC) connector
 
 **Audience:** operators bridging EventMesh with Canal (MySQL CDC). MySQL change-data-capture via a deployed canal server. Source consumes binlog entries over the canal TCP protocol (batch ack only after EventMesh accepted the publish); sink replays row-change CloudEvents into a target MySQL as one all-or-nothing JDBC batch.

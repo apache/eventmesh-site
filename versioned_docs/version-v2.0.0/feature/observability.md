@@ -1,7 +1,3 @@
----
-sidebar_position: 16
----
-
 # Observability
 
 **Audience:** operators pointing monitoring at EventMesh. Covers the metric
@@ -91,4 +87,4 @@ classes, including: multi-instance exactly-once-per-partition consumption
 (`RateLimitIntegrationTest`), TLS end-to-end (`TlsIntegrationTest`), and
 throughput/loss runs against real multi-broker clusters
 (`LoadThroughputIntegrationTest`). Full list:
-[architecture review evidence](../architecture/redesign.md).
+[architecture review evidence](../architecture/review/evidence.md).

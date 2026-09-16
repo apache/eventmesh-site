@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # RocketMQ 4.x connector
 
 **Audience:** operators bridging EventMesh with RocketMQ 4.x. Bridge EventMesh topics with an Apache RocketMQ 4.x cluster (nameserver-based). Source pulls from a consumer group; sink produces with a producer group.

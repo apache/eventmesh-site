@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Publish & Subscribe
 
 **Audience:** application developers publishing or subscribing via the HTTP

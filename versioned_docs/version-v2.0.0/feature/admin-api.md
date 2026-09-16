@@ -1,7 +1,3 @@
----
-sidebar_position: 15
----
-
 # Admin API Reference
 
 **Audience:** operators and dashboards. Every endpoint below lives on the

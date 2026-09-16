@@ -1,7 +1,3 @@
----
-sidebar_position: 17
----
-
 # Deployment & Operations
 
 **Audience:** operators deploying EventMesh — images and ports, single- vs
@@ -68,6 +64,21 @@ onto `-D` system properties.
 ```shell
 curl http://localhost:8081/admin/health     # {"status":"UP"}
 ```
+
+## Kubernetes
+
+Plain manifests live in [`deploy/kubernetes/`](../../deploy/kubernetes/) —
+runtime **StatefulSet** (PVC-backed RocksDB offsets, `/admin/health` probes,
+non-root) + connector-runtime **Deployment**, kustomize-ready:
+
+```shell
+kubectl apply -k deploy/kubernetes
+```
+
+Edit `runtime-configmap.yaml` (storage endpoints) and `runtime-secret.yaml`
+(admin token) first. Scaling to `PARTITION_OWNED_PULL` requires the meta keys
+in `JAVA_OPTS` — see the manifests README. A Helm chart and a decision on the
+legacy operator path (#3327) are planned follow-ups.
 
 ## Single-instance vs multi-instance
 
@@ -154,7 +165,7 @@ tests today.
 - **Container-dependent test suites** (Testcontainers E2E, broker-failover
   chaos, rolling-upgrade drills) require a Docker environment; they are
   tracked as deferred coverage, not as passing guarantees
-  ([HA plan](../architecture/redesign.md)).
+  ([HA plan](../architecture/review/production-ha-plan.md)).
 - Nacos watch timing can fluctuate under churn; multi-instance watch-suite
   runs are occasionally flaky (timing, not correctness).
 - A2A gateway and v2 streaming sessions need a dedicated launcher (see

@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Kafka connector
 
 **Audience:** operators bridging EventMesh with Kafka. Move events between EventMesh topics and an Apache Kafka cluster. The source consumes a Kafka topic with a consumer group and commits offsets only after EventMesh accepted the publish; the sink writes CloudEvent payloads to a target topic.

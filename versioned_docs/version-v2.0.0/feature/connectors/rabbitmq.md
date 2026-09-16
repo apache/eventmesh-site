@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # RabbitMQ connector
 
 **Audience:** operators bridging EventMesh with RabbitMQ. Move events between EventMesh and a RabbitMQ broker over AMQP 0-9-1. Source consumes a queue; sink publishes to an exchange with an optional routing key.

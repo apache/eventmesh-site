@@ -1,7 +1,3 @@
----
-sidebar_position: 19
----
-
 # Lark / Feishu connector
 
 **Audience:** operators bridging EventMesh with Lark / Feishu. Lark (Feishu) bridge. Source receives event-subscription callbacks (answering the `url_verification` challenge automatically); sink posts events to a Lark custom-bot webhook.

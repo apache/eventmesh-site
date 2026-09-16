@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # Slack connector
 
 **Audience:** operators bridging EventMesh with Slack. Slack bridge. Source receives Events API callbacks (verifying the v0 HMAC request signature and answering the challenge); sink posts events to a Slack incoming webhook.
