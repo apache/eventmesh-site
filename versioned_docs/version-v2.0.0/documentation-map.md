@@ -47,6 +47,7 @@ too.
 - [Lite Topic (RocketMQ 5.x)](feature/lite-topic.md) — hierarchical messaging
   inside a parent topic; publish/poll semantics and checkpoints.
 - [A2A — Agent-to-Agent](feature/a2a.md) — the agent collaboration protocol:
+- [Agent tools & event triggers](feature/agent-tools.md) — LLM streaming agent extension points: connector-backed tools, SPI agent plugins (`eventmesh-agent-plugin/`), event-driven triggers *(Experimental)*.
   task lifecycle, JSON-RPC/MCP bridge, REST + SDK usage
   *(Experimental)*.
 
