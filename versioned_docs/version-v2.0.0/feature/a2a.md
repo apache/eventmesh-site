@@ -1,7 +1,7 @@
 # EventMesh A2A Protocol (Agent-to-Agent Communication)
 
 > **Audience:** builders of agent systems. The A2A wire contract, task
-> lifecycle, and usage via REST / SDK. **Experimental**
+> lifecycle, and usage via REST / SDK. **Beta**
 
 ---
 
