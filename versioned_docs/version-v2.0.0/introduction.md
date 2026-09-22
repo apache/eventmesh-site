@@ -44,7 +44,7 @@ makes the rest of the properties possible:
    (`submitted → working → completed | failed | canceled`) mapped onto the
    same pub/sub substrate, so agent workloads inherit durability, quota, and
    observability. See [A2A protocol](feature/a2a.md)
-   *(Experimental)*.
+   *(Beta)*.
 
 ## What a deployment looks like
 
