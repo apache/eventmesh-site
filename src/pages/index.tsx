@@ -3,32 +3,42 @@ import Head from '@docusaurus/Head';
 import {useEffect} from 'react';
 import {useVersions, useLatestVersion} from '@docusaurus/plugin-content-docs/client';
 
-const publishCode = `<span class="com"># Publish a CloudEvent via HTTP</span>
-<span class="fn">curl</span> -X POST \
-  http://127.0.0.1:10105/eventmesh/publish/TEST-TOPIC-HTTP-ASYNC \
-  -H <span class="str">"Content-Type: application/json"</span> \
+const publishCode = `<span class="com"># Start the runtime (memory storage, zero broker)</span>
+<span class="fn">docker</span> run -d -p 10105:10105 -p 10106:10106 apache/eventmesh
+
+<span class="fn">curl</span> http://localhost:10106/admin/health
+<span class="com"># {"status":"UP"}</span>
+
+<span class="com"># Publish a CloudEvent — 202 Accepted = durable in the WAL</span>
+<span class="fn">curl</span> -X POST "http://localhost:10105/events/publish?topic=orders" \
+  -H <span class="str">"Content-Type: application/cloudevents+json"</span> \
   -d <span class="str">'{
-    "name": "eventmesh",
-    "pass": "password"
+    "specversion": "1.0",
+    "id": "89010a5a-3c6f-4a1e-9b2d-0f7c1f2e3a4b",
+    "source": "/example/producer",
+    "type": "com.example.order.created",
+    "datacontenttype": "application/json",
+    "data": {"orderId": 42, "amount": 99.5}
   }'</span>
 
-<span class="com"># Response:</span>
-<span class="com">{</span>
-<span class="com">  "success": true,</span>
-<span class="com">  "retCode": 0</span>
-<span class="com">}  🚀 Event published!</span>`;
+<span class="com"># 🚀 Event published!</span>`;
 
-const subscribeCode = `<span class="com"># Subscribe to a topic via HTTP webhook</span>
-<span class="fn">curl</span> -X POST \
-  http://127.0.0.1:10105/eventmesh/subscribe/local \
+const subscribeCode = `<span class="com"># Subscribe — clientId + topic + mode (no consumer groups:</span>
+<span class="com"># EventMesh tracks offsets itself)</span>
+<span class="fn">curl</span> -X POST http://localhost:10105/events/subscribe \
   -H <span class="str">"Content-Type: application/json"</span> \
-  -d <span class="str">'{
-    "url": "http://127.0.0.1:8088/sub/test",
-    "consumerGroup": "TEST-GROUP",
-    "topic": [{"mode":"CLUSTERING","topic":"TEST-TOPIC-HTTP-ASYNC","type":"ASYNC"}]
-  }'</span>
+  -d <span class="str">'{"clientId":"order-svc","topic":"orders","mode":"LOAD_BALANCE"}'</span>
 
-<span class="com"># Events arrive at your webhook in CloudEvents format 📨</span>`;
+<span class="com"># Receive via long-poll</span>
+<span class="fn">curl</span> "http://localhost:10105/events/poll?clientId=order-svc&max=100&timeoutMs=30000"
+<span class="com"># → [{"deliveryId":"d-...","event":{...CloudEvent...}}, ...]</span>
+
+<span class="com"># Acknowledge — at-least-once, the offset advances</span>
+<span class="fn">curl</span> -X POST http://localhost:10105/events/ack \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{"deliveryId":"d-..."}'</span>
+
+<span class="com"># SSE / WebSocket push also available 📨</span>`;
 
 export default function Home() {
   useEffect(() => {
@@ -78,7 +88,7 @@ export default function Home() {
             <div className="nav-dropdown">
               <span className="nav-link nav-dropdown-toggle">Community</span>
               <div className="nav-dropdown-menu">
-                <a href="/community/how-to-subscribe" className="nav-dropdown-item">Subscribe</a>
+                <a href="/docs/quickstart/getting-started" className="nav-dropdown-item">Subscribe</a>
                 <a href="/team" className="nav-dropdown-item">Team</a>
               </div>
             </div>
@@ -215,7 +225,7 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
               </div>
               <h3>High-Throughput Eventing</h3>
-              <p>Millions of events per second with sub-millisecond latency. Powered by pluggable event stores including RocketMQ, Kafka, and AutoMQ.</p>
+              <p>Millions of events per second with sub-millisecond latency. Powered by a pluggable storage layer — a zero-dependency in-memory WAL by default, with Apache RocketMQ (4.x / 5.x) and Apache Kafka backends for production.</p>
             </div>
 
             <div className="feature-card reveal">
@@ -404,7 +414,7 @@ export default function Home() {
               </p>
               <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
                 <a href="/docs/introduction" className="btn btn-primary">Full Documentation</a>
-                <a href="/download" className="btn btn-ghost">Download v1.12.0</a>
+                <a href="/download" className="btn btn-ghost">Download</a>
               </div>
             </div>
 
